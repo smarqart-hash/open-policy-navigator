@@ -67,7 +67,7 @@ Einen API-Schlüssel für DIP gibt es beim [Deutschen Bundestag](https://dip.bun
 
 Der Code dieses Repositorys entsteht KI-assistiert: Ich (Stefan Marquart) nutze Claude Code als Programmierwerkzeug. Ich lege Ziel, Aufbau und Regeln fest, lasse in kleinen Schritten arbeiten, lese jeden Diff und verantworte jeden Commit; Tests, Goldset und CI prüfen das Ergebnis unabhängig davon, wer eine Zeile geschrieben hat. Commits mit KI-Beteiligung tragen eine `Co-Authored-By`-Zeile.
 
-In der Datenpipeline arbeitet kein Sprachmodell: Abruf, Extraktion und Klassifikation sind regelbasiert ([ADR 0002](docs/adr/0002-no-language-model-in-the-pipeline.md)). Vorschläge eines Sprachmodells für Goldset oder Einträge sind als solche markiert und zählen erst nach Bestätigung durch einen Menschen.
+In der Datenpipeline sind Abruf, Extraktion und Klassifikation regelbasiert. Sprachmodelle dürfen in der Vorprüfung Vorschläge machen, aber nur mit wörtlichem Zitat aus dem archivierten Quelltext, gekennzeichnet als `extraction_method: llm` und `review_status: proposed`. Ein Mensch entscheidet; nichts erscheint ungeprüft als geprüft ([ADR 0005](docs/adr/0005-language-models-as-documented-proposers.md)).
 
 ## Lizenzen und Quellen
 

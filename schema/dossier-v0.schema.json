@@ -32,7 +32,7 @@
         },
         "review_status": {
           "$ref": "#/$defs/ReviewStatus",
-          "default": "pending"
+          "default": "proposed"
         },
         "reviewed_by": {
           "anyOf": [
@@ -122,7 +122,7 @@
         },
         "review_status": {
           "$ref": "#/$defs/ReviewStatus",
-          "default": "pending"
+          "default": "proposed"
         },
         "reviewed_by": {
           "anyOf": [
@@ -237,7 +237,7 @@
         },
         "review_status": {
           "$ref": "#/$defs/ReviewStatus",
-          "default": "pending"
+          "default": "proposed"
         },
         "reviewed_by": {
           "anyOf": [
@@ -484,7 +484,7 @@
         },
         "review_status": {
           "$ref": "#/$defs/ReviewStatus",
-          "default": "pending"
+          "default": "proposed"
         },
         "reviewed_by": {
           "anyOf": [
@@ -689,7 +689,7 @@
         },
         "review_status": {
           "$ref": "#/$defs/ReviewStatus",
-          "default": "pending"
+          "default": "proposed"
         },
         "reviewed_by": {
           "anyOf": [
@@ -787,7 +787,7 @@
     },
     "ReviewStatus": {
       "enum": [
-        "pending",
+        "proposed",
         "confirmed",
         "rejected"
       ],

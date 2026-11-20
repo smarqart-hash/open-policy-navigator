@@ -1,6 +1,6 @@
 # ADR 0002: Kein Sprachmodell in der Pipeline
 
-Status: angenommen · Datum: 2026-11-20
+Status: abgelöst durch [ADR 0005](0005-language-models-as-documented-proposers.md) · Datum: 2026-11-20
 
 ## Kontext
 

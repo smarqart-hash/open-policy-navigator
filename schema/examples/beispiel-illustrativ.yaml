@@ -63,7 +63,7 @@ findings:
     locator: {quote: "Die Zahl der Räumungen sank.", position: "S. 4"}
     extraction_method: llm
     extracted_at: "2026-11-20T09:00:00+00:00"
-    review_status: pending  # an LLM proposal stays pending until a human confirms it
+    review_status: proposed  # an LLM proposal stays proposed until a human confirms it
 positions:
   - id: pos_demo01
     approach_id: ans_demo01

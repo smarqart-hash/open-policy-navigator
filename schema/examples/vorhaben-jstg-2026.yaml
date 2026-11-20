@@ -16,7 +16,7 @@ bills:
     extraction_method: rule
     # Date of the first count; the exact fetch time was not recorded then.
     extracted_at: "2026-11-12T00:00:00+00:00"
-    review_status: pending
+    review_status: proposed
     country: DE
     document_number: "21/8283"
     title: "Entwurf eines Jahressteuergesetzes 2026"

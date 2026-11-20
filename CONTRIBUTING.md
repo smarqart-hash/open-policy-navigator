@@ -24,7 +24,7 @@ python -m open_policy_navigator.evaluation --check
 - Verhalten ändern heißt Test ändern: Fixtures in `tests/fixtures/` halten das
   aktuelle Regelverhalten fest. Ein Parser-Umbau darf das Eval-Ratchet nicht
   verschlechtern (`eval/thresholds.json` steigt nur).
-- Kein Sprachmodell in der Datenpipeline (ADR 0002). Keine Secrets committen.
+- Sprachmodelle nur als dokumentierte Vorschläge mit wörtlichem Zitat; ein Mensch entscheidet (ADR 0005). Keine Secrets committen.
 
 ## Kuratierte Einträge
 

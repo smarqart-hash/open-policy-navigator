@@ -43,12 +43,12 @@ class Model(BaseModel):
 
 class ExtractionMethod(StrEnum):
     RULE = "rule"  # deterministic parser (e.g. Vorblatt extractor)
-    LLM = "llm"  # language model: only ever a proposal, see ADR 0002
+    LLM = "llm"  # language model: documented proposal only, see ADR 0005
     HUMAN = "human"
 
 
 class ReviewStatus(StrEnum):
-    PENDING = "pending"
+    PROPOSED = "proposed"  # not yet checked by a human; never shown as checked
     CONFIRMED = "confirmed"
     REJECTED = "rejected"
 
@@ -69,12 +69,12 @@ class Statement(Model):
     locator: Locator
     extraction_method: ExtractionMethod
     extracted_at: AwareDatetime  # with time zone, e.g. +00:00
-    review_status: ReviewStatus = ReviewStatus.PENDING
+    review_status: ReviewStatus = ReviewStatus.PROPOSED
     reviewed_by: str | None = None
 
     @model_validator(mode="after")
     def review_needs_a_reviewer(self):
-        if self.review_status != ReviewStatus.PENDING and not self.reviewed_by:
+        if self.review_status != ReviewStatus.PROPOSED and not self.reviewed_by:
             raise ValueError("a confirmed or rejected statement needs reviewed_by")
         return self
 

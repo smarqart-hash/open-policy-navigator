@@ -6,9 +6,10 @@ Entwurf für GitHub-Issues. Anlegen erst nach Freigabe durch Stefan.
 
 Die 20 nicht erkannten Regierungsentwürfe in `eval/goldset_v0.json` am PDF prüfen
 (`section_present`, `gold_alt`, `category`), die 16 Vorschläge bestätigen oder
-korrigieren. Danach eine zweite Person unabhängig kodieren lassen (`coding_2`).
-**Fertig:** `section_recall` berechnet, κ für `category` berichtet, Schwellen per
-`--update` angehoben.
+korrigieren. Danach eine zweite Person unabhängig kodieren lassen (`coding_2`), Ziel etwa
+70 doppelt kodierte Entwürfe (ADR 0005). **Fertig:** `section_recall` berechnet,
+Krippendorff-α für `category` mit Konfidenzintervall berichtet (Ziel ≥ 0,800),
+Schwellen per `--update` angehoben.
 
 ## 2. Extraktor de-v1: lange Abschnitte und Fundort
 
@@ -21,14 +22,16 @@ Eval-Ratchet nicht schlechter, Zahlen im README mit Abweichungen erklärt.
 ## 3. Zitatprüfung in der CI
 
 Für jede Aussage prüfen, ob `locator.quote` wörtlich im archivierten Quelltext
-steht, dessen SHA-256 an der Quelle hängt (ADR 0002). Klären, wo das Archiv liegt
+steht, dessen SHA-256 an der Quelle hängt (ADR 0005). Klären, wo das Archiv liegt
 und was öffentlich sein darf (`DATA_SOURCES.md`).
 
-## 4. Klassifikator v1 für „Keine“ ohne Satzanfang
+## 4. Klassifikator v1 nach Kodierregel B
 
-Fälle wie „Zu den vorliegenden Änderungen … bestehen keine Alternativen.“ oder
-„Derzeit keine.“ landen bei „Alternativen benannt“ (Fixtures 20/12719, 20/11310,
-20/12605). Regeln erweitern, nur mit Goldset-Beleg.
+Die Regel v0 liest nur das erste Wort. Nach Kodierregel B (20.11.2026) zählt
+„Keine.“ mit einer verworfenen konkreten Alternative als „Alternativen benannt“;
+„Zu den vorliegenden Änderungen … bestehen keine Alternativen.“ ist ein bloßes
+„Keine“ (Fixtures 20/9648, 20/3712, 20/4225, 20/12605, 20/12719). Regeln erweitern,
+nur mit Goldset-Beleg; danach die Quote über alle gefundenen Abschnitte neu rechnen.
 
 ## 5. Österreich: Goldset und Trennung Nullszenario/keine Alternative
 

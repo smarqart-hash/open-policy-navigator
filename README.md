@@ -1,14 +1,18 @@
-# Keine Alternative
+# Open Policy Navigator
+
+Arbeitstitel. Hervorgegangen aus der Zählung „Keine Alternative“.
 
 Offene Bausteine, mit denen sich politische Lösungsansätze, Befunde und Gegenpositionen belegt erfassen und maschinell abfragen lassen. Ausgangspunkt ist eine Zählung: Wie oft nennen Gesetzentwürfe im Vorblatt eine Alternative? Dieses Repository enthält die ersten Zählskripte für den Deutschen Bundestag und den österreichischen Nationalrat, die Rohdaten der Zählung und deren Grenzen.
 
-Status: Vorarbeit. Die Zählung ist ein kleines, getestetes Python-Paket (`src/keine_alternative/`); ein Goldset (Annotation läuft) und ein Eval-Ratchet in der CI verhindern Rückschritte bei der Abschnittserkennung. Das Datenschema v0 (Lösungsansatz, Fall, Befund, Position, Quelle) und der Antwortvertrag für einen MCP-Server liegen als Entwurf mit Tests vor. Parser-Ausbau, kuratierte Einträge, API und MCP-Server sind geplant, aber noch nicht gebaut.
+Hintergrund und Stand der Forschung: [docs/background.md](docs/background.md).
+
+Status: Vorarbeit. Die Zählung ist ein kleines, getestetes Python-Paket (`src/open_policy_navigator/`); ein Goldset (Annotation läuft) und ein Eval-Ratchet in der CI verhindern Rückschritte bei der Abschnittserkennung. Das Datenschema v0 (Lösungsansatz, Fall, Befund, Position, Quelle) und der Antwortvertrag für einen MCP-Server liegen als Entwurf mit Tests vor. Parser-Ausbau, kuratierte Einträge, API und MCP-Server sind geplant, aber noch nicht gebaut.
 
 ## Aufbau
 
 | Ordner | Inhalt |
 |---|---|
-| `src/keine_alternative/` | Abruf, Extraktion, Klassifikation, Auswertung (DE, AT); Schema; Antwortvertrag |
+| `src/open_policy_navigator/` | Abruf, Extraktion, Klassifikation, Auswertung (DE, AT); Schema; Antwortvertrag |
 | `zaehlung/` | Daten der Zählung (jsonl) |
 | `tests/` | pytest, Fixtures aus echten Vorblättern |
 | `eval/` | Goldset und Schwellenwerte (Eval-Ratchet) |
@@ -45,14 +49,14 @@ Python 3.12 oder neuer. Für Österreich zusätzlich `pdftotext` (Poppler).
 pip install -e ".[dev]"
 
 # Zahlen aus den gespeicherten Daten nachrechnen (ohne Netz)
-python -X utf8 -m keine_alternative.de report zaehlung/de/dip-gesetzentwuerfe.jsonl
-python -X utf8 -m keine_alternative.at report zaehlung/at/at-vorblaetter.jsonl
+python -X utf8 -m open_policy_navigator.de report zaehlung/de/dip-gesetzentwuerfe.jsonl
+python -X utf8 -m open_policy_navigator.at report zaehlung/at/at-vorblaetter.jsonl
 
 # Neu abrufen (schreibt nur in eine NEUE Datei, überschreibt nichts)
 # Deutschland: API-Schlüssel nur als Umgebungsvariable, nie im Code
-DIP_API_KEY=... python -m keine_alternative.de fetch 20,21 neu-de.jsonl
-python -m keine_alternative.at fetch XXVIII,XXVII neu-at.jsonl
-python -m keine_alternative.at refetch neu-at.jsonl neu-at-2.jsonl
+DIP_API_KEY=... python -m open_policy_navigator.de fetch 20,21 neu-de.jsonl
+python -m open_policy_navigator.at fetch XXVIII,XXVII neu-at.jsonl
+python -m open_policy_navigator.at refetch neu-at.jsonl neu-at-2.jsonl
 ```
 
 Neu abgerufene Datensätze tragen `source_url`, `fetched_at` (UTC), `text_sha256` (SHA-256 des Volltexts) und die Extraktor-Version; in Deutschland zusätzlich die DIP-Kennung `dip_id`. Die Datensätze der ersten Zählung (November 2026) haben diese Felder noch nicht; sie werden beim nächsten Abruf ergänzt.

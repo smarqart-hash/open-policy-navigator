@@ -24,4 +24,4 @@ jobs:
       - run: ruff format --check .
       - run: pytest -q
       # Eval ratchet: fails if a metric falls below eval/thresholds.json
-      - run: python -m keine_alternative.evaluation --check
+      - run: python -m open_policy_navigator.evaluation --check

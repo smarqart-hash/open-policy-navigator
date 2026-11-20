@@ -1,7 +1,7 @@
 import pytest
 from conftest import load_fixture
 
-from keine_alternative.de.classify import (
+from open_policy_navigator.de.classify import (
     NONE_WITH_REASON,
     classify_section,
     has_eu_reference,

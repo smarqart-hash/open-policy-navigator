@@ -7,7 +7,7 @@ import pytest
 from conftest import ROOT
 from pydantic import ValidationError
 
-from keine_alternative import contract
+from open_policy_navigator import contract
 
 GOLDEN = ROOT / "contracts" / "mcp" / "golden"
 VALID = sorted((GOLDEN / "valid").glob("*.json"))
@@ -37,7 +37,7 @@ def test_every_status_has_a_golden_example():
 
 
 def test_exported_contract_schema_is_up_to_date():
-    # Regenerate with: python -m keine_alternative.contract
+    # Regenerate with: python -m open_policy_navigator.contract
     assert load(contract.SCHEMA_FILE) == contract.Answer.model_json_schema()
 
 

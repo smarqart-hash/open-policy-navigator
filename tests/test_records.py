@@ -1,6 +1,6 @@
 import pytest
 
-from keine_alternative.records import dedupe_by, read_jsonl, sha256_text, write_jsonl
+from open_policy_navigator.records import dedupe_by, read_jsonl, sha256_text, write_jsonl
 
 
 def test_write_then_read_roundtrip(tmp_path):

@@ -12,8 +12,8 @@ import urllib.parse
 import urllib.request
 from collections.abc import Iterator
 
-from keine_alternative.de.extract import EXTRACTOR_VERSION, extract_alternatives
-from keine_alternative.records import sha256_text, utc_now
+from open_policy_navigator.de.extract import EXTRACTOR_VERSION, extract_alternatives
+from open_policy_navigator.records import sha256_text, utc_now
 
 API_BASE = "https://search.dip.bundestag.de/api/v1"
 PAUSE_SECONDS = 0.4  # be polite to the API between pages

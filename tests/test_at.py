@@ -4,9 +4,9 @@ import urllib.error
 import pytest
 from conftest import load_fixture
 
-from keine_alternative.at import parlament
-from keine_alternative.at.classify import classify_bill
-from keine_alternative.at.extract import read_wfa
+from open_policy_navigator.at import parlament
+from open_policy_navigator.at.classify import classify_bill
+from open_policy_navigator.at.extract import read_wfa
 
 CASES = load_fixture("at_sections.json")
 

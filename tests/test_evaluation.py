@@ -3,9 +3,9 @@ import json
 import pytest
 from conftest import DE_DATA, ROOT
 
-from keine_alternative import evaluation
-from keine_alternative.records import read_jsonl
-from keine_alternative.stats import cohen_kappa, wilson_interval
+from open_policy_navigator import evaluation
+from open_policy_navigator.records import read_jsonl
+from open_policy_navigator.stats import cohen_kappa, wilson_interval
 
 
 def test_wilson_reference_value():

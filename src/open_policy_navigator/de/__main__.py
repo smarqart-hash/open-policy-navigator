@@ -1,19 +1,19 @@
 """Command line for Germany.
 
-python -m keine_alternative.de fetch 20,21 out.jsonl   (needs DIP_API_KEY)
-python -m keine_alternative.de report zaehlung/de/dip-gesetzentwuerfe.jsonl
+python -m open_policy_navigator.de fetch 20,21 out.jsonl   (needs DIP_API_KEY)
+python -m open_policy_navigator.de report zaehlung/de/dip-gesetzentwuerfe.jsonl
 """
 
 import argparse
 from pathlib import Path
 
-from keine_alternative.de.dip import DipClient, api_key_from_env, fetch_records
-from keine_alternative.de.report import build_report, format_report
-from keine_alternative.records import read_jsonl, write_jsonl
+from open_policy_navigator.de.dip import DipClient, api_key_from_env, fetch_records
+from open_policy_navigator.de.report import build_report, format_report
+from open_policy_navigator.records import read_jsonl, write_jsonl
 
 
 def main(argv: list[str] | None = None) -> None:
-    parser = argparse.ArgumentParser(prog="python -m keine_alternative.de")
+    parser = argparse.ArgumentParser(prog="python -m open_policy_navigator.de")
     commands = parser.add_subparsers(dest="command", required=True)
     fetch = commands.add_parser("fetch", help="fetch draft laws from DIP into a NEW jsonl file")
     fetch.add_argument("periods", help="comma separated electoral periods, e.g. 20,21")

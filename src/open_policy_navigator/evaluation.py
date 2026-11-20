@@ -1,8 +1,8 @@
 """Evaluate a German data file against the hand-annotated gold set (eval ratchet).
 
-    python -m keine_alternative.evaluation            # print metrics
-    python -m keine_alternative.evaluation --check    # exit 1 if a metric fell below threshold
-    python -m keine_alternative.evaluation --update   # raise thresholds to current values
+    python -m open_policy_navigator.evaluation            # print metrics
+    python -m open_policy_navigator.evaluation --check    # exit 1 if a metric fell below threshold
+    python -m open_policy_navigator.evaluation --update   # raise thresholds to current values
 
 Metrics (government drafts only):
 
@@ -25,10 +25,10 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
-from keine_alternative.de.classify import classify_section
-from keine_alternative.de.extract import normalise_whitespace
-from keine_alternative.records import read_jsonl
-from keine_alternative.stats import cohen_kappa, wilson_interval
+from open_policy_navigator.de.classify import classify_section
+from open_policy_navigator.de.extract import normalise_whitespace
+from open_policy_navigator.records import read_jsonl
+from open_policy_navigator.stats import cohen_kappa, wilson_interval
 
 ROOT = Path(__file__).resolve().parents[2]
 GOLDSET = ROOT / "eval" / "goldset_v0.json"
@@ -176,7 +176,7 @@ def raised(metrics: dict[str, Metric], thresholds: dict[str, float | None]) -> d
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(prog="python -m keine_alternative.evaluation")
+    parser = argparse.ArgumentParser(prog="python -m open_policy_navigator.evaluation")
     parser.add_argument("--data", type=Path, default=DATA)
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--check", action="store_true")

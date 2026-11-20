@@ -1,7 +1,7 @@
 # Eval ratchet
 
 Checks the German data file against a hand-annotated gold set. CI runs
-`python -m keine_alternative.evaluation --check` and fails if a metric drops
+`python -m open_policy_navigator.evaluation --check` and fails if a metric drops
 below `thresholds.json`. Thresholds only go up (`--update`), never down.
 Only labels confirmed by a human count for the ratchet; proposals are shown
 for information. As long as nothing is confirmed, all thresholds are `null`.
@@ -16,7 +16,7 @@ for information. As long as nothing is confirmed, all thresholds are `null`.
 | `found_v0` | 532 | 16 | by v0 category, plus 21/8283 (JStG 2026), 20/12719, 20/11310 |
 
 Because misses are over-sampled, recall is weighted by stratum size (see
-`src/keine_alternative/evaluation.py`). Its interval is approximate (only the
+`src/open_policy_navigator/evaluation.py`). Its interval is approximate (only the
 share of real sections among the misses is varied), so it is too narrow.
 
 ## Annotation status (20 November 2026)
@@ -50,5 +50,5 @@ person codes independently, without looking at `coding_1`. The run prints Cohen'
 ## Categories
 
 `Keine` · `Keine + Begründung` · `Status quo genannt` · `Alternativen benannt/diskutiert`
-(as in `src/keine_alternative/de/classify.py`). Rule of thumb: the category is
+(as in `src/open_policy_navigator/de/classify.py`). Rule of thumb: the category is
 about what the cover sheet *says*, not whether alternatives were examined.

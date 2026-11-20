@@ -1,7 +1,7 @@
 import pytest
 
-from keine_alternative.de import dip
-from keine_alternative.records import sha256_text
+from open_policy_navigator.de import dip
+from open_policy_navigator.records import sha256_text
 
 DOCUMENT = {
     "id": 281234,

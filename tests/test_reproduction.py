@@ -2,11 +2,11 @@
 
 from conftest import AT_DATA, DE_DATA
 
-from keine_alternative.at.classify import ALTERNATIVE_NAMED
-from keine_alternative.at.report import build_report as build_at_report
-from keine_alternative.de.classify import ALTERNATIVES, NONE_ONLY, NONE_WITH_REASON, STATUS_QUO
-from keine_alternative.de.report import build_report as build_de_report
-from keine_alternative.records import read_jsonl
+from open_policy_navigator.at.classify import ALTERNATIVE_NAMED
+from open_policy_navigator.at.report import build_report as build_at_report
+from open_policy_navigator.de.classify import ALTERNATIVES, NONE_ONLY, NONE_WITH_REASON, STATUS_QUO
+from open_policy_navigator.de.report import build_report as build_de_report
+from open_policy_navigator.records import read_jsonl
 
 
 def test_germany_published_numbers():

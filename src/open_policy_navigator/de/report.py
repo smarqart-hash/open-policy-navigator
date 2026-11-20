@@ -3,14 +3,14 @@
 from collections import Counter
 from dataclasses import dataclass
 
-from keine_alternative.de.classify import (
+from open_policy_navigator.de.classify import (
     NOT_FOUND,
     classify_section,
     has_eu_reference,
     is_none,
     originator_group,
 )
-from keine_alternative.records import dedupe_by
+from open_policy_navigator.records import dedupe_by
 
 GROUPS = ("Bundesregierung", "Fraktionen", "Bundesrat")
 

@@ -6,7 +6,7 @@ import yaml
 from conftest import ROOT
 from pydantic import ValidationError
 
-from keine_alternative import schema
+from open_policy_navigator import schema
 
 EXAMPLES = sorted((ROOT / "schema" / "examples").glob("*.yaml"))
 
@@ -29,7 +29,7 @@ def test_two_examples_exist():
 
 
 def test_exported_json_schema_is_up_to_date():
-    # Regenerate with: python -m keine_alternative.schema
+    # Regenerate with: python -m open_policy_navigator.schema
     committed = json.loads(schema.SCHEMA_FILE.read_text(encoding="utf-8"))
     assert committed == schema.json_schema()
 

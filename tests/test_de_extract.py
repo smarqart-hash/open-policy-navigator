@@ -1,7 +1,7 @@
 import pytest
 from conftest import load_fixture
 
-from keine_alternative.de.extract import MAX_SECTION_CHARS, extract_alternatives
+from open_policy_navigator.de.extract import MAX_SECTION_CHARS, extract_alternatives
 
 CASES = [c for c in load_fixture("de_sections.json") if c["alt"] is not None]
 

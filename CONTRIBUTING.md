@@ -15,7 +15,7 @@ kommen ins Goldset (`eval/`) und bleiben damit dauerhaft getestet.
 pip install -e ".[dev]"
 ruff check . && ruff format --check .
 pytest
-python -m keine_alternative.evaluation --check
+python -m open_policy_navigator.evaluation --check
 ```
 
 - Python 3.12, wenige Abhängigkeiten (pydantic, PyYAML; pytest und ruff für die

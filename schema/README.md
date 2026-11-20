@@ -1,8 +1,8 @@
 # Schema v0
 
-Models: [`src/keine_alternative/schema.py`](../src/keine_alternative/schema.py) (Pydantic).
+Models: [`src/open_policy_navigator/schema.py`](../src/open_policy_navigator/schema.py) (Pydantic).
 Exported JSON Schema: [`dossier-v0.schema.json`](dossier-v0.schema.json), regenerate with
-`python -m keine_alternative.schema` (a test fails if it is out of date).
+`python -m open_policy_navigator.schema` (a test fails if it is out of date).
 
 | Object | German | Key fields |
 |---|---|---|

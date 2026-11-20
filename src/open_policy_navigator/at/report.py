@@ -3,7 +3,7 @@
 from collections import Counter
 from dataclasses import dataclass
 
-from keine_alternative.at.classify import classify_bill
+from open_policy_navigator.at.classify import classify_bill
 
 
 @dataclass(frozen=True)

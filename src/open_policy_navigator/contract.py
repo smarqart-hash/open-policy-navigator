@@ -5,7 +5,7 @@ release of the data it is based on, how well the question is covered, and
 which sources support it. Quoted source text is marked as data so that a
 calling model never treats it as an instruction.
 
-    python -m keine_alternative.contract   -> rewrite contracts/mcp/answer.schema.json
+    python -m open_policy_navigator.contract   -> rewrite contracts/mcp/answer.schema.json
 """
 
 import json
@@ -15,7 +15,7 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
-from keine_alternative.schema import ID_PATTERN, CoverageState, Locator
+from open_policy_navigator.schema import ID_PATTERN, CoverageState, Locator
 
 CONTRACT_VERSION = "0.1"
 SCHEMA_FILE = Path(__file__).resolve().parents[2] / "contracts" / "mcp" / "answer.schema.json"

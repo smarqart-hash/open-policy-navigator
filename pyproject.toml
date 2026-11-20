@@ -3,7 +3,7 @@ requires = ["setuptools>=69"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "keine-alternative"
+name = "open-policy-navigator"
 version = "0.1.0"
 description = "Counts and data model for the 'Alternatives' section of draft laws (DE, AT)"
 readme = "README.md"

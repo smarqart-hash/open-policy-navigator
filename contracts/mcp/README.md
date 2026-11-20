@@ -1,8 +1,8 @@
 # MCP answer contract v0.1
 
 [`answer.schema.json`](answer.schema.json) is exported from
-[`src/keine_alternative/contract.py`](../../src/keine_alternative/contract.py)
-(`python -m keine_alternative.contract`). The server itself is not built yet;
+[`src/open_policy_navigator/contract.py`](../../src/open_policy_navigator/contract.py)
+(`python -m open_policy_navigator.contract`). The server itself is not built yet;
 the contract comes first so its behaviour can be tested (ADR 0003).
 
 | `status` | when | rules |

@@ -384,6 +384,6 @@ def load_dossier(path: Path) -> Dossier:
 
 
 if __name__ == "__main__":
-    # python -m keine_alternative.schema  -> rewrite the exported JSON Schema
+    # python -m open_policy_navigator.schema  -> rewrite the exported JSON Schema
     SCHEMA_FILE.write_text(json_schema_text(), encoding="utf-8", newline="\n")
     print(f"wrote {SCHEMA_FILE}")

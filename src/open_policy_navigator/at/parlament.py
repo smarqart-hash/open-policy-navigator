@@ -15,11 +15,14 @@ import urllib.request
 from collections.abc import Callable, Iterator
 from pathlib import Path
 
-from keine_alternative.at.extract import EXTRACTOR_VERSION, read_wfa
-from keine_alternative.records import sha256_text, utc_now
+from open_policy_navigator.at.extract import EXTRACTOR_VERSION, read_wfa
+from open_policy_navigator.records import sha256_text, utc_now
 
 BASE = "https://www.parlament.gv.at"
-HEADERS = {"User-Agent": "keine-alternative research script", "Content-Type": "application/json"}
+HEADERS = {
+    "User-Agent": "open-policy-navigator research script",
+    "Content-Type": "application/json",
+}
 PAUSE_SECONDS = 0.3
 LIST_ENDPOINT = "/Filter/api/filter/data/101?js=eval&showAll=true"
 

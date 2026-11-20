@@ -1,0 +1,164 @@
+[
+  {
+    "nr": "20/14988",
+    "titel": "Entwurf eines Gesetzes zur Stärkung der Pflegekompetenz",
+    "urheber": "Bundesregierung",
+    "alt": "Keine.",
+    "expected_v0": "Keine",
+    "proposed_correct": null,
+    "note": "bare 'Keine.' (government)"
+  },
+  {
+    "nr": "20/15099",
+    "titel": "Entwurf eines Gesetzes zur Errichtung eines Verteidigungsfonds für Deutschland und zur Änderung des Grundgesetzes (Artikel 87a)",
+    "urheber": "Fraktion der FDP",
+    "alt": "Keine.",
+    "expected_v0": "Keine",
+    "proposed_correct": null,
+    "note": "bare 'Keine.' (parliamentary group)"
+  },
+  {
+    "nr": "20/12776",
+    "titel": "Entwurf eines Vierten Gesetzes zur Änderung des Güterkraftverkehrsgesetzes und anderer Gesetze",
+    "urheber": "Bundesregierung",
+    "alt": "Keine",
+    "expected_v0": "Keine",
+    "proposed_correct": null,
+    "note": "'Keine' without full stop"
+  },
+  {
+    "nr": "21/8283",
+    "titel": "Entwurf eines Jahressteuergesetzes 2026",
+    "urheber": "Bundesregierung",
+    "alt": "Keine. Die im Einzelnen geprüften Alternativen sind aus der Tabelle im Allgemeinen Teil der Begründung ersichtlich.",
+    "expected_v0": "Keine + Begründung",
+    "proposed_correct": null,
+    "note": "JStG 2026 (BR-Drs. 447/26): 'Keine' plus reference to a table of examined alternatives in the explanatory memorandum; counted as 'Keine' although alternatives were examined"
+  },
+  {
+    "nr": "20/9648",
+    "titel": "Entwurf eines Gesetzes zur Verbesserung der Bekämpfung von Finanzkriminalität (Finanzkriminalitätsbekämpfungsgesetz - FKBG)",
+    "urheber": "Bundesregierung",
+    "alt": "Keine. Das in Verantwortung der Länder betriebene Projekt zur Entwicklung eines bundeseinheitlichen Datenbankengrundbuchs steht in den nächsten Jahren noch nicht für die Zwecke der zentralen Einsichtnahme durch die Behörden im Bereich der Kriminalitäts- und insbesondere der Geldwäschebekämpfung sowie der Sanktionsdurchsetzung zur Verfügung und wird auch nicht dieselben Inhalte zu vereinbarten bzw. durchgeführten Immobilientransaktionen enthalten wie das mit dem vorliegenden Gesetz einzurichtende Immobilientransaktionsregister.",
+    "expected_v0": "Keine + Begründung",
+    "proposed_correct": null,
+    "note": "'Keine' with reason"
+  },
+  {
+    "nr": "20/3712",
+    "titel": "Entwurf eines Gesetzes zur Änderung des Tierarzneimittelgesetzes zur Erhebung von Daten über antibiotisch wirksame Arzneimittel und zur Änderung weiterer Vorschriften",
+    "urheber": "Bundesregierung",
+    "alt": "Keine. Andere Lösungsmöglichkeiten, wie etwa untergesetzliche Regelungen, kommen aus Gründen der Rechtsklarheit und Rechtssicherheit nicht in Betracht.",
+    "expected_v0": "Keine + Begründung",
+    "proposed_correct": null,
+    "note": "'Keine' with reason naming a rejected option (sub-statutory rules)"
+  },
+  {
+    "nr": "20/4225",
+    "titel": "Entwurf eines Gesetzes zur Änderung des Statistikregistergesetzes und weiterer Gesetze",
+    "urheber": "Bundesregierung",
+    "alt": "Keine. Zur Regelung einer zusätzlichen Übermittlung der Zahl der geringfügig entlohnten Beschäftigten in Artikel 1 besteht keine Alternative. Für die Regelungen in Artikel 2 bestehen ebenfalls keine Alternativen. Die Änderung des § 3b VwDVG zum Datenaustausch mit der Bundesbank vermeidet Doppelerhebungen. Bezüglich der Einfügung von § 3c VwDVG schafft eine zusätzliche Erhebung bei den entsprechenden Unternehmen zu erhaltenen Hilfsprogrammen keine Lösung, da der Berichtskreis für eine solche Erhebung nicht bekannt ist. Artikel 3 korrigiert einen fehlerhaften Verweis. Für Artikel 4 sind keine Alternativen ersichtlich, um die erforderlichen Klarstellungen zu erzielen.",
+    "expected_v0": "Keine + Begründung",
+    "proposed_correct": null,
+    "note": "'Keine' with reason per article"
+  },
+  {
+    "nr": "20/10861",
+    "titel": "Entwurf eines Zweiten Gesetzes zur Änderung des Schwangerschaftskonfliktgesetzes",
+    "urheber": "Bundesregierung",
+    "alt": "Die Beibehaltung des aktuellen Rechtszustands kommt nicht in Betracht. Durch die Zunahme sogenannter Gehsteigbelästigungen in den letzten Jahren werden das staatliche Konzept zum Schutz des ungeborenen Lebens und die Persönlichkeitsrechte von Schwangeren zunehmend beeinträchtigt. Zudem besteht eine erhebliche Rechtsunsicherheit aufgrund divergierender Verwaltungspraxis und Rechtsprechung in den Ländern bezüglich der sogenannten Gehsteigbelästigungen.",
+    "expected_v0": "Status quo genannt",
+    "proposed_correct": null,
+    "note": "keeping the status quo rejected"
+  },
+  {
+    "nr": "20/10373",
+    "titel": "Entwurf eines Gesetzes zur Steigerung der Blutspendenbereitschaft in der Bevölkerung",
+    "urheber": "Fraktion der AfD",
+    "alt": "Die Beibehaltung der jetzigen Rechtslage verfestigt die Abhängigkeit Deutschlands von ausländischen Importen.",
+    "expected_v0": "Status quo genannt",
+    "proposed_correct": null,
+    "note": "status quo named (parliamentary group)"
+  },
+  {
+    "nr": "20/12605",
+    "titel": "Entwurf eines Gesetzes zum strafrechtlichen Schutz von Persönlichkeitsrechten vor Deepfakes",
+    "urheber": "Bundesrat",
+    "alt": "Beibehaltung des bisherigen, unbefriedigenden Zustands.",
+    "expected_v0": "Alternativen benannt/diskutiert",
+    "proposed_correct": "Status quo genannt",
+    "note": "Bundesrat: status quo named, but sentence does not start with 'Die '"
+  },
+  {
+    "nr": "21/1859",
+    "titel": "Entwurf eines Zweiten Gesetzes zur Stärkung der betrieblichen Altersversorgung und zur Änderung anderer Gesetze (Zweites Betriebsrentenstärkungsgesetz)",
+    "urheber": "Bundesregierung",
+    "alt": "Ein gesetzliches Betriebsrenten-Obligatorium oder ein gesetzlich verpflichtendes bundesweites Opting-out-System würden den Auf- und Ausbau von Betriebsrenten zwar beschleunigen, wären aber mit einer hohen Eingriffsintensität verbunden. Dem sind weiterhin freiwillige Lösungen vorzuziehen, insbesondere auf tarifvertraglicher Grundlage.",
+    "expected_v0": "Alternativen benannt/diskutiert",
+    "proposed_correct": null,
+    "note": "concrete alternatives named and rejected"
+  },
+  {
+    "nr": "20/12349",
+    "titel": "Entwurf eines Dritten Gesetzes zur Änderung des Bundesmeldegesetzes\r\n(3. BMGÄndG)",
+    "urheber": "Bundesregierung",
+    "alt": "Eine pauschale Erteilung einer Auskunftssperre für Angehörige bestimmter Berufsgruppen würde zu einer sehr hohen Zahl möglicherweise nicht erforderlicher Auskunftssperren führen. Dies wäre ein Hindernis für erfolgreiche Digitalisierungsprozesse, da ein mit einer Auskunftssperre belegter Datensatz grundsätzlich, auch bei einer Auskunft an Behörden, nicht automatisiert übermittelt werden darf.",
+    "expected_v0": "Alternativen benannt/diskutiert",
+    "proposed_correct": null,
+    "note": "alternative named and rejected"
+  },
+  {
+    "nr": "20/14039",
+    "titel": "Entwurf eines Gesetzes zur Begrenzung der Halterpflichten bei der Überprüfung von Führerscheinen",
+    "urheber": "Bundesrat",
+    "alt": "Eine Alternative bestünde in der ersatzlosen Streichung des § 21 Absatz 2 StVG. Jedoch wird mit der Vorschrift die Ahndung anderer Rechtsverstöße in den Blick genommen, die unabhängig vom dargelegten Anliegen bestehen.",
+    "expected_v0": "Alternativen benannt/diskutiert",
+    "proposed_correct": null,
+    "note": "Bundesrat: alternative named"
+  },
+  {
+    "nr": "20/12719",
+    "titel": "Entwurf eines Gesetzes zur Änderung des Tierschutzgesetzes und des Tiererzeugnisse-Handels-Verbotsgesetzes",
+    "urheber": "Bundesregierung",
+    "alt": "Zu den vorliegenden Änderungen, Ergänzungen und Anpassungen des Tierschutzgesetzes bestehen keine Alternativen.",
+    "expected_v0": "Alternativen benannt/diskutiert",
+    "proposed_correct": "Keine + Begründung",
+    "note": "rule miss: 'Zu den vorliegenden Änderungen ... bestehen keine Alternativen.' does not start with 'Keine'"
+  },
+  {
+    "nr": "20/11310",
+    "titel": "Entwurf eines Gesetzes zur weiteren Digitalisierung der Zwangsvollstreckung",
+    "urheber": "Bundesregierung",
+    "alt": "Derzeit keine. Langfristig sollte zur Behebung der Problematik hybrider Anträge und Aufträge allerdings eine solche digitale Lösung angestrebt werden, die vor allem aus Gründen des Schuldnerschutzes ein hohes Niveau an Fälschungs- und Manipulationsschutz gewährleisten kann. Eine solche Lösung könnte in der Schaffung einer elektronischen Datenbank für die Zwangsvollstreckung bestehen, die jedoch aufgrund der notwendigen technischen Entwicklungen nicht zeitnah realisiert werden kann.",
+    "expected_v0": "Alternativen benannt/diskutiert",
+    "proposed_correct": "Keine + Begründung",
+    "note": "rule miss: 'Derzeit keine.' plus a long-term option"
+  },
+  {
+    "nr": "21/8242",
+    "titel": "Entwurf eines Gesetzes zu dem Vertrag vom 29. April 2024 zwischen der Bundesrepublik Deutschland \r\nund dem Königreich Belgien über die Polizei- und Zollzusammenarbeit (Deutsch-Belgischer Polizeivertrag)",
+    "urheber": "Bundesregierung",
+    "alt": "Bezüglich des Vertragsgesetzes: Keine. Bezüglich der Aufnahme der Verordnungsermächtigungen: Das innerstaatliche Inkraftsetzen der Vereinbarungen könnte jeweils alternativ auch im Wege von Vertragsgesetzen erfolgen. Von dieser Alternative soll im Interesse der Beschleunigung der innerstaatlichen Verfahren und zur Entlastung des Deutschen Bundestags jedoch abgesehen werden.",
+    "expected_v0": "Alternativen benannt/diskutiert",
+    "proposed_correct": null,
+    "note": "mixed: 'Keine' for one part, alternative for another"
+  },
+  {
+    "nr": "20/15098",
+    "titel": "Entwurf eines Gesetzes zur Änderung des Grundgesetzes (Artikel 109 und 115)",
+    "urheber": "Fraktion BÜNDNIS 90/DIE GRÜNEN",
+    "alt": "Der Gesetzentwurf der Fraktionen der SPD und CDU/CSU (Drucksache 20/15096) stellt keine Alternative dar, weil der viel zu eng gefasste Begriff der Verteidigungsausgaben nicht dazu führen wird, dass die drängenden Fragen im Bereich Gesamtverteidigung und sicherheitspolitischer Aufgaben gelöst werden.",
+    "expected_v0": "Alternativen benannt/diskutiert",
+    "proposed_correct": null,
+    "note": "parliamentary group: competing draft discussed as non-alternative"
+  },
+  {
+    "nr": "20/14672",
+    "titel": "Entwurf eines Gesetzes zur Änderung der Regelungen über die zulässige Miethöhe bei Mietbeginn",
+    "urheber": "Bundesregierung",
+    "alt": null,
+    "expected_v0": "kein Abschnitt gefunden",
+    "proposed_correct": null,
+    "note": "government draft, section not found by pattern de-v0 (one of the 87)"
+  }
+]

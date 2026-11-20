@@ -104,15 +104,14 @@ main:focus { outline: none; }
 .hero-l { display: grid; gap: 16px; align-content: start; }
 .state { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 8px; box-shadow: var(--shadow-sm); align-self: start; }
 .state h2 { margin: 0; font-size: 16px; font-weight: 600; color: var(--text); }
-.state-sub { margin: 0; font-size: 14px; color: var(--text-2); }
 .kb { list-style: none; margin: 4px 0 0; padding: 0; display: grid; border-top: 1px solid var(--line); }
 .kb li + li { border-top: 1px solid var(--line); }
-.kb-row { width: 100%; border: 0; background: none; cursor: pointer; text-align: left; display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; padding: 10px 4px; min-height: 44px; border-radius: 6px; transition: background-color 140ms var(--ease); }
+.kb-row { width: 100%; border: 0; background: none; cursor: pointer; text-align: left; display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; padding: 8px 4px; min-height: 44px; border-radius: 6px; transition: background-color 140ms var(--ease); }
 .kb-row:hover { background: var(--raised); }
 .kb-q { font-size: 14px; line-height: 1.4; }
 .kb-n { font-size: 14px; color: var(--text-2); font-variant-numeric: tabular-nums; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; }
-.kb-dots { display: inline-flex; gap: 3px; }
-.kb-dots i { width: 8px; height: 8px; border-radius: 2px; border: 1px solid var(--line-strong); }
+.kb-dots { display: inline-flex; gap: 4px; }
+.kb-dots i { width: 8px; height: 8px; border-radius: 2px; border: 1px solid var(--muted); }
 .kb-dots i.on { background: var(--text); border-color: var(--text); }
 .state-foot { margin: 0; font-size: 14px; color: var(--text-2); }
 .g-head { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 16px; align-items: start; }
@@ -148,11 +147,11 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .legend li { display: flex; gap: 8px; align-items: flex-start; }
 .legend p { margin: 8px 0 0; font-size: 12px; line-height: 1.5; color: var(--muted); }
 
-.sig { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; line-height: 1.4; white-space: nowrap; color: var(--text-2); }
+.sig { display: inline-flex; align-items: center; gap: 4px; font-size: 14px; line-height: 1.4; white-space: nowrap; color: var(--text-2); }
 .sig svg { width: 12px; height: 12px; flex: none; }
 .sig.strong { color: var(--text); font-weight: 500; }
 .bars { display: inline-flex; gap: 2px; align-items: flex-end; height: 12px; }
-.bars i { width: 4px; background: var(--line-strong); display: block; border-radius: 1px; }
+.bars i { width: 4px; box-shadow: inset 0 0 0 1px var(--muted); display: block; border-radius: 1px; }
 .bars i:nth-child(1) { height: 4px; } .bars i:nth-child(2) { height: 8px; } .bars i:nth-child(3) { height: 12px; }
 .bars i.on { background: var(--text); }
 
@@ -173,7 +172,7 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .ev-h { font-size: 14px !important; font-weight: 600; color: var(--text); }
 .ev-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 24px; font-size: 16px; }
 .ev-list li { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0 6px; }
-.ev-list .linkbtn { font-weight: 500; display: inline-flex; align-items: center; gap: 6px; min-height: 24px; }
+.ev-list .linkbtn { font-weight: 500; display: inline-flex; align-items: center; gap: 4px; min-height: 32px; }
 .ev-list .linkbtn svg { width: 12px; height: 12px; flex: none; }
 .ev-take b { font-weight: 600; }
 .fold { border-top: 1px solid var(--line); }
@@ -192,9 +191,9 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .way.gap { background: transparent; border-style: dashed; border-top-style: solid; box-shadow: none; }
 .way-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin: 0 -16px; padding: 12px 16px; background: color-mix(in srgb, var(--sc) 9%, var(--surface)); border-bottom: 1px solid color-mix(in srgb, var(--sc) 22%, transparent); }
 .way-top .way-head { flex: 1; min-width: 0; display: grid; gap: 2px; }
-.way-meta { font-size: 13px; color: var(--text-2); }
+.way-meta { font-size: 12px; color: var(--text-2); }
 .way-logic { margin: 0; font-size: 14px; color: var(--text-2); }
-.cases-h { margin: 4px 0 -4px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; font-size: 13px; font-weight: 600; color: var(--text); }
+.cases-h { margin: 4px 0 -4px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; font-size: 12px; font-weight: 600; color: var(--text); }
 .cases-h .wsum-eff { font-weight: 400; color: var(--text-2); }
 .wsum { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; font-size: 14px; color: var(--text-2); }
 .wsum-eff { display: inline-flex; gap: 12px; }
@@ -203,14 +202,14 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .live { margin: 0; }
 .live:empty { display: none; }
 .live .linkbtn { margin-left: 8px; }
-.way-title { border: 0; background: none; padding: 0; text-align: left; cursor: pointer; font-size: 16px; font-weight: 600; line-height: 1.4; text-wrap: balance; min-height: 24px; display: inline-flex; align-items: center; gap: 4px; }
+.way-title { border: 0; background: none; padding: 0; text-align: left; cursor: pointer; font-size: 16px; font-weight: 600; line-height: 1.4; text-wrap: balance; min-height: 32px; display: inline-flex; align-items: center; gap: 4px; }
 .way-title .chev { width: 16px; height: 16px; color: var(--muted); flex: none; }
 .way-title:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-strong); }
 .belief { margin: 0; font-size: 14px; color: var(--text); }
 .belief b { font-weight: 500; color: var(--text-2); }
 .cases { list-style: none; margin: 0 -16px; padding: 0; border-top: 1px solid var(--line); }
 .cases li + li .case { border-top: 1px solid var(--line); }
-.case { width: 100%; border: 0; background: none; text-align: left; cursor: pointer; padding: 14px 16px; display: grid; grid-template-columns: minmax(0, 1fr) 16px; gap: 12px; align-items: center; min-height: 44px; transition: background-color 140ms var(--ease); }
+.case { width: 100%; border: 0; background: none; text-align: left; cursor: pointer; padding: 12px 16px; display: grid; grid-template-columns: minmax(0, 1fr) 16px; gap: 12px; align-items: center; min-height: 44px; transition: background-color 140ms var(--ease); }
 .cbody { display: grid; gap: 6px; min-width: 0; }
 .case .chev { width: 16px; height: 16px; color: var(--muted); }
 .case:hover { background: var(--raised); }
@@ -254,17 +253,17 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .op thead th.sa, .op thead th.sb { border-top: 3px solid var(--sc); background: color-mix(in srgb, var(--sc) 9%, var(--surface)); }
 .op thead th:first-child { width: 24%; }
 .op tbody th { padding: 16px; font-size: 16px; font-weight: 600; line-height: 1.4; }
-.op tbody th small { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+.op tbody th small { font-size: 12px; font-weight: 500; margin-bottom: 4px; }
 .op td { padding: 12px 16px 16px; }
-.op .gm-side { font-size: 13px; color: var(--text-2); margin-bottom: 4px; }
+.op .gm-side { font-size: 12px; color: var(--text-2); margin-bottom: 4px; }
 .op ul { gap: 2px; margin: 0; }
 .op-w { width: 100%; border: 0; background: none; text-align: left; cursor: pointer; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 2px 8px; padding: 8px 8px 8px 4px; border-radius: 6px; color: var(--text); min-height: 44px; transition: background-color 140ms var(--ease); }
 .op-w:hover { background: var(--raised); }
 .op-w:hover .op-t { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-strong); }
 .op-ic { display: inline-flex; gap: 2px; align-items: center; height: 22px; }
 .op-ic svg { width: 12px; height: 12px; }
-.op-t { font-size: 15px; font-weight: 500; line-height: 1.4; }
-.op-m { grid-column: 2; font-size: 13px; color: var(--text-2); line-height: 1.4; }
+.op-t { font-size: 14px; font-weight: 500; line-height: 1.4; }
+.op-m { grid-column: 2; font-size: 12px; color: var(--text-2); line-height: 1.4; }
 .op-w.open .op-t { color: var(--text-2); }
 .way.hit { outline: 2px solid var(--focus); outline-offset: 2px; }
 .way { scroll-margin-top: 80px; }
@@ -360,8 +359,8 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
   .onpage { align-self: start; margin: 0; padding: 40px 0 24px; border: 0; background: none; max-height: 100vh; overflow-y: auto; }
   .onpage .ttl { display: block; margin: 0 0 8px; padding-left: 12px; font-size: 12px; font-weight: 600; color: var(--muted); }
   .onpage ol { flex-direction: column; padding: 0; gap: 2px; overflow: visible; border-left: 1px solid var(--line); }
-  .onpage button { width: 100%; white-space: normal; align-items: flex-start; min-height: 32px; padding: 5px 10px; margin-left: -1px; border-left: 2px solid transparent; border-radius: 0 6px 6px 0; line-height: 1.4; }
-  .onpage .sub button { padding-left: 20px; font-size: 13px; }
+  .onpage button { width: 100%; white-space: normal; align-items: flex-start; min-height: 32px; padding: 4px 8px; margin-left: -1px; border-left: 2px solid transparent; border-radius: 0 6px 6px 0; line-height: 1.4; }
+  .onpage .sub button { padding-left: 20px; font-size: 12px; }
   .onpage button .t { max-width: none; }
   .onpage button .num, .onpage button .pin { margin-top: -1px; }
   .onpage button[aria-current="true"] { box-shadow: none; border-left-color: var(--text); }
@@ -393,7 +392,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
   .top-right .seg a { padding: 0 8px; min-width: 0; white-space: normal; text-align: center; line-height: 1.25; }
   .hero { padding-top: 24px; }
   h1 { font-size: 28px; }
-  .sec h2, .gapmap h2, .positions h2, .dsec h2, .match h2 { font-size: 22px; }
+  .sec h2, .gapmap h2, .positions h2, .dsec h2, .match h2 { font-size: 24px; }
   .intro { font-size: 16px; }
   .answer { font-size: 16px; }
   .legend-body { grid-template-columns: 1fr; }
@@ -408,6 +407,8 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
   .gm tbody tr + tr { border-top: 1px solid var(--line); }
   .gm tbody th, .gm tbody td { border-bottom: 0; padding-bottom: 0; }
   .gm tbody td:last-child { padding-bottom: 12px; }
+  .op-w { padding: 4px; min-height: 44px; }
+  .op-s { display: none; }
   .dlg dl { grid-template-columns: 1fr; gap: 4px; }
   .dlg dd { margin-bottom: 8px; }
 }
@@ -415,7 +416,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
 </style>
 </head>
 <body>
-<a class="skip" href="#main">Zum Inhalt</a>
+<a class="skip" href="#main">Zum Inhalt</a><a class="skip" href="#sec-tried">Zu den Optionen</a>
 <div class="topbar"><div class="page">
   <header class="top">
     <a class="brand" href="#frage/ki"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg><b>Open Policy Navigator</b><span class="demo-tag">Demo · Testdaten</span></a>
@@ -444,7 +445,6 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
         </div>
         <aside class="state" aria-labelledby="h-state">
           <h2 id="h-state">Wissensstand</h2>
-          <p class="state-sub" id="state-sub"></p>
           <ol class="kb" id="q-kb"></ol>
           <p class="state-foot" id="state-foot"></p>
         </aside>
@@ -934,6 +934,7 @@ const QUESTIONS = {
     tab: "KI und Arbeit",
     title: "Wie organisieren wir eine Arbeitswelt mit künstlicher Intelligenz?",
     answer: "Belegt sind vor allem einzelne Bausteine: eine Jobgarantie in einer Gemeinde, frühe Vermittlung in Dänemark, Verbote von Konkurrenzklauseln in zwei US-Bundesstaaten. Zum Branchen-Mindestlohn und zu den DMA-Wahlbildschirmen widersprechen sich Studien. Zu Mitbestimmung und Selbstregulierung beim KI-Einsatz selbst gibt es keine Wirkungsmessung.",
+    date: "20.11.2026",
     stand: "Recherche vertieft am 20.11.2026. Die Lesetiefe steht bei jedem Fall; einzelne Einstufungen beruhen nur auf Abstract oder Zusammenfassung.",
     groups: [
       { id: "risiko", q: "Wer trägt das Risiko, wenn KI Arbeit verändert?",
@@ -1232,7 +1233,7 @@ function renderCounts() {
   const gapLabel = `${s.open === 1 ? "Lösungsweg" : "Lösungswege"} noch nicht voll recherchiert${s.notFull && s.notFullSides.length === 1 ? `, alle in Richtung ${s.notFullSides[0]}` : ""}`;
   const where = `${s.countries} ${s.countries === 1 ? "Land" : "Ländern"}${s.eu ? " und der EU" : ""}`;
   const sided = Q().groups.some(g => g.sides);
-  $("tried-lead").textContent = `${s.ways} Lösungswege mit ${s.cases} Fällen aus ${where}; ein Fall ist eine Maßnahme, die ein Staat, eine Region oder eine Stadt eingeführt, erprobt oder vorgeschlagen hat. Zu ${s.found} Fällen gibt es eine Wirkungsmessung. ${sided ? "Jede Zeile ist eine Teilfrage, jede Spalte eine Richtung." : "Jede Zeile ist ein Lösungsweg."} Das Zeichen vor einem Lösungsweg zeigt das Ergebnis seiner Messungen; ein Klick springt zur Karte mit Fällen und Quellen.`;
+  $("tried-lead").textContent = `${s.ways} Lösungswege mit ${s.cases} Fällen aus ${where}. Das Zeichen zeigt das Ergebnis der Messungen; ein Klick führt zur Karte mit Fällen und Quellen.`;
   $("counts").innerHTML = [
     ["all", s.cases, "Alle"], ["found", s.found, "Mit Wirkungsbefund"],
     ["stop", s.stop, "Gestoppt oder beendet"], ["gaps", s.open, "Wege mit Lücken"]
@@ -1303,7 +1304,7 @@ function evidenceBlock(q, g) {
   const sideOf = id => { const w = q.ways.find(x => x.g === g.id && x.cases.includes(id)); return w && w.side ? `, Richtung ${w.side}` : ""; };
   const list = m.found.map(id => { const c = CASES[id], e = EFFECT[c.effect], sd = sideOf(id).replace(/^, /, ""); return `<li><button type="button" class="linkbtn" data-case="${id}">${svg(e.svg(e.color))}${esc(c.title)}</button><span class="quiet">${esc(e.label)}${sd ? " · " + esc(sd) : ""}</span></li>`; }).join("");
   const line = m.found.length
-    ? `<p>Eine Wirkungsmessung gibt es zu ${m.found.length} von ${m.all.length} Fällen:</p><ul class="ev-list">${list}</ul>`
+    ? `<ul class="ev-list">${list}</ul>`
     : `<p>Zu ${m.all.length === 1 ? "dem einen erfassten Fall" : `keinem der ${m.all.length} erfassten Fälle`} gibt es bisher eine Wirkungsmessung.</p>`;
   return `<div class="evidence"><p class="ev-h">Bisher gemessen</p>${line}<p class="ev-take"><b>${m.found.length ? "Daraus folgt:" : "Einordnung:"}</b> ${esc(g.evidence)}</p></div>`;
 }
@@ -1341,9 +1342,9 @@ function optEntry(w) {
   const icon = effs.length ? effs.map(k => svg(EFFECT[k].svg(EFFECT[k].color))).join("") : svg(COV[w.cov === "checked" ? "searched" : w.cov].svg, ' style="color:var(--muted)"');
   const caseTxt = cs.length ? plural(cs.length, "Fall", "Fälle") : "kein Fall";
   const meta = m.length
-    ? `${effs.map(k => EFFECT[k].label).join(", ")} · ${STRENGTH[m[0].strength].label}`
+    ? `${effs.map(k => EFFECT[k].label).join(", ")}<span class="op-s"> · ${STRENGTH[m[0].strength].label}</span>`
     : w.cov === "checked" ? (cs.length ? "nicht gemessen" : "kein Fall gefunden") : COV[w.cov].label;
-  return `<li><button type="button" class="op-w${m.length ? "" : " open"}" data-goto="${w.id}"><span class="op-ic" aria-hidden="true">${icon}</span><span class="op-t">${esc(w.title)}</span><span class="op-m">${esc(caseTxt)} · ${esc(meta)}</span></button></li>`;
+  return `<li><button type="button" class="op-w${m.length ? "" : " open"}" data-goto="${w.id}"><span class="op-ic" aria-hidden="true">${icon}</span><span class="op-t">${esc(w.title)}</span><span class="op-m">${esc(caseTxt)} · ${m.length ? meta : esc(meta)}</span></button></li>`;
 }
 function renderOptions() {
   const q = Q(), sided = q.groups.some(g => g.sides);
@@ -1434,10 +1435,9 @@ function renderState(q) {
   const rows = multi
     ? q.groups.map((g, gi) => ({ n: gi + 1, label: g.q, attr: `data-jump="t-${g.id}"`, m: measured(q.ways.filter(w => w.g === g.id).flatMap(w => w.cases)) }))
     : q.ways.map(w => ({ n: 0, label: w.title, attr: `data-way="${w.id}"`, m: measured(w.cases) }));
-  $("state-sub").textContent = `Zu wie vielen erfassten Fällen gibt es eine Wirkungsmessung? ${multi ? "Je Teilfrage" : "Je Lösungsweg"}, ein Kästchen je Fall.`;
   $("q-kb").innerHTML = rows.map(r => `<li><button type="button" class="kb-row" ${r.attr}>${r.n ? `<span class="num" aria-hidden="true">${r.n}</span>` : '<span class="pin" aria-hidden="true"></span>'}<span class="kb-q">${esc(r.label)}</span><span class="kb-n"><span class="kb-dots" aria-hidden="true">${r.m.all.map(id => `<i class="${hasFinding(CASES[id]) ? "on" : ""}"></i>`).join("")}</span><span>${r.m.found.length} von ${r.m.all.length}<span class="vh"> Fällen mit Wirkungsmessung</span></span></span></button></li>`).join("");
   const srcN = new Set(uniqueCases(casesOf(q)).flatMap(id => CASES[id].src)).size;
-  $("state-foot").innerHTML = `Gemessen heißt: eine Studie mit Vergleich zur Wirkung, gleich mit welchem Ergebnis. Grundlage sind ${srcN} verlinkte Fundstellen, Stand 12.11.2026. <a href="#daten">Methodik</a>`;
+  $("state-foot").innerHTML = `Ein Kästchen je Fall, gefüllt heißt gemessen: eine Studie mit Vergleich zur Wirkung, gleich mit welchem Ergebnis. Grundlage sind ${srcN} verlinkte Fundstellen, Stand ${q.date || "12.11.2026"}. <a href="#daten">Methodik</a>`;
 }
 function gotoWay(id) {
   if (state.mode !== "cmp" || state.filter !== "all") { state.mode = "cmp"; state.filter = "all"; renderQuestion(); }
@@ -1447,7 +1447,7 @@ function gotoWay(id) {
   const art = card.closest(".way");
   art.scrollIntoView({ block: "start" });
   card.focus({ preventScroll: true });
-  art.classList.add("hit"); setTimeout(() => art.classList.remove("hit"), 1600);
+  art.classList.add("hit"); setTimeout(() => art.classList.remove("hit"), 3000);
 }
 function renderQuestion() {
   const q = Q();
@@ -1739,7 +1739,7 @@ $("json").addEventListener("click", () => {
   const q = Q();
   const lbl = o => Object.fromEntries(Object.entries(o).map(([k, v]) => [k, v.def ? `${v.label}: ${v.def}` : v.label]));
   const quellen = ids => ids.map(s => ({ titel: SRC[s][0], url: SRC[s][1], absender: SRC[s][2] }));
-  const data = { projekt: "Open Policy Navigator (Demo)", frage: q.title, kurzantwort: q.answer, stand: "Testdaten, Stand 12.11.2026",
+  const data = { projekt: "Open Policy Navigator (Demo)", frage: q.title, kurzantwort: q.answer, stand: `Testdaten, Stand ${q.date || "12.11.2026"}`,
     hinweis: "Demo mit Testdaten; alle Einstufungen ungeprüft.", lizenz: { daten: "CC BY 4.0", schema: "CC0", code: "MIT" },
     codebuch: { status: lbl(STATUS), wirkung: lbl(EFFECT), evidenzstaerke: STRENGTH.map((s, i) => `${i}: ${s.label}${s.def ? " – " + s.def : ""}`), abdeckung: lbl(COV) },
     teilfragen: q.groups.map(g => ({ id: g.id, frage: g.q, richtungen: g.sides, belege: g.evidence })),
@@ -1753,11 +1753,15 @@ $("json").addEventListener("click", () => {
 const tb = $("theme");
 const effectiveDark = () => document.documentElement.getAttribute("data-theme") === "dark";
 function syncThemeBtn() { const d = effectiveDark(); tb.innerHTML = d ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>' : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>'; tb.setAttribute("aria-label", d ? "Helles Farbschema" : "Dunkles Farbschema"); }
-try { const s = localStorage.getItem("ka-theme"); if (s === "dark" || s === "light") document.documentElement.setAttribute("data-theme", s); } catch (e) {
-}
+const sysDark = window.matchMedia("(prefers-color-scheme: dark)");
+let chosenTheme = null;
+try { chosenTheme = localStorage.getItem("ka-theme"); } catch (e) { /* storage blocked: follow system */ }
+document.documentElement.setAttribute("data-theme", chosenTheme === "dark" || chosenTheme === "light" ? chosenTheme : sysDark.matches ? "dark" : "light");
+sysDark.addEventListener("change", e => { if (chosenTheme !== "dark" && chosenTheme !== "light") { document.documentElement.setAttribute("data-theme", e.matches ? "dark" : "light"); syncThemeBtn(); } });
 tb.addEventListener("click", () => {
   const next = effectiveDark() ? "light" : "dark";
   document.documentElement.setAttribute("data-theme", next);
+  chosenTheme = next;
   try { localStorage.setItem("ka-theme", next); } catch (e) {
 }
   syncThemeBtn();

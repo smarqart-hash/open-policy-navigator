@@ -60,10 +60,10 @@
       "coding_1": {
         "section_present": true,
         "gold_alt": null,
-        "category": "Keine + Begründung",
+        "category": "Alternativen benannt/diskutiert",
         "coder": "stefan",
         "confirmed": true,
-        "note": "long section missed by de-v0; 'Keine.' then names and rejects an alternative (codebook question); text not fully transcribed"
+        "note": "Stefan chose codebook B on this case (20.11.2026); long section missed by de-v0; text not fully transcribed"
       },
       "coding_2": null
     },
@@ -93,7 +93,7 @@
         "category": "Keine + Begründung",
         "coder": "claude-proposal",
         "confirmed": false,
-        "note": "section extracted from PDF heading C to D (2177 chars); category = rule result, check meaning"
+        "note": "codebook B checked: reasons only, no concrete alternative named; section extracted from PDF heading C to D (2177 chars); category = rule result, check meaning"
       },
       "coding_2": null
     },
@@ -105,10 +105,10 @@
       "coding_1": {
         "section_present": true,
         "gold_alt": "Keine. Ein Verzicht auf das Vertragsgesetzgebungsverfahren würde den Verzicht auf die Umsetzung der völkerrechtlichen Vereinbarung mit den Vereinigten Mexikanischen Staaten in verbindliches nationales Recht bedeuten und kommt daher nicht in Betracht. Mit Unterzeichnung des Änderungsprotokolls haben sowohl die Bundesrepublik Deutschland als auch die Vereinigten Mexikanischen Staaten das Abkommen vom 9. Juli 2008 zwischen der Bundesrepublik Deutschland und den Vereinigten Mexikanischen Staaten zur Vermeidung der Doppelbesteuerung und der Steuerverkürzung auf dem Gebiet der Steuern vom Einkommen und vom Vermögen in die jeweiligen Auswahlentscheidungen zum MLI von der Liste der erfassten Doppelbesteuerungsabkommen („Covered Tax Agreements“) genommen. Eine Umsetzung der Inhalte dieses Änderungsprotokolls über das MLI selbst ist daher nicht mehr möglich.",
-        "category": "Keine + Begründung",
+        "category": "Alternativen benannt/diskutiert",
         "coder": "claude-proposal",
         "confirmed": false,
-        "note": "section extracted from PDF heading C to D (860 chars); category = rule result, check meaning"
+        "note": "codebook B: a concrete alternative is named and rejected (route via the MLI); borderline; section extracted from PDF heading C to D (860 chars); category = rule result, check meaning"
       },
       "coding_2": null
     },
@@ -135,10 +135,10 @@
       "coding_1": {
         "section_present": true,
         "gold_alt": "Keine. Nur mit einer verpflichtenden Kennzeichnung kann das Ziel erreicht werden, Endverbraucher umfassend beim Erwerb von Lebensmitteln tierischen Ursprungs über die Art der Haltung der Tiere zu informieren, von denen die Lebensmittel stammen. Eine freiwillige Kennzeichnung wäre keine gleichwertige Alternative zur verpflichtenden Tierhaltungskennzeichnung, weil die Marktabdeckung mit der Kennzeichnung von der freiwilligen Teilnahme der Betriebe, Verarbeitungsunternehmen und Inverkehrbringer abhinge. Ähnliches gilt für die bereits bestehenden privatwirtschaftlichen Label: Auch hier erhalten die Endverbraucher nur Informationen zu Lebensmitteln von den Lebensmittelunternehmern, die sich freiwillig zertifizieren lassen. Die privatwirtschaftlichen Label sind zudem bisher vornehmlich nur im Lebensmitteleinzelhandel zu finden. Es ist nicht absehbar, dass die bestehenden Label auch auf andere Absatzwege ausgeweitet werden. Die einzelnen Label haben unterschiedliche Kriterien und variieren auch hinsichtlich ihrer Marktabdeckung. Die verbindliche Kennzeichnung ermöglicht hingegen dem Endverbraucher eine Einschätzung anhand einfacher Kriterien, ob die Tiere, von denen die Lebensmittel stammen, in tiergerechteren Haltungsformen gehalten worden sind. Weder die zahlreichen bestehenden privatwirtschaftlichen Label noch eine freiwillige, staatliche Kennzeichnung sind daher im gleichen Maße geeignet, den Endverbraucher unabhängig von der Vermarktungsform über die Haltungsform der Tiere zu informieren.",
-        "category": "Keine + Begründung",
+        "category": "Alternativen benannt/diskutiert",
         "coder": "claude-proposal",
         "confirmed": false,
-        "note": "section extracted from PDF heading C to D (1511 chars); category = rule result, check meaning"
+        "note": "codebook B: a concrete alternative is named and rejected (voluntary labelling, private labels); section extracted from PDF heading C to D (1511 chars); category = rule result, check meaning"
       },
       "coding_2": null
     },
@@ -153,7 +153,7 @@
         "category": "Alternativen benannt/diskutiert",
         "coder": "claude-proposal",
         "confirmed": false,
-        "note": "section extracted from PDF heading C to D (761 chars); category = rule result, check meaning"
+        "note": "codebook B: a concrete alternative is named and rejected (sector-specific rules); section extracted from PDF heading C to D (761 chars); category = rule result, check meaning"
       },
       "coding_2": null
     },
@@ -168,7 +168,7 @@
         "category": "Alternativen benannt/diskutiert",
         "coder": "claude-proposal",
         "confirmed": false,
-        "note": "section extracted from PDF heading C to D (894 chars); category = rule result, check meaning"
+        "note": "codebook B: a concrete alternative is named and rejected (fundamentally new admission procedure); section extracted from PDF heading C to D (894 chars); category = rule result, check meaning"
       },
       "coding_2": null
     },
@@ -180,10 +180,10 @@
       "coding_1": {
         "section_present": true,
         "gold_alt": "Keine. Deutschland und Bulgarien haben sich darauf verständigt, die Inhalte des MLI im Wege eines bilateralen Protokolls zur Änderung des bestehenden Abkommens umzusetzen. Daher haben beide Staaten bei Ratifikation des MLI das Abkommen vom 25. Januar 2010 zwischen der Bundesrepublik Deutschland und der Republik Bulgarien zur Vermeidung der Doppelbesteuerung und der Steuerverkürzung auf dem Gebiet der Steuern vom Einkommen und vom Vermögen nicht als vom MLI erfasstes Doppelbesteuerungsabkommen („covered tax agreements“) aufgeführt. Eine Umsetzung der Inhalte dieses Änderungsprotokolls über das MLI selbst kommt daher nicht mehr in Betracht. Deutscher Bundestag – 20. Wahlperiode –3– Drucksache 20/6818",
-        "category": "Keine + Begründung",
+        "category": "Alternativen benannt/diskutiert",
         "coder": "claude-proposal",
         "confirmed": false,
-        "note": "section extracted from PDF heading C to D (707 chars); category = rule result, check meaning"
+        "note": "codebook B: a concrete alternative is named and rejected (route via the MLI); borderline; section extracted from PDF heading C to D (707 chars); category = rule result, check meaning"
       },
       "coding_2": null
     },
@@ -195,10 +195,10 @@
       "coding_1": {
         "section_present": true,
         "gold_alt": "Keine. Auf Landesebene existieren bereits verschiedene Regelungen zur Wärmeplanung. Dies gilt insbesondere in den Ländern Baden-Württemberg, Schleswig-Holstein, Niedersachsen und Hessen. In Nordrhein-Westfalen ist die Einführung von Seiten der Landesregierung geplant. In Bayern wird die Erstellung kommunaler Energienutzungspläne gefördert. Eine bundesgesetzliche Regelung, die vorsieht, innerhalb eines näher definierten Zeitraums nach Inkrafttreten dieses Gesetzes Wärmepläne vorzulegen, ist trotz dieser vereinzelt bereits bestehenden landesrechtlichen Regelungen erforderlich. Nur so kann gewährleistet werden, dass diese Aufgabe deutschlandweit erfüllt wird. Dieses Gesetz richtet sich insbesondere an diejenigen Länder, die sich bislang noch nicht mit der Wärmeplanung beschäftigt haben oder mit entsprechenden Planungen noch nicht aktiv geworden sind. Insbesondere sollen sie angehalten werden, eine systematische, flächendeckende Wärmeplanung einzuführen, um das Ziel der Treibhausgasneutralität in der Wärmeversorgung bis spätestens 2045 zu erreichen. Die Handlungsdringlichkeit zeigt sich darin, dass bis zu diesem Zeitpunkt lediglich 22 Jahre verbleiben. Ein weiteres Zuwarten ist gerade mit Blick auf die für den Ausbau und die Transformation von Energieinfrastrukturen langfristigen Planungs- und Realisierungszeiträume keine Alternative. Länder, die sich das Ziel gesetzt haben, bereits vor dem Jahr 2045 klimaneutral zu sein, werden in ihren Bemühungen durch dieses Gesetz unterstützt, indem einheitliche Rahmenbedingungen für die Wärmeplanung und somit auch für die betroffenen Akteure in der Energiewirtschaft definiert werden. Wärmepläne müssen flächendeckend und systematisch aufgestellt werden, um die vorhandenen Potenziale zu identifizieren und die notwendige Planungssicherheit für Investitionen in die Wärmeerzeugung aus erneuerbaren Energien, die Nutzung unvermeidbarer Abwärme und die dafür notwendigen Infrastrukturen zu schaffen. Die planungsverantwortlichen Stellen müssen die hierfür erforderlichen Daten erhalten und zum Zweck der Wärmeplanung nutzen dürfen; die gesetzliche Grundlage wird mit dem vorliegenden Gesetz geschaffen. Die Einführung einer flächendeckenden Wärmeplanung ist für die Erreichung der Klimaschutzziele gemäß dem KSG und für die Erreichung des im Koalitionsvertrag zwischen SPD, BÜNDNIS 90/DIE GRÜNEN und FDP vorgesehenen und mit diesem Gesetz verfolgten Ziels erforderlich, bis 2030 50 Prozent der Wärme klimaneutral zu erzeugen. Dabei wird die Wärmeplanung über gesetzlich vorgesehene Fortschreibungszyklen als dauerhafte Aufgabe ausgestaltet.",
-        "category": "Keine + Begründung",
+        "category": "Alternativen benannt/diskutiert",
         "coder": "claude-proposal",
         "confirmed": false,
-        "note": "section extracted from PDF heading C to D (2599 chars); category = rule result, check meaning"
+        "note": "codebook B: a concrete alternative is named and rejected (leave it to Länder rules); borderline; section extracted from PDF heading C to D (2599 chars); category = rule result, check meaning"
       },
       "coding_2": null
     },
@@ -213,7 +213,7 @@
         "category": "Keine + Begründung",
         "coder": "claude-proposal",
         "confirmed": false,
-        "note": "section extracted from PDF heading C to D (1606 chars); category = rule result, check meaning"
+        "note": "codebook B checked: reasons only, no concrete alternative named; section extracted from PDF heading C to D (1606 chars); category = rule result, check meaning"
       },
       "coding_2": null
     },
@@ -228,7 +228,7 @@
         "category": "Keine + Begründung",
         "coder": "claude-proposal",
         "confirmed": false,
-        "note": "section extracted from PDF heading C to D (731 chars); category = rule result, check meaning"
+        "note": "codebook B checked: reasons only, no concrete alternative named; section extracted from PDF heading C to D (731 chars); category = rule result, check meaning"
       },
       "coding_2": null
     },
@@ -243,7 +243,7 @@
         "category": "Alternativen benannt/diskutiert",
         "coder": "claude-proposal",
         "confirmed": false,
-        "note": "section extracted from PDF heading C to D (1141 chars); category = rule result, check meaning"
+        "note": "codebook B: a concrete alternative is named and rejected (nationwide surveys); section extracted from PDF heading C to D (1141 chars); category = rule result, check meaning"
       },
       "coding_2": null
     },
@@ -303,7 +303,7 @@
         "category": "Keine + Begründung",
         "coder": "claude-proposal",
         "confirmed": false,
-        "note": "section extracted from PDF heading C to D (798 chars); category = rule result, check meaning"
+        "note": "codebook B checked: reasons only, no concrete alternative named; section extracted from PDF heading C to D (798 chars); category = rule result, check meaning"
       },
       "coding_2": null
     },
@@ -315,10 +315,10 @@
       "coding_1": {
         "section_present": true,
         "gold_alt": "Derzeit keine. Langfristig sollte zur Behebung der Problematik hybrider Anträge und Aufträge allerdings eine solche digitale Lösung angestrebt werden, die vor allem aus Gründen des Schuldnerschutzes ein hohes Niveau an Fälschungs- und Manipulationsschutz gewährleisten kann. Eine solche Lösung könnte in der Schaffung einer elektronischen Datenbank für die Zwangsvollstreckung bestehen, die jedoch aufgrund der notwendigen technischen Entwicklungen nicht zeitnah realisiert werden kann.",
-        "category": "Keine + Begründung",
+        "category": "Alternativen benannt/diskutiert",
         "coder": "claude-proposal",
         "confirmed": false,
-        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "note": "codebook B: a concrete alternative is named and rejected (electronic enforcement database, deferred); proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
       },
       "coding_2": null
     },
@@ -345,10 +345,10 @@
       "coding_1": {
         "section_present": true,
         "gold_alt": "Zu den vorliegenden Änderungen, Ergänzungen und Anpassungen des Tierschutzgesetzes bestehen keine Alternativen.",
-        "category": "Keine + Begründung",
+        "category": "Keine",
         "coder": "claude-proposal",
         "confirmed": false,
-        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "note": "no reason and no alternative given; semantically a bare 'Keine'; proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
       },
       "coding_2": null
     },
@@ -378,7 +378,7 @@
         "category": "Keine + Begründung",
         "coder": "claude-proposal",
         "confirmed": false,
-        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "note": "codebook B checked: reasons only, no concrete alternative named; proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
       },
       "coding_2": null
     },
@@ -408,7 +408,7 @@
         "category": "Keine + Begründung",
         "coder": "claude-proposal",
         "confirmed": false,
-        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "note": "codebook B checked: reasons only, no concrete alternative named; proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
       },
       "coding_2": null
     },
@@ -510,10 +510,10 @@
       "coding_1": {
         "section_present": true,
         "gold_alt": "Keine. Die Richtlinienumsetzung erfolgt 1:1; eine darüberhinausgehende Umsetzung würde Wettbewerbsnachteile für deutsche Fondsverwalter und zusätzliche Kosten für Anlegerinnen und Anleger bedeuten.",
-        "category": "Keine + Begründung",
+        "category": "Alternativen benannt/diskutiert",
         "coder": "claude-proposal",
         "confirmed": false,
-        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "note": "codebook B: a concrete alternative is named and rejected (transposition beyond 1:1); proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
       },
       "coding_2": null
     },
@@ -543,9 +543,17 @@
         "category": "Keine + Begründung",
         "coder": "claude-proposal",
         "confirmed": false,
-        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "note": "codebook B checked: reasons only, no concrete alternative named; proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
       },
       "coding_2": null
     }
-  ]
+  ],
+  "codebook": {
+    "version": "B (decided by Stefan, 2026-11-20)",
+    "Keine": "only the word 'Keine' or a statement that there are no alternatives, without reasons",
+    "Keine + Begründung": "no alternative, with reasons, but no concrete alternative is named",
+    "Status quo genannt": "only keeping the current law is discussed",
+    "Alternativen benannt/diskutiert": "at least one concrete alternative is named, also if the section starts with 'Keine' and rejects it",
+    "section_present": "only section 'C. Alternativen' of the Vorblatt counts, not 'Alternativen' in the explanatory memorandum"
+  }
 }

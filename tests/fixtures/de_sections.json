@@ -41,8 +41,8 @@
     "urheber": "Bundesregierung",
     "alt": "Keine. Das in Verantwortung der Länder betriebene Projekt zur Entwicklung eines bundeseinheitlichen Datenbankengrundbuchs steht in den nächsten Jahren noch nicht für die Zwecke der zentralen Einsichtnahme durch die Behörden im Bereich der Kriminalitäts- und insbesondere der Geldwäschebekämpfung sowie der Sanktionsdurchsetzung zur Verfügung und wird auch nicht dieselben Inhalte zu vereinbarten bzw. durchgeführten Immobilientransaktionen enthalten wie das mit dem vorliegenden Gesetz einzurichtende Immobilientransaktionsregister.",
     "expected_v0": "Keine + Begründung",
-    "proposed_correct": null,
-    "note": "'Keine' with reason"
+    "proposed_correct": "Alternativen benannt/diskutiert",
+    "note": "'Keine' with reason; codebook B: names and rejects using the Länder land-register database"
   },
   {
     "nr": "20/3712",
@@ -50,8 +50,8 @@
     "urheber": "Bundesregierung",
     "alt": "Keine. Andere Lösungsmöglichkeiten, wie etwa untergesetzliche Regelungen, kommen aus Gründen der Rechtsklarheit und Rechtssicherheit nicht in Betracht.",
     "expected_v0": "Keine + Begründung",
-    "proposed_correct": null,
-    "note": "'Keine' with reason naming a rejected option (sub-statutory rules)"
+    "proposed_correct": "Alternativen benannt/diskutiert",
+    "note": "'Keine' with reason naming a rejected option (sub-statutory rules); codebook B: a concrete alternative is named and rejected"
   },
   {
     "nr": "20/4225",
@@ -59,8 +59,8 @@
     "urheber": "Bundesregierung",
     "alt": "Keine. Zur Regelung einer zusätzlichen Übermittlung der Zahl der geringfügig entlohnten Beschäftigten in Artikel 1 besteht keine Alternative. Für die Regelungen in Artikel 2 bestehen ebenfalls keine Alternativen. Die Änderung des § 3b VwDVG zum Datenaustausch mit der Bundesbank vermeidet Doppelerhebungen. Bezüglich der Einfügung von § 3c VwDVG schafft eine zusätzliche Erhebung bei den entsprechenden Unternehmen zu erhaltenen Hilfsprogrammen keine Lösung, da der Berichtskreis für eine solche Erhebung nicht bekannt ist. Artikel 3 korrigiert einen fehlerhaften Verweis. Für Artikel 4 sind keine Alternativen ersichtlich, um die erforderlichen Klarstellungen zu erzielen.",
     "expected_v0": "Keine + Begründung",
-    "proposed_correct": null,
-    "note": "'Keine' with reason per article"
+    "proposed_correct": "Alternativen benannt/diskutiert",
+    "note": "'Keine' with reason per article; codebook B: a concrete alternative is named and rejected"
   },
   {
     "nr": "20/10861",
@@ -122,8 +122,8 @@
     "urheber": "Bundesregierung",
     "alt": "Zu den vorliegenden Änderungen, Ergänzungen und Anpassungen des Tierschutzgesetzes bestehen keine Alternativen.",
     "expected_v0": "Alternativen benannt/diskutiert",
-    "proposed_correct": "Keine + Begründung",
-    "note": "rule miss: 'Zu den vorliegenden Änderungen ... bestehen keine Alternativen.' does not start with 'Keine'"
+    "proposed_correct": "Keine",
+    "note": "rule miss: 'Zu den vorliegenden Änderungen ... bestehen keine Alternativen.' is a bare 'no alternative' without reasons"
   },
   {
     "nr": "20/11310",
@@ -131,8 +131,8 @@
     "urheber": "Bundesregierung",
     "alt": "Derzeit keine. Langfristig sollte zur Behebung der Problematik hybrider Anträge und Aufträge allerdings eine solche digitale Lösung angestrebt werden, die vor allem aus Gründen des Schuldnerschutzes ein hohes Niveau an Fälschungs- und Manipulationsschutz gewährleisten kann. Eine solche Lösung könnte in der Schaffung einer elektronischen Datenbank für die Zwangsvollstreckung bestehen, die jedoch aufgrund der notwendigen technischen Entwicklungen nicht zeitnah realisiert werden kann.",
     "expected_v0": "Alternativen benannt/diskutiert",
-    "proposed_correct": "Keine + Begründung",
-    "note": "rule miss: 'Derzeit keine.' plus a long-term option"
+    "proposed_correct": null,
+    "note": "'Derzeit keine.' plus a long-term option; codebook B: counts as alternative named, so v0 is right by accident"
   },
   {
     "nr": "21/8242",

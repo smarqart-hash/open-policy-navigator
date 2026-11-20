@@ -25,7 +25,7 @@ def test_reference_to_table_counts_as_none_with_reason():
 
 def test_known_rule_misses_are_documented():
     misses = [c["nr"] for c in CASES if c["proposed_correct"] not in (None, c["expected_v0"])]
-    assert misses == ["20/12605", "20/12719", "20/11310"]
+    assert misses == ["20/9648", "20/3712", "20/4225", "20/12605", "20/12719"]
 
 
 @pytest.mark.parametrize(

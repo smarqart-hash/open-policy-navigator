@@ -47,8 +47,18 @@ Every item has `coding_2` (same fields as `coding_1`, default `null`). A second
 person codes independently, without looking at `coding_1`. The run prints Cohen's
 κ for `category` on all items coded twice.
 
-## Categories
+## Categories (codebook B, decided by Stefan on 20 November 2026)
 
-`Keine` · `Keine + Begründung` · `Status quo genannt` · `Alternativen benannt/diskutiert`
-(as in `src/open_policy_navigator/de/classify.py`). Rule of thumb: the category is
-about what the cover sheet *says*, not whether alternatives were examined.
+| category | when |
+|---|---|
+| `Keine` | only "Keine" or "there are no alternatives", without reasons |
+| `Keine + Begründung` | no alternative, with reasons, but **no concrete alternative is named** |
+| `Status quo genannt` | only keeping the current law is discussed |
+| `Alternativen benannt/diskutiert` | at least one concrete alternative is named, **also if the section starts with "Keine" and rejects it** |
+
+`section_present` refers only to section "C. Alternativen" of the Vorblatt, not to a
+heading "Alternativen" in the explanatory memorandum (budget laws have the latter).
+
+The rule classifier v0 still sorts by the first word, so it counts "Keine." followed
+by a rejected alternative as `Keine + Begründung`. Under codebook B that is a miss;
+the gold set measures it, classifier v1 should fix it (roadmap issue 4).

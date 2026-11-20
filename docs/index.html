@@ -89,7 +89,7 @@ main:focus { outline: none; }
 .onpage .ttl { display: none; }
 .onpage ol { position: relative; list-style: none; margin: 0; padding: 8px 0; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
 .onpage ol::-webkit-scrollbar { display: none; }
-.onpage button { border: 0; background: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 10px; border-radius: 6px; font-size: 14px; color: var(--text-2); white-space: nowrap; text-align: left; transition: background-color 140ms var(--ease), color 140ms var(--ease); }
+.onpage button { border: 0; background: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 8px; border-radius: 6px; font-size: 14px; color: var(--text-2); white-space: nowrap; text-align: left; transition: background-color 140ms var(--ease), color 140ms var(--ease); }
 .onpage button .t { max-width: 24ch; overflow: hidden; text-overflow: ellipsis; }
 .onpage button:hover { color: var(--text); background: var(--raised); }
 .onpage button[aria-current="true"] { color: var(--text); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line-strong); font-weight: 500; }
@@ -102,7 +102,7 @@ main:focus { outline: none; }
 .sbadge.sa, .sbadge.sb { color: var(--surface); background: var(--sc); border-color: var(--sc); }
 .sa, .way.sa { --sc: var(--side-a); } .sb, .way.sb { --sc: var(--side-b); }
 .hero-l { display: grid; gap: 16px; align-content: start; }
-.state { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 8px; box-shadow: var(--shadow-sm); align-self: start; }
+.state { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 8px; box-shadow: var(--shadow-sm); align-self: start; }
 .state h2 { margin: 0; font-size: 16px; font-weight: 600; color: var(--text); }
 .kb { list-style: none; margin: 4px 0 0; padding: 0; display: grid; border-top: 1px solid var(--line); }
 .kb li + li { border-top: 1px solid var(--line); }
@@ -145,7 +145,7 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .legend h2 { margin: 0 0 8px; font-size: 14px; font-weight: 500; }
 .legend ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: 14px; }
 .legend li { display: flex; gap: 8px; align-items: flex-start; }
-.legend p { margin: 8px 0 0; font-size: 12px; line-height: 1.5; color: var(--muted); }
+.legend p { margin: 8px 0 0; font-size: 12px; line-height: 1.6; color: var(--muted); }
 
 .sig { display: inline-flex; align-items: center; gap: 4px; font-size: 14px; line-height: 1.4; white-space: nowrap; color: var(--text-2); }
 .sig svg { width: 12px; height: 12px; flex: none; }
@@ -163,15 +163,19 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .sides.single { align-items: start; }
 .side { display: grid; gap: 24px; align-content: start; min-width: 0; }
 .side-head { display: grid; gap: 4px; border-top: 3px solid var(--sc, var(--text)); padding-top: 12px; }
+/* proximity: heading binds to its block, blocks stay apart (4/8 ladder 8-12-16-24-40-48) */
+.side-head { margin-bottom: -8px; }
+.group > .evidence + * { margin-top: 8px; }
+.sec .sec-lead + * { margin-top: 12px; }
 .side-head .tag, .fold .tag { font-size: 14px; font-weight: 500; color: var(--muted); display: inline-flex; align-items: center; gap: 8px; }
 .side-head h4 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
 .side-head p, .side-a { margin: 0; font-size: 14px; color: var(--text-2); }
 .side-empty { margin: 0; font-size: 14px; color: var(--muted); }
-.evidence { margin: 0; background: var(--raised); border-radius: 8px; padding: 16px 20px; display: grid; gap: 8px; max-width: 120ch; }
+.evidence { margin: 0; background: var(--raised); border-radius: 8px; padding: 16px; display: grid; gap: 8px; max-width: 120ch; }
 .evidence p { margin: 0; font-size: 16px; }
 .ev-h { font-size: 14px !important; font-weight: 600; color: var(--text); }
 .ev-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 24px; font-size: 16px; }
-.ev-list li { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0 6px; }
+.ev-list li { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0 8px; }
 .ev-list .linkbtn { font-weight: 500; display: inline-flex; align-items: center; gap: 4px; min-height: 32px; }
 .ev-list .linkbtn svg { width: 12px; height: 12px; flex: none; }
 .ev-take b { font-weight: 600; }
@@ -210,7 +214,7 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .cases { list-style: none; margin: 0 -16px; padding: 0; border-top: 1px solid var(--line); }
 .cases li + li .case { border-top: 1px solid var(--line); }
 .case { width: 100%; border: 0; background: none; text-align: left; cursor: pointer; padding: 12px 16px; display: grid; grid-template-columns: minmax(0, 1fr) 16px; gap: 12px; align-items: center; min-height: 44px; transition: background-color 140ms var(--ease); }
-.cbody { display: grid; gap: 6px; min-width: 0; }
+.cbody { display: grid; gap: 4px; min-width: 0; }
 .case .chev { width: 16px; height: 16px; color: var(--muted); }
 .case:hover { background: var(--raised); }
 .case.static { cursor: default; }
@@ -226,7 +230,7 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .contra b { font-weight: 500; }
 .contra.quiet { color: var(--muted); }
 .by { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; }
-.cov { display: inline-flex; gap: 6px; align-items: center; font-size: 12px; color: var(--muted); white-space: nowrap; padding-top: 2px; }
+.cov { display: inline-flex; gap: 4px; align-items: center; font-size: 12px; color: var(--muted); white-space: nowrap; padding-top: 2px; }
 .cov svg { width: 12px; height: 12px; }
 
 .tablewrap { position: relative; overflow-x: auto; margin-top: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-sm); }
@@ -248,7 +252,7 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .filterbar .seg { overflow-x: auto; scrollbar-width: none; }
 .filterbar .seg b { font-weight: 600; font-variant-numeric: tabular-nums; }
 .op { table-layout: fixed; }
-.op thead th { font-size: 14px; color: var(--text); font-weight: 600; padding: 10px 16px; }
+.op thead th { font-size: 14px; color: var(--text); font-weight: 600; padding: 12px 16px; }
 .op thead th .sbadge { margin-right: 8px; vertical-align: -5px; }
 .op thead th.sa, .op thead th.sb { border-top: 3px solid var(--sc); background: color-mix(in srgb, var(--sc) 9%, var(--surface)); }
 .op thead th:first-child { width: 24%; }
@@ -291,7 +295,7 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .vorblatt { position: relative; background: #ffffff; color: #1a1a1a; border: 1px solid var(--line); border-radius: 4px; box-shadow: var(--shadow-sm); padding: 32px; display: grid; gap: 16px; font-family: var(--doc); }
 .vorblatt .ph { position: absolute; top: 12px; right: 16px; font-size: 12px; color: #6b6b6b; }
 .vorblatt .ds { margin: 0; font-family: var(--sans); font-size: 14px; color: #525252; }
-.vorblatt h2 { margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600; hyphens: auto; overflow-wrap: break-word; }
+.vorblatt h2 { margin: 0; font-size: 20px; line-height: 1.3; font-weight: 600; hyphens: auto; overflow-wrap: break-word; }
 .vb-sec { display: grid; gap: 4px; }
 .vb-sec h3 { margin: 0; font-family: var(--sans); font-size: 14px; font-weight: 600; }
 .vb-sec p { margin: 0; font-size: 16px; }
@@ -299,7 +303,7 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .vb-c { border-top: 1px solid rgba(0, 0, 0, .2); padding-top: 12px; }
 .vb-c .ins { display: block; margin-top: 8px; font-family: var(--sans); font-size: 14px; font-weight: 500; color: #525252; }
 .match { display: grid; gap: 16px; }
-.match-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 12px; box-shadow: var(--shadow-sm); }
+.match-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 12px; box-shadow: var(--shadow-sm); }
 .match-card h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
 .match-card .nums { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14px; color: var(--text-2); }
 .match-card .nums b { color: var(--text); font-weight: 500; font-variant-numeric: tabular-nums; }
@@ -389,7 +393,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
   #bills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
   #bills a { justify-content: center; white-space: normal; text-align: center; }
   .top-right .seg { min-width: 0; }
-  .top-right .seg a { padding: 0 8px; min-width: 0; white-space: normal; text-align: center; line-height: 1.25; }
+  .top-right .seg a { padding: 0 8px; min-width: 0; white-space: normal; text-align: center; line-height: 1.3; }
   .hero { padding-top: 24px; }
   h1 { font-size: 28px; }
   .sec h2, .gapmap h2, .positions h2, .dsec h2, .match h2 { font-size: 24px; }
@@ -397,8 +401,8 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
   .answer { font-size: 16px; }
   .legend-body { grid-template-columns: 1fr; }
   .seg button, .seg a, .go, .btn, .chipbtn { min-height: 40px; }
-  .vorblatt { padding: 24px 20px; }
-  .dlg { padding: 20px 16px; }
+  .vorblatt { padding: 24px 16px; }
+  .dlg { padding: 24px 16px; }
   .gm, .gm tbody, .gm tr, .gm th, .gm td { display: block; width: auto; }
   .gm thead { display: none; }
   .gm-m { display: inline; }
@@ -528,15 +532,15 @@ const STATUS = {
   unchecked:{ label: "Status offen", stop: false }
 };
 const STATUS_SVG = {
-  proposed: '<path d="M6 1.2 10.8 6 6 10.8 1.2 6Z" fill="none" stroke="currentColor" stroke-width="1.3"/>',
-  adopted:  '<rect x="1.5" y="1.5" width="9" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/>',
+  proposed: '<path d="M6 1.2 10.8 6 6 10.8 1.2 6Z" fill="none" stroke="currentColor" stroke-width="1.4"/>',
+  adopted:  '<rect x="1.5" y="1.5" width="9" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/>',
   active:   '<circle cx="6" cy="6" r="4.8" fill="currentColor"/>',
   running:  '<circle cx="6" cy="6" r="4.8" fill="currentColor"/>',
-  pilot:    '<circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="6" cy="6" r="1.7" fill="currentColor"/>',
-  partstop: '<rect x="1.3" y="1.3" width="9.4" height="9.4" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M1.3 1.3h9.4v4.7H1.3Z" fill="currentColor"/>',
+  pilot:    '<circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="6" cy="6" r="1.7" fill="currentColor"/>',
+  partstop: '<rect x="1.3" y="1.3" width="9.4" height="9.4" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M1.3 1.3h9.4v4.7H1.3Z" fill="currentColor"/>',
   stopped:  '<rect x="1.3" y="1.3" width="9.4" height="9.4" rx="1" fill="currentColor"/>',
   ended:    '<rect x="1.3" y="1.3" width="9.4" height="9.4" rx="1" fill="currentColor"/>',
-  unchecked:'<circle cx="6" cy="6" r="4.6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-dasharray="2.2 1.8"/>'
+  unchecked:'<circle cx="6" cy="6" r="4.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="2.2 1.8"/>'
 };
 
 const EFFECT = {
@@ -544,7 +548,7 @@ const EFFECT = {
   mixed:     { label: "widersprüchlich", def: "Befunde zeigen in verschiedene Richtungen", color: "var(--mix)", svg: c => `<path d="M3.2 1 6 5H.4Z M8.8 11 6 7h5.6Z" fill="${c}"/>` },
   null:      { label: "keine messbare Wirkung", def: "Befund mit Vergleich findet keinen Unterschied", color: "var(--text-2)", svg: c => `<path d="M1.5 6h9" stroke="${c}" stroke-width="2"/>` },
   neg:       { label: "Wirkung gegen das Ziel", def: "Befund mit Vergleich zeigt eine Wirkung gegen das Ziel der Teilfrage; das muss nicht das Ziel der Maßnahme sein", color: "var(--neg)", svg: c => `<path d="M6 11 1 1.5h10Z" fill="${c}"/>` },
-  partial:   { label: "Ziel teilweise erreicht", def: "Zielwert der Maßnahme verfehlt. Das misst Zielerreichung, nicht Wirkung im Vergleich, und zählt daher nicht als Wirkungsbefund", color: "var(--none)", svg: c => `<path d="M6 1.8 10.6 10.2H1.4Z" fill="none" stroke="${c}" stroke-width="1.3" stroke-linejoin="round"/>` },
+  partial:   { label: "Ziel teilweise erreicht", def: "Zielwert der Maßnahme verfehlt. Das misst Zielerreichung, nicht Wirkung im Vergleich, und zählt daher nicht als Wirkungsbefund", color: "var(--none)", svg: c => `<path d="M6 1.8 10.6 10.2H1.4Z" fill="none" stroke="${c}" stroke-width="1.4" stroke-linejoin="round"/>` },
   notyet:    { label: "noch nicht messbar", def: "Zu früh, nur vorgeschlagen oder nie umgesetzt", color: "var(--none)", svg: c => `<circle cx="6" cy="6" r="4.6" fill="none" stroke="${c}" stroke-width="1.4"/><path d="M6 3.4V6l1.8 1.4" fill="none" stroke="${c}" stroke-width="1.4"/>` },
   searched:  { label: "gesucht, keine Messung gefunden", def: "Recherche gemacht, aber keine Wirkungsmessung gefunden", color: "var(--none)", svg: c => `<circle cx="6" cy="6" r="4.6" fill="none" stroke="${c}" stroke-width="1.4"/><path d="M2.8 9.2 9.2 2.8" stroke="${c}" stroke-width="1.4"/>` },
   unchecked: { label: "noch nicht recherchiert", def: "Für diesen Eintrag wurde noch nicht nach Belegen gesucht", color: "var(--none)", svg: c => `<circle cx="6" cy="6" r="4.6" fill="none" stroke="${c}" stroke-width="1.4" stroke-dasharray="2.2 1.8"/>` }

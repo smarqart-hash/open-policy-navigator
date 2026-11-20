@@ -2,7 +2,19 @@
 
 Offene Bausteine, mit denen sich politische Lösungsansätze, Befunde und Gegenpositionen belegt erfassen und maschinell abfragen lassen. Ausgangspunkt ist eine Zählung: Wie oft nennen Gesetzentwürfe im Vorblatt eine Alternative? Dieses Repository enthält die ersten Zählskripte für den Deutschen Bundestag und den österreichischen Nationalrat, die Rohdaten der Zählung und deren Grenzen.
 
-Status: Vorarbeit. Die Skripte erkennen den Abschnitt über ein einzelnes Textmuster. Ein belastbarer Parser, ein offenes Datenschema für Lösungsansatz, Fall, Befund und Position, ein Prüfablauf sowie API und MCP-Server sind geplant, aber noch nicht gebaut.
+Status: Vorarbeit. Die Zählung ist ein kleines, getestetes Python-Paket (`src/keine_alternative/`); ein Goldset (Annotation läuft) und ein Eval-Ratchet in der CI verhindern Rückschritte bei der Abschnittserkennung. Das Datenschema v0 (Lösungsansatz, Fall, Befund, Position, Quelle) und der Antwortvertrag für einen MCP-Server liegen als Entwurf mit Tests vor. Parser-Ausbau, kuratierte Einträge, API und MCP-Server sind geplant, aber noch nicht gebaut.
+
+## Aufbau
+
+| Ordner | Inhalt |
+|---|---|
+| `src/keine_alternative/` | Abruf, Extraktion, Klassifikation, Auswertung (DE, AT); Schema; Antwortvertrag |
+| `zaehlung/` | Daten der Zählung (jsonl) |
+| `tests/` | pytest, Fixtures aus echten Vorblättern |
+| `eval/` | Goldset und Schwellenwerte (Eval-Ratchet) |
+| `schema/` | exportiertes JSON Schema und Beispiele |
+| `contracts/mcp/` | Antwortvertrag des geplanten MCP-Servers mit Golden-Tests |
+| `docs/adr/` | Architekturentscheidungen |
 
 ## Ergebnisse (Stand 12. November 2026)
 
@@ -22,7 +34,7 @@ Bei Entwürfen der Bundesregierung beginnt der Abschnitt in 422 von 532 erkannte
 ## Grenzen
 
 - Gemessen wird, was im Vorblatt steht, nicht, ob ein Ministerium Alternativen geprüft hat.
-- Deutschland: Einordnung per Muster („beginnt mit Keine“). Die 87 nicht erkannten Regierungsentwürfe sind nicht von Hand geprüft. EU-Bezug nur über Stichworte im Titel.
+- Deutschland: Einordnung per Muster („beginnt mit Keine“). Die 87 nicht erkannten Regierungsentwürfe sind nicht von Hand geprüft; 20 davon stehen zur Prüfung im Goldset. Das Muster findet Abschnitte über 700 Zeichen nicht, vermutlich eine Hauptursache. Sätze wie „Zu den Änderungen bestehen keine Alternativen.“ zählen nicht als „Keine“. EU-Bezug nur über Stichworte im Titel.
 - Österreich: Die Trennung „nur Nullszenario“ und „keine Alternative“ ist musterbasiert und unscharf. Ausgewertet wurden die ersten rund 600 bis 900 Zeichen des Abschnitts.
 
 ## Reproduktion
@@ -47,9 +59,16 @@ Neu abgerufene Datensätze tragen `source_url`, `fetched_at` (UTC), `text_sha256
 
 Einen API-Schlüssel für DIP gibt es beim [Deutschen Bundestag](https://dip.bundestag.de/über-dip/hilfe/api).
 
+## Einsatz von KI-Werkzeugen
+
+Der Code dieses Repositorys entsteht KI-assistiert: Ich (Stefan Marquart) nutze Claude Code als Programmierwerkzeug. Ich lege Ziel, Aufbau und Regeln fest, lasse in kleinen Schritten arbeiten, lese jeden Diff und verantworte jeden Commit; Tests, Goldset und CI prüfen das Ergebnis unabhängig davon, wer eine Zeile geschrieben hat. Commits mit KI-Beteiligung tragen eine `Co-Authored-By`-Zeile.
+
+In der Datenpipeline arbeitet kein Sprachmodell: Abruf, Extraktion und Klassifikation sind regelbasiert ([ADR 0002](docs/adr/0002-no-language-model-in-the-pipeline.md)). Vorschläge eines Sprachmodells für Goldset oder Einträge sind als solche markiert und zählen erst nach Bestätigung durch einen Menschen.
+
 ## Lizenzen und Quellen
 
 - Code: [MIT](LICENSE).
 - Daten in `zaehlung/de/`: Quelle Deutscher Bundestag/Bundesrat – DIP. Die Datei enthält Auszüge (Titel, Urheber, Abschnitt „C. Alternativen“), keine vollständigen Drucksachen. Es gelten die [Nutzungsbedingungen des DIP](https://dip.bundestag.de/documents/nutzungsbedingungen_dip.pdf).
 - Daten in `zaehlung/at/`: Quelle Parlament Österreich, [Open Data](https://www.parlament.gv.at/recherchieren/open-data/) unter CC BY 4.0. Auszüge aus Vorblatt und WFA.
 - Eigene Zuordnungen und Zählungen: CC BY 4.0.
+- Details je Quelle und was gespeichert wird: [DATA_SOURCES.md](DATA_SOURCES.md). Mitmachen: [CONTRIBUTING.md](CONTRIBUTING.md).

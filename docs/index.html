@@ -47,7 +47,7 @@ main:focus { outline: none; }
 .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; min-height: 40px; }
 .brand b { font-size: 16px; font-weight: 600; letter-spacing: 0; }
 .brand .mark { width: 20px; height: 20px; color: var(--text); flex: none; }
-.demo-tag { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.demo-tag { font-size: 12px; color: var(--muted); }
 .top-right { display: flex; align-items: center; gap: 8px; }
 .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--line); background: var(--surface); border-radius: 8px; cursor: pointer; color: var(--text-2); transition: background-color 140ms var(--ease), color 140ms var(--ease); }
 .icon-btn:hover { background: var(--raised); color: var(--text); }
@@ -77,10 +77,22 @@ main:focus { outline: none; }
 
 .hero { padding-block: 40px 0; display: grid; gap: 16px; }
 .hero > * { min-width: 0; }
-.lead-in { margin: 0; font-size: 14px; color: var(--text-2); max-width: 64ch; }
-.lead-in b { color: var(--text); font-weight: 500; }
+.claim { margin: 0; padding-block: 0 12px; font-size: 14px; color: var(--text-2); max-width: 80ch; }
+.picker .plabel { font-size: 12px; font-weight: 500; color: var(--muted); padding: 0 12px 0 0; min-height: 48px; display: inline-flex; align-items: center; white-space: nowrap; }
+.intro { margin: 0; font-size: 18px; line-height: 1.6; color: var(--text-2); max-width: 64ch; }
+.toc { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; counter-reset: toc; }
+.toc li { counter-increment: toc; display: grid; grid-template-columns: 24px minmax(0, 1fr); align-items: baseline; }
+.toc li::before { content: counter(toc); font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.toc .linkbtn { font-weight: 400; font-size: 16px; }
+.sec { margin-top: 48px; display: grid; gap: 12px; }
+.sec > * { min-width: 0; }
+.sec-head { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; }
+.sec h2, .gapmap h2, .positions h2, .dsec h2, .match h2 { margin: 0; font-size: 24px; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; }
+.sec-lead { margin: 0; font-size: 16px; color: var(--text-2); max-width: 72ch; }
 h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spacing: -.02em; max-width: 28ch; text-wrap: balance; }
 .answer { margin: 0; font-size: 18px; line-height: 1.6; color: var(--text-2); max-width: 64ch; }
+.summary { margin: 0; font-size: 16px; line-height: 1.6; max-width: 72ch; border-left: 2px solid var(--line-strong); padding-left: 16px; }
+.summary b { font-weight: 600; }
 .stand { margin: 0; font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 75ch; }
 .m-only { display: none; }
 
@@ -94,10 +106,11 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .cnt.gap b { color: var(--muted); }
 
 .toolbar { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; padding-block: 32px 0; }
+.sec .toolbar { padding: 0; }
 .toolbar .grp { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; min-width: 0; }
 .lbl { font-size: 14px; color: var(--text-2); }
 .toolbar .seg { overflow-x: auto; scrollbar-width: none; }
-.live { font-size: 14px; color: var(--muted); min-height: 20px; margin: 12px 0 0; font-family: var(--mono); }
+.live { font-size: 14px; color: var(--muted); min-height: 20px; margin: 12px 0 0; }
 
 .legend { margin-top: 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
 .legend summary { cursor: pointer; padding: 0 16px; min-height: 44px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; list-style: none; }
@@ -119,27 +132,26 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .bars i:nth-child(1) { height: 4px; } .bars i:nth-child(2) { height: 8px; } .bars i:nth-child(3) { height: 12px; }
 .bars i.on { background: var(--text); }
 
-.groups { display: grid; gap: 48px; margin-top: 32px; }
-.group { display: grid; gap: 16px; }
-.group > h2 { margin: 0; font-weight: 600; font-size: 20px; line-height: 1.3; letter-spacing: -.01em; max-width: 48ch; text-wrap: balance; }
-.group .gn { display: block; font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--muted); letter-spacing: 0; margin-bottom: 4px; }
+.groups { display: grid; gap: 0; margin-top: 16px; }
+.group { display: grid; gap: 16px; border-top: 1px solid var(--line-strong); padding-block: 24px 40px; scroll-margin-top: 16px; }
+.group > h3 { margin: 0; font-weight: 600; font-size: 20px; line-height: 1.3; letter-spacing: -.01em; max-width: 48ch; text-wrap: balance; }
+.group .gn { display: block; font-size: 14px; font-weight: 500; color: var(--muted); letter-spacing: 0; margin-bottom: 4px; }
 .sides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .sides.single { align-items: start; }
 .side { display: grid; gap: 24px; align-content: start; min-width: 0; }
-.side-head { display: grid; gap: 4px; }
-.side-head .tag { font-family: var(--mono); font-size: 12px; color: var(--muted); }
-.side-head h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
+.side-head { display: grid; gap: 4px; border-top: 2px solid var(--text); padding-top: 12px; }
+.side-head .tag, .fold .tag { font-size: 14px; font-weight: 500; color: var(--muted); }
+.side-head h4 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
 .side-head p, .side-a { margin: 0; font-size: 14px; color: var(--text-2); }
 .side-empty { margin: 0; font-size: 14px; color: var(--muted); }
-.evidence { margin: 0; background: var(--raised); border-radius: 8px; padding: 16px; font-size: 16px; max-width: 70ch; }
+.evidence { margin: 0; background: var(--raised); border-radius: 8px; padding: 16px; font-size: 16px; }
 .evidence b { display: block; font-size: 14px; font-weight: 500; color: var(--text-2); margin-bottom: 4px; }
 .fold { border-top: 1px solid var(--line); }
 .fold:last-child { border-bottom: 1px solid var(--line); }
 .fold > summary { list-style: none; cursor: pointer; padding: 12px 0; display: grid; grid-template-columns: minmax(0, 1fr) 16px; gap: 4px 12px; align-items: start; min-height: 44px; }
 .fold > summary::-webkit-details-marker { display: none; }
 .fold > summary > * { grid-column: 1; }
-.fold .tag { font-family: var(--mono); font-size: 12px; color: var(--muted); }
-.fold h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
+.fold h4 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
 .fold > summary .chev { width: 16px; height: 16px; color: var(--muted); grid-column: 2; grid-row: 1 / span 2; align-self: center; transition: transform 160ms var(--ease); }
 .fold[open] > summary .chev { transform: rotate(90deg); }
 .fold-n { display: flex; flex-wrap: wrap; align-items: center; gap: 0 12px; font-size: 14px; color: var(--text-2); }
@@ -152,8 +164,8 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .way-top .way-title { flex: 1; min-width: 0; }
 .wsum { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; font-size: 14px; color: var(--text-2); }
 .wsum-eff { display: inline-flex; gap: 12px; }
-.tctx { display: block; font-family: var(--mono); font-size: 12px; color: var(--muted); font-weight: 400; }
-.tkz { font-family: var(--mono); font-size: 14px; }
+.tctx { display: block; font-size: 12px; color: var(--muted); font-weight: 400; }
+.tkz { font-size: 14px; }
 .cnt:focus-visible { outline-offset: -3px; }
 .live { margin: 0; }
 .live:empty { display: none; }
@@ -173,14 +185,14 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .case.static:hover { background: none; }
 .cline { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 12px; align-items: baseline; }
 .cname { font-weight: 500; font-size: 14px; line-height: 1.4; }
-.cwhere { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.cwhere { font-size: 12px; color: var(--muted); }
 .csigs { display: flex; flex-wrap: wrap; gap: 4px 16px; }
-.ckz { font-family: var(--mono); font-size: 14px; color: var(--text); font-variant-numeric: tabular-nums; }
+.ckz { font-size: 14px; color: var(--text); font-variant-numeric: tabular-nums; }
 .nocase { margin: 0; font-size: 14px; color: var(--muted); }
 .contra { margin: 0; font-size: 14px; }
 .contra b { font-weight: 500; }
 .contra.quiet { color: var(--muted); }
-.by { display: block; margin-top: 4px; font-family: var(--mono); color: var(--muted); font-size: 12px; }
+.by { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; }
 .cov { display: inline-flex; gap: 6px; align-items: center; font-size: 12px; color: var(--muted); white-space: nowrap; padding-top: 2px; }
 .cov svg { width: 12px; height: 12px; }
 
@@ -198,8 +210,7 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .linkbtn { border: 0; background: none; padding: 0; text-align: left; cursor: pointer; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; font-weight: 500; min-height: 24px; }
 .linkbtn:hover { text-decoration-color: currentColor; }
 
-.positions, .gapmap { margin-top: 48px; display: grid; gap: 12px; }
-.gapmap h2 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; }
+.positions, .gapmap { margin-top: 32px; display: grid; gap: 12px; }
 .gapmap > p { margin: 0; font-size: 14px; color: var(--text-2); max-width: 72ch; }
 .gm-key { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0; padding: 0; list-style: none; }
 .gm-key .cov { font-size: 14px; color: var(--text-2); }
@@ -210,37 +221,35 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .gm thead th { font-size: 12px; color: var(--text-2); font-weight: 500; background: var(--raised); }
 .gm thead th:first-child { border-top-left-radius: 12px; } .gm thead th:last-child { border-top-right-radius: 12px; }
 .gm tbody th { font-weight: 500; width: 30%; }
-.gm tbody th small, .gm-side { display: block; font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--muted); }
+.gm tbody th small, .gm-side { display: block; font-size: 12px; font-weight: 400; color: var(--muted); }
 .gm ul { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 4px; }
 .gm-w { width: 100%; border: 0; background: none; padding: 4px 0; cursor: pointer; text-align: left; display: grid; grid-template-columns: 12px 2ch minmax(0, 1fr); gap: 8px; align-items: baseline; min-height: 32px; color: var(--text); }
 .gm-w svg { width: 12px; height: 12px; color: var(--muted); align-self: center; }
-.gm-w b { font-family: var(--mono); font-weight: 400; text-align: right; font-variant-numeric: tabular-nums; }
+.gm-w b { font-weight: 400; text-align: right; font-variant-numeric: tabular-nums; }
 .gm-w:hover span { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-strong); }
 .gm-w.open { color: var(--text-2); }
 .gm-none { color: var(--muted); }
 .gm-m { display: none; }
-.positions h2 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; }
 .positions > p { margin: 0; font-size: 14px; color: var(--text-2); max-width: 72ch; }
 .mx tbody th { position: sticky; left: 0; background: var(--surface); min-width: 12em; }
-.mx tbody th small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; font-family: var(--mono); }
+.mx tbody th small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
 .mx .none { font-size: 12px; color: var(--muted); }
 .stance { border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 0 8px; min-height: 28px; cursor: pointer; font-size: 14px; white-space: nowrap; display: inline-flex; gap: 6px; align-items: center; transition: background-color 140ms var(--ease); }
 .stance:hover { background: var(--raised); }
-.stance b { width: 1ch; text-align: center; font-family: var(--mono); font-weight: 400; }
+.stance b { width: 1ch; text-align: center; font-weight: 400; }
 
 .bill { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; margin-top: 32px; align-items: start; }
 .vorblatt { position: relative; background: #ffffff; color: #1a1a1a; border: 1px solid var(--line); border-radius: 4px; box-shadow: var(--shadow-sm); padding: 32px; display: grid; gap: 16px; font-family: var(--doc); }
-.vorblatt .ph { position: absolute; top: 12px; right: 16px; font-family: var(--mono); font-size: 12px; color: #6b6b6b; }
+.vorblatt .ph { position: absolute; top: 12px; right: 16px; font-size: 12px; color: #6b6b6b; }
 .vorblatt .ds { margin: 0; font-family: var(--sans); font-size: 14px; color: #525252; }
 .vorblatt h2 { margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600; hyphens: auto; overflow-wrap: break-word; }
 .vb-sec { display: grid; gap: 4px; }
 .vb-sec h3 { margin: 0; font-family: var(--sans); font-size: 14px; font-weight: 600; }
 .vb-sec p { margin: 0; font-size: 16px; }
-.fill { font-family: var(--mono); font-size: 14px; color: #6b6b6b; }
+.fill { font-size: 14px; color: #6b6b6b; }
 .vb-c { border-top: 1px solid rgba(0, 0, 0, .2); padding-top: 12px; }
 .vb-c .ins { display: block; margin-top: 8px; font-family: var(--sans); font-size: 14px; font-weight: 500; color: #525252; }
 .match { display: grid; gap: 16px; }
-.match h2 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; }
 .match-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 12px; box-shadow: var(--shadow-sm); }
 .match-card h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
 .match-card .nums { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14px; color: var(--text-2); }
@@ -263,7 +272,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
 .dlg { padding: 24px; display: grid; gap: 16px; }
 .dlg header { display: flex; justify-content: space-between; gap: 16px; align-items: start; }
 .dlg h2 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; text-wrap: balance; }
-.dlg .sub { margin: 4px 0 0; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.dlg .sub { margin: 4px 0 0; font-size: 12px; color: var(--muted); }
 .dlg .close { flex: none; }
 .dlg dl { margin: 0; display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 12px 16px; }
 .dlg dt { color: var(--muted); font-size: 14px; padding-top: 2px; }
@@ -280,16 +289,15 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
 
 .vb-later p { font-family: var(--sans); font-size: 14px; color: #6b6b6b; }
 .vb-c p { font-size: 18px; }
-.vb-parse { margin: 0; font-family: var(--mono); font-size: 12px; color: #525252; }
+.vb-parse { margin: 0; font-size: 12px; color: #525252; }
 .vb-parse a { color: inherit; }
 .dsec { display: grid; gap: 12px; margin-top: 40px; max-width: 880px; }
-.dsec h2 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
 .flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .flow li { display: grid; grid-template-columns: 24px 1fr; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
 .flow b { font-weight: 600; font-size: 14px; }
 .flow p { margin: 4px 0 8px; font-size: 14px; color: var(--text-2); }
-.step-n { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border: 1px solid var(--line); border-radius: 6px; font-family: var(--mono); font-size: 12px; }
-.step-st { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.step-n { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border: 1px solid var(--line); border-radius: 6px; font-size: 12px; }
+.step-st { font-size: 12px; color: var(--muted); }
 .code { margin: 0; background: var(--raised); border: 1px solid var(--line); border-radius: 8px; padding: 16px; font-family: var(--mono); font-size: 12px; line-height: 1.6; overflow-x: auto; white-space: pre; }
 #bill-match .go { justify-self: start; }
 @media (max-width: 1100px) { .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -319,6 +327,8 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
   .top-right .seg a { padding: 0 8px; min-width: 0; white-space: normal; text-align: center; line-height: 1.25; }
   .hero { padding-top: 24px; }
   h1 { font-size: 28px; }
+  .sec h2, .gapmap h2, .positions h2, .dsec h2, .match h2 { font-size: 22px; }
+  .intro { font-size: 16px; }
   .answer { font-size: 16px; }
   .counts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cnt { padding: 12px 16px; }
@@ -358,35 +368,44 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
       <button type="button" class="icon-btn" id="theme" aria-label="Dunkles Farbschema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg></button>
     </div>
   </header>
+  <p class="claim">Der Open Policy Navigator stellt Lösungswege zu politischen Fragen nebeneinander: wo sie erprobt wurden, was sie bewirkt haben und was dagegen spricht. Die Demo zeigt vier Beispielfragen mit Testdaten.</p>
 </div></div>
-<nav class="qnav" id="qnav" aria-label="Fragen"><div class="page"><div class="picker" id="picker"></div></div></nav>
+<nav class="qnav" id="qnav" aria-label="Beispielfragen"><div class="page"><div class="picker" id="picker"></div></div></nav>
 <div class="page">
   <main id="main" tabindex="-1">
     <section id="view-frage" aria-labelledby="q-title">
       <div class="hero">
         <h1 id="q-title"></h1>
-        <p class="answer" id="q-answer"></p>
-        <p class="lead-in"><b>Welche Lösungen gibt es?</b> Hier stehen Lösungswege zu einer politischen Frage nebeneinander: wo sie erprobt wurden, was sie bewirkt haben und wer sie bestreitet.<span class="m-only"> Demo mit Testdaten.</span></p>
+        <p class="intro" id="q-intro"></p>
+        <ol class="toc" id="q-toc" aria-label="Teilfragen"></ol>
+        <p class="summary"><b>Kurz gesagt:</b> <span id="q-answer"></span></p>
+      </div>
+
+      <section class="sec" aria-labelledby="h-tried">
+        <h2 id="h-tried">Was wurde schon versucht?</h2>
+        <p class="sec-lead" id="tried-lead"></p>
         <div class="counts" id="counts" role="group" aria-label="Fälle filtern"></div>
         <p class="live" id="live" aria-live="polite"></p>
-      </div>
+      </section>
 
-      <div class="toolbar">
-        <div class="grp">
-          <span class="vh" id="view-lbl">Ansicht</span>
-          <div class="seg" role="group" aria-labelledby="view-lbl">
-            <button type="button" id="v-tbl" aria-pressed="false">Tabelle</button>
-            <button type="button" id="v-cmp" aria-pressed="true">Gegenüberstellung A/B</button>
-          </div>
+      <section class="sec" aria-labelledby="h-ways">
+        <div class="sec-head">
+          <h2 id="h-ways">Lösungswege im Vergleich</h2>
+          <div class="toolbar"><div class="grp">
+            <span class="vh" id="view-lbl">Ansicht</span>
+            <div class="seg" role="group" aria-labelledby="view-lbl">
+              <button type="button" id="v-cmp" aria-pressed="true">Gegenüberstellung</button>
+              <button type="button" id="v-tbl" aria-pressed="false">Tabelle</button>
+            </div>
+          </div></div>
         </div>
-      </div>
-
-      <details class="legend">
-        <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>So lesen Sie die Zeichen</summary>
-        <div class="legend-body" id="legend"></div>
-      </details>
-
-      <div id="out" tabindex="-1" style="outline:none"></div>
+        <p class="sec-lead" id="ways-lead"></p>
+        <details class="legend">
+          <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>Legende</summary>
+          <div class="legend-body" id="legend"></div>
+        </details>
+        <div id="out" tabindex="-1" style="outline:none"></div>
+      </section>
       <p class="note q-note" id="q-stand"></p>
     </section>
 
@@ -1071,11 +1090,12 @@ function stats(q) {
 }
 function renderCounts() {
   const s = stats(Q());
-  const gapLabel = `${s.open === 1 ? "Weg" : "Wege"} mit Lücken${s.notFull && s.notFullSides.length === 1 ? `, alle in Richtung ${s.notFullSides[0]}` : ""}`;
+  const gapLabel = `${s.open === 1 ? "Lösungsweg" : "Lösungswege"} noch nicht voll recherchiert${s.notFull && s.notFullSides.length === 1 ? `, alle in Richtung ${s.notFullSides[0]}` : ""}`;
   const where = `${s.countries} ${s.countries === 1 ? "Land" : "Ländern"}${s.eu ? " und der EU" : ""}`;
+  $("tried-lead").textContent = `Ein Fall ist eine Maßnahme, die ein Staat, eine Region oder eine Stadt eingeführt, erprobt oder vorgeschlagen hat. Zu dieser Frage sind ${s.cases} Fälle aus ${where} erfasst, verteilt auf ${s.ways} Lösungswege. Ein Klick auf eine Zahl zeigt unten nur diese Fälle.`;
   $("counts").innerHTML = [
-    ["all", s.cases, `alle Fälle, aus ${where}`], ["found", s.found, "mit Wirkungsbefund"],
-    ["stop", s.stop, "gestoppt oder beendet"], ["gaps", s.open, gapLabel]
+    ["all", s.cases, "Fälle insgesamt"], ["found", s.found, "davon mit gemessener Wirkung"],
+    ["stop", s.stop, "davon gestoppt oder beendet"], ["gaps", s.open, gapLabel]
   ].map(([f, n, l]) => `<button type="button" class="cnt${f === "gaps" ? " gap" : ""}" data-filter="${f}" aria-pressed="${state.filter === f}"><b>${n}</b><span>${esc(l)}</span></button>`).join("");
 }
 
@@ -1132,7 +1152,7 @@ function sideFold(g, sd, ws) {
   const eff = ["pos", "mixed", "null", "neg"].map(k => [k, cs.filter(c => c.effect === k).length]).filter(([, n]) => n);
   const effHTML = eff.length ? eff.map(([k, n]) => `<span class="sig" title="${esc(EFFECT[k].label)}">${svg(EFFECT[k].svg(EFFECT[k].color))}<span class="vh">${esc(EFFECT[k].label)}: </span>${n}</span>`).join("") : "<span>kein Wirkungsbefund</span>";
   const contra = ws.filter(w => w.contra).length, gaps = ws.filter(w => w.cov !== "checked").length;
-  return `<details class="fold" id="s-${g.id}-${sd}"><summary><span class="tag">Richtung ${sd}</span><h3>${esc(g.sides[sd].t)}</h3><span class="side-a">${esc(g.sides[sd].a)}</span>
+  return `<details class="fold" id="s-${g.id}-${sd}"><summary><span class="tag">Richtung ${sd}</span><h4>${esc(g.sides[sd].t)}</h4><span class="side-a">${esc(g.sides[sd].a)}</span>
       <span class="fold-n"><span>${plural(ws.length, "Weg", "Wege")}</span><span>${plural(cs.length, "Fall", "Fälle")}</span><span class="vh">Befunde: </span>${effHTML}<span>${plural(contra, "Einwand", "Einwände")}</span><span>${plural(gaps, "Lücke", "Lücken")}</span></span>
       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></summary>
     <div class="fold-body">${ws.length ? ws.map(wayCard).join("") : `<p class="side-empty">Kein Treffer in dieser Richtung für den gewählten Filter.</p>`}</div></details>`;
@@ -1148,14 +1168,14 @@ function renderCompare() {
     } else if (g.sides) {
       body = `<div class="sides">${["A", "B"].map(sd => {
         const ws = ways.filter(w => w.side === sd);
-        return `<div class="side" id="s-${g.id}-${sd}"><div class="side-head"><span class="tag">Richtung ${sd}</span><h3>${esc(g.sides[sd].t)}</h3><p>${esc(g.sides[sd].a)}</p></div>
+        return `<div class="side" id="s-${g.id}-${sd}"><div class="side-head"><span class="tag">Richtung ${sd}</span><h4>${esc(g.sides[sd].t)}</h4><p>${esc(g.sides[sd].a)}</p></div>
           ${ws.length ? ws.map(wayCard).join("") : `<p class="side-empty">Kein Treffer in dieser Richtung für den gewählten Filter.</p>`}</div>`;
       }).join("")}</div>`;
     } else {
       body = `<div class="sides single">${ways.map(w => `<div style="display:grid">${wayCard(w)}</div>`).join("")}</div>`;
     }
-    return `<section class="group" aria-labelledby="g-${g.id}">
-      <h2 id="g-${g.id}">${q.groups.length > 1 ? `<span class="gn">Teilfrage ${gi + 1} von ${q.groups.length}</span>` : ""}${esc(g.q)}</h2>
+    return `<section class="group" id="t-${g.id}" aria-labelledby="g-${g.id}">
+      <h3 id="g-${g.id}">${q.groups.length > 1 ? `<span class="gn">Teilfrage ${gi + 1} von ${q.groups.length}</span>` : ""}${esc(g.q)}</h3>
       <p class="evidence"><b>Was die Belege sagen</b>${esc(g.evidence)}</p>
       ${body}
     </section>`;
@@ -1239,8 +1259,8 @@ function renderTable() {
 
 function renderPicker() {
   const tabs = Object.entries(QUESTIONS).map(([id, q]) => `<a href="#frage/${id}"${state.q === id ? ' aria-current="page"' : ""}>${esc(q.tab)}${q.tabNote ? ` <small>${esc(q.tabNote)}</small>` : ""}</a>`).join("");
-  $("picker").innerHTML = tabs;
-  const cur = $("picker").querySelector("[aria-current]"); if (cur) $("picker").scrollLeft = cur.offsetLeft - 16;
+  $("picker").innerHTML = `<span class="plabel" aria-hidden="true">Beispielfragen</span>${tabs}`;
+  const pk = $("picker"), cur = pk.querySelector("[aria-current]"); if (cur && cur.offsetLeft + cur.offsetWidth > pk.clientWidth) pk.scrollLeft = cur.offsetLeft - 16;
 }
 function renderLive() {
   const all = uniqueCases(casesOf(Q())).filter(id => !CASES[id].placeholder), vis = all.filter(visibleCase);
@@ -1251,7 +1271,18 @@ function renderQuestion() {
   const q = Q();
   $("q-title").textContent = q.title;
   $("q-answer").textContent = q.answer;
-  $("q-stand").textContent = `Kurzantwort und Synthesen sind aus den Befunden abgeleitet und ungeprüft. ${q.stand}`;
+  const sided = q.groups.some(g => g.sides), n = q.groups.length;
+  const num = ["null", "eine", "zwei", "drei", "vier", "fünf", "sechs"][n] || String(n);
+  $("q-intro").textContent = n > 1
+    ? `Die Frage lässt sich in ${num} Teilfragen zerlegen. Zu jeder stehen zwei gegensätzliche Antworten nebeneinander, Richtung A und Richtung B, jeweils mit den Fällen, in denen sie erprobt wurden.`
+    : `${q.groups[0].q.replace(/\?.*$/, "?")} Die Lösungswege unten setzen bei unterschiedlichen Annahmen an, jeweils mit den Fällen, in denen sie erprobt wurden.`;
+  $("q-toc").innerHTML = n > 1 ? q.groups.map(g => `<li><button type="button" class="linkbtn" data-jump="t-${g.id}">${esc(g.q)}</button></li>`).join("") : "";
+  $("q-toc").hidden = n < 2;
+  $("ways-lead").textContent = state.mode === "tbl"
+    ? "Alle Fälle in einer Tabelle. Ein Klick auf einen Spaltenkopf sortiert."
+    : sided ? "Je Teilfrage zwei Spalten: Richtung A und Richtung B sind gegensätzliche Antworten, keine Rangfolge. Jede Karte ist ein Lösungsweg mit seinen Fällen; ein Klick öffnet Details und Quellen."
+    : "Jede Karte ist ein Lösungsweg mit seiner Grundannahme und seinen Fällen; ein Klick öffnet Details und Quellen.";
+  $("q-stand").textContent = `„Kurz gesagt“ und „Was die Belege sagen“ sind aus den Befunden abgeleitet und ungeprüft. ${q.stand}`;
   renderPicker(); renderCounts(); renderLive();
   $("v-cmp").setAttribute("aria-pressed", String(state.mode === "cmp"));
   $("v-tbl").setAttribute("aria-pressed", String(state.mode === "tbl"));
@@ -1482,6 +1513,7 @@ document.addEventListener("click", async e => {
   const cb = t.closest("[data-case]"); if (cb) { openCase(cb.dataset.case); return; }
   const wb = t.closest("[data-way]"); if (wb) { openWay(wb.dataset.way); return; }
   const pb = t.closest("[data-pos]"); if (pb) { openPos(+pb.dataset.pos); return; }
+  const jb = t.closest("[data-jump]"); if (jb) { const el = $(jb.dataset.jump); if (el) { el.scrollIntoView({ block: "start" }); const h = el.querySelector("h3"); if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); } } return; }
   const cite = t.closest("[data-cite]");
   if (cite) {
     const [kind, ref] = cite.dataset.cite.split(":");

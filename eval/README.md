@@ -41,6 +41,14 @@ Metrics including proposals (information only, not used by the ratchet):
 `extraction_precision` is 1.0 by construction as long as `gold_alt` is a copy of
 the stored text; it only becomes meaningful after checking against the PDFs.
 
+## Target (as promised in the application)
+
+Gold set of 100 drafts, 70 of them coded independently by two people.
+Agreement as Krippendorff's α per category with confidence interval, target
+≥ 0.800 (Krippendorff 2004); this script still reports Cohen's κ only.
+Target recall of the section detection: 95 %, with a public error report.
+Roadmap issue 1.
+
 ## Double coding
 
 Every item has `coding_2` (same fields as `coding_1`, default `null`). A second

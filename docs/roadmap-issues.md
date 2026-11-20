@@ -2,14 +2,15 @@
 
 Entwurf für GitHub-Issues. Anlegen erst nach Freigabe durch Stefan.
 
-## 1. Goldset v0 annotieren und doppelt kodieren
+## 1. Goldstandard ausbauen: 100 Entwürfe, 70 doppelt kodiert
 
-Die 20 nicht erkannten Regierungsentwürfe in `eval/goldset_v0.json` am PDF prüfen
-(`section_present`, `gold_alt`, `category`), die 16 Vorschläge bestätigen oder
-korrigieren. Danach eine zweite Person unabhängig kodieren lassen (`coding_2`), Ziel etwa
-70 doppelt kodierte Entwürfe (ADR 0005). **Fertig:** `section_recall` berechnet,
-Krippendorff-α für `category` mit Konfidenzintervall berichtet (Ziel ≥ 0,800),
-Schwellen per `--update` angehoben.
+Goldset v0 (36 Entwürfe) abschließen: Stefan bestätigt oder korrigiert die
+Vorschläge. Danach auf 100 Entwürfe ausbauen, davon 70 unabhängig doppelt
+kodiert (`coding_2`). Übereinstimmung als Krippendorff-α je Kategorie mit
+Konfidenzintervall, Ziel ≥ 0,800 (Krippendorff 2004); das Eval-Skript rechnet
+bisher nur Cohen-κ. Ziel-Trefferquote der Erkennung 95 %, mit öffentlichem
+Fehlerbericht. **Fertig:** `section_recall` berechnet, α berichtet, Schwellen per
+`--update` angehoben.
 
 ## 2. Extraktor de-v1: lange Abschnitte und Fundort
 
@@ -48,3 +49,31 @@ Server nach `contracts/mcp/` auf einem abgeleiteten Release-Stand (ADR 0001,
 
 Eine Frage mit 2–3 Lösungsansätzen, Fällen aus DE/AT und mindestens einer
 Gegenposition je Ansatz; Review durch zwei Personen verschiedener Richtung.
+
+## 8. Prüfstufen und Datenschichten im Schema
+
+Der Antrag sagt vier Prüfstufen zu: automatisch erfasst → maschinell vorgeprüft
+(Schema, Zitat wörtlich im archivierten Quelltext, Konsistenz, Dubletten) →
+menschlich geprüft (Deckungsfrage je Fakt) → im Audit bestätigt (Zufallsstichprobe,
+Fehlerquote mit Konfidenzintervall). `review_status` kennt bisher nur `proposed`,
+`confirmed` und `rejected`. Vorschlag: `machine_checked` und `audited` ergänzen.
+Dazu ein Feld `layer` in der Provenienz-Hülle für die drei Datenschichten
+(`parsed`, `imported`, `curated`), damit die Herkunft sichtbar ist. Außerdem Modell
+und Prompt-Version für `extraction_method: llm` (ADR 0005).
+
+## 9. Importer für eine offene Instrumentendatenbank (Monat 4)
+
+Einen Importer für eine offene Instrumentendatenbank schreiben, etwa die European
+Sufficiency Policy Database (CSV). Importierte Einträge tragen `layer: imported`
+und `review_status: proposed`. Zuerst die Lizenz in `DATA_SOURCES.md` klären.
+
+## 10. Länder-Adapter, Mehrsprachigkeit, EU-Folgenabschätzungen
+
+DE und AT als austauschbare Adapter mit gemeinsamer Schnittstelle. Schema-Texte
+mehrsprachig anlegen. EU-Folgenabschätzungen als nächste Quelle (Second Stage).
+
+## 11. Statisches Portal (WCAG 2.2 AA)
+
+Ein statisches Portal aus dem abgeleiteten Release-Stand (ADR 0001), barrierefrei
+nach WCAG 2.2 AA. Der MCP-Server bleibt lokal und folgt dem festen Antwortvertrag
+(ADR 0003).

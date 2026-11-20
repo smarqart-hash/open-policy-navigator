@@ -423,7 +423,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
 <a class="skip" href="#main">Zum Inhalt</a><a class="skip" href="#sec-tried">Zu den Optionen</a>
 <div class="topbar"><div class="page">
   <header class="top">
-    <a class="brand" href="#frage/ki"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg><b>Open Policy Navigator</b><span class="demo-tag">Demo · Testdaten</span></a>
+    <a class="brand" href="#frage/ki"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg><b>Open Policy Navigator</b><span class="demo-tag">Demo</span></a>
     <div class="top-right">
       <nav class="seg" aria-label="Einstieg">
         <a href="#frage/ki" id="nav-frage">Nach Frage</a>
@@ -433,7 +433,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
       <button type="button" class="icon-btn" id="theme" aria-label="Dunkles Farbschema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg></button>
     </div>
   </header>
-  <p class="claim">Der Open Policy Navigator stellt Lösungswege zu politischen Fragen nebeneinander: wo sie erprobt wurden, was sie bewirkt haben und was dagegen spricht. Die Demo zeigt vier Beispielfragen mit Testdaten.</p>
+  <p class="claim">Der Open Policy Navigator stellt Lösungswege zu politischen Fragen nebeneinander: wo sie erprobt wurden, was sie bewirkt haben und was dagegen spricht. Die Demo zeigt vier Beispielfragen: KI und Arbeit ist recherchiert und geprüft, die übrigen drei sind Testdaten.</p>
 </div></div>
 <nav class="qnav" id="qnav" aria-label="Beispielfragen"><div class="page"><div class="picker" id="picker"></div></div></nav>
 <div class="page">
@@ -510,7 +510,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
   </main>
 
   <footer class="foot">
-    <p><b>Demo mit Testdaten, Stand 12.11.2026.</b> Alle Einstufungen sind aus den Quellenangaben abgeleitet und noch von niemandem geprüft; wörtliche Fundstellen fehlen noch. Lösungswege sind nach Teilfragen geordnet, nicht nach Parteien, und Lücken bleiben sichtbar.</p>
+    <p><b>KI und Arbeit: Recherche vom 20.11.2026</b> mit zwei unabhängigen Prüfrunden; die wörtlichen Fundstellen liegen im Rechercheprotokoll, in der Demo noch nicht. <b>Übrige Fragen: Testdaten vom 12.11.2026</b>, Einstufungen aus den Quellenangaben abgeleitet und ungeprüft. Lösungswege sind nach Teilfragen geordnet, nicht nach Parteien, und Lücken bleiben sichtbar.</p>
     <p><span id="exports"><button type="button" class="linkbtn" id="textexp">Frage als Text kopieren</button> · <button type="button" class="linkbtn" id="json">als JSON</button> <span class="quiet" role="status" id="exp-msg"></span> · </span>Code (MIT), Schema (CC0) und Daten (CC BY 4.0) auf <a href="https://github.com/smarqart-hash/open-policy-navigator">GitHub</a> · <a href="#daten">Methodik und Korrekturen</a> · Keine Cookies, kein Tracking</p>
   </footer>
 </div>
@@ -634,6 +634,7 @@ const SRC = {
   kholodilin: ["Kholodilin 2024: Rent control effects through the lens of empirical research (DIW)", "https://www.diw.de/de/diw_01.c.893635.de/publikationen/externe_referierte_aufsaetze/2024_0000/rent_control_effects_through_the_lens_of_empirical_research__an_almost_complete_review_of_the_literature.html", "Wissenschaft, Übersichtsstudie"],
   diamond: ["Diamond, McQuade, Qian 2019: Rent control in San Francisco (AER)", "https://www.aeaweb.org/doi/10.1257/aer.20181289", "Wissenschaft"],
   orfmiete: ["ORF: Mietenstopp und Mietpreisbremse", "https://orf.at/stories/3411873/", "Medium"],
+  consilium15781: ["Rat der EU, Dok. 15781/25: Declaration for European Digital Sovereignty", "https://data.consilium.europa.eu/doc/document/ST-15781-2025-INIT/en/pdf", "Rat der EU"],
   kreiner: ["Kreiner, Svarer 2022: Danish Flexicurity (Journal of Economic Perspectives)", "https://www.aeaweb.org/doi/10.1257/jep.36.4.81", "Wissenschaft"],
   stardk: ["Dänische Arbeitsmarktagentur (STAR): Flexicurity", "https://www.star.dk/en/about-the-danish-agency-for-labour-market-and-recruitment/flexicurity", "Behörde"],
   grvo: ["Graversen, van Ours 2008: How to help unemployed find jobs quickly (Journal of Public Economics)", "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2553369", "Wissenschaft"],
@@ -702,7 +703,7 @@ const CASES = {
   berlin: { title: "Berliner Erklärung zur digitalen Souveränität", where: "EU", country: "EU", when: "18.11.2025", status: "adopted", statusNote: "Politische Erklärung aller 27 Mitgliedstaaten.",
     effect: "notyet", effectNote: "Politische Erklärung; eine Wirkung ist nicht messbar.", strength: 0, kz: "alle 27 Mitgliedstaaten",
     what: "Politische Erklärung zur digitalen Souveränität; Grundlage für Vergabekriterien.",
-    contra: "Österreichs Rolle als Anstoßgeber steht nur in einem Ratsdokument und ist nicht verifiziert.", src: [], ids: "X09 Nr. 10" },
+    contra: "Österreichs Rolle als Anstoßgeber steht nur in einem Ratsdokument und ist nicht verifiziert.", src: ["consilium15781"], ids: "X09 Nr. 10" },
   cada: { title: "Cloud- und KI-Entwicklungsgesetz (CADA)", where: "EU", country: "EU", when: "Vorschlag Juni 2026", status: "proposed",
     effect: "notyet", effectNote: "Vorschlag, noch nicht umgesetzt.", strength: 0, kz: "COM(2026) 502",
     what: "Öffentliche Auftraggeber sollen europäischen Mehrwert, Wechselbarkeit und Prüfbarkeit verlangen dürfen.",
@@ -1743,8 +1744,8 @@ $("json").addEventListener("click", () => {
   const q = Q();
   const lbl = o => Object.fromEntries(Object.entries(o).map(([k, v]) => [k, v.def ? `${v.label}: ${v.def}` : v.label]));
   const quellen = ids => ids.map(s => ({ titel: SRC[s][0], url: SRC[s][1], absender: SRC[s][2] }));
-  const data = { projekt: "Open Policy Navigator (Demo)", frage: q.title, kurzantwort: q.answer, stand: `Testdaten, Stand ${q.date || "12.11.2026"}`,
-    hinweis: "Demo mit Testdaten; alle Einstufungen ungeprüft.", lizenz: { daten: "CC BY 4.0", schema: "CC0", code: "MIT" },
+  const data = { projekt: "Open Policy Navigator (Demo)", frage: q.title, kurzantwort: q.answer, stand: q.date ? `Recherche, Stand ${q.date}` : "Testdaten, Stand 12.11.2026",
+    hinweis: q.date ? "Recherche mit zwei unabhängigen Prüfrunden; wörtliche Fundstellen noch nicht in der Demo." : "Demo mit Testdaten; alle Einstufungen ungeprüft.", lizenz: { daten: "CC BY 4.0", schema: "CC0", code: "MIT" },
     codebuch: { status: lbl(STATUS), wirkung: lbl(EFFECT), evidenzstaerke: STRENGTH.map((s, i) => `${i}: ${s.label}${s.def ? " – " + s.def : ""}`), abdeckung: lbl(COV) },
     teilfragen: q.groups.map(g => ({ id: g.id, frage: g.q, richtungen: g.sides, belege: g.evidence })),
     loesungswege: q.ways.map(({ ids, ...w }) => ({ ...w, faelle: w.cases.map(id => { const { ids: _i, ...c } = CASES[id]; return { id, ...c, quellen: quellen(c.src) }; }) })),

@@ -1,0 +1,1532 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Open Policy Navigator – Demo</title>
+<meta name="description" content="Demo eines offenen Vergleichsportals für politische Maßnahmen: Lösungswege, Fälle aus anderen Ländern, Wirkung, Evidenzstärke, Einwände und Fundstellen.">
+<meta name="color-scheme" content="light dark">
+<style>
+:root {
+  --bg: #fafafa; --surface: #ffffff; --raised: #f4f4f5; --line: rgba(23, 23, 23, .1); --line-strong: rgba(23, 23, 23, .2);
+  --text: #171717; --text-2: #525252; --muted: #6b6b6b;
+  --primary: #171717; --on-primary: #ffffff; --focus: #0969da;
+  --pos: #0969da; --mix: #9a6700; --neg: #cf222e; --none: #6b6b6b;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --doc: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .05); --shadow-lg: 0 8px 24px rgba(0, 0, 0, .08);
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #0f0f10; --surface: #19191b; --raised: #232325; --line: rgba(237, 237, 237, .1); --line-strong: rgba(237, 237, 237, .2);
+  --text: #ededed; --text-2: #a1a1a6; --muted: #8e8e93;
+  --primary: #ededed; --on-primary: #171717; --focus: #58a6ff;
+  --pos: #58a6ff; --mix: #d29922; --neg: #ff7b72; --none: #8e8e93;
+  --shadow-sm: none; --shadow-lg: 0 8px 24px rgba(0, 0, 0, .4);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.6; padding-bottom: 64px; }
+.page { max-width: 1280px; margin: 0 auto; padding-inline: max(24px, env(safe-area-inset-left, 0px)) max(24px, env(safe-area-inset-right, 0px)); }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: var(--line-strong); transition: text-decoration-color 140ms var(--ease); }
+a:hover { text-decoration-color: currentColor; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.quiet { color: var(--muted); }
+.skip { position: absolute; left: 16px; top: -64px; background: var(--primary); color: var(--on-primary); padding: 8px 12px; border-radius: 6px; z-index: 20; }
+.skip:focus { top: 8px; }
+main:focus { outline: none; }
+[hidden] { display: none !important; }
+
+.topbar { background: var(--surface); border-bottom: 1px solid var(--line); }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; min-height: 40px; }
+.brand b { font-size: 16px; font-weight: 600; letter-spacing: 0; }
+.brand .mark { width: 20px; height: 20px; color: var(--text); flex: none; }
+.demo-tag { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.top-right { display: flex; align-items: center; gap: 8px; }
+.icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--line); background: var(--surface); border-radius: 8px; cursor: pointer; color: var(--text-2); transition: background-color 140ms var(--ease), color 140ms var(--ease); }
+.icon-btn:hover { background: var(--raised); color: var(--text); }
+.icon-btn svg { width: 16px; height: 16px; }
+
+.seg { display: inline-flex; background: var(--raised); border: 1px solid var(--line); border-radius: 8px; padding: 2px; gap: 2px; max-width: 100%; }
+.seg button, .seg a { border: 1px solid transparent; background: none; border-radius: 6px; padding: 0 12px; min-height: 32px; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; color: var(--text-2); white-space: nowrap; transition: background-color 140ms var(--ease), color 140ms var(--ease); }
+.seg button:hover, .seg a:hover { color: var(--text); }
+.seg [aria-pressed="true"], .seg [aria-current="page"] { background: var(--surface); color: var(--text); border-color: var(--line); box-shadow: var(--shadow-sm); }
+
+.btn { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line-strong); background: var(--surface); border-radius: 8px; padding: 0 12px; min-height: 36px; font-size: 14px; font-weight: 500; cursor: pointer; white-space: nowrap; box-shadow: var(--shadow-sm); transition: background-color 140ms var(--ease); }
+.btn:hover { background: var(--raised); }
+.go { display: inline-flex; align-items: center; gap: 8px; justify-self: start; border: 0; background: var(--primary); color: var(--on-primary); border-radius: 8px; padding: 0 16px; min-height: 40px; cursor: pointer; font-weight: 500; font-size: 14px; text-decoration: none; transition: opacity 140ms var(--ease), transform 120ms var(--ease); }
+.go:hover { opacity: .88; }
+.go:active { transform: scale(.98); }
+.go svg { width: 16px; height: 16px; }
+
+.qnav { border-bottom: 1px solid var(--line); background: var(--surface); }
+.picker { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.picker::-webkit-scrollbar { display: none; }
+.picker a, .picker .planned { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 0 12px; min-height: 48px; font-size: 14px; color: var(--text-2); text-decoration: none; white-space: nowrap; }
+.picker a:hover { color: var(--text); }
+.picker a[aria-current="page"] { color: var(--text); font-weight: 500; }
+.picker a[aria-current="page"]::after { content: ""; position: absolute; left: 8px; right: 8px; bottom: -1px; height: 2px; border-radius: 2px; background: var(--text); }
+.picker small { font-size: 12px; color: var(--muted); font-weight: 400; }
+.picker .planned { color: var(--muted); cursor: default; }
+
+.hero { padding-block: 40px 0; display: grid; gap: 16px; }
+.hero > * { min-width: 0; }
+.lead-in { margin: 0; font-size: 14px; color: var(--text-2); max-width: 64ch; }
+.lead-in b { color: var(--text); font-weight: 500; }
+h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spacing: -.02em; max-width: 28ch; text-wrap: balance; }
+.answer { margin: 0; font-size: 18px; line-height: 1.6; color: var(--text-2); max-width: 64ch; }
+.stand { margin: 0; font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 75ch; }
+.m-only { display: none; }
+
+.counts { overflow: hidden; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin-top: 8px; box-shadow: var(--shadow-sm); }
+.cnt { padding: 16px 20px; display: grid; gap: 4px; align-content: start; border: 0; background: none; text-align: left; cursor: pointer; font: inherit; color: inherit; min-height: 44px; transition: background-color 140ms var(--ease); }
+.cnt:hover { background: var(--raised); }
+.cnt[aria-pressed="true"] { background: var(--raised); box-shadow: inset 0 -2px 0 var(--text); }
+.cnt + .cnt { border-left: 1px solid var(--line); }
+.cnt b { font-size: 24px; line-height: 1.1; font-variant-numeric: tabular-nums; font-weight: 500; letter-spacing: -.01em; }
+.cnt span { font-size: 14px; color: var(--text-2); line-height: 1.4; }
+.cnt.gap b { color: var(--muted); }
+
+.toolbar { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; padding-block: 32px 0; }
+.toolbar .grp { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; min-width: 0; }
+.lbl { font-size: 14px; color: var(--text-2); }
+.toolbar .seg { overflow-x: auto; scrollbar-width: none; }
+.live { font-size: 14px; color: var(--muted); min-height: 20px; margin: 12px 0 0; font-family: var(--mono); }
+
+.legend { margin-top: 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.legend summary { cursor: pointer; padding: 0 16px; min-height: 44px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; list-style: none; }
+.legend summary::-webkit-details-marker { display: none; }
+.legend summary svg { width: 16px; height: 16px; color: var(--muted); transition: transform 160ms var(--ease); }
+.legend[open] summary svg { transform: rotate(90deg); }
+.legend-foot { grid-column: 1 / -1; margin: 0 !important; }
+.legend-body { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 24px; padding: 4px 16px 16px; border-top: 1px solid var(--line); padding-top: 16px; }
+.legend h2 { margin: 0 0 8px; font-size: 14px; font-weight: 500; }
+.legend ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: 14px; }
+.legend li { display: flex; gap: 8px; align-items: flex-start; }
+.legend p { margin: 8px 0 0; font-size: 12px; line-height: 1.5; color: var(--muted); }
+
+.sig { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; line-height: 1.4; white-space: nowrap; color: var(--text-2); }
+.sig svg { width: 12px; height: 12px; flex: none; }
+.sig.strong { color: var(--text); font-weight: 500; }
+.bars { display: inline-flex; gap: 2px; align-items: flex-end; height: 12px; }
+.bars i { width: 4px; background: var(--line-strong); display: block; border-radius: 1px; }
+.bars i:nth-child(1) { height: 4px; } .bars i:nth-child(2) { height: 8px; } .bars i:nth-child(3) { height: 12px; }
+.bars i.on { background: var(--text); }
+
+.groups { display: grid; gap: 48px; margin-top: 32px; }
+.group { display: grid; gap: 16px; }
+.group > h2 { margin: 0; font-weight: 600; font-size: 20px; line-height: 1.3; letter-spacing: -.01em; max-width: 48ch; text-wrap: balance; }
+.group .gn { display: block; font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--muted); letter-spacing: 0; margin-bottom: 4px; }
+.sides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.sides.single { align-items: start; }
+.side { display: grid; gap: 24px; align-content: start; min-width: 0; }
+.side-head { display: grid; gap: 4px; }
+.side-head .tag { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.side-head h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
+.side-head p, .side-a { margin: 0; font-size: 14px; color: var(--text-2); }
+.side-empty { margin: 0; font-size: 14px; color: var(--muted); }
+.evidence { margin: 0; background: var(--raised); border-radius: 8px; padding: 16px; font-size: 16px; max-width: 70ch; }
+.evidence b { display: block; font-size: 14px; font-weight: 500; color: var(--text-2); margin-bottom: 4px; }
+.fold { border-top: 1px solid var(--line); }
+.fold:last-child { border-bottom: 1px solid var(--line); }
+.fold > summary { list-style: none; cursor: pointer; padding: 12px 0; display: grid; grid-template-columns: minmax(0, 1fr) 16px; gap: 4px 12px; align-items: start; min-height: 44px; }
+.fold > summary::-webkit-details-marker { display: none; }
+.fold > summary > * { grid-column: 1; }
+.fold .tag { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.fold h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
+.fold > summary .chev { width: 16px; height: 16px; color: var(--muted); grid-column: 2; grid-row: 1 / span 2; align-self: center; transition: transform 160ms var(--ease); }
+.fold[open] > summary .chev { transform: rotate(90deg); }
+.fold-n { display: flex; flex-wrap: wrap; align-items: center; gap: 0 12px; font-size: 14px; color: var(--text-2); }
+.fold-n .sig { gap: 4px; }
+.fold-body { display: grid; gap: 16px; padding-bottom: 16px; }
+
+.way { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 12px; min-width: 0; align-content: start; box-shadow: var(--shadow-sm); }
+.way.gap { background: transparent; border-style: dashed; border-color: var(--line-strong); box-shadow: none; }
+.way-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.way-top .way-title { flex: 1; min-width: 0; }
+.wsum { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; font-size: 14px; color: var(--text-2); }
+.wsum-eff { display: inline-flex; gap: 12px; }
+.tctx { display: block; font-family: var(--mono); font-size: 12px; color: var(--muted); font-weight: 400; }
+.tkz { font-family: var(--mono); font-size: 14px; }
+.cnt:focus-visible { outline-offset: -3px; }
+.live { margin: 0; }
+.live:empty { display: none; }
+.live .linkbtn { margin-left: 8px; }
+.way-title { border: 0; background: none; padding: 0; text-align: left; cursor: pointer; font-size: 16px; font-weight: 600; line-height: 1.4; text-wrap: balance; min-height: 24px; display: inline-flex; align-items: center; gap: 4px; }
+.way-title .chev { width: 16px; height: 16px; color: var(--muted); flex: none; }
+.way-title:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-strong); }
+.belief { margin: 0; font-size: 14px; color: var(--text); }
+.belief b { font-weight: 500; color: var(--text-2); }
+.cases { list-style: none; margin: 0 -16px; padding: 0; border-top: 1px solid var(--line); }
+.cases li + li .case { border-top: 1px solid var(--line); }
+.case { width: 100%; border: 0; background: none; text-align: left; cursor: pointer; padding: 12px 16px; display: grid; grid-template-columns: minmax(0, 1fr) 16px; gap: 12px; align-items: center; min-height: 44px; transition: background-color 140ms var(--ease); }
+.cbody { display: grid; gap: 4px; min-width: 0; }
+.case .chev { width: 16px; height: 16px; color: var(--muted); }
+.case:hover { background: var(--raised); }
+.case.static { cursor: default; }
+.case.static:hover { background: none; }
+.cline { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 12px; align-items: baseline; }
+.cname { font-weight: 500; font-size: 14px; line-height: 1.4; }
+.cwhere { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.csigs { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.ckz { font-family: var(--mono); font-size: 14px; color: var(--text); font-variant-numeric: tabular-nums; }
+.nocase { margin: 0; font-size: 14px; color: var(--muted); }
+.contra { margin: 0; font-size: 14px; }
+.contra b { font-weight: 500; }
+.contra.quiet { color: var(--muted); }
+.by { display: block; margin-top: 4px; font-family: var(--mono); color: var(--muted); font-size: 12px; }
+.cov { display: inline-flex; gap: 6px; align-items: center; font-size: 12px; color: var(--muted); white-space: nowrap; padding-top: 2px; }
+.cov svg { width: 12px; height: 12px; }
+
+.tablewrap { position: relative; overflow-x: auto; margin-top: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-sm); }
+.tbl, .mx { border-collapse: separate; border-spacing: 0; width: 100%; }
+.tbl { min-width: 900px; }
+.mx { min-width: 720px; }
+.tbl th, .tbl td, .mx th, .mx td { text-align: left; vertical-align: top; padding: 12px; border-bottom: 1px solid var(--line); font-size: 14px; }
+.tbl tr:last-child td, .tbl tr:last-child th, .mx tr:last-child th, .mx tr:last-child td { border-bottom: 0; }
+.tbl thead th, .mx thead th { font-size: 12px; color: var(--text-2); font-weight: 500; white-space: nowrap; background: var(--raised); }
+.tbl thead th { padding: 4px 8px; }
+.tbl thead button { border: 0; background: none; cursor: pointer; padding: 0 4px; min-height: 32px; color: inherit; font-weight: inherit; display: inline-flex; gap: 4px; align-items: center; border-radius: 6px; }
+.tbl thead button:hover { color: var(--text); }
+.tbl tbody th, .mx tbody th { font-weight: 500; }
+.linkbtn { border: 0; background: none; padding: 0; text-align: left; cursor: pointer; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; font-weight: 500; min-height: 24px; }
+.linkbtn:hover { text-decoration-color: currentColor; }
+
+.positions, .gapmap { margin-top: 48px; display: grid; gap: 12px; }
+.gapmap h2 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; }
+.gapmap > p { margin: 0; font-size: 14px; color: var(--text-2); max-width: 72ch; }
+.gm-key { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0; padding: 0; list-style: none; }
+.gm-key .cov { font-size: 14px; color: var(--text-2); }
+.gm { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-sm); table-layout: fixed; }
+.gm th, .gm td { text-align: left; vertical-align: top; padding: 12px; border-bottom: 1px solid var(--line); font-size: 14px; }
+.gm td + td, .gm th + td, .gm thead th + th { border-left: 1px solid var(--line); }
+.gm tr:last-child > * { border-bottom: 0; }
+.gm thead th { font-size: 12px; color: var(--text-2); font-weight: 500; background: var(--raised); }
+.gm thead th:first-child { border-top-left-radius: 12px; } .gm thead th:last-child { border-top-right-radius: 12px; }
+.gm tbody th { font-weight: 500; width: 30%; }
+.gm tbody th small, .gm-side { display: block; font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--muted); }
+.gm ul { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 4px; }
+.gm-w { width: 100%; border: 0; background: none; padding: 4px 0; cursor: pointer; text-align: left; display: grid; grid-template-columns: 12px 2ch minmax(0, 1fr); gap: 8px; align-items: baseline; min-height: 32px; color: var(--text); }
+.gm-w svg { width: 12px; height: 12px; color: var(--muted); align-self: center; }
+.gm-w b { font-family: var(--mono); font-weight: 400; text-align: right; font-variant-numeric: tabular-nums; }
+.gm-w:hover span { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-strong); }
+.gm-w.open { color: var(--text-2); }
+.gm-none { color: var(--muted); }
+.gm-m { display: none; }
+.positions h2 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; }
+.positions > p { margin: 0; font-size: 14px; color: var(--text-2); max-width: 72ch; }
+.mx tbody th { position: sticky; left: 0; background: var(--surface); min-width: 12em; }
+.mx tbody th small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; font-family: var(--mono); }
+.mx .none { font-size: 12px; color: var(--muted); }
+.stance { border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 0 8px; min-height: 28px; cursor: pointer; font-size: 14px; white-space: nowrap; display: inline-flex; gap: 6px; align-items: center; transition: background-color 140ms var(--ease); }
+.stance:hover { background: var(--raised); }
+.stance b { width: 1ch; text-align: center; font-family: var(--mono); font-weight: 400; }
+
+.bill { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; margin-top: 32px; align-items: start; }
+.vorblatt { position: relative; background: #ffffff; color: #1a1a1a; border: 1px solid var(--line); border-radius: 4px; box-shadow: var(--shadow-sm); padding: 32px; display: grid; gap: 16px; font-family: var(--doc); }
+.vorblatt .ph { position: absolute; top: 12px; right: 16px; font-family: var(--mono); font-size: 12px; color: #6b6b6b; }
+.vorblatt .ds { margin: 0; font-family: var(--sans); font-size: 14px; color: #525252; }
+.vorblatt h2 { margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600; hyphens: auto; overflow-wrap: break-word; }
+.vb-sec { display: grid; gap: 4px; }
+.vb-sec h3 { margin: 0; font-family: var(--sans); font-size: 14px; font-weight: 600; }
+.vb-sec p { margin: 0; font-size: 16px; }
+.fill { font-family: var(--mono); font-size: 14px; color: #6b6b6b; }
+.vb-c { border-top: 1px solid rgba(0, 0, 0, .2); padding-top: 12px; }
+.vb-c .ins { display: block; margin-top: 8px; font-family: var(--sans); font-size: 14px; font-weight: 500; color: #525252; }
+.match { display: grid; gap: 16px; }
+.match h2 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; }
+.match-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 12px; box-shadow: var(--shadow-sm); }
+.match-card h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
+.match-card .nums { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14px; color: var(--text-2); }
+.match-card .nums b { color: var(--text); font-weight: 500; font-variant-numeric: tabular-nums; }
+.note { margin: 0; font-size: 14px; color: var(--muted); max-width: 72ch; }
+
+.q-note { margin-top: 32px; }
+.foot .linkbtn { font-weight: 400; color: inherit; font-size: inherit; min-height: 24px; }
+
+.foot { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--text-2); font-size: 14px; display: grid; gap: 8px; }
+.foot p { margin: 0; max-width: 80ch; }
+.foot b { color: var(--text); font-weight: 500; }
+
+dialog { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--text); padding: 0; width: min(640px, calc(100vw - 24px)); max-height: calc(100dvh - 32px); box-shadow: var(--shadow-lg); }
+dialog::backdrop { background: rgba(0, 0, 0, .32); }
+@media (prefers-reduced-motion: no-preference) {
+  dialog[open] { animation: rise 220ms var(--ease); }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+}
+.dlg { padding: 24px; display: grid; gap: 16px; }
+.dlg header { display: flex; justify-content: space-between; gap: 16px; align-items: start; }
+.dlg h2 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; text-wrap: balance; }
+.dlg .sub { margin: 4px 0 0; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.dlg .close { flex: none; }
+.dlg dl { margin: 0; display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 12px 16px; }
+.dlg dt { color: var(--muted); font-size: 14px; padding-top: 2px; }
+.dlg dd { margin: 0; font-size: 16px; }
+.dlg dd .by { display: inline; margin: 0 0 0 4px; }
+.dlg h3 { margin: 4px 0 0; font-size: 14px; font-weight: 600; }
+.dlg ul { margin: 0; padding-left: 20px; display: grid; gap: 8px; font-size: 14px; }
+.dlg ul .by { display: inline; margin: 0; }
+.dlg .ph-line { font-size: 14px; color: var(--muted); margin: 0; }
+.dlg .acts { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.dlg .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chipbtn { border: 1px solid var(--line-strong); background: var(--surface); border-radius: 6px; padding: 0 12px; min-height: 32px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background-color 140ms var(--ease); }
+.chipbtn:hover { background: var(--raised); }
+
+.vb-later p { font-family: var(--sans); font-size: 14px; color: #6b6b6b; }
+.vb-c p { font-size: 18px; }
+.vb-parse { margin: 0; font-family: var(--mono); font-size: 12px; color: #525252; }
+.vb-parse a { color: inherit; }
+.dsec { display: grid; gap: 12px; margin-top: 40px; max-width: 880px; }
+.dsec h2 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
+.flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.flow li { display: grid; grid-template-columns: 24px 1fr; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+.flow b { font-weight: 600; font-size: 14px; }
+.flow p { margin: 4px 0 8px; font-size: 14px; color: var(--text-2); }
+.step-n { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border: 1px solid var(--line); border-radius: 6px; font-family: var(--mono); font-size: 12px; }
+.step-st { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.code { margin: 0; background: var(--raised); border: 1px solid var(--line); border-radius: 8px; padding: 16px; font-family: var(--mono); font-size: 12px; line-height: 1.6; overflow-x: auto; white-space: pre; }
+#bill-match .go { justify-self: start; }
+@media (max-width: 1100px) { .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .flow { grid-template-columns: 1fr; } }
+@media (max-width: 1000px) {
+  .counts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cnt:nth-child(3) { border-left: 0; }
+  .cnt:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .legend-body { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .sides { grid-template-columns: 1fr; gap: 32px; }
+  .bill { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .page { padding-inline: 16px; }
+  .top { flex-wrap: wrap; gap: 8px 12px; padding-block: 8px 12px; }
+  .brand b { white-space: nowrap; }
+  .top-right { width: 100%; }
+  .top-right .seg { flex: 1; }
+  .top-right .seg a { flex: 1; justify-content: center; }
+  .demo-tag { display: none; }
+  .m-only { display: inline; }
+  #bills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+  #bills a { justify-content: center; white-space: normal; text-align: center; }
+  .top-right .seg { min-width: 0; }
+  .top-right .seg a { padding: 0 8px; min-width: 0; white-space: normal; text-align: center; line-height: 1.25; }
+  .hero { padding-top: 24px; }
+  h1 { font-size: 28px; }
+  .answer { font-size: 16px; }
+  .counts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cnt { padding: 12px 16px; }
+  .cnt:nth-child(n) { border-left: 0; border-top: 0; }
+  .cnt:nth-child(even) { border-left: 1px solid var(--line); }
+  .cnt:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .cnt b { font-size: 24px; }
+  .legend-body { grid-template-columns: 1fr; }
+  .seg button, .seg a, .go, .btn, .chipbtn { min-height: 40px; }
+  .vorblatt { padding: 24px 20px; }
+  .dlg { padding: 20px 16px; }
+  .gm, .gm tbody, .gm tr, .gm th, .gm td { display: block; width: auto; }
+  .gm thead { display: none; }
+  .gm-m { display: inline; }
+  .gm tbody th { width: auto; }
+  .gm td + td, .gm th + td { border-left: 0; }
+  .gm tbody tr + tr { border-top: 1px solid var(--line); }
+  .gm tbody th, .gm tbody td { border-bottom: 0; padding-bottom: 0; }
+  .gm tbody td:last-child { padding-bottom: 12px; }
+  .dlg dl { grid-template-columns: 1fr; gap: 4px; }
+  .dlg dd { margin-bottom: 8px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt</a>
+<div class="topbar"><div class="page">
+  <header class="top">
+    <a class="brand" href="#frage/ki"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg><b>Open Policy Navigator</b><span class="demo-tag">Demo · Testdaten</span></a>
+    <div class="top-right">
+      <nav class="seg" aria-label="Einstieg">
+        <a href="#frage/ki" id="nav-frage">Nach Frage</a>
+        <a href="#entwurf" id="nav-entwurf">Nach Gesetzentwurf</a>
+        <a href="#daten" id="nav-daten">Daten</a>
+      </nav>
+      <button type="button" class="icon-btn" id="theme" aria-label="Dunkles Farbschema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg></button>
+    </div>
+  </header>
+</div></div>
+<nav class="qnav" id="qnav" aria-label="Fragen"><div class="page"><div class="picker" id="picker"></div></div></nav>
+<div class="page">
+  <main id="main" tabindex="-1">
+    <section id="view-frage" aria-labelledby="q-title">
+      <div class="hero">
+        <h1 id="q-title"></h1>
+        <p class="answer" id="q-answer"></p>
+        <p class="lead-in"><b>Welche Lösungen gibt es?</b> Hier stehen Lösungswege zu einer politischen Frage nebeneinander: wo sie erprobt wurden, was sie bewirkt haben und wer sie bestreitet.<span class="m-only"> Demo mit Testdaten.</span></p>
+        <div class="counts" id="counts" role="group" aria-label="Fälle filtern"></div>
+        <p class="live" id="live" aria-live="polite"></p>
+      </div>
+
+      <div class="toolbar">
+        <div class="grp">
+          <span class="vh" id="view-lbl">Ansicht</span>
+          <div class="seg" role="group" aria-labelledby="view-lbl">
+            <button type="button" id="v-tbl" aria-pressed="false">Tabelle</button>
+            <button type="button" id="v-cmp" aria-pressed="true">Gegenüberstellung A/B</button>
+          </div>
+        </div>
+      </div>
+
+      <details class="legend">
+        <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>So lesen Sie die Zeichen</summary>
+        <div class="legend-body" id="legend"></div>
+      </details>
+
+      <div id="out" tabindex="-1" style="outline:none"></div>
+      <p class="note q-note" id="q-stand"></p>
+    </section>
+
+    <section id="view-entwurf" aria-labelledby="b-title" hidden>
+      <div class="hero">
+        <h1 id="b-title">Im Entwurf steht „Alternativen: Keine“. Was wurde anderswo erprobt?</h1>
+        <p class="answer">Bei mehr als der Hälfte der Gesetzentwürfe der Bundesregierung seit 2021 steht unter „C. Alternativen“ nur das Wort „Keine“: 326 von hochgerechnet rund 600 Entwürfen mit diesem Abschnitt.</p>
+        <p class="stand">„Keine“ kann heißen: nicht geprüft, geprüft und verworfen, rechtlich vorgegeben oder politisch ausgeschlossen; das Vorblatt sagt nicht, was gilt. Österreich misst anders: 2 von 184 ausführlichen Folgenabschätzungen seit 2019 nennen eine Alternative.</p>
+      </div>
+      <div class="toolbar">
+        <div class="grp"><span class="vh" id="bill-lbl">Drucksache wählen</span><div class="seg" role="group" aria-labelledby="bill-lbl" id="bills"></div></div>
+      </div>
+      <div class="bill">
+        <article class="vorblatt" aria-labelledby="vb-title" id="vorblatt"></article>
+        <div class="match" id="bill-match"></div>
+      </div>
+    </section>
+
+    <section id="view-daten" aria-labelledby="d-title" hidden>
+      <div class="hero">
+        <h1 id="d-title">Daten und Schnittstelle</h1>
+        <p class="answer">Jede Aussage im Portal ist ein Datensatz mit Quelle, wörtlicher Fundstelle, Erfassungsweg und Prüfstatus. Daraus entstehen die Website, offene Datenabzüge und eine Schnittstelle für KI-Assistenten.</p>
+      </div>
+      <div id="daten-out"></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p><b>Demo mit Testdaten, Stand 12.11.2026.</b> Alle Einstufungen sind aus den Quellenangaben abgeleitet und noch von niemandem geprüft; wörtliche Fundstellen fehlen noch. Lösungswege sind nach Teilfragen geordnet, nicht nach Parteien, und Lücken bleiben sichtbar.</p>
+    <p><span id="exports"><button type="button" class="linkbtn" id="textexp">Frage als Text kopieren</button> · <button type="button" class="linkbtn" id="json">als JSON</button> <span class="quiet" role="status" id="exp-msg"></span> · </span>Code (MIT), Schema (CC0) und Daten (CC BY 4.0) auf <a href="https://github.com/smarqart-hash/open-policy-navigator">GitHub</a> · <a href="#daten">Methodik und Korrekturen</a> · Keine Cookies, kein Tracking</p>
+  </footer>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlg-title"><div class="dlg" id="dlg-body"></div></dialog>
+
+<script>
+"use strict";
+
+const STATUS = {
+  proposed: { label: "vorgeschlagen", stop: false },
+  adopted:  { label: "beschlossen", stop: false },
+  active:   { label: "in Kraft", stop: false },
+  running:  { label: "umgesetzt", stop: false },
+  pilot:    { label: "Pilot", stop: false },
+  partstop: { label: "teilweise gestoppt", stop: true },
+  stopped:  { label: "gestoppt", stop: true },
+  ended:    { label: "beendet", stop: true },
+  unchecked:{ label: "Status offen", stop: false }
+};
+const STATUS_SVG = {
+  proposed: '<path d="M6 1.2 10.8 6 6 10.8 1.2 6Z" fill="none" stroke="currentColor" stroke-width="1.3"/>',
+  adopted:  '<rect x="1.5" y="1.5" width="9" height="9" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/>',
+  active:   '<circle cx="6" cy="6" r="4.8" fill="currentColor"/>',
+  running:  '<circle cx="6" cy="6" r="4.8" fill="currentColor"/>',
+  pilot:    '<circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="6" cy="6" r="1.7" fill="currentColor"/>',
+  partstop: '<rect x="1.3" y="1.3" width="9.4" height="9.4" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M1.3 1.3h9.4v4.7H1.3Z" fill="currentColor"/>',
+  stopped:  '<rect x="1.3" y="1.3" width="9.4" height="9.4" rx="1" fill="currentColor"/>',
+  ended:    '<rect x="1.3" y="1.3" width="9.4" height="9.4" rx="1" fill="currentColor"/>',
+  unchecked:'<circle cx="6" cy="6" r="4.6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-dasharray="2.2 1.8"/>'
+};
+
+const EFFECT = {
+  pos:       { label: "beabsichtigte Wirkung", def: "Befund mit Vergleich zeigt die beabsichtigte Wirkung; das ist kein Urteil über die Maßnahme", color: "var(--pos)", svg: c => `<path d="M6 1 11 10.5H1Z" fill="${c}"/>` },
+  mixed:     { label: "widersprüchlich", def: "Befunde zeigen in verschiedene Richtungen", color: "var(--mix)", svg: c => `<path d="M3.2 1 6 5H.4Z M8.8 11 6 7h5.6Z" fill="${c}"/>` },
+  null:      { label: "keine messbare Wirkung", def: "Befund mit Vergleich findet keinen Unterschied", color: "var(--text-2)", svg: c => `<path d="M1.5 6h9" stroke="${c}" stroke-width="2"/>` },
+  neg:       { label: "Wirkung gegen das Ziel", def: "Befund mit Vergleich zeigt eine Wirkung gegen das Ziel der Teilfrage; das muss nicht das Ziel der Maßnahme sein", color: "var(--neg)", svg: c => `<path d="M6 11 1 1.5h10Z" fill="${c}"/>` },
+  partial:   { label: "Ziel teilweise erreicht", def: "Zielwert der Maßnahme verfehlt. Das misst Zielerreichung, nicht Wirkung im Vergleich, und zählt daher nicht als Wirkungsbefund", color: "var(--none)", svg: c => `<path d="M6 1.8 10.6 10.2H1.4Z" fill="none" stroke="${c}" stroke-width="1.3" stroke-linejoin="round"/>` },
+  notyet:    { label: "noch nicht messbar", def: "Zu früh, nur vorgeschlagen oder nie umgesetzt", color: "var(--none)", svg: c => `<circle cx="6" cy="6" r="4.6" fill="none" stroke="${c}" stroke-width="1.4"/><path d="M6 3.4V6l1.8 1.4" fill="none" stroke="${c}" stroke-width="1.4"/>` },
+  searched:  { label: "gesucht, keine Messung gefunden", def: "Recherche gemacht, aber keine Wirkungsmessung gefunden", color: "var(--none)", svg: c => `<circle cx="6" cy="6" r="4.6" fill="none" stroke="${c}" stroke-width="1.4"/><path d="M2.8 9.2 9.2 2.8" stroke="${c}" stroke-width="1.4"/>` },
+  unchecked: { label: "noch nicht recherchiert", def: "Für diesen Eintrag wurde noch nicht nach Belegen gesucht", color: "var(--none)", svg: c => `<circle cx="6" cy="6" r="4.6" fill="none" stroke="${c}" stroke-width="1.4" stroke-dasharray="2.2 1.8"/>` }
+};
+
+const STRENGTH = [
+  { label: "keine Messung", def: "" },
+  { label: "ohne Vergleich", def: "Zahlen ohne Vergleichsgruppe, etwa Nutzung, Verbleib oder Zielerreichung" },
+  { label: "eingeschränkter Vergleich", def: "Schätzung mit Vergleich, aber kurzer Messzeitraum oder schwache Vergleichsgruppe" },
+  { label: "Vergleichsstudie", def: "Studie mit Vergleichsgruppe und längerem Messzeitraum" }
+];
+const COV = {
+  checked:   { label: "recherchiert", svg:'<circle cx="6" cy="6" r="4.6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M3.6 6.2 5.3 7.8 8.5 4.4" fill="none" stroke="currentColor" stroke-width="1.4"/>' },
+  partial:   { label: "teilweise recherchiert", svg: '<circle cx="6" cy="6" r="4.6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M6 1.4a4.6 4.6 0 0 1 0 9.2Z" fill="currentColor"/>' },
+  searched:  { label: "gesucht, kein Fall gefunden", svg: '<circle cx="6" cy="6" r="4.6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.8 9.2 9.2 2.8" stroke="currentColor" stroke-width="1.4"/>' },
+  unchecked: { label: "noch nicht recherchiert", svg: '<circle cx="6" cy="6" r="4.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="2.2 1.8"/>' }
+};
+const STANCE = { pro: ["+", "dafür"], contra: ["–", "dagegen"], cond: ["±", "unter Bedingungen"] };
+
+const SRC = {
+  kasy: ["Kasy und Lehner: Employing the unemployed of Marienthal", "https://maxkasy.github.io/home/files/papers/Jobguarantee_marienthal.pdf", "Wissenschaft, Evaluation"],
+  profil: ["profil: Warum Österreich sich die Jobgarantie spart", "https://www.profil.at/oesterreich/wie-guenstig-eine-jobgarantie-ist-und-warum-oesterreich-sie-sich-spart/403069222", "Medium"],
+  ctgov: ["Gouverneur von Connecticut: Baby Bonds, Mai 2023", "https://portal.ct.gov/governor/news/press-releases/2023/05-2023/governor-lamont-treasurer-russell-legislative-leaders-announce-legislation-funding-ct-baby-bonds", "Regierung"],
+  govuk: ["gov.uk: 758.000 junge Menschen mit unabgeholtem Konto", "https://www.gov.uk/government/news/savings-stash-worth-thousands-waiting-for-758000-young-people", "Regierung"],
+  irle: ["IRLE Berkeley: Studie zum 20-$-Mindestlohn", "https://irle.berkeley.edu/publications/press-release/new-study-analyzes-impact-of-californias-20-minimum-wage-for-fast-food-workers", "Wissenschaft"],
+  nber: ["NBER Working Paper w34033", "https://econpapers.repec.org/RePEc:nbr:nberwo:34033", "Wissenschaft"],
+  ris96: ["RIS: ArbVG § 96", "https://www.ris.bka.gv.at/eli/bgbl/1974/22/P96/NOR40123095", "Rechtstext"],
+  ris96a: ["RIS: ArbVG § 96a", "https://www.ris.bka.gv.at/eli/bgbl/1974/22/P96a/NOR12097069", "Rechtstext"],
+  dmafine: ["EU-Kommission: Strafen gegen Apple und Meta", "https://ec.europa.eu/commission/presscorner/detail/en/ip_25_1085", "EU-Kommission"],
+  dmarev: ["EU-Kommission: DMA-Review 2026", "https://www.cdep.ro/afaceri_europene/CE/2026/COM_2026_178_1_EN_ACT_part1_v7.pdf", "EU-Kommission, Selbstbewertung"],
+  dataact: ["EUR-Lex: Data Act, Verordnung (EU) 2023/2854", "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R2854", "Rechtstext"],
+  npr: ["NPR: FTC gibt Verbot von Konkurrenzklauseln auf, September 2025", "https://www.npr.org/2025/09/05/nx-s1-5528937/ftc-noncompete-ban-trump", "Medium"],
+  ftc: ["FTC: Bilanz der wichtigsten Erfolge, Januar 2025", "https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-releases-summary-key-accomplishments", "Behörde, Eigenbilanz"],
+  cada: ["EU-Kommission: Vorschlag Cloud and AI Development Act", "https://digital-strategy.ec.europa.eu/en/library/proposal-cloud-and-ai-development-act-cada", "EU-Kommission"],
+  eurohpc: ["EuroHPC: AI Factory Austria", "https://www.eurohpc-ju.europa.eu/ai-factories/austria_en", "EU-Einrichtung"],
+  amsq: ["AMS: Qualifizierungsförderung für Beschäftigte", "https://www.ams.at/unternehmen/personal--und-organisationsentwicklung/qualifizierungsfoerderung-fuer-beschaeftigte", "Behörde"],
+  ffg: ["FFG: Skills-Schecks 2026", "https://www.ffg.at/ausschreibungen/SkillsSchecks2026", "Förderagentur"],
+  edih: ["EU-Kommission: European Digital Innovation Hubs", "https://digital-strategy.ec.europa.eu/en/policies/edihs", "EU-Kommission"],
+  moda: ["Digitalministerium Taiwan (moda): Hintergrund", "https://moda.gov.tw/en/press/background-information/12616", "Ministerium, Selbstbericht"],
+  omnibus: ["Taylor Wessing: The Digital Omnibus proposal", "https://www.taylorwessing.com/de/global-data-hub/2026/the-digital-omnibus-proposal/gdh---the-digital-omnibus-proposal", "Anwaltskanzlei"],
+  prospect: ["Prospect: Evaluation Aktion 20.000, Endbericht", "https://forschungsnetzwerk.ams.at/dam/jcr:319393de-9f59-4b7b-8060-bcb97383d41f/Evaluation-Aktion-20.000_Endbericht_prospect.pdf", "Evaluation im Auftrag des Ministeriums"],
+  sn2019: ["Salzburger Nachrichten, 16. Dezember 2019", "https://www.sn.at/wirtschaft/oesterreich/aktion-20000-schoepfte-nur-fuenf-prozent-ihres-potenzials-aus-art-334186", "Medium"],
+  moment19: ["Momentum Institut: Policy Brief zur Aktion 20.000, 2019", "https://www.momentum-institut.at/wp-content/uploads/2019/12/moment_policybrief_aktion20.000.pdf", "Thinktank, progressiv"],
+  bmsgpk: ["Sozialministerium: Aktion 55+, 9. Jänner 2026", "https://www.sozialministerium.gv.at/Services/Aktuelles/archiv-2026/aktion-55plus.html", "Ministerium"],
+  kontrast: ["Kontrast.at: Aktion 55 plus, 17. Februar 2026", "https://kontrast.at/aktion-55-plus-was-bringt-das/", "Medium, SPÖ-nah"],
+  momentum25: ["Momentum Institut: Jobgarantie ist effizient, 1. Dezember 2025", "https://news.momentum-institut.at/p/langzeitbesch-ftigungslosigkeit-bleibt-hoch-jobgarantie-ist-effizient-und-kostet-berraschend-wenig", "Thinktank, progressiv"],
+  presse17: ["Die Presse: AMS-Chef Kopf, 24. November 2017", "https://www.diepresse.com/5326004/ams-chef-kopf-haelt-jobbonus-fuer-nicht-mehr-notwendig", "Medium"],
+  presse19: ["Die Presse: Der teure Kampf um Jobs für Ältere, 4. November 2019", "https://www.diepresse.com/5714647/der-teure-kampf-um-jobs-fuer-aeltere", "Medium"],
+  jku: ["Beyer, Grießer, Pühringer: ICAE Working Paper 109, JKU 2020", "https://jku.at/fileadmin/gruppen/108/ICAE_Working_Papers/wp109.pdf", "Wissenschaft, Diskursanalyse"],
+  wfa25: ["Bundesministerium: WFA-Evaluierung 2025, Bericht und Daten", "https://oeffentlicherdienst.gv.at/wirkungsorientierte-verwaltung/rechtsgrundlagen-berichte-und-materialien/berichte-uber-die-wfa/", "Amtliche Daten, Selbstbewertung"],
+
+  bergsvik: ["Bergsvik, Fauske, Hart 2021: Can Policies Stall the Fertility Fall? (Übersicht über 35 Studien)", "https://www.sv.uio.no/iss/english/research/projects/openflux/publications/2021/fauske-can-policies-stall-fertility-fall.html", "Wissenschaft, Übersichtsstudie"],
+  bauern: ["Bauernschuster, Hener, Rainer 2016: Kinderbetreuung und Geburten in Deutschland (JEEA, Preprint)", "https://www.wiwi.uni-passau.de/fileadmin/dokumente/fakultaeten/wiwi/lehrstuehle/bauernschuster/Publikationen/ba_he_ra_JEEA_preprint.pdf", "Wissenschaft"],
+  rindfuss: ["Rindfuss u. a. 2010: Kinderbetreuung und Fertilität in Norwegen (PDR)", "https://pmc.ncbi.nlm.nih.gov/articles/PMC3099220", "Wissenschaft"],
+  lalive: ["Lalive, Zweimüller 2009: Karenzdauer und Fertilität (QJE)", "https://econpapers.repec.org/RePEc:oup:qjecon:v:124:y:2009:i:3:p:1363-1402.", "Wissenschaft"],
+  ibs: ["IBS Warschau 2024: Wirkung von Familie 500+", "https://ibs.org.pl/wp-content/uploads/2024/11/Summary_03_2024_EN.pdf", "Forschungsinstitut"],
+  demres: ["Demographic Research, Band 51, Artikel 28", "https://www.demographic-research.org/volumes/vol51/28/51-28.pdf", "Wissenschaft"],
+  szabo: ["Szabó: Fertility and taxation, Ungarn (Bocconi)", "https://economics.unibocconi.eu/sites/default/files/files/media/attachments/benceszabofertilitytaxation22091920220920122002.pdf", "Wissenschaft"],
+  aei: ["AEI: Hungary's fertility outcomes", "https://cosm.aei.org/hungarys-fertility-outcomes-highlight-pro-natal-policy-limitations/", "Thinktank, konservativ"],
+  drago: ["Drago u. a. 2009: Australiens Baby Bonus (Melbourne Institute)", "https://melbourneinstitute.unimelb.edu.au/downloads/working-paper-series/wp2009n01.pdf", "Wissenschaft"],
+  cdhowe: ["C.D. Howe Institute: Quebec's Baby Bonus", "https://cdhowe.org/publication/quebecs-baby-bonus-can-public-policy-raise-fertility/", "Thinktank"],
+  korea: ["Pension Policy International: Koreas Geburtenpolitik", "https://www.pensionpolicyinternational.com/?p=80919", "Fachportal"],
+  nberqc: ["NBER Digest: Subsidized Childcare and Mothers' Labor Outcomes in Quebec (Baker, Gruber, Milligan)", "https://www.nber.org/index%2Ephp/digest/202610/subsidized-childcare-and-mothers-labor-outcomes-quebec", "Wissenschaft, Working Paper"],
+  aejqc: ["Baker, Gruber, Milligan 2019: Long-Run Impacts of a Universal Child Care Program (AEJ)", "https://econpapers.repec.org/RePEc:aea:aejpol:v:11:y:2019:i:3:p:1-26", "Wissenschaft"],
+  bailey: ["Bailey, Byker, Patel, Ramnath: Bezahlte Familienzeit in Kalifornien", "https://websites.umich.edu/~baileymj/Bailey_Byker_Patel_Ramnath.pdf", "Wissenschaft"],
+  nmgov: ["Gouverneurin New Mexico: Gesetz zur Kinderbetreuung für alle", "https://www.governor.state.nm.us/newsroom/governor-lujan-grisham-signs-nation-s-first-universal-child-care-law-n-100004462", "Regierung"],
+  governing: ["Governing: New Mexico's free childcare program faces growing pains", "https://www.governing.com/policy/new-mexicos-free-childcare-program-faces-growing-pains", "Medium"],
+  census22: ["US Census Bureau 2022: Record drop in child poverty", "https://www.census.gov/library/stories/2022/09/record-drop-in-child-poverty.html", "Statistikamt"],
+  nberctc: ["NBER Working Paper w29823: Kinderabsetzbetrag und Beschäftigung", "https://www.nber.org/papers/w29823", "Wissenschaft"],
+  esdc: ["Kanadisches Sozialministerium: Notiz zur Kinderarmut 2023", "https://search.open.canada.ca/qpnotes/record/esdc-edsc%2CFCSD_june2023_002", "Ministerium, amtliche Statistik"],
+  mti: ["Handelsministerium Singapur: Wirkung des SkillsFuture Work-Study-Programms auf Löhne, 2024", "https://www.mti.gov.sg/Resources/feature-articles/2024/Impact-of-SkillsFuture-Work-Study-Programme-on-Wage-Outcomes-of-Participants", "Ministerium, Selbstbewertung"],
+  iza4017: ["Messer, Wolter: Money matters. Evidence from a large-scale randomized field experiment with vouchers for adult training (IZA DP 4017)", "https://docs.iza.org/dp4017.pdf", "Wissenschaft"],
+  ccomptes: ["Cour des comptes: Formation professionnelle des salariés, 2023", "https://www.ccomptes.fr/sites/default/files/2023-10/20230630-Formation-professionnelle-salaries.pdf", "Rechnungshof"],
+  rhwien: ["Rechnungshof Österreich: Bericht zu Wiener Wohnen (Kurzfassung)", "https://www.parlament.gv.at/dokument/XXVII/III/222/imfname_880261.pdf", "Rechnungshof"],
+  wienwohnen: ["Stadt Wien: Leistungsbericht Wiener Wohnen", "https://www.wien.gv.at/spezial/leistungsberichte/leistungsberichte-der-magistratsdienststellen/unternehmung-wiener-wohnen/", "Stadtverwaltung"],
+  hoc: ["Housing Opportunities Commission: Housing Production Fund", "https://www.hocmc.org/about-us/innovations/housing-production-fund/", "Behörde"],
+  stranger: ["The Stranger: Seattle Social Housing Developer announces first construction project", "https://www.thestranger.com/news/seattle-social-housing-developer-announces-first-construction-project/", "Medium"],
+  homes: ["Senatorin Smith: Homes Act", "https://www.smith.senate.gov/?p=7268", "Abgeordnete, Antragstellerin"],
+  pew: ["Pew: Minneapolis land use reforms offer a blueprint for housing affordability, 2024", "https://www.pew.org/en/research-and-analysis/articles/2024/01/04/minneapolis-land-use-reforms-offer-a-blueprint-for-housing-affordability", "Stiftung"],
+  mplsfed: ["Federal Reserve Minneapolis: Unpacking supply and demand in rent trends since the Minneapolis 2040 plan, 2025", "https://minneapolisfed.org/article/2025/unpacking-supply-and-demand-in-rent-trends-since-the-minneapolis-2040-plan", "Zentralbank, Forschung"],
+  ds13959: ["Bundestag: Drucksache 20/13959, Gebäudetyp-E-Gesetz", "https://dserver.bundestag.de/btd/20/139/2013959.pdf", "Bundesregierung"],
+  kholodilin: ["Kholodilin 2024: Rent control effects through the lens of empirical research (DIW)", "https://www.diw.de/de/diw_01.c.893635.de/publikationen/externe_referierte_aufsaetze/2024_0000/rent_control_effects_through_the_lens_of_empirical_research__an_almost_complete_review_of_the_literature.html", "Wissenschaft, Übersichtsstudie"],
+  diamond: ["Diamond, McQuade, Qian 2019: Rent control in San Francisco (AER)", "https://www.aeaweb.org/doi/10.1257/aer.20181289", "Wissenschaft"],
+  orfmiete: ["ORF: Mietenstopp und Mietpreisbremse", "https://orf.at/stories/3411873/", "Medium"],
+  wifofb: ["WIFO Monatsbericht 2018: Familienbonus Plus", "https://www.wifo.ac.at/wp-content/uploads/upload-9274/mb_2018_05_04_familienbonus.pdf", "Wirtschaftsforschung"]
+};
+
+const CASES = {
+  marienthal: { title: "Jobgarantie Marienthal", where: "Gramatneusiedl, Österreich", country: "Österreich", when: "2020–2024", status: "ended", statusNote: "2024 beendet, laut Presse aus Kostengründen.",
+    effect: "pos", strength: 3, kz: "+555 Beschäftigungstage je Berechtigtem",
+    what: "Garantierte Stelle für alle Langzeitarbeitslosen einer Gemeinde, freiwillig und nach Kollektivvertrag bezahlt. Getragen vom AMS Niederösterreich.",
+    finding: "+555 Beschäftigungstage je Berechtigtem, ungeförderte Beschäftigung +17 %, keine messbare Verdrängung. Kosten netto 237 € je Person und Monat.",
+    contra: "Eine Gemeinde, kleine Fallzahl. Ob es landesweit ohne Verdrängung funktioniert, ist offen.", contraBy: "Redaktion, aus der Evaluation abgeleitet", src: ["kasy", "profil"], ids: "X03-C01 bis C04" },
+  ctbonds: { title: "Baby Bonds Connecticut", where: "Connecticut, USA", country: "USA", when: "seit 2023", status: "active",
+    effect: "notyet", effectNote: "Zu früh: Wirkung frühestens mit den ersten Auszahlungen ab 2041 messbar.", strength: 0, kz: "3.200 $ je Kind, dessen Geburt Medicaid zahlt",
+    what: "Ein staatlicher Fonds legt das Geld an; nutzbar ab dem Erwachsenenalter für Ausbildung, Wohnen oder Gründung. Finanziert über Anleihen, 50 Mio. $ pro Jahr bis 2034.",
+    contra: "Noch keine Wirkung messbar.", src: ["ctgov"], ids: "X08 2.5" },
+  ctf: { title: "Child Trust Fund", where: "Großbritannien", country: "Großbritannien", when: "ab 2005", status: "running", statusNote: "Startjahr aus Vorwissen, nicht aus dem Korpus.",
+    effect: "searched", effectNote: "Keine Wirkungsmessung im Korpus. Belegt ist ein Umsetzungsproblem: 758.000 Konten wurden nie abgeholt (Regierungsangabe).", strength: 0, kz: "758.000 Konten nie abgeholt",
+    what: "Staatliches Startguthaben für Kinder, ausgezahlt mit 18.",
+    contra: "Hunderttausende junge Erwachsene wissen nichts von ihrem Konto.", src: ["govuk"], ids: "X03-C24" },
+  ffc: { title: "Fast Food Council", where: "Kalifornien, USA", country: "USA", when: "seit 2024", status: "active",
+    effect: "mixed", strength: 3, kz: "20 $ Mindestlohn seit April 2024",
+    what: "Ein Rat aus Beschäftigten- und Arbeitgebervertretern legt den Lohn der Branche fest.",
+    finding: "Berkeley: Löhne +11 %, keine Jobverluste, Preise einmalig +3,7 %. NBER: Beschäftigung −2,7 bis −3,2 %, rund 18.000 Stellen.",
+    contra: "Zwei Studien zur selben Reform kommen zu gegensätzlichen Ergebnissen.", contraBy: "Redaktion, Gegenüberstellung der Studien", src: ["irle", "nber"], ids: "X08 2.7" },
+  arbvg: { title: "Zustimmungsrecht nach ArbVG §§ 96, 96a", where: "Österreich", country: "Österreich", when: "seit 1974", status: "active",
+    effect: "searched", effectNote: "Wie oft das Recht bei KI-Einführungen greift, ist nicht erhoben.", strength: 0, kz: "greift bei Kontroll- und Personaldatensystemen",
+    what: "Der Betriebsrat muss zustimmen, wenn ein System Beschäftigte kontrolliert oder Personaldaten verarbeitet.",
+    contra: "Bedingte Rechte, kein allgemeines KI-Veto.", src: ["ris96", "ris96a"], ids: "Q04 G03-C03, C04" },
+  dma: { title: "Digital Markets Act: Öffnungspflichten", where: "EU", country: "EU", when: "seit 2023", status: "active",
+    effect: "searched", effectNote: "Nur Nutzungszahlen aus der Selbstbewertung der Kommission: über 40 KMU nutzen Datenportabilität, Messenger-Interoperabilität mit WhatsApp. Eine Wirkung auf Marktmacht ist nicht gemessen.", strength: 0, kz: "Strafen 2025: 500 Mio. € Apple, 200 Mio. € Meta",
+    what: "Große Plattformen mit Torwächter-Rolle müssen Schnittstellen öffnen und Daten portabel machen.",
+    contra: "Der Review ist eine Selbstbewertung. Apple hält Funktionen in der EU zurück, vier Verfahren sind offen.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", src: ["dmafine", "dmarev"], ids: "X03-C13 bis C15" },
+  dataact: { title: "Data Act: Cloud-Wechsel in 30 Tagen", where: "EU", country: "EU", when: "Entgeltverbot ab Januar 2027", status: "adopted", statusNote: "Beschlossen; Wechselentgelte ab 12. Jänner 2027 verboten.",
+    effect: "notyet", effectNote: "Zu früh: noch keine Wirkung messbar.", strength: 0, kz: "Wechselentgelte ab 12.1.2027 verboten",
+    what: "Kunden dürfen Daten und Anwendungen mitnehmen; Anbieter dürfen den Wechsel nicht verteuern.",
+    contra: "Der Digital Omnibus schlägt an dieser Stelle Ausnahmen vor.", src: ["dataact"], ids: "X03-C16" },
+  ftc: { title: "FTC: Fusionsleitlinien und Klauselverbot", where: "USA", country: "USA", when: "2021–2025", status: "partstop", statusNote: "Klauselverbot gerichtlich gestoppt, Click-to-Cancel-Regel aufgehoben; die Fusionsleitlinien von 2023 gelten weiter.",
+    effect: "searched", effectNote: "Keine Wirkungsmessung im Korpus, nur die Eigenbilanz der Behörde.", strength: 0, kz: "Leitlinien 2023 gelten weiter",
+    what: "Härtere Prüfung von Übernahmen, Verbot von Konkurrenzklauseln, Regeln gegen versteckte Gebühren.",
+    contra: "Vor Gericht hatte wenig Bestand.", contraBy: "Gerichtsentscheidungen, berichtet von NPR", src: ["npr", "ftc"], ids: "X08 2.8" },
+  berlin: { title: "Berliner Erklärung zur digitalen Souveränität", where: "EU", country: "EU", when: "18.11.2025", status: "adopted", statusNote: "Politische Erklärung aller 27 Mitgliedstaaten.",
+    effect: "notyet", effectNote: "Politische Erklärung; eine Wirkung ist nicht messbar.", strength: 0, kz: "alle 27 Mitgliedstaaten",
+    what: "Politische Erklärung zur digitalen Souveränität; Grundlage für Vergabekriterien.",
+    contra: "Österreichs Rolle als Anstoßgeber steht nur in einem Ratsdokument und ist nicht verifiziert.", src: [], ids: "X09 Nr. 10" },
+  cada: { title: "Cloud- und KI-Entwicklungsgesetz (CADA)", where: "EU", country: "EU", when: "Vorschlag Juni 2026", status: "proposed",
+    effect: "notyet", effectNote: "Vorschlag, noch nicht umgesetzt.", strength: 0, kz: "COM(2026) 502",
+    what: "Öffentliche Auftraggeber sollen europäischen Mehrwert, Wechselbarkeit und Prüfbarkeit verlangen dürfen.",
+    contra: "Wirkung auf Abhängigkeiten nicht belegt.", src: ["cada"], ids: "X09 Nr. 10" },
+  aiat: { title: "AI Factory Austria (AI:AT)", where: "Österreich, EuroHPC", country: "Österreich", when: "2025–2027", status: "pilot", statusNote: "Rechner ausgeschrieben, Betrieb ab 2027.",
+    effect: "notyet", effectNote: "Zu früh: Der Betrieb beginnt 2027.", strength: 0, kz: "Betrieb ab 2027",
+    what: "Rechenkapazität und Beratung für Forschung, Start-ups und Industrie.",
+    contra: "Zugang und Kapazität nicht nachgewiesen.", src: ["eurohpc"], ids: "Q04 H03, W07" },
+  ams: { title: "AMS-Qualifizierungsförderung und FFG Skills-Schecks", where: "Österreich", country: "Österreich", when: "laufend", status: "running",
+    effect: "searched", effectNote: "Teilnahme und Wirkung werden nicht erhoben.", strength: 0, kz: "Teilnahme und Wirkung nicht erhoben",
+    what: "Förderung für Beschäftigte bestimmter Gruppen; Schecks für externe Weiterbildung; Konsortien mit Forschungseinrichtungen.",
+    contra: "Lernzeit im Betrieb und Zugang ohne Betriebsrat sind ungeklärt.", src: ["amsq", "ffg"], ids: "Q04 H02" },
+  edih: { title: "European Digital Innovation Hubs", where: "EU", country: "EU", when: "laufend", status: "running",
+    effect: "searched", effectNote: "Keine eigene Wirkungsevaluation gefunden.", strength: 0, kz: "Testen vor dem Kauf, Beratung, Schulung",
+    what: "Regionale Zentren verbinden Erprobung, Beratung und Kompetenzaufbau.",
+    contra: "Wirkung nicht evaluiert.", src: ["edih"], ids: "Q04 H03" },
+  taiwan: { title: "Beteiligungsverfahren für ein Sprachmodell", where: "Taiwan", country: "Taiwan", when: "ab 2023", status: "pilot",
+    effect: "searched", effectNote: "Nur ein Selbstbericht des Ministeriums; kein Wirkungsnachweis gefunden.", strength: 0, kz: "Online-Beteiligung und Workshops",
+    what: "Öffentliche Präferenzen fließen in die Anpassung eines taiwanischen Pilotmodells ein.",
+    contra: "Selbstbericht; Taiwans Institutionen sind nicht direkt übertragbar.", src: ["moda"], ids: "Q04 B01-C04, C05" },
+  omnibus: { title: "Digital Omnibus", where: "EU", country: "EU", when: "Vorschlag 2026", status: "proposed",
+    effect: "notyet", effectNote: "Vorschlag, noch nicht umgesetzt.", strength: 0, kz: "Ausnahmen beim Cloud-Wechsel vorgeschlagen",
+    what: "Paket zur Vereinfachung digitaler Regeln, unter anderem am Data Act.",
+    contra: "Ausgang offen; Wirkung auf Investitionen nicht geprüft.", src: ["omnibus"], ids: "X03-B3-S06" },
+  dk: { title: "Dänisches Flexicurity-Modell", where: "Dänemark", country: "Dänemark", when: "", status: "unchecked",
+    effect: "unchecked", strength: 0, kz: "",
+    what: "Geringer Kündigungsschutz, hohe Lohnersatzleistung, aktive Vermittlung.", contra: "", src: [], ids: "", placeholder: true },
+  sg: { title: "SkillsFuture Work-Study", where: "Singapur", country: "Singapur", when: "Guthaben seit 2016", status: "running", read: "Suchauszug",
+    effect: "pos", strength: 2, kz: "9–11 % Lohnvorsprung",
+    what: "Staatlich geförderte Weiterbildung mit persönlichem Guthaben; das Work-Study-Programm verbindet Kurs und Stelle.",
+    finding: "Teilnehmende des Work-Study-Programms verdienten 9 bis 11 % mehr als eine Vergleichsgruppe; volle Qualifikationen brachten im Folgejahr 5,8 % höhere Reallöhne.",
+    contra: "Das Ministerium bewertet sein eigenes Programm; das persönliche Guthaben nutzten seit 2016 nur 37 % der Berechtigten.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", src: ["mti"] },
+  chvoucher: { title: "Weiterbildungsgutscheine im Feldexperiment", where: "Schweiz", country: "Schweiz", when: "Studie 2009", status: "ended", statusNote: "Befristetes Experiment.", read: "relevante Volltextabschnitte",
+    effect: "mixed", strength: 3, kz: "rund 60 % Mitnahme",
+    what: "Zufällig ausgewählte Erwachsene erhielten Gutscheine für selbst gewählte Weiterbildung.",
+    finding: "Die Gutscheine erhöhten die Teilnahme; rund 60 % der eingelösten Gutscheine finanzierten aber Kurse, die ohnehin besucht worden wären.",
+    contra: "Viel Mitnahme bei denen, die sich ohnehin weiterbilden.", contraBy: "Messer und Wolter, Wissenschaft", src: ["iza4017"] },
+  cpf: { title: "Compte personnel de formation", where: "Frankreich", country: "Frankreich", when: "seit 2015", status: "running", read: "Auszug",
+    effect: "searched", effectNote: "Keine Wirkungsstudie im Korpus; der Senat nennt die Wirkung umstritten.", strength: 0, kz: "2,6 statt 1,4 Mrd. € (2021)",
+    what: "Persönliches Weiterbildungskonto für alle Beschäftigten.",
+    contra: "Die Kosten lagen 2021 fast doppelt so hoch wie geplant, mit Betrug; jährlich nutzen es rund 3 % der Inhaber.", contraBy: "Cour des comptes, Rechnungshof", src: ["ccomptes"] },
+
+  a20000: { title: "Aktion 20.000", where: "Österreich", country: "Österreich", when: "2017–2019", status: "stopped", statusNote: "Ab 1. Jänner 2018 keine neuen Zusagen, laufende Förderungen bis Juni 2019. Gestoppt von der ÖVP-FPÖ-Regierung. Wegen des Stopps wurden 3.824 statt der geplanten 20.000 Menschen gefördert.",
+    effect: "pos", strength: 2, kz: "kurzfristig rund 2.500 bis 2.890 zusätzliche Stellen",
+    what: "Bis zu 100 % Lohnkostenzuschuss für bis zu zwei Jahre, für Langzeitarbeitslose ab 50 bei Gemeinden, Bund und gemeinnützigen Trägern.",
+    finding: "Kurzfristig rund 2.500 bis 2.890 zusätzliche Stellen für etwa 1,3 Jahre. Gemessen wurde nur bis drei Monate nach Förderende; zu diesem Zeitpunkt waren laut Momentum Institut noch 35 % beschäftigt.",
+    contra: "Rund die Hälfte war nach Förderende wieder arbeitslos.", contraBy: "Prospect-Evaluation", src: ["prospect", "sn2019", "moment19"], ids: "" },
+  soebue: { title: "Arbeitskräfteüberlassung Wien", where: "Wien, Österreich", country: "Österreich", when: "2021–2025", status: "running",
+    effect: "partial", strength: 1, kz: "Ziel 42 %, erreicht 33,4 %",
+    what: "Das AMS Wien verleiht arbeitsmarktferne Menschen, vor allem ab 50, über gemeinnützige Träger an Betriebe.",
+    finding: "Ziel waren 42 % Vermittlung in Arbeit, erreicht wurden 33,4 %. Gesamturteil des Ministeriums: teilweise erreicht.",
+    contra: "Selbstbewertung des Ministeriums; mehrere Projekte zusammengefasst.", contraBy: "Redaktion, Quellenkritik", src: ["wfa25"], ids: "" },
+  a55: { title: "Aktion 55+", where: "Österreich", country: "Österreich", when: "seit 2026", status: "running", statusNote: "50 Mio. € pro Jahr für 2026; ab 2027 vorbehaltlich Budget.",
+    effect: "notyet", effectNote: "Zu früh. Ob und wie die Wirkung gemessen wird, ist nicht festgelegt.", strength: 0, kz: "50 Mio. € für 3.000 bis 6.000 Stellen",
+    what: "Geförderte, kollektivvertraglich bezahlte Stellen für Arbeitslose ab 55 in Sozialökonomie, gemeinnützigen Projekten und über Eingliederungsbeihilfen.",
+    contra: "Die günstige Kostenrechnung stammt aus einem SPÖ-nahen Medium und ist nicht unabhängig geprüft.", contraBy: "Redaktion, Quellenkritik", src: ["bmsgpk", "kontrast"], ids: "" },
+  ak40000: { title: "40.000 Stellen (Arbeiterkammer)", where: "Österreich", country: "Österreich", when: "2019", status: "proposed", statusNote: "Gefordert, nie umgesetzt.",
+    effect: "notyet", effectNote: "Nie umgesetzt, daher nicht messbar.", strength: 0, kz: "Kosten laut AK rund 270 Mio. € netto",
+    what: "Für Arbeitslose ab 45, die länger als zwei Jahre ohne Job sind: 40.000 Stellen im gemeinnützigen Bereich, mindestens 1.700 € brutto.",
+    contra: "Die Kostenrechnung ist nicht unabhängig geprüft.", contraBy: "Redaktion, Quellenkritik", src: ["presse19"], ids: "" },
+  eb: { title: "Eingliederungsbeihilfe", where: "Österreich", country: "Österreich", when: "laufend", status: "running",
+    effect: "mixed", strength: 1, kz: "184 Mio. € für Ältere im Jahr vor 2019 (laut Presse)",
+    what: "Befristeter Lohnzuschuss des AMS an Betriebe, die arbeitsmarktferne Menschen einstellen.",
+    finding: "Laut AMS und WIFO bleiben rund 60 % nach Förderende beschäftigt. Laut WIFO-Chef wäre etwa jede zweite Stelle auch ohne Förderung entstanden.",
+    contra: "Etwa jede zweite geförderte Stelle wäre auch ohne Zuschuss entstanden.", contraBy: "WIFO-Chef Badelt, laut Presse", src: ["presse19"], ids: "" },
+  amsquali: { title: "Qualifizierungsförderung", where: "Österreich", country: "Österreich", when: "laufend", status: "running",
+    effect: "searched", effectNote: "Ob sie Älteren zurück in Arbeit hilft, ist nicht untersucht.", strength: 0, kz: "",
+    what: "Förderung von Weiterbildung für Beschäftigte und Arbeitsuchende bestimmter Gruppen.",
+    contra: "Teilnahme und Wirkung für ältere Langzeitarbeitslose nicht belegt.", src: ["amsq", "presse17"], ids: "" },
+  wiengb: { title: "Wiener Gemeindebau", where: "Wien, Österreich", country: "Österreich", when: "laufend", status: "running",
+    effect: "searched", effectNote: "Erfasst ist ein Vergleich der Mietniveaus, keine Wirkungsmessung: Gemeinde 8,5, Genossenschaft 9,0, privat 12,5 €/m² (Q1 2026).", strength: 0, kz: "8,5 statt 12,5 €/m² (privat)",
+    what: "Die Stadt besitzt rund 220.000 Wohnungen in etwa 1.800 Anlagen; Zugang bis zu einer Einkommensgrenze.",
+    contra: "Saniert wird nur zu 45 % der Zielrate, ein Zyklus dauert 67 statt 30 Jahre.", contraBy: "Rechnungshof Österreich", src: ["wienwohnen", "rhwien"] },
+  hoc: { title: "Öffentlicher Baufonds Montgomery County", where: "Maryland, USA", country: "USA", when: "seit 2021", status: "active",
+    effect: "notyet", effectNote: "Zu früh: ein Haus fertig, ein zweites im Bau.", strength: 0, kz: "268 Wohnungen fertig, 413 im Bau",
+    what: "Ein revolvierender Fonds von 100 Mio. $ finanziert gemischte Neubauten; die Behörde bleibt Eigentümerin, ein Drittel ist günstig.",
+    contra: "Engpass sind eher Grund, Widmung und Baukosten; dazu Zinsrisiko.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", src: ["hoc"] },
+  seattle: { title: "Seattle Social Housing Developer", where: "Washington, USA", country: "USA", when: "seit 2023", status: "active",
+    effect: "notyet", effectNote: "Zu früh: erster Neubau eröffnet 2028.", strength: 0, kz: "136 Mio. $ Abgabe 2025",
+    what: "Per Volksabstimmung gegründet, finanziert über eine Abgabe von 5 % auf Gehaltsanteile über 1 Mio. $.",
+    contra: "Erster Neubau mit nur 20 Wohnungen; Wirkung auf Mieten unbelegt.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", src: ["stranger"] },
+  homesact: { title: "Homes Act", where: "USA, Bund", country: "USA", when: "2024 eingebracht", status: "proposed", statusNote: "Kein Beschluss.",
+    effect: "notyet", effectNote: "Nie umgesetzt, daher nicht messbar.", strength: 0, kz: "30 Mrd. $ pro Jahr",
+    what: "Eine Bundesbehörde soll bauen und vermieten, Miete höchstens 25 % des Einkommens.",
+    contra: "Keine Mehrheit.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", src: ["homes"] },
+  mpls: { title: "Minneapolis 2040", where: "Minnesota, USA", country: "USA", when: "2017–2022 gemessen", status: "active", read: "Suchauszug",
+    effect: "mixed", strength: 2, kz: "Wohnungen +12 %, Mieten +1 %",
+    what: "Ende der reinen Einfamilienhaus-Zonierung, keine Stellplatzpflicht.",
+    finding: "Wohnungen +12 %, Mieten +1 %, 13 Prozentpunkte weniger als im übrigen Bundesstaat. Die Federal Reserve führt einen Teil auf einen Nachfrageeinbruch 2020 zurück; eine andere Studie fand 3 bis 5 % höhere Hauspreise.",
+    contra: "Ob die Reform ursächlich war, ist offen.", contraBy: "Federal Reserve Minneapolis, Forschung", src: ["pew", "mplsfed"] },
+  gebtype: { title: "Gebäudetyp E", where: "Deutschland", country: "Deutschland", when: "Entwurf 2024", status: "proposed", statusNote: "Gesetzentwurf der Bundesregierung, Drucksache 20/13959.",
+    effect: "notyet", effectNote: "Entwurf, nicht umgesetzt.", strength: 0, kz: "Drucksache 20/13959",
+    what: "Gesetzentwurf zur zivilrechtlichen Erleichterung des Gebäudebaus.",
+    contra: "Das Vorblatt nennt unter „C. Alternativen“ nur „Keine.“", contraBy: "Parser, Drucksache 20/13959", src: ["ds13959"] },
+  mietbind: { title: "Mietbindung in der Forschung", where: "Übersicht über 112 Studien", country: [], when: "2024", status: "running",
+    effect: "mixed", strength: 3, kz: "Vermieter: −15 % Mietangebot (San Francisco)",
+    what: "Begrenzung von Mieterhöhungen im Bestand, in vielen Städten erprobt.",
+    finding: "Mietbindung bremst die Mieten im gebundenen Bestand und schützt Altmieter. Dieselbe Übersicht findet weniger Angebot, höhere Mieten im freien Markt und weniger Umzüge; in San Francisco verringerten betroffene Vermieter ihr Mietangebot um 15 %.",
+    contra: "Weniger Angebot und höhere Mieten im freien Markt.", contraBy: "Kholodilin; Diamond, McQuade, Qian, Wissenschaft", src: ["kholodilin", "diamond"] },
+  atmiete: { title: "Mietenstopp und Mietpreisbremse", where: "Österreich", country: "Österreich", when: "seit 2025", status: "active", read: "Suchauszug",
+    effect: "notyet", effectNote: "Zu früh für eine Messung. Das WIFO sieht keine grobe Marktverzerrung; das ist eine Einschätzung, keine Messung.", strength: 0, kz: "516.000 Wohnungen, 2026 höchstens +1 %",
+    what: "Mieten im regulierten Bestand eingefroren; ab 2026 begrenzte Erhöhungen auch im freien Bereich.",
+    contra: "Langfristige Wirkung auf Neubau und Angebot offen.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", src: ["orfmiete"] },
+
+  dekita: { title: "Ausbau der Betreuung unter drei Jahren", where: "Deutschland", country: "Deutschland", when: "ab 2005/2013", status: "running", read: "Suchauszug",
+    effect: "pos", strength: 3, kz: "rund +0,12 Kinder je Frau",
+    what: "Ausbau der Betreuungsplätze für Kinder unter drei Jahren.",
+    finding: "10 Prozentpunkte mehr Betreuungsquote erhöhen die Geburten; der Ausbau um rund 30 Prozentpunkte entspricht etwa +0,12 Kindern je Frau. Laut Autoren kein bloßes Vorziehen.",
+    contra: "Kleiner Effekt; Kosten je zusätzlicher Geburt nicht gefunden.", contraBy: "Redaktion, aus der Fundstelle abgeleitet", src: ["bauern", "bergsvik"], ids: "X07 Abschnitt 3" },
+  nokita: { title: "Ausbau der Kinderbetreuung", where: "Norwegen", country: "Norwegen", when: "", status: "running", statusNote: "Zeitraum im Korpus nicht erfasst.", read: "Suchauszug",
+    effect: "pos", strength: 3, kz: "höhere endgültige Kinderzahl",
+    what: "Mehr Betreuungsplätze für kleine Kinder.",
+    finding: "Mehr Plätze erhöhen die endgültige Kinderzahl, bei jeder Geburtenfolge.",
+    contra: "Effektgröße nicht gefunden.", contraBy: "Redaktion, Lücke der Recherche", src: ["rindfuss"], ids: "X07 Abschnitt 3" },
+  karenzg: { title: "Karenz von einem auf zwei Jahre: Geburten", base: "karenz", where: "Österreich", country: "Österreich", when: "1990", status: "partstop", statusNote: "1996 teilweise zurückgenommen.", read: "Suchauszug",
+    effect: "pos", strength: 3, kz: "+4,9 Prozentpunkte für ein weiteres Kind",
+    what: "Die bezahlte Karenz nach der Geburt wurde von einem auf zwei Jahre verlängert.",
+    finding: "Mütter bekamen binnen drei Jahren mit 4,9 Prozentpunkten höherer Wahrscheinlichkeit ein weiteres Kind, nach zehn Jahren noch +3,9 Punkte. Die Teilrücknahme 1996 änderte die Fertilität nicht.",
+    contra: "Dieselbe Reform verzögerte die Rückkehr der Mütter in den Beruf.", contraBy: "Lalive und Zweimüller, Wissenschaft", src: ["lalive"], ids: "X07 Abschnitt 3" },
+  karenze: { title: "Karenz von einem auf zwei Jahre: Beruf", base: "karenz", where: "Österreich", country: "Österreich", when: "1990", status: "partstop", statusNote: "1996 teilweise zurückgenommen.", read: "Suchauszug",
+    effect: "neg", strength: 3, kz: "Rückkehr in den Beruf deutlich verzögert",
+    what: "Die bezahlte Karenz nach der Geburt wurde von einem auf zwei Jahre verlängert.",
+    finding: "Die Rückkehr der Mütter in den Beruf verzögerte sich deutlich; die Größe ist im Korpus nicht beziffert.",
+    contra: "Die Karenz zielte auf Zeit für Kinder, nicht auf Erwerb; die Wahrscheinlichkeit weiterer Kinder stieg.", contraBy: "Redaktion, aus der Fundstelle abgeleitet", src: ["lalive"], ids: "X07 Abschnitt 3" },
+  vaeter: { title: "Reservierter Väteranteil der Karenz", where: "Island, Schweden, Norwegen", country: ["Island", "Schweden", "Norwegen"], when: "", status: "running", read: "Suchauszug",
+    effect: "null", strength: 3, kz: "Geburten unverändert",
+    what: "Ein Teil der bezahlten Karenz verfällt, wenn der Vater ihn nicht nimmt.",
+    finding: "Laut Übersicht über 35 Studien bleibt die Fertilität unverändert; in Spanien zeigt sich ein negativer Effekt. Islands Reform ist nicht einzeln geprüft.",
+    contra: "Ziel der Väteranteile ist auch Gleichstellung; dazu sagt dieser Befund nichts.", contraBy: "Redaktion, aus der Sammlung abgeleitet", src: ["bergsvik"], ids: "X07 Abschnitt 3" },
+  pl500: { title: "Familie 500+", where: "Polen", country: "Polen", when: "ab 2016", status: "running", statusNote: "Entwicklung nach 2017 im Korpus nicht geprüft.", read: "Suchauszug",
+    effect: "pos", strength: 2, kz: "Geburten +4,5 % pro Monat bis Ende 2017",
+    what: "Laufendes Kindergeld von 500 Złoty im Monat je Kind.",
+    finding: "Geburten +4,5 % pro Monat bis Ende 2017, Wahrscheinlichkeit eines Kindes +1,5 Prozentpunkte. Der stärkste Effekt war kurzfristig, bei 21- bis 30-Jährigen negativ.",
+    contra: "Rund 389.000 US-Dollar je zusätzlicher Geburt.", contraBy: "IBS Warschau, Forschungsinstitut", src: ["ibs", "demres"], ids: "X07 Abschnitt 3" },
+  hug: { title: "Familiensteuerbonus: Geburten", base: "hu", where: "Ungarn", country: "Ungarn", when: "seit 2011", status: "active", read: "Suchauszug",
+    effect: "pos", strength: 3, kz: "6.000 bis 18.000 zusätzliche Geburten 2011–2013",
+    what: "Familien zahlen je Kind weniger Einkommensteuer; Teil einer breiteren Familienpolitik seit 2010.",
+    finding: "6.000 bis 18.000 zusätzliche Geburten 2011–2013 und laut Studie eine höhere endgültige Kinderzahl. Die Geburtenrate stieg von 1,25 (2010) auf 1,59 (2020/21) und lag 2024 bei 1,39; diese Rate ist durch Aufschub verzerrt.",
+    contra: "Die Erwerbstätigkeit der Mütter sank.", contraBy: "Szabó, Wissenschaft", src: ["szabo", "aei"], ids: "X07 Abschnitt 3" },
+  hue: { title: "Familiensteuerbonus: Beruf", base: "hu", where: "Ungarn", country: "Ungarn", when: "seit 2011", status: "active", read: "Suchauszug",
+    effect: "neg", strength: 3, kz: "Erwerbstätigkeit der Mütter rund −4,8 Prozentpunkte",
+    what: "Familien zahlen je Kind weniger Einkommensteuer; Teil einer breiteren Familienpolitik seit 2010.",
+    finding: "Die Erwerbstätigkeit der Mütter sank um rund 4,8 Prozentpunkte.",
+    contra: "Der Steuerbonus zielte auf Geburten, nicht auf Erwerb; dort findet dieselbe Studie mehr Geburten.", contraBy: "Redaktion, aus der Fundstelle abgeleitet", src: ["szabo"], ids: "X07 Abschnitt 3" },
+  aubonus: { title: "Baby Bonus", where: "Australien", country: "Australien", when: "ab 2004", status: "unchecked", statusNote: "Ob und wann der Bonus endete, ist im Korpus nicht erfasst.", read: "Suchauszug",
+    effect: "pos", strength: 3, kz: "Geburten leicht gestiegen, meist vorgezogen",
+    what: "Einmalzahlung von 3.000 AUD zur Geburt.",
+    finding: "Geburtsabsichten und Geburten stiegen leicht, überwiegend durch vorgezogene Geburten. Kosten mindestens 126.000 AUD je zusätzlicher Geburt.",
+    contra: "Vor allem vorgezogene Geburten bei hohen Kosten je zusätzlicher Geburt.", contraBy: "Redaktion, aus der Studie abgeleitet", src: ["drago"], ids: "X07 Abschnitt 3" },
+  qcanc: { title: "Allowance for Newborn Children", where: "Québec, Kanada", country: "Kanada", when: "1988–1997", status: "ended", read: "Suchauszug",
+    effect: "mixed", strength: 3, kz: "Fertilität rund +12 % laut einer Studie",
+    what: "Geldprämie zur Geburt, höher ab dem dritten Kind.",
+    finding: "Milligan (2005) findet rund +12 % Fertilität; andere Studien finden wenig dauerhafte Wirkung. Kosten über 15.000 CAD je zusätzlicher Geburt.",
+    contra: "Ob die Wirkung dauerhaft war, ist umstritten.", contraBy: "Redaktion, Gegenüberstellung der Studien", src: ["cdhowe"], ids: "X07 Abschnitt 3" },
+  mkap: { title: "Mutterkapital", where: "Russland", country: "Russland", when: "", status: "unchecked",
+    effect: "unchecked", strength: 0, kz: "",
+    what: "Geldleistung für Familien; im Korpus genannt, Inhalt noch nicht recherchiert.", contra: "", src: [], ids: "", placeholder: true },
+  korea: { title: "Geburtenpolitik seit 2006", where: "Südkorea", country: "Südkorea", when: "seit 2006", status: "running", read: "Suchauszug",
+    effect: "searched", effectNote: "Erfasst ist nur der Verlauf: rund 360 bis 380 Billionen Won ausgegeben, die Geburtenrate fiel auf 0,72 (2023) und lag 2024 bei 0,75. Eine Studie mit Vergleich ist im Korpus nicht erfasst.", strength: 0, kz: "Geburtenrate 0,72 (2023)",
+    what: "Bündel aus Geld- und anderen Leistungen für Familien.",
+    contra: "Ohne Vergleich bleibt offen, ob die Rate ohne die Politik noch tiefer gefallen wäre.", contraBy: "Redaktion, Quellenkritik", src: ["korea"], ids: "X07 Abschnitt 3" },
+  qckita: { title: "Betreuungsplätze für 5 bzw. 7 Dollar am Tag", where: "Québec, Kanada", country: "Kanada", when: "ab 1997", status: "running", read: "Zusammenfassung bzw. Abstract",
+    effect: "pos", strength: 3, kz: "Mütter +5 Prozentpunkte erwerbstätig",
+    what: "Stark verbilligte Betreuungsplätze für alle Kinder bis zum Schuleintritt.",
+    finding: "Mütter mit Kindern unter fünf waren um 5 Punkte häufiger erwerbstätig, bis zum Alter von 50 um 12 Punkte. Bis Alter 55 fließen 75 bis 98 % der Kosten über Steuern zurück, je nach Diskontsatz.",
+    contra: "Bei den Kindern fanden dieselben Forscher schlechtere nicht-kognitive Werte, später schlechtere Gesundheit und mehr Kriminalität (nur Abstract gelesen).", contraBy: "Baker, Gruber, Milligan, Wissenschaft", src: ["nberqc", "aejqc"], ids: "X06 C09, C10" },
+  nmkita: { title: "Kostenlose Kinderbetreuung für alle", where: "New Mexico, USA", country: "USA", when: "seit November 2025", status: "active",
+    effect: "notyet", effectNote: "Zu früh. Erfasst sind Nutzung, Personalmangel und Wartelisten.", strength: 0, kz: "über 16.000 zusätzlich betreute Kinder",
+    what: "Kostenlose Betreuung für alle Familien, finanziert aus einem Staatsfonds aus Öl- und Gaseinnahmen.",
+    contra: "Das Personal hinkt nach, es gibt Wartelisten.", contraBy: "Governing, Medium", src: ["nmgov", "governing"], ids: "X08 2.4" },
+  capfl: { title: "Bezahlte Familienzeit", where: "Kalifornien, USA", country: "USA", when: "seit 2004", status: "active",
+    effect: "neg", strength: 3, kz: "Nutzerinnen nach zehn Jahren 5–7 % weniger beschäftigt",
+    what: "Bezahlte Freistellung nach der Geburt.",
+    finding: "Die Inanspruchnahme stieg um 18 Prozentpunkte. Auf Steuerdaten zeigt sich keine bessere Erwerbslaufbahn der Mütter; Nutzerinnen waren nach zehn Jahren 5–7 % weniger beschäftigt.",
+    contra: "Gemessen ist nur die Erwerbslaufbahn, nicht andere Ziele der Familienzeit.", contraBy: "Redaktion, aus der Studie abgeleitet", src: ["bailey"], ids: "X08 2.6" },
+  ctc: { title: "Ausgeweiteter Kinderabsetzbetrag: Kinderarmut", base: "ctc", where: "USA", country: "USA", when: "2021", status: "ended", statusNote: "Die Ausweitung lief Ende 2021 aus.",
+    effect: "pos", strength: 2, kz: "Kinderarmut 5,2 % (2021), danach 12,4 % (2022)",
+    what: "Monatlich ausgezahlter Betrag je Kind, auch an Familien ohne Einkommen.",
+    finding: "Die Kinderarmut nach erweitertem Maß fiel 2021 auf den Tiefstwert von 5,2 % und stieg nach dem Auslaufen 2022 auf 12,4 %. Das Statistikamt schätzt 2,9 Millionen Kinder, die der Betrag aus der Armut hob.",
+    contra: "Simulationen erwarten bei Dauerbetrieb einen spürbaren Rückzug vom Arbeitsmarkt (Zahl nicht geprüft).", contraBy: "Corinth, Meyer u. a., Simulation", src: ["census22"], ids: "X08 2.1" },
+  ctce: { title: "Ausgeweiteter Kinderabsetzbetrag: Beruf", base: "ctc", where: "USA", country: "USA", when: "2021", status: "ended", statusNote: "Die Ausweitung lief Ende 2021 aus.",
+    effect: "null", strength: 2, kz: "kein signifikanter Beschäftigungsrückgang",
+    what: "Monatlich ausgezahlter Betrag je Kind, auch an Familien ohne Einkommen.",
+    finding: "Empirische Studien finden keinen oder einen kleinen, nicht signifikanten Rückgang der Beschäftigung.",
+    contra: "Simulationen erwarten bei Dauerbetrieb einen spürbaren Rückzug vom Arbeitsmarkt (Zahl nicht geprüft).", contraBy: "Corinth, Meyer u. a., Simulation", src: ["nberctc"], ids: "X08 2.1" },
+  ccb: { title: "Canada Child Benefit", where: "Kanada", country: "Kanada", when: "seit 2016", status: "active",
+    effect: "searched", effectNote: "Die Kinderarmut sank von 16,3 % (2015) auf 9,4 % (2019), zeitgleich mit der Einführung. Den Anteil des Kindergelds beziffert die Regierung nicht; eine Studie mit Vergleich ist im Korpus nicht erfasst.", strength: 0, kz: "Kinderarmut 16,3 % (2015), 9,4 % (2019)",
+    what: "Steuerfreies Kindergeld, das mit steigendem Einkommen sinkt.",
+    contra: "2023 lag die Kinderarmut wieder bei 10,7 %.", contraBy: "Statistik Kanada, laut Sammlung", src: ["esdc"], ids: "X06 C06" },
+  fbp: { title: "Familienbonus Plus", where: "Österreich", country: "Österreich", when: "laufend", status: "running", read: "Suchauszug",
+    effect: "searched", effectNote: "Erfasst ist nur eine Verteilungsrechnung von 2018, keine Wirkungsmessung.", strength: 0, kz: "rund 1,5 Mrd. € pro Jahr",
+    what: "Steuerabzug je Kind von der Einkommensteuer.",
+    contra: "Einkommensschwache Familien profitieren weniger.", contraBy: "WIFO, Wirtschaftsforschung", src: ["wifofb"], ids: "X07 Abschnitt 2" }
+};
+
+const QUESTIONS = {
+  ki: {
+    tab: "KI und Arbeit",
+    title: "Wie organisieren wir eine Arbeitswelt mit künstlicher Intelligenz?",
+    answer: "Gemessen ist wenig. Zum Branchen-Mindestlohn in Kalifornien widersprechen sich zwei Studien. Persönliche Weiterbildungsgutscheine erhöhen die Teilnahme, aber mit viel Mitnahme. Zu Marktregeln für KI und zur Mitbestimmung beim KI-Einsatz gibt es in beiden Richtungen keine Wirkungsmessung.",
+    stand: "Dänemark steht als Lücke in Richtung B, noch nicht recherchiert.",
+    groups: [
+      { id: "risiko", q: "Wer trägt das Risiko, wenn KI Arbeit verändert?",
+        sides: { A: { t: "Absichern durch Staat und Gemeinschaft", a: "Wer Einkommen und Arbeit sicher hat, kann Wandel mittragen." }, B: { t: "Absichern durch Beweglichkeit", a: "Wer leicht wechseln kann und gut vermittelt wird, findet schneller neue Arbeit." } },
+        evidence: "Mit Vergleich gemessen sind eine Jobgarantie in einer Gemeinde (Marienthal, Richtung A) und Weiterbildungsgutscheine (Schweiz, Richtung B): Beide wirken, die Gutscheine mit viel Mitnahme. Flexicurity ist noch nicht recherchiert." },
+      { id: "lohn", q: "Wer setzt die Löhne in Branchen unter Druck?",
+        sides: { A: { t: "Staat setzt Rahmen für Branchenlöhne", a: "Ein staatlich eingesetztes Gremium verhindert Lohndruck, wo Einzelne kaum Verhandlungsmacht haben." }, B: { t: "Löhne ohne staatliche Vorgabe", a: "Löhne entstehen am Markt oder zwischen Tarifparteien; staatlich gesetzte Löhne über dem Marktniveau kosten Stellen." } },
+        evidence: "Dieselbe Reform, zwei Studien, gegensätzliche Ergebnisse: +11 % Lohn ohne Jobverlust (Berkeley) gegen −2,7 bis −3,2 % Beschäftigung (NBER)." },
+      { id: "markt", q: "Wie viel Regel brauchen KI-Märkte?",
+        sides: { A: { t: "Marktmacht begrenzen", a: "Sonst bestimmen wenige Anbieter, unter welchen Bedingungen KI eingesetzt wird." }, B: { t: "Regeln vereinfachen", a: "Weniger Pflichten erleichtern Investitionen und lassen Europa aufholen." } },
+        evidence: "Frühe DMA-Daten stammen aus einer Selbstbewertung. Der Digital Omnibus würde den Data Act an einer Stelle zurücknehmen; die Wirkung beider Richtungen ist ungeprüft." },
+      { id: "betrieb", q: "Wer entscheidet, wie KI im Betrieb eingesetzt wird?",
+        sides: { A: { t: "Mitentscheiden", a: "Wer betroffen ist, soll über den Einsatz mitbestimmen." }, B: { t: "Selbst regeln", a: "Betriebe kennen ihre Lage am besten und regeln KI über eigene Standards." } },
+        evidence: "Für keine Richtung liegt eine Wirkungsmessung beim KI-Einsatz vor. Die österreichische Mitbestimmung gilt bereits, ihre Reichweite ist unbekannt." }
+    ],
+    ways: [
+      { id: "jobgarantie", g: "risiko", side: "A", title: "Recht auf Arbeit: der Staat garantiert eine Stelle", cov: "checked", cases: ["marienthal"],
+        logic: "Wer lange ohne Arbeit ist, verliert Einkommen, Kontakte und Fähigkeiten. Eine garantierte, tariflich bezahlte Stelle unterbricht diesen Kreislauf.",
+        origin: "Evaluation Kasy und Lehner (Oxford, Edinburgh)", contra: "Belegt ist ein Pilot in einer Gemeinde. Ob es landesweit ohne Verdrängung funktioniert, ist offen.", contraBy: "Grenze der Evaluation", ids: "X03-C01 bis C05" },
+      { id: "startkapital", g: "risiko", side: "A", title: "Startkapital für alle als Puffer im Umbruch", cov: "checked", cases: ["ctbonds", "ctf"],
+        logic: "Ein Vermögenssockel zum Erwachsenwerden gibt Spielraum für Ausbildung, Wohnortwechsel oder Gründung, gerade wenn Arbeit sich verändert.",
+        origin: "DIW (Bach) 2021, Piketty; in Österreich auch NEOS; in den USA auch Republikaner", contra: "Modellrechnungen, keine Wirkungsmessung. Das Instrument gehört keinem Lager allein.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", ids: "X03-C19 bis C24, X08 2.5" },
+      { id: "lernen", g: "risiko", side: "A", title: "Lernen und Erproben öffentlich organisieren", cov: "checked", cases: ["ams", "edih"],
+        logic: "Betriebe und Beschäftigte brauchen Zeit, Geld und Orte, um KI zu testen und neue Fähigkeiten aufzubauen.",
+        origin: "AMS, FFG, EU-Digitalprogramm", contra: "Förderobergrenzen belegen weder Teilnahme noch Wirkung.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", ids: "Q04 H02, H03" },
+      { id: "flexicurity", g: "risiko", side: "B", title: "Absichern durch Beweglichkeit", cov: "unchecked", cases: ["dk"],
+        logic: "Leichter Kündigungsschutz, hohe Lohnersatzleistung und schnelle Vermittlung bringen Menschen rasch in neue Arbeit.",
+        origin: "Dänemark", contra: "", contraBy: "", ids: "" },
+      { id: "guthaben", g: "risiko", side: "B", title: "Weiterbildung als persönliches Guthaben", cov: "checked", cases: ["sg", "chvoucher", "cpf"],
+        logic: "Menschen wählen Kurse selbst besser als der Staat; ein Guthaben stärkt Eigenverantwortung und den Wettbewerb der Anbieter.",
+        origin: "Singapur, Frankreich, Schweiz", contra: "Ein Feldexperiment findet viel Mitnahme; das französische Konto wurde deutlich teurer als geplant.", contraBy: "Messer und Wolter; Cour des comptes", ids: "" },
+      { id: "branchenlohn", g: "lohn", side: "A", title: "Ein Branchenrat setzt den Mindestlohn", cov: "checked", cases: ["ffc"],
+        logic: "Wo Einzelne kaum Verhandlungsmacht haben, verhindert ein Branchenrat aus Beschäftigten und Arbeitgebern Lohndruck.",
+        origin: "Debatte um Branchentarife in den USA", contra: "Eine Studie zur selben Reform findet Beschäftigungsverluste.", contraBy: "NBER, Wissenschaft", ids: "X08 2.7" },
+      { id: "marktlohn", g: "lohn", side: "B", title: "Keine staatlich gesetzten Branchenlöhne", cov: "partial", cases: ["ffc"],
+        covNote: "Beleg ist die NBER-Studie zum selben kalifornischen Fall; wer diese Position politisch vertritt, ist noch nicht erfasst.",
+        logic: "Staatlich gesetzte Löhne über dem Marktniveau kosten Stellen, gerade für Geringqualifizierte.",
+        origin: "Absender in den Testdaten noch nicht erfasst", contra: "Dieselbe Reform zeigt in der Berkeley-Studie keine Jobverluste.", contraBy: "IRLE Berkeley, Wissenschaft", ids: "X08 2.7" },
+      { id: "gegenmacht", g: "markt", side: "A", title: "Offene Schnittstellen schaffen Gegenmacht", cov: "checked", cases: ["dma", "dataact"],
+        logic: "Wer Anbieter leicht wechseln und Dienste verbinden kann, macht Plattformen weniger mächtig. Dann müssen sie um Nutzer und Beschäftigte konkurrieren.",
+        origin: "Cory Doctorow (These), EU-Wettbewerbspolitik", contra: "Frühe Wirkungsdaten stammen aus einer Selbstbewertung der Kommission. Offene Schnittstellen können Sicherheitsrisiken schaffen.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", ids: "Q04 B01-C01, C02, X03-C13 bis C16" },
+      { id: "fusion", g: "markt", side: "A", title: "Marktmacht durch strenge Fusionskontrolle begrenzen", cov: "checked", cases: ["ftc"],
+        logic: "Übernahmen von Konkurrenten verhindern, bevor wenige Konzerne Preise, Löhne und Technik bestimmen.",
+        origin: "Neo-Brandeis-Bewegung, Lina Khan", contra: "In den USA hatte wenig davon Bestand vor Gericht.", contraBy: "Gerichtsentscheidungen, berichtet von NPR", ids: "X08 2.8" },
+      { id: "souveraen", g: "markt", side: "A", title: "Der Staat lenkt über Einkauf und Infrastruktur", cov: "checked", cases: ["berlin", "cada", "aiat"],
+        logic: "Öffentliche Nachfrage und eigene Rechenkapazität verringern Abhängigkeiten und setzen Standards für den Markt.",
+        origin: "EU-Kommission, Mitgliedstaaten", contra: "Infrastruktur ist keine Beschäftigungsgarantie; die Wirkung auf Abhängigkeiten ist nicht belegt.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", ids: "X09 Nr. 10, 11, Q04 H03, W07" },
+      { id: "vereinfachen", g: "markt", side: "B", title: "Weniger Regeln, mehr Investition", cov: "partial", cases: ["omnibus"],
+        covNote: "Ob weniger Regeln KI-Investitionen auslösen, ist in den Testdaten noch nicht geprüft.",
+        logic: "Weniger und einfachere Pflichten senken Kosten und Unsicherheit. Dann investieren Unternehmen in Europa eher in KI.",
+        origin: "Draghi-Bericht 2024, EU Digital Omnibus", contra: "Der Omnibus würde Regeln zum Cloud-Wechsel aus dem Data Act lockern. Ob weniger Regeln Investitionen auslösen, ist nicht gemessen.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", ids: "Q01-F01-C01, X03-B3-S06" },
+      { id: "mitbestimmung", g: "betrieb", side: "A", title: "Beschäftigte entscheiden über Technik mit", cov: "checked", cases: ["arbvg"],
+        logic: "Wer betroffen ist, kennt die Arbeit und ihre Risiken. Mitbestimmung macht KI-Einführung passgenauer und schützt vor Überwachung.",
+        origin: "Arbeitsverfassung, Gewerkschaften", contra: "Für den KI-Einsatz liegt keine Wirkungsmessung vor. Betriebe ohne Betriebsrat bleiben außen vor.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", ids: "Q04 G03-C03, C04" },
+      { id: "civic", g: "betrieb", side: "A", title: "Bürgerinnen und Bürger setzen die Ziele von KI", cov: "checked", cases: ["taiwan"],
+        logic: "Wenn die Öffentlichkeit mitbestimmt, wofür Modelle optimiert werden, steigen Legitimität und Passung.",
+        origin: "Audrey Tang, Taiwan", contra: "Darstellung einer Beteiligten; kein Wirkungsnachweis.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", ids: "Q04 B01-C04, C05" },
+      { id: "selbstreg", g: "betrieb", side: "B", title: "Betriebe regeln KI über eigene Standards", cov: "unchecked", cases: [],
+        logic: "Betriebe kennen ihre Lage am besten. Selbstverpflichtungen und Zertifikate sind schneller als neue Pflichten.",
+        origin: "Absender in den Testdaten noch nicht erfasst", contra: "", contraBy: "", ids: "" }
+    ],
+    positions: null
+  },
+  aeltere: {
+    tab: "Ältere Langzeitarbeitslose",
+    tabNote: "Österreich",
+    title: "Wie kommen ältere Langzeitarbeitslose wieder in Arbeit?",
+    answer: "Das große Programm von 2017 schuf kurzfristig zusätzliche Stellen und wurde gestoppt. Eine Jobgarantie in einer Gemeinde (Marienthal) wirkte für Langzeitarbeitslose aller Altersgruppen; eine Auswertung nur für Ältere liegt in den Testdaten nicht vor. Bei Lohnzuschüssen ist umstritten, ob sie neue Stellen schaffen; für Weiterbildung und eine flachere Lohnkurve gibt es keine Messung.",
+    stand: "Fallakte Österreich seit 2017. Die vier Wege sind eine Gruppierung der Redaktion.",
+    groups: [
+      { id: "warum", q: "Warum finden Ältere keine Arbeit? Vier Grundannahmen, vier Wege", sides: null,
+        evidence: "Belegt: kurzfristig zusätzliche Stellen durch die Aktion 20.000 und garantierte Stellen in Marienthal (alle Altersgruppen). Umstritten: ob Lohnzuschüsse neue Stellen schaffen oder Stellen bezahlen, die es ohnehin gegeben hätte. Offen: ob Marienthal im ganzen Land gleich wirken würde und was Weiterbildung oder eine flachere Lohnkurve Älteren bringen." }
+    ],
+    ways: [
+      { id: "direkt", g: "warum", belief: "Es gibt für sie schlicht keine Stellen.", title: "Arbeit garantieren", cov: "checked", cases: ["marienthal", "a20000", "soebue", "a55", "ak40000"],
+        logic: "Der Staat schafft sinnvolle Stellen bei Gemeinden und gemeinnützigen Trägern und zahlt sie voll.",
+        origin: "Arbeiterkammer, Momentum Institut, Sozialministerium 2026", contra: "Etwa die Hälfte der Geförderten der Aktion 20.000 war nach dem Ende wieder arbeitslos.", contraBy: "Prospect-Evaluation", ids: "" },
+      { id: "zuschuss", g: "warum", belief: "Betriebe scheuen das Risiko, Ältere einzustellen.", title: "Betriebe bezuschussen", cov: "checked", cases: ["eb"],
+        logic: "Der Staat übernimmt befristet einen Teil des Lohns, die Stelle entsteht am regulären Markt.",
+        origin: "AMS", contra: "Etwa jede zweite geförderte Stelle wäre auch ohne Zuschuss entstanden.", contraBy: "WIFO-Chef Badelt, laut Presse", ids: "" },
+      { id: "quali", g: "warum", belief: "Ihre Fähigkeiten passen nicht mehr zu den offenen Stellen.", title: "Weiterbilden", cov: "checked", cases: ["amsquali"],
+        logic: "Der Staat finanziert Weiterbildung statt befristeter Ersatzstellen.",
+        origin: "AMS-Chef Kopf 2017", contra: "Für Ältere mit gesundheitlichen Einschränkungen reicht Weiterbildung allein oft nicht.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", ids: "" },
+      { id: "lohnkurve", g: "warum", belief: "Ältere sind im Verhältnis zu ihrer Leistung zu teuer.", title: "Lohnkurve abflachen", cov: "searched", cases: [],
+        covNote: "In Österreich nie ausprobiert; nur als Argument in der Debatte gefunden.",
+        logic: "Löhne steigen in Kollektivverträgen weniger stark mit dem Alter, damit Ältere nicht teurer sind als Jüngere.",
+        origin: "Wirtschaftsliberale Kommentare (laut Diskursanalyse)", contra: "Bisher nur ein Argument, in Österreich nie erprobt.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", ids: "" }
+    ],
+    actors: [
+      { id: "regierung17", name: "ÖVP-FPÖ-Regierung", kind: "Regierung", when: "2017–2019" },
+      { id: "bmsgpk26", name: "Sozialministerium", kind: "Ministerium", when: "2026" },
+      { id: "ak", name: "Arbeiterkammer", kind: "Interessenvertretung", when: "2017, 2019" },
+      { id: "ams", name: "AMS-Chef Kopf", kind: "Behörde", when: "2017, 2019" },
+      { id: "wifo", name: "WIFO-Chef Badelt", kind: "Wirtschaftsforschung", when: "2019" },
+      { id: "momentum", name: "Momentum Institut", kind: "Thinktank, progressiv", when: "2019, 2025" },
+      { id: "kommentar", name: "Wirtschaftsliberale Kommentare", kind: "Medien", when: "2018–2019" }
+    ],
+    positions: [
+      { a: "regierung17", w: "direkt", p: "contra", why: "Stoppte die Aktion 20.000 zum 31. Dezember 2017; in der Debatte als zu teuer und nicht nachhaltig begründet.", src: ["prospect", "jku"] },
+      { a: "bmsgpk26", w: "direkt", p: "pro", why: "Legt mit der Aktion 55+ geförderte Beschäftigung für über 55-Jährige neu auf.", src: ["bmsgpk"] },
+      { a: "ak", w: "direkt", p: "pro", why: "Forderte 2019 einen Ausbau auf 40.000 Stellen und lehnte 2017 eine Kürzung der Aktion 20.000 ab.", src: ["presse19", "presse17"] },
+      { a: "ams", w: "direkt", p: "contra", why: "Schlug 2017 vor, die Aktion 20.000 zu verkleinern, um Verdrängung am freien Markt zu vermeiden.", src: ["presse17"] },
+      { a: "ams", w: "quali", p: "pro", why: "Wollte 2017 mehr Mittel für Qualifizierung und Facharbeiterausbildung.", src: ["presse17"] },
+      { a: "ams", w: "zuschuss", p: "cond", why: "Verteidigte 2019 Eingliederungsbeihilfen als Brücke, teils bis zur Pension.", src: ["presse19"] },
+      { a: "wifo", w: "zuschuss", p: "contra", why: "Sieht ein massives Problem bei Älteren, aber hohe Mitnahme: etwa jede zweite Stelle wäre auch ohne Förderung entstanden.", src: ["presse19"] },
+      { a: "momentum", w: "direkt", p: "pro", why: "Nennt die Jobgarantie effizient und überraschend günstig; verteidigte die Aktion 20.000 mit Verbleibsdaten.", src: ["momentum25", "moment19"] },
+      { a: "kommentar", w: "direkt", p: "contra", why: "Rahmten das Programm als teure staatliche Jobmaschine an der Wirtschaft vorbei (laut Diskursanalyse).", src: ["jku"] },
+      { a: "kommentar", w: "lohnkurve", p: "pro", why: "Sahen Senioritätsprinzip und steile Lohnkurve als eigentliche Ursache (laut Diskursanalyse).", src: ["jku"] }
+    ]
+  },
+  wohnen: {
+    tab: "Wohnen",
+    title: "Wie wird Wohnen bezahlbar?",
+    answer: "Belegt ist wenig. Mietbindung bremst die Mieten im gebundenen Bestand, verringert laut Studien aber das Angebot. Mehr Baurecht in Minneapolis ging mit kaum steigenden Mieten einher; ob das ursächlich war, ist umstritten. Öffentliche Baufonds in den USA sind zu jung für eine Messung.",
+    stand: "Fälle aus Wien, Österreich, Deutschland und den USA. Typengenehmigung und serielles Bauen fehlen in den Testdaten noch.",
+    groups: [
+      { id: "angebot", q: "Wie entstehen mehr bezahlbare Wohnungen?",
+        sides: { A: { t: "Öffentlich bauen und besitzen", a: "Wohnungen in öffentlicher Hand bleiben dauerhaft günstig." }, B: { t: "Mehr Bauen erlauben", a: "Wer Bauregeln lockert, bekommt mehr Wohnungen und damit niedrigere Preise." } },
+        evidence: "Mit Vergleich gemessen ist nur die Zonierungsreform in Minneapolis, und ihre Ursache ist umstritten. Der Wiener Gemeindebau ist deutlich günstiger als der private Markt, das ist aber ein Vergleich der Bestände. Gebäudetyp E und die US-Baufonds sind zu neu." },
+      { id: "mieten", q: "Wie werden Mieten im Bestand begrenzt?",
+        sides: { A: { t: "Mieten begrenzen", a: "Begrenzte Mieterhöhungen schützen Menschen, die schon zur Miete wohnen." }, B: { t: "Mieten dem Markt überlassen", a: "Freie Mieten lohnen Neubau und Vermietung; Begrenzungen verknappen das Angebot." } },
+        evidence: "Eine Übersicht über 112 Studien zeigt beides: Mietbindung bremst die Mieten im gebundenen Bestand und verringert das Angebot im freien Markt. Ein Fall, in dem Mietregeln zurückgenommen wurden, ist nicht recherchiert." }
+    ],
+    ways: [
+      { id: "gemeinde", g: "angebot", side: "A", title: "Die Gemeinde baut und vermietet", cov: "checked", cases: ["wiengb"],
+        logic: "Eine Stadt mit großem eigenem Bestand dämpft die Mieten für viele Haushalte.",
+        origin: "Stadt Wien", contra: "Die Sanierung hinkt weit hinter dem Ziel her.", contraBy: "Rechnungshof Österreich", ids: "" },
+      { id: "fonds", g: "angebot", side: "A", title: "Öffentlicher Baufonds", cov: "checked", cases: ["hoc", "seattle", "homesact"],
+        logic: "Öffentliches Geld finanziert die Bauphase und fließt nach dem Bau in neue Projekte zurück.",
+        origin: "Behörden und Abgeordnete in den USA", contra: "Engpass sind eher Grund, Widmung und Baukosten.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", ids: "" },
+      { id: "zonierung", g: "angebot", side: "B", title: "Dichter bauen erlauben", cov: "checked", cases: ["mpls"],
+        logic: "Wenn auf derselben Fläche mehr Wohnungen erlaubt sind, steigt das Angebot.",
+        origin: "Stadt Minneapolis; Debatte um „Abundance“ in den USA", contra: "Ob die Reform die Mieten gedämpft hat, ist umstritten.", contraBy: "Federal Reserve Minneapolis, Forschung", ids: "" },
+      { id: "baustandard", g: "angebot", side: "B", title: "Baustandards vereinfachen", cov: "partial", cases: ["gebtype"],
+        covNote: "Typengenehmigung und serielles Bauen sind noch nicht recherchiert.",
+        logic: "Wer von nicht sicherheitsrelevanten Standards abweichen darf, baut günstiger.",
+        origin: "Bundesregierung", contra: "Noch keine Wirkung messbar.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", ids: "" },
+      { id: "mietbegrenzung", g: "mieten", side: "A", title: "Mieterhöhungen begrenzen", cov: "checked", cases: ["mietbind", "atmiete"],
+        logic: "Begrenzte Erhöhungen schützen Bestandsmieter vor Verdrängung.",
+        origin: "Regierungen in Österreich und vielen Städten", contra: "Weniger Angebot und höhere Mieten im freien Markt.", contraBy: "Kholodilin; Diamond, McQuade, Qian, Wissenschaft", ids: "" },
+      { id: "marktmiete", g: "mieten", side: "B", title: "Mietregeln zurücknehmen", cov: "unchecked", cases: [],
+        logic: "Freie Mieten setzen Anreize für Neubau und Vermietung.",
+        origin: "Absender in den Testdaten noch nicht erfasst", contra: "", contraBy: "", ids: "" }
+    ],
+    positions: null
+  },
+  familie: {
+    tab: "Familien",
+    tabNote: "Zusatzbeispiel",
+    title: "Wie unterstützt der Staat Familien: mit Betreuung und Karenz oder mit Geld?",
+    answer: "Für mehr Geburten wirkt Betreuung leicht und dauerhaft, Geld meist nur vorübergehend (in Ungarn auch dauerhaft). Gegen Kinderarmut gibt es einen Befund für Geld je Kind; Sachleistungen sind dazu nicht recherchiert. Längere Karenz und Steuervorteile senkten die Erwerbstätigkeit von Müttern.",
+    stand: "Die meisten Studien sind nur über Auszüge gelesen; das steht im jeweiligen Fall.",
+    groups: [
+      { id: "geburt", q: "Bekommen Menschen mehr Kinder, wenn der Staat hilft?",
+        sides: { A: { t: "Betreuung und Karenz ausbauen", a: "Wer Kind und Beruf vereinbaren kann, erfüllt einen Kinderwunsch eher." }, B: { t: "Geld an Familien zahlen", a: "Kinder kosten Geld; wer Geld bekommt, kann sich Kinder eher leisten." } },
+        evidence: "Eine Übersicht über 35 Studien (Bergsvik u. a. 2021) findet: Betreuung erhöht die endgültige Kinderzahl, Geldleistungen wirken vor allem vorübergehend, reservierte Väteranteile zeigen keinen Effekt. Wo gemessen, kostete eine zusätzliche Geburt durch Geldleistungen zwischen über 15.000 kanadischen Dollar (Québec) und rund 389.000 US-Dollar (Polen). Fallende Geburtenraten seit etwa 2010 gibt es in Ländern mit viel Sachleistung (Finnland, Schweden) wie mit viel Geld (Ungarn); das ist kein Wirkungsbefund." },
+      { id: "erwerb", q: "Arbeiten Eltern mehr?",
+        sides: { A: { t: "Betreuung und Karenz ausbauen", a: "Wer sein Kind gut betreut weiß, kann arbeiten." }, B: { t: "Geld an Familien zahlen", a: "Geld und Steuervorteile lassen Familien selbst entscheiden, wie sie Arbeit und Betreuung aufteilen." } },
+        evidence: "Billige Betreuungsplätze erhöhten in Québec die Erwerbstätigkeit von Müttern. Längere Karenz in Österreich, bezahlte Familienzeit in Kalifornien und Ungarns Steuerbonus senkten sie eher. Beim US-Kinderabsetzbetrag fanden Studien keinen signifikanten Rückgang. Ob Geld Familien mehr Wahlfreiheit bei der Aufteilung von Arbeit und Betreuung gibt, ist ein eigenes Ziel; dazu ist in den Testdaten keine Messung erfasst." },
+      { id: "armut", q: "Sinkt die Kinderarmut?",
+        sides: { A: { t: "Betreuung und Sachleistungen", a: "Leistungen, die direkt beim Kind ankommen, gleichen ungleiche Startchancen aus." }, B: { t: "Geld an Familien zahlen", a: "Armut ist fehlendes Geld; Geld an Familien senkt sie am direktesten." } },
+        evidence: "Mit dem US-Kinderabsetzbetrag 2021 fiel die Kinderarmut auf 5,2 %, nach dem Auslaufen stieg sie auf 12,4 %. In Kanada sank sie nach Einführung des Kindergelds, wie viel davon auf das Kindergeld geht, ist nicht beziffert. Ob Sachleistungen Kinderarmut senken, ist in den Testdaten nicht recherchiert." }
+    ],
+    ways: [
+      { id: "kitag", g: "geburt", side: "A", title: "Mehr Betreuungsplätze", cov: "checked", cases: ["dekita", "nokita"],
+        logic: "Wer einen Betreuungsplatz hat, muss sich nicht zwischen Kind und Beruf entscheiden.",
+        origin: "Regierungen in Deutschland und Norwegen", contra: "Der gemessene Effekt ist klein: rund +0,1 Kinder je Frau in Deutschland.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", ids: "X07 Abschnitt 3" },
+      { id: "karenzg", g: "geburt", side: "A", title: "Längere bezahlte Karenz", cov: "checked", cases: ["karenzg"],
+        logic: "Eine längere bezahlte Auszeit nach der Geburt senkt die Kosten eines weiteren Kindes.",
+        origin: "Regierung Österreich 1990", contra: "Dieselbe Reform verzögerte die Rückkehr der Mütter in den Beruf.", contraBy: "Lalive und Zweimüller, Wissenschaft", ids: "X07 Abschnitt 3" },
+      { id: "vaeter", g: "geburt", side: "A", title: "Reservierter Väteranteil", cov: "checked", cases: ["vaeter"],
+        logic: "Wenn Väter mehr Betreuung übernehmen, steigt die Bereitschaft zu weiteren Kindern.",
+        origin: "Regierungen in Island, Schweden und Norwegen", contra: "Gemessen wurde keine Wirkung auf die Geburten.", contraBy: "Bergsvik u. a., Übersichtsstudie", ids: "X07 Abschnitt 3" },
+      { id: "praemie", g: "geburt", side: "B", title: "Prämie zur Geburt", cov: "partial", cases: ["aubonus", "qcanc", "mkap"],
+        covNote: "Russlands Mutterkapital ist im Korpus genannt, aber nicht geprüft.",
+        logic: "Eine Einmalzahlung senkt die Anfangskosten eines Kindes.",
+        origin: "Regierungen in Australien und Québec", contra: "Vor allem vorgezogene Geburten, teuer je zusätzlicher Geburt.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", ids: "X07 Abschnitt 3" },
+      { id: "kindergeld", g: "geburt", side: "B", title: "Laufendes Kindergeld", cov: "checked", cases: ["pl500"],
+        logic: "Regelmäßiges Geld je Kind entlastet das Familienbudget dauerhaft.",
+        origin: "Regierung Polen", contra: "Der Effekt in Polen war überwiegend kurzfristig.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", ids: "X07 Abschnitt 3" },
+      { id: "steuerg", g: "geburt", side: "B", title: "Steuervorteile für Familien", cov: "checked", cases: ["hug"],
+        logic: "Wer je Kind weniger Steuern zahlt, hat mehr vom eigenen Einkommen.",
+        origin: "Regierung Ungarn", contra: "Die Erwerbstätigkeit der Mütter sank.", contraBy: "Szabó, Wissenschaft", ids: "X07 Abschnitt 3" },
+      { id: "kitae", g: "erwerb", side: "A", title: "Günstige Betreuung für alle", cov: "checked", cases: ["qckita", "nmkita"],
+        logic: "Wenn Betreuung wenig kostet, lohnt sich Arbeit für beide Eltern.",
+        origin: "Regierungen in Québec und New Mexico", contra: "Schnelle Expansion ohne Qualität kann den Kindern schaden.", contraBy: "Redaktion, aus Baker, Gruber, Milligan abgeleitet", ids: "X06 C09, C10, X08 2.4" },
+      { id: "karenze", g: "erwerb", side: "A", title: "Längere oder bezahlte Familienzeit", cov: "checked", cases: ["karenze", "capfl"],
+        logic: "Eine gesicherte Auszeit hält die Bindung an den Arbeitsplatz.",
+        origin: "Regierungen in Österreich und Kalifornien", contra: "Beide Fälle zeigen eher weniger Erwerbstätigkeit der Mütter.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", ids: "X07, X08 2.6" },
+      { id: "steuere", g: "erwerb", side: "B", title: "Steuervorteile für Familien", cov: "checked", cases: ["hue"],
+        logic: "Steuervorteile lassen Familien selbst entscheiden, wie sie Arbeit und Betreuung aufteilen.",
+        origin: "Regierung Ungarn", contra: "Die Erwerbstätigkeit der Mütter sank um rund 4,8 Prozentpunkte.", contraBy: "Szabó, Wissenschaft", ids: "X07 Abschnitt 3" },
+      { id: "heim", g: "erwerb", side: "B", title: "Geld für Betreuung zu Hause", cov: "unchecked", cases: [],
+        logic: "Familien, die ihr Kind selbst betreuen, bekommen einen Ausgleich für einen nicht genutzten Platz.",
+        origin: "Absender in den Testdaten noch nicht erfasst", contra: "", contraBy: "", ids: "" },
+      { id: "geld", g: "erwerb", side: "B", title: "Geld je Kind ohne Arbeitspflicht", cov: "checked", cases: ["ctce"],
+        logic: "Ein verlässliches Einkommen je Kind gibt Spielraum, ohne Erwerbsarbeit zu verdrängen.",
+        origin: "US-Regierung und Kongress 2021", contra: "Simulationen erwarten bei Dauerbetrieb einen Rückzug vom Arbeitsmarkt.", contraBy: "Corinth, Meyer u. a., Simulation", ids: "X08 2.1" },
+      { id: "sach", g: "armut", side: "A", title: "Sachleistungen gegen Kinderarmut", cov: "unchecked", cases: [],
+        logic: "Leistungen wie Betreuung kommen direkt beim Kind an statt im Haushaltsbudget.",
+        origin: "Absender in den Testdaten noch nicht erfasst", contra: "", contraBy: "", ids: "" },
+      { id: "kindergelda", g: "armut", side: "B", title: "Regelmäßiges Geld je Kind", cov: "checked", cases: ["ctc", "ccb"],
+        logic: "Geld je Kind, auch an Familien ohne Einkommen, kommt bei armen Familien direkt an.",
+        origin: "Regierungen in den USA (2021) und Kanada", contra: "Der kanadische Anteil am Rückgang ist nicht beziffert; in den USA stieg die Armut nach dem Auslaufen wieder.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", ids: "X06 C06, X08 2.1" },
+      { id: "steuera", g: "armut", side: "B", title: "Steuerbonus je Kind", cov: "partial", cases: ["fbp"],
+        covNote: "Nur die Verteilung ist erfasst, keine Wirkung auf Kinderarmut.",
+        logic: "Familien behalten mehr vom eigenen Einkommen.",
+        origin: "Regierung Österreich", contra: "Einkommensschwache Familien profitieren weniger.", contraBy: "WIFO, Wirtschaftsforschung", ids: "X07 Abschnitt 2" }
+    ],
+    positions: null
+  }
+};
+
+const LEVEL = {
+  marienthal: ["Gemeinde", "netto 237 € je Person und Monat"], ctbonds: ["Bundesstaat", "50 Mio. $ pro Jahr bis 2034"], ctf: ["national"], ffc: ["Bundesstaat"], arbvg: ["national"],
+  dma: ["EU"], dataact: ["EU"], ftc: ["national"], berlin: ["EU"], cada: ["EU"], aiat: ["national und EU"], ams: ["national"], edih: ["EU"], taiwan: ["national"], omnibus: ["EU"],
+  sg: ["national"], chvoucher: ["national"], cpf: ["national", "2,6 Mrd. € im Jahr 2021, geplant waren 1,4 Mrd. €"],
+  a20000: ["national"], soebue: ["Land (Wien)"], a55: ["national", "50 Mio. € pro Jahr (2026)"], ak40000: ["national", "rund 270 Mio. € netto, Rechnung der Arbeiterkammer"], eb: ["national", "184 Mio. € für Ältere in einem Jahr, laut Presse"], amsquali: ["national"],
+  wiengb: ["Gemeinde (Wien)"], hoc: ["County", "Fonds von 100 Mio. $"], seattle: ["Stadt", "Abgabe von 136 Mio. $ (2025)"], homesact: ["national", "30 Mrd. $ pro Jahr, vorgeschlagen"], mpls: ["Stadt"], gebtype: ["national"], mietbind: ["verschieden"], atmiete: ["national"],
+  dekita: ["Bund, Länder und Kommunen"], nokita: ["national"], karenzg: ["national"], karenze: ["national"], vaeter: ["national"], pl500: ["national", "rund 389.000 $ je zusätzlicher Geburt"],
+  hug: ["national"], hue: ["national"], aubonus: ["national", "mindestens 126.000 AUD je zusätzlicher Geburt"], qcanc: ["Provinz", "über 15.000 CAD je zusätzlicher Geburt"], korea: ["national", "360 bis 380 Billionen Won insgesamt"],
+  qckita: ["Provinz"], nmkita: ["Bundesstaat"], capfl: ["Bundesstaat"], ctc: ["national"], ctce: ["national"], ccb: ["national"], fbp: ["national", "rund 1,5 Mrd. € pro Jahr"]
+};
+Object.entries(LEVEL).forEach(([id, [ebene, kosten]]) => { if (CASES[id]) { CASES[id].ebene = ebene; if (kosten) CASES[id].kosten = kosten; } });
+
+const INSTR = {
+  jobgarantie: "staatliche Investition und Konsum", startkapital: "ökonomisch", lernen: "staatliche Investition und Konsum", flexicurity: "regulatorisch", guthaben: "ökonomisch",
+  branchenlohn: "regulatorisch", marktlohn: "regulatorisch", gegenmacht: "regulatorisch", fusion: "regulatorisch", souveraen: "staatliche Investition und Konsum",
+  vereinfachen: "regulatorisch", mitbestimmung: "regulatorisch", civic: "Information", selbstreg: "freiwillig",
+  direkt: "staatliche Investition und Konsum", zuschuss: "ökonomisch", quali: "ökonomisch", lohnkurve: "freiwillig",
+  gemeinde: "staatliche Investition und Konsum", fonds: "staatliche Investition und Konsum", zonierung: "regulatorisch", baustandard: "regulatorisch", mietbegrenzung: "regulatorisch", marktmiete: "regulatorisch",
+  kitag: "staatliche Investition und Konsum", karenzg: "ökonomisch", vaeter: "regulatorisch", praemie: "ökonomisch", kindergeld: "ökonomisch", steuerg: "ökonomisch",
+  kitae: "staatliche Investition und Konsum", karenze: "ökonomisch", steuere: "ökonomisch", heim: "ökonomisch", geld: "ökonomisch", sach: "staatliche Investition und Konsum", kindergelda: "ökonomisch", steuera: "ökonomisch"
+};
+Object.values(QUESTIONS).forEach(q => q.ways.forEach(w => { w.instr = INSTR[w.id] || ""; }));
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const svg = (inner, extra = "") => `<svg viewBox="0 0 12 12" aria-hidden="true" focusable="false"${extra}>${inner}</svg>`;
+function statusSig(c, withKey) {
+  const s = STATUS[c.status];
+  return `<span class="sig${s.stop ? " strong" : ""}">${svg(STATUS_SVG[c.status])}${withKey ? '<span class="vh">Status: </span>' : ""}${esc(s.label)}</span>`;
+}
+function effectSig(key, withKey) {
+  const e = EFFECT[key];
+  return `<span class="sig">${svg(e.svg(e.color))}${withKey ? '<span class="vh">Wirkung: </span>' : ""}<span style="color:${key === "searched" || key === "unchecked" || key === "notyet" ? "var(--muted)" : "var(--text)"}">${esc(e.label)}</span></span>`;
+}
+function strengthSig(n, withKey) {
+  if (!n) return "";
+  return `<span class="sig"><span class="bars" aria-hidden="true">${[1, 2, 3].map(i => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}</span>${withKey ? '<span class="vh">Evidenzstärke: </span>' : ""}${esc(STRENGTH[n].label)}</span>`;
+}
+function covBadge(key) { return `<span class="cov">${svg(COV[key].svg)}<span><span class="vh">Abdeckung: </span>${esc(COV[key].label)}</span></span>`; }
+const hasFinding = c => ["pos", "mixed", "null", "neg"].includes(c.effect);
+const isGap = c => c.effect === "searched" || c.effect === "unchecked";
+
+let savedMode = null;
+try { savedMode = localStorage.getItem("opn-view"); } catch (e) {
+}
+const state = { view: "frage", q: "ki", filter: "all", mode: savedMode === "cmp" || savedMode === "tbl" ? savedMode : "cmp", sort: { key: null, dir: 1 }, bill: "21-6807" };
+const FILTERS = [
+  { id: "all", label: "Alle Fälle", test: () => true },
+  { id: "found", label: "Mit Wirkungsbefund", test: hasFinding },
+  { id: "stop", label: "Gestoppt oder beendet", test: c => STATUS[c.status].stop },
+  { id: "gaps", label: "Lücken", test: () => true }
+];
+const Q = () => QUESTIONS[state.q];
+const casesOf = q => q.ways.flatMap(w => w.cases);
+
+const uniqueCases = ids => { const seen = new Set(); return ids.filter(id => { const k = CASES[id].base || id; if (seen.has(k)) return false; seen.add(k); return true; }); };
+const visibleCase = id => FILTERS.find(f => f.id === state.filter).test(CASES[id]);
+function visibleWay(w) {
+  if (state.filter === "all") return true;
+  if (state.filter === "gaps") return w.cov !== "checked";
+  return w.cases.some(visibleCase);
+}
+
+function stats(q) {
+  const cs = uniqueCases(casesOf(q)).map(id => CASES[id]).filter(c => !c.placeholder);
+  const countries = new Set(cs.flatMap(c => [].concat(c.country)).filter(x => x !== "EU"));
+  const notFull = q.ways.filter(w => w.cov === "unchecked" || w.cov === "partial");
+  const open = q.ways.filter(w => w.cov !== "checked");
+  return {
+    ways: q.ways.length, cases: cs.length, countries: countries.size, eu: cs.some(c => c.country === "EU"),
+    found: cs.filter(hasFinding).length,
+    stop: cs.filter(c => STATUS[c.status].stop).length,
+    notFull: notFull.length, notFullSides: [...new Set(notFull.map(w => w.side).filter(Boolean))],
+    searched: q.ways.filter(w => w.cov === "searched").length, open: open.length
+  };
+}
+function renderCounts() {
+  const s = stats(Q());
+  const gapLabel = `${s.open === 1 ? "Weg" : "Wege"} mit Lücken${s.notFull && s.notFullSides.length === 1 ? `, alle in Richtung ${s.notFullSides[0]}` : ""}`;
+  const where = `${s.countries} ${s.countries === 1 ? "Land" : "Ländern"}${s.eu ? " und der EU" : ""}`;
+  $("counts").innerHTML = [
+    ["all", s.cases, `alle Fälle, aus ${where}`], ["found", s.found, "mit Wirkungsbefund"],
+    ["stop", s.stop, "gestoppt oder beendet"], ["gaps", s.open, gapLabel]
+  ].map(([f, n, l]) => `<button type="button" class="cnt${f === "gaps" ? " gap" : ""}" data-filter="${f}" aria-pressed="${state.filter === f}"><b>${n}</b><span>${esc(l)}</span></button>`).join("");
+}
+
+function renderLegend() {
+  const st = ["proposed", "adopted", "active", "pilot", "partstop", "stopped", "ended"];
+  $("legend").innerHTML = `
+    <p class="legend-foot"><a href="#daten">Methodik und Codebuch</a> · „Abgeleitet, ungeprüft“ heißt: aus den Fundstellen zusammengefasst, noch ohne Prüfung durch zwei Personen. Alle anderen Einwände nennen ihre Quelle.</p>
+    <div><h2>Status des Falls</h2><ul>${st.map(k => `<li>${statusSig({ status: k })}</li>`).join("")}</ul><p>Gehört zum Fall, nicht zum Befund: Etwas kann wirken und trotzdem beendet werden. Ohne Angabe läuft der Fall.</p></div>
+    <div><h2>Wirkungsbefund</h2><ul>${["pos", "mixed", "null", "neg"].map(k => `<li>${effectSig(k)}</li>`).join("")}</ul><p>Richtung eines Befunds mit Vergleich. Fehlende Messung heißt nie „wirkt nicht“.</p></div>
+    <div><h2>Evidenzstärke</h2><ul>${[3, 2, 1].map(n => `<li>${strengthSig(n)}</li>`).join("")}</ul><p>Wie die Messung angelegt ist, getrennt von ihrer Richtung. Wer sie erstellt oder bezahlt hat, steht beim Absender der Fundstelle. Alle Einstufungen sind vorläufig.</p></div>
+    <div><h2>Ohne Wirkungsbefund</h2><ul><li>${effectSig("partial")}</li><li>${effectSig("notyet")}</li><li>${effectSig("searched")}</li><li>${effectSig("unchecked")}</li></ul><p>„Gesucht, keine Messung gefunden“ ist ein Ergebnis der Recherche. „Noch nicht recherchiert“ ist eine offene Aufgabe. Die Plakette oben an jedem Lösungsweg zeigt, wie weit er recherchiert ist.</p></div>`;
+}
+
+function caseRow(id) {
+  const c = CASES[id];
+  const quietStatus = ["running", "active"].includes(c.status);
+  if (c.placeholder) return `<li><div class="case static"><span class="cbody"><span class="cline"><span class="cname">${esc(c.title)}</span><span class="cwhere">${esc(c.where)}</span></span><span class="csigs">${effectSig("unchecked")}</span></span></div></li>`;
+  return `<li><button type="button" class="case" data-case="${id}"><span class="cbody">
+    <span class="cline"><span class="cname">${esc(c.title)}</span><span class="cwhere">${esc(c.where)}${c.when ? " · " + esc(c.when) : ""}</span></span>
+    <span class="csigs">${quietStatus ? "" : statusSig(c, true)}${effectSig(c.effect, true)}${strengthSig(c.strength, true)}</span>
+    ${c.kz ? `<span class="ckz">${esc(c.kz)}</span>` : ""}
+  </span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></li>`;
+}
+
+function waySummary(w) {
+  const cs = w.cases.map(id => CASES[id]).filter(c => !c.placeholder);
+  if (cs.length < 2) return "";
+  const eff = ["pos", "mixed", "null", "neg"].map(k => [k, cs.filter(c => c.effect === k).length]).filter(([, n]) => n);
+  const best = Math.max(0, ...cs.map(c => c.strength));
+  const effHTML = eff.length ? eff.map(([k, n]) => `<span class="sig" title="${esc(EFFECT[k].label)}">${svg(EFFECT[k].svg(EFFECT[k].color))}<span class="vh">${esc(EFFECT[k].label)}: </span>${n}</span>`).join("") : '<span class="sig">kein Wirkungsbefund</span>';
+  return `<p class="wsum"><span>${cs.length} Fälle</span><span class="wsum-eff"><span class="vh">Befunde: </span>${effHTML}</span>${best ? `<span>${strengthSig(best, true)}<span class="vh"> (beste Messung)</span></span>` : ""}</p>`;
+}
+
+const byLabel = by => /^Redaktion/.test(by || "") ? "abgeleitet, ungeprüft" : `Herkunft: ${by}`;
+function wayCard(w) {
+  const cs = w.cases.filter(visibleCase);
+  const gap = w.cov === "unchecked";
+  let list;
+  if (!w.cases.length) list = w.cov === "searched" ? `<p class="nocase">${esc(w.covNote || "Gesucht, kein Fall gefunden.")}</p>` : "";
+  else if (!cs.length) list = `<p class="nocase">${w.cases.length} ${w.cases.length === 1 ? "Fall" : "Fälle"} ausgeblendet durch den Filter.</p>`;
+  else list = `<ul class="cases">${cs.map(caseRow).join("")}</ul>`;
+  return `<article class="way${gap ? " gap" : ""}" aria-labelledby="w-${w.id}">
+    <div class="way-top"><button type="button" class="way-title" id="w-${w.id}" data-way="${w.id}"><span>${esc(w.title)}</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>${w.cov !== "checked" ? covBadge(w.cov) : ""}</div>
+    ${waySummary(w)}
+    ${w.belief ? `<p class="belief"><b>Grundannahme:</b> ${esc(w.belief)}</p>` : ""}
+    ${list}
+    ${w.contra ? `<p class="contra"><b>Einwand:</b> ${esc(w.contra)} <span class="by">${esc(byLabel(w.contraBy))}</span></p>` : gap ? "" : `<p class="contra quiet">Einwand noch nicht erfasst.</p>`}
+  </article>`;
+}
+const narrow = window.matchMedia("(max-width: 900px)");
+const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+function sideFold(g, sd, ws) {
+  const cs = uniqueCases(ws.flatMap(w => w.cases.filter(visibleCase))).map(id => CASES[id]).filter(c => !c.placeholder);
+  const eff = ["pos", "mixed", "null", "neg"].map(k => [k, cs.filter(c => c.effect === k).length]).filter(([, n]) => n);
+  const effHTML = eff.length ? eff.map(([k, n]) => `<span class="sig" title="${esc(EFFECT[k].label)}">${svg(EFFECT[k].svg(EFFECT[k].color))}<span class="vh">${esc(EFFECT[k].label)}: </span>${n}</span>`).join("") : "<span>kein Wirkungsbefund</span>";
+  const contra = ws.filter(w => w.contra).length, gaps = ws.filter(w => w.cov !== "checked").length;
+  return `<details class="fold" id="s-${g.id}-${sd}"><summary><span class="tag">Richtung ${sd}</span><h3>${esc(g.sides[sd].t)}</h3><span class="side-a">${esc(g.sides[sd].a)}</span>
+      <span class="fold-n"><span>${plural(ws.length, "Weg", "Wege")}</span><span>${plural(cs.length, "Fall", "Fälle")}</span><span class="vh">Befunde: </span>${effHTML}<span>${plural(contra, "Einwand", "Einwände")}</span><span>${plural(gaps, "Lücke", "Lücken")}</span></span>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></summary>
+    <div class="fold-body">${ws.length ? ws.map(wayCard).join("") : `<p class="side-empty">Kein Treffer in dieser Richtung für den gewählten Filter.</p>`}</div></details>`;
+}
+function renderCompare() {
+  const q = Q();
+  const html = q.groups.map((g, gi) => {
+    const ways = q.ways.filter(w => w.g === g.id && visibleWay(w));
+    if (!ways.length) return "";
+    let body;
+    if (g.sides && narrow.matches) {
+      body = `<div>${["A", "B"].map(sd => sideFold(g, sd, ways.filter(w => w.side === sd))).join("")}</div>`;
+    } else if (g.sides) {
+      body = `<div class="sides">${["A", "B"].map(sd => {
+        const ws = ways.filter(w => w.side === sd);
+        return `<div class="side" id="s-${g.id}-${sd}"><div class="side-head"><span class="tag">Richtung ${sd}</span><h3>${esc(g.sides[sd].t)}</h3><p>${esc(g.sides[sd].a)}</p></div>
+          ${ws.length ? ws.map(wayCard).join("") : `<p class="side-empty">Kein Treffer in dieser Richtung für den gewählten Filter.</p>`}</div>`;
+      }).join("")}</div>`;
+    } else {
+      body = `<div class="sides single">${ways.map(w => `<div style="display:grid">${wayCard(w)}</div>`).join("")}</div>`;
+    }
+    return `<section class="group" aria-labelledby="g-${g.id}">
+      <h2 id="g-${g.id}">${q.groups.length > 1 ? `<span class="gn">Teilfrage ${gi + 1} von ${q.groups.length}</span>` : ""}${esc(g.q)}</h2>
+      <p class="evidence"><b>Was die Belege sagen</b>${esc(g.evidence)}</p>
+      ${body}
+    </section>`;
+  }).join("");
+  return `<div class="groups">${html || '<p class="quiet">Kein Eintrag für diesen Filter.</p>'}</div>${renderGapMap()}${renderPositions()}`;
+}
+
+function renderGapMap() {
+  const q = Q(), sided = q.groups.some(g => g.sides);
+  const cols = sided ? ["A", "B"] : [null];
+  const n = w => w.cases.filter(id => !CASES[id].placeholder).length;
+  const entry = w => `<li><button type="button" class="gm-w${w.cov === "checked" ? "" : " open"}" data-way="${w.id}">${svg(COV[w.cov].svg)}<b>${n(w)}</b><span>${esc(w.title)}<span class="vh">: ${plural(n(w), "Fall", "Fälle")}, ${esc(COV[w.cov].label)}</span></span></button></li>`;
+  const cell = (g, sd, span) => {
+    const ws = q.ways.filter(w => w.g === g.id && (sd === null || w.side === sd));
+    const head = sd && g.sides ? `<span class="gm-side"><span class="gm-m">Richtung ${sd} · </span>${esc(g.sides[sd].t)}</span>` : "";
+    return `<td${span ? ` colspan="${span}"` : ""}>${head}${ws.length ? `<ul>${ws.map(entry).join("")}</ul>` : '<span class="gm-none">kein Weg erfasst</span>'}</td>`;
+  };
+  const used = Object.keys(COV).filter(k => q.ways.some(w => w.cov === k));
+  const rows = q.groups.map((g, gi) => `<tr><th scope="row">${q.groups.length > 1 ? `<small>Teilfrage ${gi + 1}</small>` : ""}${esc(g.q)}</th>${g.sides || !sided ? cols.map(sd => cell(g, sd)).join("") : cell(g, null, 2)}</tr>`).join("");
+  return `<section class="gapmap" aria-labelledby="h-gm"><h2 id="h-gm">Lückenkarte</h2>
+    <p>Alle Lösungswege dieser Frage nach Teilfrage und Richtung, unabhängig vom Filter. Die Zahl nennt die erfassten Fälle, das Zeichen den Stand der Recherche.</p>
+    <ul class="gm-key">${used.map(k => `<li>${covBadge(k).replace('<span class="vh">Abdeckung: </span>', "")}</li>`).join("")}</ul>
+    <table class="gm"><caption class="vh">Lückenkarte: Lösungswege nach Teilfrage und Richtung mit Fallzahl und Stand der Recherche</caption>
+    <thead><tr><th scope="col">Teilfrage</th>${cols.map(sd => `<th scope="col">${sd ? `Richtung ${sd}` : "Lösungswege"}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></section>`;
+}
+
+function renderPositions() {
+  const q = Q();
+  if (!q.positions) return "";
+  const head = `<th scope="col"><span class="vh">Wer</span></th>` + q.ways.map(w => `<th scope="col">${esc(w.title)}</th>`).join("");
+  const rows = q.actors.map(a => `<tr><th scope="row">${esc(a.name)}<small>${esc(a.kind)} · ${esc(a.when)}</small></th>${q.ways.map(w => {
+    const i = q.positions.findIndex(p => p.a === a.id && p.w === w.id);
+    if (i < 0) return '<td><span class="none" aria-hidden="true">·</span><span class="vh">keine Position erfasst</span></td>';
+    const p = q.positions[i];
+    return `<td><button type="button" class="stance" data-pos="${i}"><b aria-hidden="true">${STANCE[p.p][0]}</b>${STANCE[p.p][1]}</button></td>`;
+  }).join("")}</tr>`).join("");
+  return `<section class="positions" aria-labelledby="h-pos"><h2 id="h-pos">Wer welchen Weg will</h2>
+    <p>Sieben Stimmen aus der Debatte seit 2017, von der Regierung bis zu wirtschaftsliberalen Kommentaren. Positionen sind Momentaufnahmen; ein Klick zeigt, was gesagt wurde und wo. „·“ heißt: in den Testdaten nicht erfasst, nicht „keine Position“.</p>
+    <div class="tablewrap" style="margin-top:0" tabindex="0" role="region" aria-label="Positionstabelle, seitlich scrollbar"><table class="mx"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div></section>`;
+}
+
+const COLS = [
+  { key: "title", label: "Fall", val: (c) => c.title },
+  { key: "country", label: "Land", val: (c) => [].concat(c.country).join(", ") },
+  { key: "way", label: "Lösungsweg", val: (c, w) => w.title },
+  { key: "status", label: "Status", val: (c) => STATUS[c.status].label },
+  { key: "effect", label: "Wirkung", val: (c) => ["pos", "mixed", "null", "neg", "partial", "notyet", "searched", "unchecked"].indexOf(c.effect) },
+  { key: "strength", label: "Evidenzstärke", val: (c) => -c.strength },
+  { key: "kz", label: "Kennzahl", val: (c) => c.kz || "~" }
+];
+function wayContext(q, w) {
+  const gi = q.groups.findIndex(g => g.id === w.g), g = q.groups[gi];
+  return [q.groups.length > 1 ? `Teilfrage ${gi + 1}` : "", w.side ? `Richtung ${w.side}` : ""].filter(Boolean).join(" · ") || g.q;
+}
+function renderTable() {
+  const q = Q();
+  let rows = q.ways.filter(visibleWay).flatMap(w => w.cases.filter(visibleCase).map(id => ({ id, c: CASES[id], w })));
+  const s = state.sort;
+  if (s.key) {
+    const col = COLS.find(x => x.key === s.key);
+    rows.sort((a, b) => { const x = col.val(a.c, a.w), y = col.val(b.c, b.w); return (x > y ? 1 : x < y ? -1 : 0) * s.dir; });
+  }
+  const head = COLS.map(col => {
+    const on = s.key === col.key;
+    const sortAttr = on ? ` aria-sort="${s.dir === 1 ? "ascending" : "descending"}"` : "";
+    return `<th scope="col"${sortAttr}><button type="button" data-sort="${col.key}">${esc(col.label)}<span aria-hidden="true">${on ? (s.dir === 1 ? "↑" : "↓") : "↕"}</span></button></th>`;
+  }).join("");
+  const body = rows.map(({ id, c, w }) => `<tr>
+    <th scope="row"><button type="button" class="linkbtn" data-case="${id}">${esc(c.title)}</button></th>
+    <td>${esc([].concat(c.country).join(", "))}</td>
+    <td><button type="button" class="linkbtn" style="font-weight:400" data-way="${w.id}">${esc(w.title)}</button><small class="tctx">${esc(wayContext(q, w))}</small></td>
+    <td>${statusSig(c)}</td><td>${effectSig(c.effect)}</td><td>${strengthSig(c.strength) || '<span class="quiet">–</span>'}</td>
+    <td class="tkz">${esc(c.kz) || '<span class="quiet">–</span>'}</td></tr>`).join("");
+  const showGaps = state.filter === "all" || state.filter === "gaps";
+  const gapRows = showGaps ? q.ways.filter(w => !w.cases.length && visibleWay(w)).map(w => `<tr>
+    <th scope="row"><span class="quiet">kein Fall</span></th><td><span class="quiet">–</span></td>
+    <td><button type="button" class="linkbtn" style="font-weight:400" data-way="${w.id}">${esc(w.title)}</button><small class="tctx">${esc(wayContext(q, w))}</small></td>
+    <td colspan="4">${covBadge(w.cov)}</td></tr>`).join("") : "";
+  return `<div class="tablewrap" tabindex="0" role="region" aria-label="Alle Fälle als Tabelle"><table class="tbl"><caption class="vh">Alle Fälle zur Frage: ${esc(q.title)}. Spaltenköpfe sortieren.</caption><thead><tr>${head}</tr></thead><tbody>${body || gapRows ? body + gapRows : '<tr><td colspan="7" class="quiet">Kein Fall für diesen Filter.</td></tr>'}</tbody></table></div>`;
+}
+
+function renderPicker() {
+  const tabs = Object.entries(QUESTIONS).map(([id, q]) => `<a href="#frage/${id}"${state.q === id ? ' aria-current="page"' : ""}>${esc(q.tab)}${q.tabNote ? ` <small>${esc(q.tabNote)}</small>` : ""}</a>`).join("");
+  $("picker").innerHTML = tabs;
+  const cur = $("picker").querySelector("[aria-current]"); if (cur) $("picker").scrollLeft = cur.offsetLeft - 16;
+}
+function renderLive() {
+  const all = uniqueCases(casesOf(Q())).filter(id => !CASES[id].placeholder), vis = all.filter(visibleCase);
+  const msg = state.filter === "all" ? "" : state.filter === "gaps" ? `Zeigt ${Q().ways.filter(visibleWay).length} Wege mit Lücken` : `Zeigt ${vis.length} von ${all.length} Fällen`;
+  $("live").innerHTML = msg ? `${esc(msg)} <button type="button" class="linkbtn" data-filter="all">Filter aufheben</button>` : "";
+}
+function renderQuestion() {
+  const q = Q();
+  $("q-title").textContent = q.title;
+  $("q-answer").textContent = q.answer;
+  $("q-stand").textContent = `Kurzantwort und Synthesen sind aus den Befunden abgeleitet und ungeprüft. ${q.stand}`;
+  renderPicker(); renderCounts(); renderLive();
+  $("v-cmp").setAttribute("aria-pressed", String(state.mode === "cmp"));
+  $("v-tbl").setAttribute("aria-pressed", String(state.mode === "tbl"));
+  $("out").innerHTML = state.mode === "cmp" ? renderCompare() : renderTable();
+}
+
+const BILLS = [
+  { id: "21-6807", nr: "21/6807", datum: "1.7.2026", titel: "Entwurf eines Gesetzes zur Änderung des Rechts der Wohn- und Geschäftsraummiete", alt: "Keine.", q: "wohnen", g: "mieten", short: "Mietrecht 2026" },
+  { id: "20-13959", nr: "20/13959", datum: "27.11.2024", titel: "Entwurf eines Gesetzes zur zivilrechtlichen Erleichterung des Gebäudebaus (Gebäudetyp-E-Gesetz)", alt: "Keine.", q: "wohnen", g: "angebot", short: "Gebäudetyp E 2024" },
+  { id: "20-1408", nr: "20/1408", datum: "13.4.2022", titel: "Entwurf eines Gesetzes zur Erhöhung des Schutzes durch den gesetzlichen Mindestlohn und zu Änderungen im Bereich der geringfügigen Beschäftigung", alt: "Keine.", q: "ki", g: "lohn", short: "Mindestlohn 2022" },
+  { id: "21-1859", nr: "21/1859", datum: "29.9.2025", titel: "Entwurf eines Zweiten Gesetzes zur Stärkung der betrieblichen Altersversorgung und zur Änderung anderer Gesetze (Zweites Betriebsrentenstärkungsgesetz)", alt: "Ein gesetzliches Betriebsrenten-Obligatorium oder ein gesetzlich verpflichtendes bundesweites Opting-out-System würden den Auf- und Ausbau von Betriebsrenten zwar beschleunigen, wären aber mit einer hohen Eingriffsintensität verbunden. Dem sind weiterhin freiwillige Lösungen vorzuziehen, insbesondere auf tarifvertraglicher Grundlage.", q: null, short: "Betriebsrente 2025" }
+];
+const billClass = t => t.trim() === "Keine." ? "nur „Keine“" : /^Keine\b/.test(t.trim()) ? "„Keine“ mit Begründung" : "Alternative benannt";
+const billPdf = nr => { const [wp, n] = nr.split("/"); const num = String(n).padStart(5, "0"); return `https://dserver.bundestag.de/btd/${wp}/${num.slice(0, 3)}/${wp}${num}.pdf`; };
+function renderBill() {
+  const b = BILLS.find(x => x.id === state.bill) || BILLS[0];
+  $("bills").innerHTML = BILLS.map(x => `<a href="#entwurf/${x.id}"${x.id === b.id ? ' aria-current="page"' : ""}>${esc(x.short)}</a>`).join("");
+  $("vorblatt").innerHTML = `
+    <p class="ds">Deutscher Bundestag · Drucksache ${esc(b.nr)} · ${esc(b.datum)} · Gesetzentwurf der Bundesregierung</p>
+    <h2 id="vb-title">${esc(b.titel)}</h2>
+    <div class="vb-sec vb-later"><h3>A. Problem und Ziel · B. Lösung</h3><p>Wird später automatisch mit erfasst.</p></div>
+    <div class="vb-sec vb-c"><h3>C. Alternativen</h3><p>${esc(b.alt)}</p></div>
+    <p class="vb-parse">Automatisch erkannt: ${esc(billClass(b.alt))} · <a href="${billPdf(b.nr)}" target="_blank" rel="noopener">Drucksache als PDF<span class="vh"> (öffnet neuen Tab)</span></a></p>`;
+  const q = b.q ? QUESTIONS[b.q] : null;
+  if (!q) {
+    $("bill-match").innerHTML = `<h2>Passende Frage im Portal</h2><p class="note">Zu diesem Vorhaben gibt es noch keine Frage im Portal. Der Entwurf zeigt, dass es anders geht: Das Vorblatt nennt zwei Alternativen und begründet, warum sie verworfen wurden.</p>`;
+    return;
+  }
+  const s = stats(q), g = q.groups.find(x => x.id === b.g);
+  $("bill-match").innerHTML = `<h2>Passende Frage im Portal</h2>
+    <div class="match-card"><h3>${esc(q.title)}</h3>
+      ${g ? `<p class="note">Teilfrage: ${esc(g.q)}</p>` : ""}
+      <div class="nums"><span><b>${s.cases}</b> Fälle</span><span><b>${s.found}</b> mit Wirkungsbefund</span><span><b>${s.open}</b> Wege mit Lücken</span></div>
+      <a class="go" href="#frage/${b.q}">Lösungswege ansehen</a></div>
+    <p class="note">Zuordnung in der Demo von Hand. Geplant: Das Portal schlägt Fragen vor, Menschen bestätigen.</p>`;
+}
+
+function codebookRows() {
+  const row = (f, v, d) => `<tr><th scope="row">${esc(f)}</th><td>${esc(v)}</td><td>${esc(d || "")}</td></tr>`;
+  return [
+    ...Object.entries(EFFECT).map(([k, e]) => row("Wirkung", e.label, e.def)),
+    ...STRENGTH.slice(1).map((x, i) => row("Evidenzstärke", `${i + 1} · ${x.label}`, x.def)),
+    ...Object.values(COV).map(x => row("Abdeckung", x.label, "")),
+    ...Object.values(STATUS).map(x => row("Status", x.label, x.stop ? "zählt als gestoppt oder beendet" : "")),
+    row("Instrument", "ökonomisch, regulatorisch, staatliche Investition und Konsum, Information, freiwillig", "nach OECD-Typologie 2024")
+  ].join("");
+}
+function renderData() {
+  const c = CASES.karenzg;
+  const record = {
+    typ: "Befund", id: "karenzg", fall: c.title, land: c.country, zeitraum: c.when, status: c.status,
+    wirkrichtung: c.effect, evidenzstaerke: c.strength, kennzahl: c.kz,
+    quellen: c.src.map(id => ({ titel: SRC[id][0], url: SRC[id][1], absender: SRC[id][2] })),
+    fundstelle_woertlich: null, erfassungsweg: "von Hand, Recherchekorpus", pruefstatus: { pruefungen: 0, noetig: 2 }
+  };
+  const mcp = {
+    werkzeug: "alternativen_finden", eingabe: { vorhaben: "21/6807" },
+    antwort: {
+      frage: "Wie wird Wohnen bezahlbar?", abdeckung: "teilweise",
+      loesungswege: [{ titel: "…", richtung: "A", faelle: 3, befunde: { wirkt: 1, umstritten: 1 }, staerkste_messung: "Vergleichsstudie", quellen: ["…"] }],
+      nicht_abgedeckt: ["Wege ohne recherchierten Fall"], hinweis: "Nur geprüfte Einträge; jede Aussage mit Quelle und Prüfstatus."
+    }
+  };
+  const step = (n, t, d, st) => `<li><span class="step-n">${n}</span><div><b>${esc(t)}</b><p>${esc(d)}</p><span class="step-st">${esc(st)}</span></div></li>`;
+  $("daten-out").innerHTML = `
+    <section class="dsec" aria-labelledby="h-flow"><h2 id="h-flow">So entsteht ein Eintrag</h2>
+      <ol class="flow">
+        ${step(1, "Erfassen", "Parser lesen Gesetzentwürfe ein (Bundestag, österreichisches Parlament). Beiträge kommen per Pull Request oder Formular; Sprachmodelle dürfen nur dokumentiert vorschlagen.", "Parser für Abschnitt C vorhanden")}
+        ${step(2, "Maschinen prüfen vor", "Schema, wörtliches Zitat im archivierten Quelltext, Widersprüche zwischen Einträgen.", "geplant")}
+        ${step(3, "Menschen prüfen", "Zwei Personen prüfen, ob die Aussage aus dem Zitat folgt. Übereinstimmung wird gemessen, Fehler per Stichprobe.", "geplant")}
+        ${step(4, "Veröffentlichen", "Täglich als statische Website, offene Datenabzüge und MCP-Schnittstelle. Kein Server, keine Nutzerkonten.", "Demo und JSON-Abzug vorhanden")}
+      </ol>
+    </section>
+    <section class="dsec" aria-labelledby="h-schema"><h2 id="h-schema">Ein Datensatz</h2>
+      <p class="note">Schema: Frage, Vorhaben, Lösungsweg mit Instrument, Fall, Befund mit getrennter Wirkrichtung und Evidenzstärke, Position. So sieht ein Befund aus der Demo aus; leere Felder sind sichtbar, nicht versteckt.</p>
+      <pre class="code" tabindex="0" aria-label="Datensatz als JSON"><code>${esc(JSON.stringify(record, null, 2))}</code></pre>
+    </section>
+    <section class="dsec" aria-labelledby="h-mcp"><h2 id="h-mcp">Schnittstelle für KI-Assistenten (MCP)</h2>
+      <p class="note">Ein Assistent fragt nach Alternativen zu einem Vorhaben und bekommt eine Antwort mit festem Aufbau: nur geprüfte Einträge, jede Aussage mit Quelle, Lücken ausdrücklich benannt. Beispiel, gekürzt; geplant für Monat 5.</p>
+      <pre class="code" tabindex="0" aria-label="Beispielantwort der Schnittstelle"><code>${esc(JSON.stringify(mcp, null, 2))}</code></pre>
+    </section>
+    <section class="dsec" aria-labelledby="h-method"><h2 id="h-method">Methodik und Codebuch</h2>
+      <p class="note">Lösungswege sind nach Teilfragen geordnet, nicht nach Parteien; Richtung A und B sind keine Rangfolge. Wirkrichtung und Evidenzstärke werden getrennt erfasst, eine Gesamtnote gibt es nicht. „Gestoppt“ ist ein Status des Falls, kein Befund. Zu jedem Lösungsweg soll mindestens ein Einwand mit Herkunft stehen; fehlt er, steht das da.</p>
+      <div class="tablewrap" tabindex="0" role="region" aria-label="Codebuch"><table class="tbl" style="min-width:560px"><thead><tr><th scope="col">Feld</th><th scope="col">Wert</th><th scope="col">Bedeutung</th></tr></thead><tbody>${codebookRows()}</tbody></table></div>
+    </section>
+    <section class="dsec" aria-labelledby="h-corr"><h2 id="h-corr">Korrekturen</h2>
+      <p class="note">Jeder Fall hat „Korrektur vorschlagen“. In der Demo öffnet das ein vorbefülltes Issue auf GitHub; geplant ist zusätzlich ein Formular ohne Konto. Jede Korrektur wird geprüft und öffentlich protokolliert. Bisher: keine Einträge.</p>
+    </section>
+    <section class="dsec" aria-labelledby="h-lic"><h2 id="h-lic">Lizenzen und Download</h2>
+      <p class="note">Code MIT, Schema CC0, Daten CC BY 4.0. Quellen behalten ihre eigene Lizenz. Code und Zählungen auf <a href="https://github.com/smarqart-hash/open-policy-navigator">GitHub</a>; den JSON-Abzug gibt es auf jeder Frageseite im Fußbereich.</p>
+    </section>`;
+}
+function render() {
+  const v = state.view, isQ = v === "frage";
+  $("view-frage").hidden = !isQ;
+  $("view-entwurf").hidden = v !== "entwurf";
+  $("view-daten").hidden = v !== "daten";
+  $("qnav").hidden = !isQ;
+  $("exports").hidden = !isQ;
+  $("nav-frage").setAttribute("href", `#frage/${state.q}`);
+  [["frage", "nav-frage"], ["entwurf", "nav-entwurf"], ["daten", "nav-daten"]].forEach(([k, id]) => { if (k === v) $(id).setAttribute("aria-current", "page"); else $(id).removeAttribute("aria-current"); });
+  if (isQ) renderQuestion(); else if (v === "entwurf") renderBill(); else renderData();
+  document.title = (isQ ? Q().tab : v === "entwurf" ? "Vom Gesetzentwurf aus" : "Daten und Schnittstelle") + " – Open Policy Navigator (Demo)";
+}
+
+function fromHash(focus) {
+  const h = location.hash.replace(/^#/, "");
+  const prevView = state.view, prevQ = state.q;
+  const b = h.match(/^entwurf(?:\/([\w-]+))?$/);
+  if (b) { state.view = "entwurf"; if (b[1] && BILLS.some(x => x.id === b[1])) state.bill = b[1]; }
+  else if (h === "daten") state.view = "daten";
+  else {
+    state.view = "frage";
+    const m = h.match(/^frage\/(\w+)(?:\/(\w+))?$/);
+    if (m && QUESTIONS[m[1]]) state.q = m[1];
+    var linkedCase = m && m[2] && CASES[m[2]] ? m[2] : null;
+  }
+  if (state.q !== prevQ) { state.filter = "all"; state.sort = { key: null, dir: 1 }; }
+  render();
+  if (linkedCase) { openCase(linkedCase); return; }
+  if (focus && (prevView !== state.view || prevQ !== state.q)) { $("main").focus({ preventScroll: true }); window.scrollTo(0, 0); }
+}
+window.addEventListener("hashchange", () => { if ($("dlg").open) $("dlg").close(); fromHash(true); });
+
+const dlg = $("dlg");
+let lastFocus = null;
+function sourcesHTML(ids) {
+  if (!ids.length) return `<h3>Fundstellen</h3><p class="ph-line">Im Prototyp ist zu diesem Eintrag noch keine Fundstelle verlinkt.</p>`;
+  return `<h3>Fundstellen</h3><ul>${ids.map(id => { const s = SRC[id]; return `<li><a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}<span class="vh"> (öffnet neuen Tab)</span></a> <span class="by">· Absender: ${esc(s[2])}</span></li>`; }).join("")}</ul>`;
+}
+function citation(title, ids) {
+  const s = ids.map(id => `${SRC[id][0]} (${SRC[id][2]}), ${SRC[id][1]}`).join("; ");
+  return `${title}. Quellen: ${s || "keine verlinkt"}. Zusammengestellt mit dem Open Policy Navigator (Demo, Testdaten Stand 12.11.2026).`;
+}
+function show(title, sub, body) {
+  if (!dlg.open) lastFocus = document.activeElement;
+  $("dlg-body").innerHTML = `<header><div><h2 id="dlg-title">${esc(title)}</h2>${sub ? `<p class="sub">${esc(sub)}</p>` : ""}</div><button type="button" class="btn close" data-close>Schließen</button></header>${body}`;
+  if (!dlg.open) dlg.showModal();
+  const h = $("dlg-body").querySelector("[data-close]"); if (h) h.focus();
+}
+dlg.addEventListener("close", () => {
+  if (state.view === "frage" && /^#frage\/\w+\/\w+$/.test(location.hash)) history.replaceState(null, "", `#frage/${state.q}`);
+  if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+});
+const permalink = id => `${location.origin}${location.pathname}#frage/${state.q}/${id}`;
+const REPO = "https://github.com/smarqart-hash/open-policy-navigator";
+const correctionUrl = id => `${REPO}/issues/new?title=${encodeURIComponent(`Korrektur: ${CASES[id].title}`)}&body=${encodeURIComponent(`Fall: ${CASES[id].title}\nLink: ${permalink(id)}\n\nWas ist falsch?\n\nWelche Quelle belegt die Korrektur?\n`)}`;
+function questionText(q) {
+  const lines = [`Frage: ${q.title}`, `Stand: Testdaten vom 12.11.2026, ungeprüft. ${location.origin}${location.pathname}#frage/${state.q}`, "", `Kurzantwort: ${q.answer}`];
+  const used = new Set();
+  q.groups.forEach(g => {
+    lines.push("", `Teilfrage: ${g.q}`, `Was die Belege sagen: ${g.evidence}`);
+    q.ways.filter(w => w.g === g.id).forEach(w => {
+      const cs = w.cases.map(id => CASES[id]).filter(c => !c.placeholder);
+      cs.forEach(c => c.src.forEach(x => used.add(x)));
+      const caseTxt = cs.length ? cs.map(c => `${c.title} (${c.where}; ${EFFECT[c.effect].label}${c.strength ? ", " + STRENGTH[c.strength].label : ""})`).join("; ") : "kein Fall recherchiert";
+      lines.push(`- ${w.side ? `Richtung ${w.side}: ` : ""}${w.title}. Fälle: ${caseTxt}.${w.contra ? ` Einwand: ${w.contra} (${byLabel(w.contraBy)})` : ""}`);
+    });
+  });
+  lines.push("", "Quellen:", ...[...used].map(x => `- ${SRC[x][0]} (${SRC[x][2]}), ${SRC[x][1]}`));
+  return lines.join("\n");
+}
+function wayOfCase(id) { return Q().ways.find(w => w.cases.includes(id)) || Object.values(QUESTIONS).flatMap(q => q.ways).find(w => w.cases.includes(id)); }
+function openCase(id) {
+  const c = CASES[id], w = wayOfCase(id);
+  const eff = EFFECT[c.effect];
+  if (state.view === "frage") history.replaceState(null, "", `#frage/${state.q}/${id}`);
+  const effectText = hasFinding(c) ? esc(c.finding) : esc(c.effectNote || eff.def);
+  show(c.title, [c.where, c.when].filter(Boolean).join(" · "), `
+    ${c.placeholder ? `<p class="ph-line">Platzhalter: Dieser Fall steht als Beispiel in den Testdaten, ist aber noch nicht recherchiert.</p>` : ""}
+    <dl>
+      <dt>Lösungsweg</dt><dd><button type="button" class="linkbtn" data-way="${w.id}">${esc(w.title)}</button></dd>
+      <dt>Was</dt><dd>${esc(c.what)}</dd>
+      <dt>Status</dt><dd>${esc(STATUS[c.status].label)}${c.statusNote ? ". " + esc(c.statusNote) : ""}</dd>
+      <dt>Wirkung</dt><dd><b>${esc(eff.label)}.</b> ${effectText}</dd>
+      ${c.strength ? `<dt>Evidenzstärke</dt><dd>${esc(STRENGTH[c.strength].label)}: ${esc(STRENGTH[c.strength].def)}</dd>` : ""}
+      ${c.kz && !hasFinding(c) ? `<dt>Kennzahl</dt><dd>${esc(c.kz)}</dd>` : ""}
+      ${c.ebene ? `<dt>Ebene</dt><dd>${esc(c.ebene)}</dd>` : ""}
+      ${c.kosten ? `<dt>Kosten</dt><dd>${esc(c.kosten)} <span class="by">Quelle: Fundstellen unten</span></dd>` : ""}
+      <dt>Prüfspur</dt><dd>Von Hand aus dem Recherchekorpus erfasst${c.read ? `, Studie nur über ${esc(c.read)} gelesen` : ""}. <span class="by">Wörtliche Fundstelle fehlt · 0 von 2 Prüfungen</span></dd>
+      ${c.contra ? `<dt>Einwand</dt><dd>${esc(c.contra)} <span class="by">${esc(byLabel(c.contraBy || "Redaktion"))}</span></dd>` : ""}
+    </dl>
+    ${c.placeholder ? "" : sourcesHTML(c.src)}
+    ${c.placeholder ? "" : `<div class="acts">${c.src.length ? `<button type="button" class="btn" data-cite="case:${id}">Quellenangabe kopieren</button>` : ""}<a class="btn" href="${correctionUrl(id)}" target="_blank" rel="noopener" style="text-decoration:none">Korrektur vorschlagen<span class="vh"> (öffnet GitHub in neuem Tab)</span></a><span class="quiet" role="status" id="cite-msg"></span></div>`}`);
+}
+function openWay(id) {
+  const q = Q(), w = q.ways.find(x => x.id === id);
+  const g = q.groups.find(x => x.id === w.g);
+  const opp = g.sides ? q.ways.filter(x => x.g === w.g && x.side !== w.side) : q.ways.filter(x => x.g === w.g && x.id !== w.id);
+  const pos = q.positions ? q.positions.map((p, i) => ({ p, i })).filter(x => x.p.w === id) : [];
+  show(w.title, g.sides ? `${g.q} · Richtung ${w.side}: ${g.sides[w.side].t}` : g.q, `
+    <dl>
+      ${w.belief ? `<dt>Grundannahme</dt><dd>${esc(w.belief)} <span class="by">Formulierung der Redaktion</span></dd>` : ""}
+      <dt>Wirkungslogik</dt><dd>${esc(w.logic)}</dd>
+      ${w.instr ? `<dt>Instrument</dt><dd>${esc(w.instr)} <span class="by">nach OECD-Typologie 2024, Einordnung vorläufig</span></dd>` : ""}
+      <dt>Vertreten von</dt><dd>${esc(w.origin)}</dd>
+      <dt>Einwand</dt><dd>${w.contra ? `${esc(w.contra)} <span class="by">Herkunft: ${esc(w.contraBy)}</span>` : '<span class="quiet">noch nicht erfasst</span>'}</dd>
+      <dt>Abdeckung</dt><dd>${esc(COV[w.cov].label)}${w.covNote ? ". " + esc(w.covNote) : ""}</dd>
+    </dl>
+    <h3>Fälle</h3>${w.cases.length ? `<div class="chips">${w.cases.map(cid => `<button type="button" class="chipbtn" data-case="${cid}">${esc(CASES[cid].title)}</button>`).join("")}</div>` : `<p class="quiet" style="margin:0">${w.cov === "searched" ? "Gesucht, kein Fall gefunden." : "Noch kein Fall erfasst."}</p>`}
+    ${pos.length ? `<h3>Positionen</h3><ul>${pos.map(({ p, i }) => { const a = q.actors.find(x => x.id === p.a); return `<li><button type="button" class="linkbtn" data-pos="${i}">${esc(a.name)}: ${STANCE[p.p][1]}</button> <span class="by">${esc(a.kind)}, ${esc(a.when)}</span></li>`; }).join("")}</ul>` : ""}
+    <h3>${g.sides ? "Andere Richtung" : "Andere Wege zur selben Frage"}</h3><div class="chips">${opp.map(x => `<button type="button" class="chipbtn" data-way="${x.id}">${esc(x.title)}</button>`).join("")}</div>`);
+}
+function openPos(i) {
+  const q = Q(), p = q.positions[i], a = q.actors.find(x => x.id === p.a), w = q.ways.find(x => x.id === p.w);
+  show(`${a.name}: ${STANCE[p.p][1]}`, `${a.kind} · ${a.when}`, `
+    <dl><dt>Weg</dt><dd><button type="button" class="linkbtn" data-way="${w.id}">${esc(w.title)}</button></dd><dt>Gesagt</dt><dd>${esc(p.why)}</dd></dl>
+    ${sourcesHTML(p.src)}
+    <div class="acts"><button type="button" class="btn" data-cite="pos:${i}">Quellenangabe kopieren</button><span class="quiet" role="status" id="cite-msg"></span></div>`);
+}
+async function copyText(t) {
+  try { await navigator.clipboard.writeText(t); return true; }
+  catch (e) {
+    const ta = document.createElement("textarea"); ta.value = t; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+    dlg.appendChild(ta); ta.select(); let ok = false;
+    try { ok = document.execCommand("copy"); } catch (err) { ok = false; }
+    ta.remove(); return ok;
+  }
+}
+
+document.addEventListener("click", async e => {
+  const t = e.target;
+  if (t === dlg) { dlg.close(); return; }
+  if (t.closest("[data-close]")) { dlg.close(); return; }
+  const qb = t.closest("[data-q]"); if (qb) { location.hash = `frage/${qb.dataset.q}`; return; }
+  const fb = t.closest("[data-filter]"); if (fb) { state.filter = fb.dataset.filter === state.filter ? "all" : fb.dataset.filter; renderQuestion(); const tile = $("counts").querySelector(`[data-filter="${fb.closest("#counts") ? fb.dataset.filter : "all"}"]`); if (tile) tile.focus(); return; }
+  const sb = t.closest("[data-sort]"); if (sb) { const k = sb.dataset.sort; state.sort = { key: k, dir: state.sort.key === k ? -state.sort.dir : 1 }; renderQuestion(); $("out").querySelector(`[data-sort="${k}"]`).focus(); return; }
+  const cb = t.closest("[data-case]"); if (cb) { openCase(cb.dataset.case); return; }
+  const wb = t.closest("[data-way]"); if (wb) { openWay(wb.dataset.way); return; }
+  const pb = t.closest("[data-pos]"); if (pb) { openPos(+pb.dataset.pos); return; }
+  const cite = t.closest("[data-cite]");
+  if (cite) {
+    const [kind, ref] = cite.dataset.cite.split(":");
+    const text = kind === "case" ? citation(CASES[ref].title, CASES[ref].src) + ` Link: ${permalink(ref)}` : (() => { const q = Q(), p = q.positions[+ref], a = q.actors.find(x => x.id === p.a); return citation(`${a.name}: ${p.why}`, p.src); })();
+    const ok = await copyText(text);
+    const msg = $("cite-msg"); if (msg) msg.textContent = ok ? "Kopiert." : "Kopieren nicht möglich; bitte markieren.";
+  }
+});
+const setMode = m => { state.mode = m; try { localStorage.setItem("opn-view", m); } catch (e) {
+} renderQuestion(); };
+$("v-cmp").addEventListener("click", () => setMode("cmp"));
+$("v-tbl").addEventListener("click", () => setMode("tbl"));
+narrow.addEventListener("change", () => { if (state.view === "frage" && state.mode === "cmp") renderQuestion(); });
+$("textexp").addEventListener("click", async () => { const ok = await copyText(questionText(Q())); $("exp-msg").textContent = ok ? "Kopiert." : "Kopieren nicht möglich."; });
+$("json").addEventListener("click", () => {
+  const q = Q();
+  const lbl = o => Object.fromEntries(Object.entries(o).map(([k, v]) => [k, v.def ? `${v.label}: ${v.def}` : v.label]));
+  const quellen = ids => ids.map(s => ({ titel: SRC[s][0], url: SRC[s][1], absender: SRC[s][2] }));
+  const data = { projekt: "Open Policy Navigator (Demo)", frage: q.title, kurzantwort: q.answer, stand: "Testdaten, Stand 12.11.2026",
+    hinweis: "Demo mit Testdaten; alle Einstufungen ungeprüft.", lizenz: { daten: "CC BY 4.0", schema: "CC0", code: "MIT" },
+    codebuch: { status: lbl(STATUS), wirkung: lbl(EFFECT), evidenzstaerke: STRENGTH.map((s, i) => `${i}: ${s.label}${s.def ? " – " + s.def : ""}`), abdeckung: lbl(COV) },
+    teilfragen: q.groups.map(g => ({ id: g.id, frage: g.q, richtungen: g.sides, belege: g.evidence })),
+    loesungswege: q.ways.map(({ ids, ...w }) => ({ ...w, faelle: w.cases.map(id => { const { ids: _i, ...c } = CASES[id]; return { id, ...c, quellen: quellen(c.src) }; }) })),
+    akteure: q.actors || [], positionen: (q.positions || []).map(p => ({ ...p, quellen: quellen(p.src) })) };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `open-policy-navigator-${state.q}.json`;
+  document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+});
+
+const tb = $("theme");
+const effectiveDark = () => document.documentElement.getAttribute("data-theme") === "dark";
+function syncThemeBtn() { const d = effectiveDark(); tb.innerHTML = d ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>' : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>'; tb.setAttribute("aria-label", d ? "Helles Farbschema" : "Dunkles Farbschema"); }
+try { const s = localStorage.getItem("ka-theme"); if (s === "dark" || s === "light") document.documentElement.setAttribute("data-theme", s); } catch (e) {
+}
+tb.addEventListener("click", () => {
+  const next = effectiveDark() ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", next);
+  try { localStorage.setItem("ka-theme", next); } catch (e) {
+}
+  syncThemeBtn();
+});
+syncThemeBtn();
+
+renderLegend();
+fromHash(false);
+</script>
+</body>
+</html>

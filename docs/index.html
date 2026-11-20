@@ -1132,10 +1132,10 @@ function sideFold(g, sd, ws) {
   const eff = ["pos", "mixed", "null", "neg"].map(k => [k, cs.filter(c => c.effect === k).length]).filter(([, n]) => n);
   const effHTML = eff.length ? eff.map(([k, n]) => `<span class="sig" title="${esc(EFFECT[k].label)}">${svg(EFFECT[k].svg(EFFECT[k].color))}<span class="vh">${esc(EFFECT[k].label)}: </span>${n}</span>`).join("") : "<span>kein Wirkungsbefund</span>";
   const contra = ws.filter(w => w.contra).length, gaps = ws.filter(w => w.cov !== "checked").length;
-  return `<details class="fold" id="s-${g.id}-${sd}"><summary><span class="tag">Richtung ${sd}</span><h3>${esc(g.sides[sd].t)}</h3>
+  return `<details class="fold" id="s-${g.id}-${sd}"><summary><span class="tag">Richtung ${sd}</span><h3>${esc(g.sides[sd].t)}</h3><span class="side-a">${esc(g.sides[sd].a)}</span>
       <span class="fold-n"><span>${plural(ws.length, "Weg", "Wege")}</span><span>${plural(cs.length, "Fall", "Fälle")}</span><span class="vh">Befunde: </span>${effHTML}<span>${plural(contra, "Einwand", "Einwände")}</span><span>${plural(gaps, "Lücke", "Lücken")}</span></span>
       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></summary>
-    <div class="fold-body"><p class="side-a">${esc(g.sides[sd].a)}</p>${ws.length ? ws.map(wayCard).join("") : `<p class="side-empty">Kein Treffer in dieser Richtung für den gewählten Filter.</p>`}</div></details>`;
+    <div class="fold-body">${ws.length ? ws.map(wayCard).join("") : `<p class="side-empty">Kein Treffer in dieser Richtung für den gewählten Filter.</p>`}</div></details>`;
 }
 function renderCompare() {
   const q = Q();

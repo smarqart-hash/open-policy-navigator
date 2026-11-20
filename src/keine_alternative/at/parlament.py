@@ -5,6 +5,7 @@ Data: Parlament Österreich, Open Data, CC BY 4.0. PDFs are converted with
 Network access is isolated in `get`, so tests can pass a fake.
 """
 
+import http.client
 import json
 import subprocess
 import tempfile
@@ -29,6 +30,8 @@ COL_DATE, COL_TITLE, COL_NUMBER, COL_HISTORY = 4, 6, 7, 14
 # else is a bug and should stop the run instead of being written as a status.
 FETCH_ERRORS = (
     urllib.error.URLError,
+    http.client.HTTPException,  # e.g. IncompleteRead, RemoteDisconnected
+    ConnectionError,
     TimeoutError,
     json.JSONDecodeError,
     KeyError,
@@ -119,10 +122,15 @@ def needs_refetch(record: dict) -> bool:
 
 
 def refetch(get: Getter, records: list[dict], pause: float = PAUSE_SECONDS) -> Iterator[dict]:
-    """Yield all records; those that need it are fetched and read again."""
+    """Yield all records; those that need it are fetched and read again.
+
+    If the second attempt fails, the original record is kept unchanged, so a
+    refetch never turns an "ok" record into an error.
+    """
     for record in records:
-        if needs_refetch(record):
-            yield read_bill(get, record)
-            time.sleep(pause)
-        else:
+        if not needs_refetch(record):
             yield record
+            continue
+        again = read_bill(get, record)
+        yield again if again["status"] == "ok" else record
+        time.sleep(pause)

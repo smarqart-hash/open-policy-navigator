@@ -102,3 +102,8 @@ def test_refetch_only_touches_full_wfa_without_text(monkeypatch):
     ]
     assert len(list(parlament.refetch(None, records, pause=0))) == 3
     assert calls == ["1"]
+
+
+def test_failed_refetch_keeps_the_original_record():
+    original = {"nr": "1", "his": HISTORY, "status": "ok", "full": True, "alt": None}
+    assert list(parlament.refetch(fake_get({}), [original], pause=0)) == [original]

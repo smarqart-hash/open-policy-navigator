@@ -19,13 +19,13 @@ field names are English like the rest of the code.
 """
 
 import json
-from datetime import date, datetime
+from datetime import date
 from enum import StrEnum
 from pathlib import Path
 from typing import Literal
 
 import yaml
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+from pydantic import AwareDatetime, BaseModel, ConfigDict, Field, model_validator
 
 SCHEMA_VERSION = "0.1"
 
@@ -68,7 +68,7 @@ class Statement(Model):
     source_id: str = Field(pattern=ID_PATTERN)
     locator: Locator
     extraction_method: ExtractionMethod
-    extracted_at: datetime
+    extracted_at: AwareDatetime  # with time zone, e.g. +00:00
     review_status: ReviewStatus = ReviewStatus.PENDING
     reviewed_by: str | None = None
 
@@ -99,7 +99,7 @@ class Source(Model):
     title: str
     url: str
     license: str = Field(description="e.g. 'CC BY 4.0', 'amtliches Werk (§ 5 UrhG)', 'nur Zitat'")
-    retrieved_at: datetime | None = None
+    retrieved_at: AwareDatetime | None = None
     archived_sha256: str | None = Field(default=None, pattern=r"^[0-9a-f]{64}$")
     doi: str | None = None
 
@@ -317,11 +317,24 @@ class Dossier(Model):
                 require("approach", approach_id, self.approaches)
         for item in [*self.cases, *self.findings, *self.positions, *self.coverage]:
             require("approach", item.approach_id, self.approaches)
+        cases = {case.id: case for case in self.cases}
         for finding in self.findings:
             require("case", finding.case_id, self.cases)
+            if finding.case_id and cases[finding.case_id].approach_id != finding.approach_id:
+                raise ValueError(f"finding {finding.id}: case belongs to another approach")
+
+        # A cell may only cite findings about its own approach and outcome, and
+        # each approach × outcome has exactly one cell.
+        findings = {finding.id: finding for finding in self.findings}
+        cells = [(cell.approach_id, cell.outcome) for cell in self.coverage]
+        if len(cells) != len(set(cells)):
+            raise ValueError("more than one coverage cell for the same approach and outcome")
         for cell in self.coverage:
             for finding_id in cell.finding_ids:
                 require("finding", finding_id, self.findings)
+                cited = findings[finding_id]
+                if (cited.approach_id, cited.outcome) != (cell.approach_id, cell.outcome):
+                    raise ValueError(f"cell cites finding {finding_id} of another approach/outcome")
         return self
 
 

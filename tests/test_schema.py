@@ -158,3 +158,26 @@ def test_duplicate_ids_are_rejected():
     data["questions"].append(dict(data["questions"][0]))
     with pytest.raises(ValidationError, match="duplicate ids"):
         schema.Dossier.model_validate(data)
+
+
+def test_cell_cannot_cite_finding_of_another_outcome():
+    data = demo()
+    data["coverage"][0]["outcome"] = "Kosten der Kommune (andere)"
+    with pytest.raises(ValidationError, match="another approach/outcome"):
+        schema.Dossier.model_validate(data)
+
+
+def test_one_cell_per_approach_and_outcome():
+    data = demo()
+    data["coverage"].append(
+        {"approach_id": "ans_demo01", "outcome": "Zahl der Räumungen", "state": "nicht_kuratiert"}
+    )
+    with pytest.raises(ValidationError, match="more than one coverage cell"):
+        schema.Dossier.model_validate(data)
+
+
+def test_extracted_at_needs_a_time_zone():
+    with pytest.raises(ValidationError):
+        schema.Approach.model_validate(
+            demo()["approaches"][0] | {"extracted_at": "2026-11-20T09:00:00"}
+        )

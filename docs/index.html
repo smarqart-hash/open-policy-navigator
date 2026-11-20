@@ -47,7 +47,7 @@ main:focus { outline: none; }
 .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; min-height: 40px; }
 .brand b { font-size: 16px; font-weight: 600; letter-spacing: 0; }
 .brand .mark { width: 20px; height: 20px; color: var(--text); flex: none; }
-.demo-tag { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.demo-tag { font-size: 12px; color: var(--muted); }
 .top-right { display: flex; align-items: center; gap: 8px; }
 .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--line); background: var(--surface); border-radius: 8px; cursor: pointer; color: var(--text-2); transition: background-color 140ms var(--ease), color 140ms var(--ease); }
 .icon-btn:hover { background: var(--raised); color: var(--text); }
@@ -77,10 +77,41 @@ main:focus { outline: none; }
 
 .hero { padding-block: 40px 0; display: grid; gap: 16px; }
 .hero > * { min-width: 0; }
-.lead-in { margin: 0; font-size: 14px; color: var(--text-2); max-width: 64ch; }
-.lead-in b { color: var(--text); font-weight: 500; }
+.claim { margin: 0; padding-block: 0 12px; font-size: 14px; color: var(--text-2); max-width: 80ch; }
+.picker .plabel { font-size: 12px; font-weight: 500; color: var(--muted); padding: 0 12px 0 0; min-height: 48px; display: inline-flex; align-items: center; white-space: nowrap; }
+.intro { margin: 0; font-size: 18px; line-height: 1.6; color: var(--text-2); max-width: 64ch; }
+.qlayout { display: grid; grid-template-columns: minmax(0, 1fr); }
+.qlayout > * { min-width: 0; }
+[data-nav] { scroll-margin-top: 72px; }
+.onpage { position: sticky; top: 0; z-index: 6; background: var(--bg); border-bottom: 1px solid var(--line); margin-inline: -24px; padding-inline: 24px; }
+.onpage .ttl { display: none; }
+.onpage ol { position: relative; list-style: none; margin: 0; padding: 8px 0; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.onpage ol::-webkit-scrollbar { display: none; }
+.onpage button { border: 0; background: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 10px; border-radius: 6px; font-size: 14px; color: var(--text-2); white-space: nowrap; text-align: left; transition: background-color 140ms var(--ease), color 140ms var(--ease); }
+.onpage button .t { max-width: 24ch; overflow: hidden; text-overflow: ellipsis; }
+.onpage button:hover { color: var(--text); background: var(--raised); }
+.onpage button[aria-current="true"] { color: var(--text); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line-strong); font-weight: 500; }
+.num, .sbadge { display: inline-flex; align-items: center; justify-content: center; flex: none; font-variant-numeric: tabular-nums; font-weight: 600; }
+.num { width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--line-strong); font-size: 12px; color: var(--text-2); }
+[aria-current="true"] .num { background: var(--text); border-color: var(--text); color: var(--bg); }
+.pin { width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; flex: none; }
+.pin::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: .6; }
+.sbadge { width: 22px; height: 22px; border-radius: 6px; border: 1.5px solid currentColor; font-size: 12px; color: var(--text); }
+.hero-l { display: grid; gap: 16px; align-content: start; }
+.state { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 8px; box-shadow: var(--shadow-sm); align-self: start; }
+.state h2 { margin: 0; font-size: 14px; font-weight: 600; color: var(--text); }
+.state-note { margin: 0; font-size: 12px; line-height: 1.5; color: var(--muted); }
+.g-head { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 16px; align-items: start; }
+.gbadge { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--text); color: var(--bg); font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.tried-grid { display: grid; gap: 16px; }
+.sec { margin-top: 48px; display: grid; gap: 12px; }
+.sec > * { min-width: 0; }
+.sec-head { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; }
+.sec h2, .gapmap h2, .positions h2, .dsec h2, .match h2 { margin: 0; font-size: 24px; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; }
+.sec-lead { margin: 0; font-size: 16px; color: var(--text-2); max-width: 72ch; }
 h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spacing: -.02em; max-width: 28ch; text-wrap: balance; }
 .answer { margin: 0; font-size: 18px; line-height: 1.6; color: var(--text-2); max-width: 64ch; }
+.summary { margin: 0; font-size: 16px; line-height: 1.6; }
 .stand { margin: 0; font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 75ch; }
 .m-only { display: none; }
 
@@ -94,10 +125,11 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .cnt.gap b { color: var(--muted); }
 
 .toolbar { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; padding-block: 32px 0; }
+.sec .toolbar { padding: 0; }
 .toolbar .grp { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; min-width: 0; }
 .lbl { font-size: 14px; color: var(--text-2); }
 .toolbar .seg { overflow-x: auto; scrollbar-width: none; }
-.live { font-size: 14px; color: var(--muted); min-height: 20px; margin: 12px 0 0; font-family: var(--mono); }
+.live { font-size: 14px; color: var(--muted); min-height: 20px; margin: 12px 0 0; }
 
 .legend { margin-top: 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
 .legend summary { cursor: pointer; padding: 0 16px; min-height: 44px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; list-style: none; }
@@ -119,27 +151,26 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .bars i:nth-child(1) { height: 4px; } .bars i:nth-child(2) { height: 8px; } .bars i:nth-child(3) { height: 12px; }
 .bars i.on { background: var(--text); }
 
-.groups { display: grid; gap: 48px; margin-top: 32px; }
-.group { display: grid; gap: 16px; }
-.group > h2 { margin: 0; font-weight: 600; font-size: 20px; line-height: 1.3; letter-spacing: -.01em; max-width: 48ch; text-wrap: balance; }
-.group .gn { display: block; font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--muted); letter-spacing: 0; margin-bottom: 4px; }
+.groups { display: grid; gap: 0; margin-top: 16px; }
+.group { display: grid; gap: 16px; border-top: 1px solid var(--line-strong); padding-block: 24px 40px; }
+.group h3 { margin: 0; font-weight: 600; font-size: 20px; line-height: 1.3; letter-spacing: -.01em; max-width: 48ch; text-wrap: balance; }
+.group .gn { display: block; font-size: 14px; font-weight: 500; color: var(--muted); letter-spacing: 0; margin-bottom: 4px; }
 .sides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .sides.single { align-items: start; }
 .side { display: grid; gap: 24px; align-content: start; min-width: 0; }
-.side-head { display: grid; gap: 4px; }
-.side-head .tag { font-family: var(--mono); font-size: 12px; color: var(--muted); }
-.side-head h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
+.side-head { display: grid; gap: 4px; border-top: 2px solid var(--text); padding-top: 12px; }
+.side-head .tag, .fold .tag { font-size: 14px; font-weight: 500; color: var(--muted); display: inline-flex; align-items: center; gap: 8px; }
+.side-head h4 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
 .side-head p, .side-a { margin: 0; font-size: 14px; color: var(--text-2); }
 .side-empty { margin: 0; font-size: 14px; color: var(--muted); }
-.evidence { margin: 0; background: var(--raised); border-radius: 8px; padding: 16px; font-size: 16px; max-width: 70ch; }
+.evidence { margin: 0; background: var(--raised); border-radius: 8px; padding: 16px; font-size: 16px; }
 .evidence b { display: block; font-size: 14px; font-weight: 500; color: var(--text-2); margin-bottom: 4px; }
 .fold { border-top: 1px solid var(--line); }
 .fold:last-child { border-bottom: 1px solid var(--line); }
 .fold > summary { list-style: none; cursor: pointer; padding: 12px 0; display: grid; grid-template-columns: minmax(0, 1fr) 16px; gap: 4px 12px; align-items: start; min-height: 44px; }
 .fold > summary::-webkit-details-marker { display: none; }
 .fold > summary > * { grid-column: 1; }
-.fold .tag { font-family: var(--mono); font-size: 12px; color: var(--muted); }
-.fold h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
+.fold h4 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
 .fold > summary .chev { width: 16px; height: 16px; color: var(--muted); grid-column: 2; grid-row: 1 / span 2; align-self: center; transition: transform 160ms var(--ease); }
 .fold[open] > summary .chev { transform: rotate(90deg); }
 .fold-n { display: flex; flex-wrap: wrap; align-items: center; gap: 0 12px; font-size: 14px; color: var(--text-2); }
@@ -152,8 +183,8 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .way-top .way-title { flex: 1; min-width: 0; }
 .wsum { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; font-size: 14px; color: var(--text-2); }
 .wsum-eff { display: inline-flex; gap: 12px; }
-.tctx { display: block; font-family: var(--mono); font-size: 12px; color: var(--muted); font-weight: 400; }
-.tkz { font-family: var(--mono); font-size: 14px; }
+.tctx { display: block; font-size: 12px; color: var(--muted); font-weight: 400; }
+.tkz { font-size: 14px; }
 .cnt:focus-visible { outline-offset: -3px; }
 .live { margin: 0; }
 .live:empty { display: none; }
@@ -173,14 +204,14 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .case.static:hover { background: none; }
 .cline { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 12px; align-items: baseline; }
 .cname { font-weight: 500; font-size: 14px; line-height: 1.4; }
-.cwhere { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.cwhere { font-size: 12px; color: var(--muted); }
 .csigs { display: flex; flex-wrap: wrap; gap: 4px 16px; }
-.ckz { font-family: var(--mono); font-size: 14px; color: var(--text); font-variant-numeric: tabular-nums; }
+.ckz { font-size: 14px; color: var(--text); font-variant-numeric: tabular-nums; }
 .nocase { margin: 0; font-size: 14px; color: var(--muted); }
 .contra { margin: 0; font-size: 14px; }
 .contra b { font-weight: 500; }
 .contra.quiet { color: var(--muted); }
-.by { display: block; margin-top: 4px; font-family: var(--mono); color: var(--muted); font-size: 12px; }
+.by { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; }
 .cov { display: inline-flex; gap: 6px; align-items: center; font-size: 12px; color: var(--muted); white-space: nowrap; padding-top: 2px; }
 .cov svg { width: 12px; height: 12px; }
 
@@ -198,8 +229,7 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .linkbtn { border: 0; background: none; padding: 0; text-align: left; cursor: pointer; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; font-weight: 500; min-height: 24px; }
 .linkbtn:hover { text-decoration-color: currentColor; }
 
-.positions, .gapmap { margin-top: 48px; display: grid; gap: 12px; }
-.gapmap h2 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; }
+.positions, .gapmap { margin-top: 32px; display: grid; gap: 12px; }
 .gapmap > p { margin: 0; font-size: 14px; color: var(--text-2); max-width: 72ch; }
 .gm-key { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0; padding: 0; list-style: none; }
 .gm-key .cov { font-size: 14px; color: var(--text-2); }
@@ -210,37 +240,35 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .gm thead th { font-size: 12px; color: var(--text-2); font-weight: 500; background: var(--raised); }
 .gm thead th:first-child { border-top-left-radius: 12px; } .gm thead th:last-child { border-top-right-radius: 12px; }
 .gm tbody th { font-weight: 500; width: 30%; }
-.gm tbody th small, .gm-side { display: block; font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--muted); }
+.gm tbody th small, .gm-side { display: block; font-size: 12px; font-weight: 400; color: var(--muted); }
 .gm ul { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 4px; }
 .gm-w { width: 100%; border: 0; background: none; padding: 4px 0; cursor: pointer; text-align: left; display: grid; grid-template-columns: 12px 2ch minmax(0, 1fr); gap: 8px; align-items: baseline; min-height: 32px; color: var(--text); }
-.gm-w svg { width: 12px; height: 12px; color: var(--muted); align-self: center; }
-.gm-w b { font-family: var(--mono); font-weight: 400; text-align: right; font-variant-numeric: tabular-nums; }
+.gm-w svg { width: 12px; height: 12px; color: var(--muted); align-self: start; margin-top: 6px; }
+.gm-w b { font-weight: 400; text-align: right; font-variant-numeric: tabular-nums; }
 .gm-w:hover span { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-strong); }
 .gm-w.open { color: var(--text-2); }
 .gm-none { color: var(--muted); }
 .gm-m { display: none; }
-.positions h2 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; }
 .positions > p { margin: 0; font-size: 14px; color: var(--text-2); max-width: 72ch; }
 .mx tbody th { position: sticky; left: 0; background: var(--surface); min-width: 12em; }
-.mx tbody th small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; font-family: var(--mono); }
+.mx tbody th small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
 .mx .none { font-size: 12px; color: var(--muted); }
 .stance { border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 0 8px; min-height: 28px; cursor: pointer; font-size: 14px; white-space: nowrap; display: inline-flex; gap: 6px; align-items: center; transition: background-color 140ms var(--ease); }
 .stance:hover { background: var(--raised); }
-.stance b { width: 1ch; text-align: center; font-family: var(--mono); font-weight: 400; }
+.stance b { width: 1ch; text-align: center; font-weight: 400; }
 
 .bill { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; margin-top: 32px; align-items: start; }
 .vorblatt { position: relative; background: #ffffff; color: #1a1a1a; border: 1px solid var(--line); border-radius: 4px; box-shadow: var(--shadow-sm); padding: 32px; display: grid; gap: 16px; font-family: var(--doc); }
-.vorblatt .ph { position: absolute; top: 12px; right: 16px; font-family: var(--mono); font-size: 12px; color: #6b6b6b; }
+.vorblatt .ph { position: absolute; top: 12px; right: 16px; font-size: 12px; color: #6b6b6b; }
 .vorblatt .ds { margin: 0; font-family: var(--sans); font-size: 14px; color: #525252; }
 .vorblatt h2 { margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600; hyphens: auto; overflow-wrap: break-word; }
 .vb-sec { display: grid; gap: 4px; }
 .vb-sec h3 { margin: 0; font-family: var(--sans); font-size: 14px; font-weight: 600; }
 .vb-sec p { margin: 0; font-size: 16px; }
-.fill { font-family: var(--mono); font-size: 14px; color: #6b6b6b; }
+.fill { font-size: 14px; color: #6b6b6b; }
 .vb-c { border-top: 1px solid rgba(0, 0, 0, .2); padding-top: 12px; }
 .vb-c .ins { display: block; margin-top: 8px; font-family: var(--sans); font-size: 14px; font-weight: 500; color: #525252; }
 .match { display: grid; gap: 16px; }
-.match h2 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; }
 .match-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 12px; box-shadow: var(--shadow-sm); }
 .match-card h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
 .match-card .nums { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14px; color: var(--text-2); }
@@ -263,7 +291,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
 .dlg { padding: 24px; display: grid; gap: 16px; }
 .dlg header { display: flex; justify-content: space-between; gap: 16px; align-items: start; }
 .dlg h2 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; text-wrap: balance; }
-.dlg .sub { margin: 4px 0 0; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.dlg .sub { margin: 4px 0 0; font-size: 12px; color: var(--muted); }
 .dlg .close { flex: none; }
 .dlg dl { margin: 0; display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 12px 16px; }
 .dlg dt { color: var(--muted); font-size: 14px; padding-top: 2px; }
@@ -280,20 +308,36 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
 
 .vb-later p { font-family: var(--sans); font-size: 14px; color: #6b6b6b; }
 .vb-c p { font-size: 18px; }
-.vb-parse { margin: 0; font-family: var(--mono); font-size: 12px; color: #525252; }
+.vb-parse { margin: 0; font-size: 12px; color: #525252; }
 .vb-parse a { color: inherit; }
 .dsec { display: grid; gap: 12px; margin-top: 40px; max-width: 880px; }
-.dsec h2 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
 .flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .flow li { display: grid; grid-template-columns: 24px 1fr; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
 .flow b { font-weight: 600; font-size: 14px; }
 .flow p { margin: 4px 0 8px; font-size: 14px; color: var(--text-2); }
-.step-n { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border: 1px solid var(--line); border-radius: 6px; font-family: var(--mono); font-size: 12px; }
-.step-st { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.step-n { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border: 1px solid var(--line); border-radius: 6px; font-size: 12px; }
+.step-st { font-size: 12px; color: var(--muted); }
 .code { margin: 0; background: var(--raised); border: 1px solid var(--line); border-radius: 8px; padding: 16px; font-family: var(--mono); font-size: 12px; line-height: 1.6; overflow-x: auto; white-space: pre; }
 #bill-match .go { justify-self: start; }
 @media (max-width: 1100px) { .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .flow { grid-template-columns: 1fr; } }
+@media (min-width: 1100px) {
+  .qlayout { grid-template-columns: 232px minmax(0, 1fr); column-gap: 48px; }
+  [data-nav] { scroll-margin-top: 24px; }
+  .onpage { align-self: start; margin: 0; padding: 40px 0 24px; border: 0; background: none; max-height: 100vh; overflow-y: auto; }
+  .onpage .ttl { display: block; margin: 0 0 8px; padding-left: 12px; font-size: 12px; font-weight: 600; color: var(--muted); }
+  .onpage ol { flex-direction: column; padding: 0; gap: 2px; overflow: visible; border-left: 1px solid var(--line); }
+  .onpage button { width: 100%; white-space: normal; align-items: flex-start; min-height: 32px; padding: 5px 10px; margin-left: -1px; border-left: 2px solid transparent; border-radius: 0 6px 6px 0; line-height: 1.4; }
+  .onpage .sub button { padding-left: 20px; font-size: 13px; }
+  .onpage button .t { max-width: none; }
+  .onpage button .num, .onpage button .pin { margin-top: -1px; }
+  .onpage button[aria-current="true"] { box-shadow: none; border-left-color: var(--text); }
+  .hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); column-gap: 40px; align-items: start; }
+  .tried-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); column-gap: 40px; align-items: start; }
+  .tried-grid .counts { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 0; }
+  .tried-grid .cnt:nth-child(3) { border-left: 0; }
+  .tried-grid .cnt:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
 @media (max-width: 1000px) {
   .counts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cnt:nth-child(3) { border-left: 0; }
@@ -306,6 +350,9 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
 }
 @media (max-width: 640px) {
   .page { padding-inline: 16px; }
+  .onpage { margin-inline: -16px; padding-inline: 16px; }
+  .g-head { grid-template-columns: 32px minmax(0, 1fr); gap: 12px; }
+  .gbadge { width: 32px; height: 32px; font-size: 16px; }
   .top { flex-wrap: wrap; gap: 8px 12px; padding-block: 8px 12px; }
   .brand b { white-space: nowrap; }
   .top-right { width: 100%; }
@@ -319,6 +366,8 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
   .top-right .seg a { padding: 0 8px; min-width: 0; white-space: normal; text-align: center; line-height: 1.25; }
   .hero { padding-top: 24px; }
   h1 { font-size: 28px; }
+  .sec h2, .gapmap h2, .positions h2, .dsec h2, .match h2 { font-size: 22px; }
+  .intro { font-size: 16px; }
   .answer { font-size: 16px; }
   .counts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cnt { padding: 12px 16px; }
@@ -358,36 +407,59 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
       <button type="button" class="icon-btn" id="theme" aria-label="Dunkles Farbschema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg></button>
     </div>
   </header>
+  <p class="claim">Der Open Policy Navigator stellt Lösungswege zu politischen Fragen nebeneinander: wo sie erprobt wurden, was sie bewirkt haben und was dagegen spricht. Die Demo zeigt vier Beispielfragen mit Testdaten.</p>
 </div></div>
-<nav class="qnav" id="qnav" aria-label="Fragen"><div class="page"><div class="picker" id="picker"></div></div></nav>
+<nav class="qnav" id="qnav" aria-label="Beispielfragen"><div class="page"><div class="picker" id="picker"></div></div></nav>
 <div class="page">
   <main id="main" tabindex="-1">
     <section id="view-frage" aria-labelledby="q-title">
-      <div class="hero">
-        <h1 id="q-title"></h1>
-        <p class="answer" id="q-answer"></p>
-        <p class="lead-in"><b>Welche Lösungen gibt es?</b> Hier stehen Lösungswege zu einer politischen Frage nebeneinander: wo sie erprobt wurden, was sie bewirkt haben und wer sie bestreitet.<span class="m-only"> Demo mit Testdaten.</span></p>
-        <div class="counts" id="counts" role="group" aria-label="Fälle filtern"></div>
-        <p class="live" id="live" aria-live="polite"></p>
-      </div>
-
-      <div class="toolbar">
-        <div class="grp">
-          <span class="vh" id="view-lbl">Ansicht</span>
-          <div class="seg" role="group" aria-labelledby="view-lbl">
-            <button type="button" id="v-tbl" aria-pressed="false">Tabelle</button>
-            <button type="button" id="v-cmp" aria-pressed="true">Gegenüberstellung A/B</button>
-          </div>
+     <div class="qlayout">
+      <nav class="onpage" id="onpage" aria-label="Auf dieser Seite"><p class="ttl">Auf dieser Seite</p><ol id="onpage-list"></ol></nav>
+      <div class="qmain">
+      <div class="hero" id="q-top" data-nav="Frage und Stand">
+        <div class="hero-l">
+          <h1 id="q-title"></h1>
+          <p class="intro" id="q-intro"></p>
         </div>
+        <aside class="state" aria-labelledby="h-state">
+          <h2 id="h-state">Stand der Belege</h2>
+          <p class="summary" id="q-answer"></p>
+          <p class="state-note">Fasst die Befunde aller Lösungswege unten in wenigen Sätzen zusammen. Von der Redaktion aus den Quellen abgeleitet, noch nicht geprüft.</p>
+        </aside>
       </div>
 
-      <details class="legend">
-        <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>So lesen Sie die Zeichen</summary>
-        <div class="legend-body" id="legend"></div>
-      </details>
+      <section class="sec" id="sec-tried" data-nav="Was wurde schon versucht?" aria-labelledby="h-tried">
+        <div class="tried-grid">
+          <div class="hero-l">
+            <h2 id="h-tried">Was wurde schon versucht?</h2>
+            <p class="sec-lead" id="tried-lead"></p>
+          </div>
+          <div class="counts" id="counts" role="group" aria-label="Fälle filtern"></div>
+        </div>
+        <p class="live" id="live" aria-live="polite"></p>
+      </section>
 
-      <div id="out" tabindex="-1" style="outline:none"></div>
+      <section class="sec" id="sec-ways" data-nav="Lösungswege im Vergleich" aria-labelledby="h-ways">
+        <div class="sec-head">
+          <h2 id="h-ways">Lösungswege im Vergleich</h2>
+          <div class="toolbar"><div class="grp">
+            <span class="vh" id="view-lbl">Ansicht</span>
+            <div class="seg" role="group" aria-labelledby="view-lbl">
+              <button type="button" id="v-cmp" aria-pressed="true">Gegenüberstellung</button>
+              <button type="button" id="v-tbl" aria-pressed="false">Tabelle</button>
+            </div>
+          </div></div>
+        </div>
+        <p class="sec-lead" id="ways-lead"></p>
+        <details class="legend">
+          <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>Legende</summary>
+          <div class="legend-body" id="legend"></div>
+        </details>
+        <div id="out" tabindex="-1" style="outline:none"></div>
+      </section>
       <p class="note q-note" id="q-stand"></p>
+      </div>
+     </div>
     </section>
 
     <section id="view-entwurf" aria-labelledby="b-title" hidden>
@@ -1071,11 +1143,12 @@ function stats(q) {
 }
 function renderCounts() {
   const s = stats(Q());
-  const gapLabel = `${s.open === 1 ? "Weg" : "Wege"} mit Lücken${s.notFull && s.notFullSides.length === 1 ? `, alle in Richtung ${s.notFullSides[0]}` : ""}`;
+  const gapLabel = `${s.open === 1 ? "Lösungsweg" : "Lösungswege"} noch nicht voll recherchiert${s.notFull && s.notFullSides.length === 1 ? `, alle in Richtung ${s.notFullSides[0]}` : ""}`;
   const where = `${s.countries} ${s.countries === 1 ? "Land" : "Ländern"}${s.eu ? " und der EU" : ""}`;
+  $("tried-lead").textContent = `Ein Fall ist eine Maßnahme, die ein Staat, eine Region oder eine Stadt eingeführt, erprobt oder vorgeschlagen hat. Zu dieser Frage sind ${s.cases} Fälle aus ${where} erfasst, verteilt auf ${s.ways} Lösungswege. Ein Klick auf eine Zahl zeigt unten nur diese Fälle.`;
   $("counts").innerHTML = [
-    ["all", s.cases, `alle Fälle, aus ${where}`], ["found", s.found, "mit Wirkungsbefund"],
-    ["stop", s.stop, "gestoppt oder beendet"], ["gaps", s.open, gapLabel]
+    ["all", s.cases, "Fälle insgesamt"], ["found", s.found, "davon mit gemessener Wirkung"],
+    ["stop", s.stop, "davon gestoppt oder beendet"], ["gaps", s.open, gapLabel]
   ].map(([f, n, l]) => `<button type="button" class="cnt${f === "gaps" ? " gap" : ""}" data-filter="${f}" aria-pressed="${state.filter === f}"><b>${n}</b><span>${esc(l)}</span></button>`).join("");
 }
 
@@ -1132,7 +1205,7 @@ function sideFold(g, sd, ws) {
   const eff = ["pos", "mixed", "null", "neg"].map(k => [k, cs.filter(c => c.effect === k).length]).filter(([, n]) => n);
   const effHTML = eff.length ? eff.map(([k, n]) => `<span class="sig" title="${esc(EFFECT[k].label)}">${svg(EFFECT[k].svg(EFFECT[k].color))}<span class="vh">${esc(EFFECT[k].label)}: </span>${n}</span>`).join("") : "<span>kein Wirkungsbefund</span>";
   const contra = ws.filter(w => w.contra).length, gaps = ws.filter(w => w.cov !== "checked").length;
-  return `<details class="fold" id="s-${g.id}-${sd}"><summary><span class="tag">Richtung ${sd}</span><h3>${esc(g.sides[sd].t)}</h3><span class="side-a">${esc(g.sides[sd].a)}</span>
+  return `<details class="fold" id="s-${g.id}-${sd}"><summary><span class="tag"><span class="sbadge" aria-hidden="true">${sd}</span>Richtung ${sd}</span><h4>${esc(g.sides[sd].t)}</h4><span class="side-a">${esc(g.sides[sd].a)}</span>
       <span class="fold-n"><span>${plural(ws.length, "Weg", "Wege")}</span><span>${plural(cs.length, "Fall", "Fälle")}</span><span class="vh">Befunde: </span>${effHTML}<span>${plural(contra, "Einwand", "Einwände")}</span><span>${plural(gaps, "Lücke", "Lücken")}</span></span>
       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></summary>
     <div class="fold-body">${ws.length ? ws.map(wayCard).join("") : `<p class="side-empty">Kein Treffer in dieser Richtung für den gewählten Filter.</p>`}</div></details>`;
@@ -1148,14 +1221,15 @@ function renderCompare() {
     } else if (g.sides) {
       body = `<div class="sides">${["A", "B"].map(sd => {
         const ws = ways.filter(w => w.side === sd);
-        return `<div class="side" id="s-${g.id}-${sd}"><div class="side-head"><span class="tag">Richtung ${sd}</span><h3>${esc(g.sides[sd].t)}</h3><p>${esc(g.sides[sd].a)}</p></div>
+        return `<div class="side" id="s-${g.id}-${sd}"><div class="side-head"><span class="tag"><span class="sbadge" aria-hidden="true">${sd}</span>Richtung ${sd}</span><h4>${esc(g.sides[sd].t)}</h4><p>${esc(g.sides[sd].a)}</p></div>
           ${ws.length ? ws.map(wayCard).join("") : `<p class="side-empty">Kein Treffer in dieser Richtung für den gewählten Filter.</p>`}</div>`;
       }).join("")}</div>`;
     } else {
       body = `<div class="sides single">${ways.map(w => `<div style="display:grid">${wayCard(w)}</div>`).join("")}</div>`;
     }
-    return `<section class="group" aria-labelledby="g-${g.id}">
-      <h2 id="g-${g.id}">${q.groups.length > 1 ? `<span class="gn">Teilfrage ${gi + 1} von ${q.groups.length}</span>` : ""}${esc(g.q)}</h2>
+    const multi = q.groups.length > 1;
+    return `<section class="group" id="t-${g.id}" data-nav="${esc(g.q)}" data-num="${multi ? gi + 1 : ""}" data-level="2" aria-labelledby="g-${g.id}">
+      <div class="${multi ? "g-head" : ""}">${multi ? `<span class="gbadge" aria-hidden="true">${gi + 1}</span>` : ""}<h3 id="g-${g.id}">${multi ? `<span class="gn">Teilfrage ${gi + 1} von ${q.groups.length}</span>` : ""}${esc(g.q)}</h3></div>
       <p class="evidence"><b>Was die Belege sagen</b>${esc(g.evidence)}</p>
       ${body}
     </section>`;
@@ -1175,10 +1249,10 @@ function renderGapMap() {
   };
   const used = Object.keys(COV).filter(k => q.ways.some(w => w.cov === k));
   const rows = q.groups.map((g, gi) => `<tr><th scope="row">${q.groups.length > 1 ? `<small>Teilfrage ${gi + 1}</small>` : ""}${esc(g.q)}</th>${g.sides || !sided ? cols.map(sd => cell(g, sd)).join("") : cell(g, null, 2)}</tr>`).join("");
-  return `<section class="gapmap" aria-labelledby="h-gm"><h2 id="h-gm">Lückenkarte</h2>
-    <p>Alle Lösungswege dieser Frage nach Teilfrage und Richtung, unabhängig vom Filter. Die Zahl nennt die erfassten Fälle, das Zeichen den Stand der Recherche.</p>
+  return `<section class="gapmap" id="sec-gaps" data-nav="Wo Wissen fehlt" aria-labelledby="h-gm"><h2 id="h-gm">Wo Wissen fehlt</h2>
+    <p>Diese Übersicht zeigt jeden Lösungsweg an seinem Platz: ${sided ? "jede Zeile eine Teilfrage, jede Spalte eine Richtung" : "nach der Frage, an der er ansetzt"}. Die Zahl nennt, wie viele Fälle erfasst sind; das Zeichen davor, wie weit dazu recherchiert wurde. Eine 0 oder ein gestrichelter Kreis heißt: Hier fehlt Wissen. Es heißt nicht, dass der Weg nicht wirkt. Ein Klick öffnet den Lösungsweg.</p>
     <ul class="gm-key">${used.map(k => `<li>${covBadge(k).replace('<span class="vh">Abdeckung: </span>', "")}</li>`).join("")}</ul>
-    <table class="gm"><caption class="vh">Lückenkarte: Lösungswege nach Teilfrage und Richtung mit Fallzahl und Stand der Recherche</caption>
+    <table class="gm"><caption class="vh">Wo Wissen fehlt: Lösungswege nach Teilfrage und Richtung mit Fallzahl und Stand der Recherche</caption>
     <thead><tr><th scope="col">Teilfrage</th>${cols.map(sd => `<th scope="col">${sd ? `Richtung ${sd}` : "Lösungswege"}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></section>`;
 }
 
@@ -1192,7 +1266,7 @@ function renderPositions() {
     const p = q.positions[i];
     return `<td><button type="button" class="stance" data-pos="${i}"><b aria-hidden="true">${STANCE[p.p][0]}</b>${STANCE[p.p][1]}</button></td>`;
   }).join("")}</tr>`).join("");
-  return `<section class="positions" aria-labelledby="h-pos"><h2 id="h-pos">Wer welchen Weg will</h2>
+  return `<section class="positions" id="sec-pos" data-nav="Wer welchen Weg will" aria-labelledby="h-pos"><h2 id="h-pos">Wer welchen Weg will</h2>
     <p>Sieben Stimmen aus der Debatte seit 2017, von der Regierung bis zu wirtschaftsliberalen Kommentaren. Positionen sind Momentaufnahmen; ein Klick zeigt, was gesagt wurde und wo. „·“ heißt: in den Testdaten nicht erfasst, nicht „keine Position“.</p>
     <div class="tablewrap" style="margin-top:0" tabindex="0" role="region" aria-label="Positionstabelle, seitlich scrollbar"><table class="mx"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table></div></section>`;
 }
@@ -1239,8 +1313,8 @@ function renderTable() {
 
 function renderPicker() {
   const tabs = Object.entries(QUESTIONS).map(([id, q]) => `<a href="#frage/${id}"${state.q === id ? ' aria-current="page"' : ""}>${esc(q.tab)}${q.tabNote ? ` <small>${esc(q.tabNote)}</small>` : ""}</a>`).join("");
-  $("picker").innerHTML = tabs;
-  const cur = $("picker").querySelector("[aria-current]"); if (cur) $("picker").scrollLeft = cur.offsetLeft - 16;
+  $("picker").innerHTML = `<span class="plabel" aria-hidden="true">Beispielfragen</span>${tabs}`;
+  const pk = $("picker"), cur = pk.querySelector("[aria-current]"); if (cur && cur.offsetLeft + cur.offsetWidth > pk.clientWidth) pk.scrollLeft = cur.offsetLeft - 16;
 }
 function renderLive() {
   const all = uniqueCases(casesOf(Q())).filter(id => !CASES[id].placeholder), vis = all.filter(visibleCase);
@@ -1251,12 +1325,47 @@ function renderQuestion() {
   const q = Q();
   $("q-title").textContent = q.title;
   $("q-answer").textContent = q.answer;
-  $("q-stand").textContent = `Kurzantwort und Synthesen sind aus den Befunden abgeleitet und ungeprüft. ${q.stand}`;
+  const sided = q.groups.some(g => g.sides), n = q.groups.length;
+  const num = ["null", "eine", "zwei", "drei", "vier", "fünf", "sechs"][n] || String(n);
+  const nw = q.ways.length, numW = ["null", "Ein", "Zwei", "Drei", "Vier", "Fünf", "Sechs"][nw] || String(nw);
+  $("q-intro").textContent = n > 1
+    ? `Die Frage ist in ${num} Teilfragen zerlegt. Zu jeder stehen zwei gegensätzliche Richtungen nebeneinander, A und B, mit den Fällen, in denen sie erprobt wurden. Darunter folgen die Fälle im Überblick und die Teilfragen im Einzelnen.`
+    : `${numW} Lösungswege setzen bei unterschiedlichen Antworten auf die Frage an: ${q.groups[0].q.replace(/\?.*$/, "?")} Darunter folgen die Fälle im Überblick und die Lösungswege im Einzelnen.`;
+  $("ways-lead").textContent = state.mode === "tbl"
+    ? "Alle Fälle in einer Tabelle. Ein Klick auf einen Spaltenkopf sortiert."
+    : sided ? "Je Teilfrage zwei Spalten: Richtung A und Richtung B sind gegensätzliche Antworten, keine Rangfolge. Jede Karte ist ein Lösungsweg mit seinen Fällen; ein Klick öffnet Details und Quellen."
+    : "Jede Karte ist ein Lösungsweg mit seiner Grundannahme und seinen Fällen; ein Klick öffnet Details und Quellen.";
+  $("q-stand").textContent = `„Stand der Belege“ und „Was die Belege sagen“ sind aus den Befunden abgeleitet und ungeprüft. ${q.stand}`;
   renderPicker(); renderCounts(); renderLive();
   $("v-cmp").setAttribute("aria-pressed", String(state.mode === "cmp"));
   $("v-tbl").setAttribute("aria-pressed", String(state.mode === "tbl"));
   $("out").innerHTML = state.mode === "cmp" ? renderCompare() : renderTable();
+  renderOnpage();
 }
+
+let navTargets = [];
+function renderOnpage() {
+  navTargets = [...document.querySelectorAll("#view-frage .qmain [data-nav]")];
+  $("onpage-list").innerHTML = navTargets.map(el => {
+    const sub = el.dataset.level === "2", n = el.dataset.num;
+    const mark = n ? `<span class="num" aria-hidden="true">${n}</span>` : '<span class="pin" aria-hidden="true"></span>';
+    return `<li${sub ? ' class="sub"' : ""}><button type="button" data-jump="${el.id}">${mark}<span class="t">${n ? `<span class="vh">Teilfrage ${n}: </span>` : ""}${esc(el.dataset.nav)}</span></button></li>`;
+  }).join("");
+  markCurrent();
+}
+function markCurrent() {
+  if (!navTargets.length || $("view-frage").hidden) return;
+  let cur = navTargets[0];
+  for (const el of navTargets) { if (el.getBoundingClientRect().top <= 120) cur = el; else break; }
+  const list = $("onpage-list");
+  list.querySelectorAll("button").forEach(b => {
+    const on = b.dataset.jump === cur.id;
+    if (on) { b.setAttribute("aria-current", "true"); if (list.scrollWidth > list.clientWidth) list.scrollLeft = b.offsetLeft - 16; }
+    else b.removeAttribute("aria-current");
+  });
+}
+let navTick = false;
+window.addEventListener("scroll", () => { if (navTick) return; navTick = true; requestAnimationFrame(() => { navTick = false; markCurrent(); }); }, { passive: true });
 
 const BILLS = [
   { id: "21-6807", nr: "21/6807", datum: "1.7.2026", titel: "Entwurf eines Gesetzes zur Änderung des Rechts der Wohn- und Geschäftsraummiete", alt: "Keine.", q: "wohnen", g: "mieten", short: "Mietrecht 2026" },
@@ -1482,6 +1591,7 @@ document.addEventListener("click", async e => {
   const cb = t.closest("[data-case]"); if (cb) { openCase(cb.dataset.case); return; }
   const wb = t.closest("[data-way]"); if (wb) { openWay(wb.dataset.way); return; }
   const pb = t.closest("[data-pos]"); if (pb) { openPos(+pb.dataset.pos); return; }
+  const jb = t.closest("[data-jump]"); if (jb) { const el = $(jb.dataset.jump); if (el) { el.scrollIntoView({ block: "start" }); const h = el.querySelector("h1, h2, h3"); if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); } } return; }
   const cite = t.closest("[data-cite]");
   if (cite) {
     const [kind, ref] = cite.dataset.cite.split(":");

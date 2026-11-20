@@ -117,7 +117,6 @@ main:focus { outline: none; }
 .state-foot { margin: 0; font-size: 14px; color: var(--text-2); }
 .g-head { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 16px; align-items: start; }
 .gbadge { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--text); color: var(--bg); font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; }
-.tried-grid { display: grid; gap: 16px; }
 .sec { margin-top: 48px; display: grid; gap: 12px; }
 .sec > * { min-width: 0; }
 .sec-head { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; }
@@ -129,14 +128,6 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .stand { margin: 0; font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 75ch; }
 .m-only { display: none; }
 
-.counts { overflow: hidden; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin-top: 8px; box-shadow: var(--shadow-sm); }
-.cnt { padding: 16px 20px; display: grid; gap: 4px; align-content: start; border: 0; background: none; text-align: left; cursor: pointer; font: inherit; color: inherit; min-height: 44px; transition: background-color 140ms var(--ease); }
-.cnt:hover { background: var(--raised); }
-.cnt[aria-pressed="true"] { background: var(--raised); box-shadow: inset 0 -2px 0 var(--text); }
-.cnt + .cnt { border-left: 1px solid var(--line); }
-.cnt b { font-size: 24px; line-height: 1.1; font-variant-numeric: tabular-nums; font-weight: 500; letter-spacing: -.01em; }
-.cnt span { font-size: 14px; color: var(--text-2); line-height: 1.4; }
-.cnt.gap b { color: var(--muted); }
 
 .toolbar { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; padding-block: 32px 0; }
 .sec .toolbar { padding: 0; }
@@ -209,7 +200,6 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .wsum-eff { display: inline-flex; gap: 12px; }
 .tctx { display: block; font-size: 12px; color: var(--muted); font-weight: 400; }
 .tkz { font-size: 14px; }
-.cnt:focus-visible { outline-offset: -3px; }
 .live { margin: 0; }
 .live:empty { display: none; }
 .live .linkbtn { margin-left: 8px; }
@@ -255,9 +245,30 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .linkbtn:hover { text-decoration-color: currentColor; }
 
 .positions, .gapmap { margin-top: 32px; display: grid; gap: 12px; }
-.gapmap > p { margin: 0; font-size: 14px; color: var(--text-2); max-width: 72ch; }
-.gm-key { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0; padding: 0; list-style: none; }
-.gm-key .cov { font-size: 14px; color: var(--text-2); }
+.filterbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.filterbar .seg { overflow-x: auto; scrollbar-width: none; }
+.filterbar .seg b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.op { table-layout: fixed; }
+.op thead th { font-size: 14px; color: var(--text); font-weight: 600; padding: 10px 16px; }
+.op thead th .sbadge { margin-right: 8px; vertical-align: -5px; }
+.op thead th.sa, .op thead th.sb { border-top: 3px solid var(--sc); background: color-mix(in srgb, var(--sc) 9%, var(--surface)); }
+.op thead th:first-child { width: 24%; }
+.op tbody th { padding: 16px; font-size: 16px; font-weight: 600; line-height: 1.4; }
+.op tbody th small { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+.op td { padding: 12px 16px 16px; }
+.op .gm-side { font-size: 13px; color: var(--text-2); margin-bottom: 4px; }
+.op ul { gap: 2px; margin: 0; }
+.op-w { width: 100%; border: 0; background: none; text-align: left; cursor: pointer; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 2px 8px; padding: 8px 8px 8px 4px; border-radius: 6px; color: var(--text); min-height: 44px; transition: background-color 140ms var(--ease); }
+.op-w:hover { background: var(--raised); }
+.op-w:hover .op-t { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-strong); }
+.op-ic { display: inline-flex; gap: 2px; align-items: center; height: 22px; }
+.op-ic svg { width: 12px; height: 12px; }
+.op-t { font-size: 15px; font-weight: 500; line-height: 1.4; }
+.op-m { grid-column: 2; font-size: 13px; color: var(--text-2); line-height: 1.4; }
+.op-w.open .op-t { color: var(--text-2); }
+.way.hit { outline: 2px solid var(--focus); outline-offset: 2px; }
+.way { scroll-margin-top: 80px; }
+@media (min-width: 1100px) { .way { scroll-margin-top: 24px; } }
 .gm { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-sm); table-layout: fixed; }
 .gm th, .gm td { text-align: left; vertical-align: top; padding: 12px; border-bottom: 1px solid var(--line); font-size: 14px; }
 .gm td + td, .gm th + td, .gm thead th + th { border-left: 1px solid var(--line); }
@@ -267,11 +278,6 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .gm tbody th { font-weight: 500; width: 30%; }
 .gm tbody th small, .gm-side { display: block; font-size: 12px; font-weight: 400; color: var(--muted); }
 .gm ul { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 4px; }
-.gm-w { width: 100%; border: 0; background: none; padding: 4px 0; cursor: pointer; text-align: left; display: grid; grid-template-columns: 12px 2ch minmax(0, 1fr); gap: 8px; align-items: baseline; min-height: 32px; color: var(--text); }
-.gm-w svg { width: 12px; height: 12px; color: var(--muted); align-self: start; margin-top: 6px; }
-.gm-w b { font-weight: 400; text-align: right; font-variant-numeric: tabular-nums; }
-.gm-w:hover span { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-strong); }
-.gm-w.open { color: var(--text-2); }
 .gm-none { color: var(--muted); }
 .gm-m { display: none; }
 .positions > p { margin: 0; font-size: 14px; color: var(--text-2); max-width: 72ch; }
@@ -361,15 +367,8 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
   .onpage button[aria-current="true"] { box-shadow: none; border-left-color: var(--text); }
   .hero { grid-template-columns: minmax(0, 760px) minmax(360px, 560px); column-gap: 64px; align-items: start; }
   h1 { max-width: 30ch; }
-  .tried-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); column-gap: 40px; align-items: start; }
-  .tried-grid .counts { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 0; }
-  .tried-grid .cnt:nth-child(3) { border-left: 0; }
-  .tried-grid .cnt:nth-child(n+3) { border-top: 1px solid var(--line); }
 }
 @media (max-width: 1000px) {
-  .counts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .cnt:nth-child(3) { border-left: 0; }
-  .cnt:nth-child(n+3) { border-top: 1px solid var(--line); }
   .legend-body { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 900px) {
@@ -397,12 +396,6 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
   .sec h2, .gapmap h2, .positions h2, .dsec h2, .match h2 { font-size: 22px; }
   .intro { font-size: 16px; }
   .answer { font-size: 16px; }
-  .counts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .cnt { padding: 12px 16px; }
-  .cnt:nth-child(n) { border-left: 0; border-top: 0; }
-  .cnt:nth-child(even) { border-left: 1px solid var(--line); }
-  .cnt:nth-child(n+3) { border-top: 1px solid var(--line); }
-  .cnt b { font-size: 24px; }
   .legend-body { grid-template-columns: 1fr; }
   .seg button, .seg a, .go, .btn, .chipbtn { min-height: 40px; }
   .vorblatt { padding: 24px 20px; }
@@ -457,15 +450,10 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
         </aside>
       </div>
 
-      <section class="sec" id="sec-tried" data-nav="Was wurde schon versucht?" aria-labelledby="h-tried">
-        <div class="tried-grid">
-          <div class="hero-l">
-            <h2 id="h-tried">Was wurde schon versucht?</h2>
-            <p class="sec-lead" id="tried-lead"></p>
-          </div>
-          <div class="counts" id="counts" role="group" aria-label="Fälle filtern"></div>
-        </div>
-        <p class="live" id="live" aria-live="polite"></p>
+      <section class="sec" id="sec-tried" data-nav="Optionen im Überblick" aria-labelledby="h-tried">
+        <h2 id="h-tried">Optionen im Überblick</h2>
+        <p class="sec-lead" id="tried-lead"></p>
+        <div id="opts"></div>
       </section>
 
       <section class="sec" id="sec-ways" data-nav="Lösungswege im Vergleich" aria-labelledby="h-ways">
@@ -480,6 +468,8 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
           </div></div>
         </div>
         <p class="sec-lead" id="ways-lead"></p>
+        <div class="filterbar"><span class="lbl" id="filter-lbl">Fälle zeigen</span><div class="seg" id="counts" role="group" aria-labelledby="filter-lbl"></div></div>
+        <p class="live" id="live" aria-live="polite"></p>
         <details class="legend">
           <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>Legende</summary>
           <div class="legend-body" id="legend"></div>
@@ -1178,11 +1168,13 @@ function renderCounts() {
   const s = stats(Q());
   const gapLabel = `${s.open === 1 ? "Lösungsweg" : "Lösungswege"} noch nicht voll recherchiert${s.notFull && s.notFullSides.length === 1 ? `, alle in Richtung ${s.notFullSides[0]}` : ""}`;
   const where = `${s.countries} ${s.countries === 1 ? "Land" : "Ländern"}${s.eu ? " und der EU" : ""}`;
-  $("tried-lead").textContent = `Ein Fall ist eine Maßnahme, die ein Staat, eine Region oder eine Stadt eingeführt, erprobt oder vorgeschlagen hat. Zu dieser Frage sind ${s.cases} Fälle aus ${where} erfasst, verteilt auf ${s.ways} Lösungswege. Ein Klick auf eine Zahl zeigt unten nur diese Fälle.`;
+  const sided = Q().groups.some(g => g.sides);
+  $("tried-lead").textContent = `${s.ways} Lösungswege mit ${s.cases} Fällen aus ${where}; ein Fall ist eine Maßnahme, die ein Staat, eine Region oder eine Stadt eingeführt, erprobt oder vorgeschlagen hat. Zu ${s.found} Fällen gibt es eine Wirkungsmessung. ${sided ? "Jede Zeile ist eine Teilfrage, jede Spalte eine Richtung." : "Jede Zeile ist ein Lösungsweg."} Das Zeichen vor einem Lösungsweg zeigt das Ergebnis seiner Messungen; ein Klick springt zur Karte mit Fällen und Quellen.`;
   $("counts").innerHTML = [
-    ["all", s.cases, "Fälle insgesamt"], ["found", s.found, "davon mit gemessener Wirkung"],
-    ["stop", s.stop, "davon gestoppt oder beendet"], ["gaps", s.open, gapLabel]
-  ].map(([f, n, l]) => `<button type="button" class="cnt${f === "gaps" ? " gap" : ""}" data-filter="${f}" aria-pressed="${state.filter === f}"><b>${n}</b><span>${esc(l)}</span></button>`).join("");
+    ["all", s.cases, "Alle"], ["found", s.found, "Mit Wirkungsbefund"],
+    ["stop", s.stop, "Gestoppt oder beendet"], ["gaps", s.open, "Wege mit Lücken"]
+  ].map(([f, n, l]) => `<button type="button" data-filter="${f}" aria-pressed="${state.filter === f}"${f === "gaps" ? ` title="${esc(gapLabel)}"` : ""}>${esc(l)} <b>${n}</b></button>`).join("");
+  $("opts").innerHTML = renderOptions();
 }
 
 function renderLegend() {
@@ -1276,26 +1268,32 @@ function renderCompare() {
       ${body}
     </section>`;
   }).join("");
-  return `<div class="groups">${html || '<p class="quiet">Kein Eintrag für diesen Filter.</p>'}</div>${renderGapMap()}${renderPositions()}`;
+  return `<div class="groups">${html || '<p class="quiet">Kein Eintrag für diesen Filter.</p>'}</div>${renderPositions()}`;
 }
 
-function renderGapMap() {
+function optEntry(w) {
+  const cs = w.cases.map(id => CASES[id]).filter(c => !c.placeholder);
+  const m = cs.filter(hasFinding).sort((a, b) => b.strength - a.strength);
+  const effs = [...new Set(m.map(c => c.effect))];
+  const icon = effs.length ? effs.map(k => svg(EFFECT[k].svg(EFFECT[k].color))).join("") : svg(COV[w.cov === "checked" ? "searched" : w.cov].svg, ' style="color:var(--muted)"');
+  const caseTxt = cs.length ? plural(cs.length, "Fall", "Fälle") : "kein Fall";
+  const meta = m.length
+    ? `${effs.map(k => EFFECT[k].label).join(", ")} · ${STRENGTH[m[0].strength].label}`
+    : w.cov === "checked" ? (cs.length ? "nicht gemessen" : "kein Fall gefunden") : COV[w.cov].label;
+  return `<li><button type="button" class="op-w${m.length ? "" : " open"}" data-goto="${w.id}"><span class="op-ic" aria-hidden="true">${icon}</span><span class="op-t">${esc(w.title)}</span><span class="op-m">${esc(caseTxt)} · ${esc(meta)}</span></button></li>`;
+}
+function renderOptions() {
   const q = Q(), sided = q.groups.some(g => g.sides);
   const cols = sided ? ["A", "B"] : [null];
-  const n = w => w.cases.filter(id => !CASES[id].placeholder).length;
-  const entry = w => `<li><button type="button" class="gm-w${w.cov === "checked" ? "" : " open"}" data-way="${w.id}">${svg(COV[w.cov].svg)}<b>${n(w)}</b><span>${esc(w.title)}<span class="vh">: ${plural(n(w), "Fall", "Fälle")}, ${esc(COV[w.cov].label)}</span></span></button></li>`;
   const cell = (g, sd, span) => {
     const ws = q.ways.filter(w => w.g === g.id && (sd === null || w.side === sd));
-    const head = sd && g.sides ? `<span class="gm-side"><span class="gm-m">Richtung ${sd} · </span>${esc(g.sides[sd].t)}</span>` : "";
-    return `<td${span ? ` colspan="${span}"` : ""}>${head}${ws.length ? `<ul>${ws.map(entry).join("")}</ul>` : '<span class="gm-none">kein Weg erfasst</span>'}</td>`;
+    const head = sd && g.sides ? `<span class="gm-side"><span class="gm-m">Richtung ${sd}: </span>${esc(g.sides[sd].t)}</span>` : "";
+    return `<td${span ? ` colspan="${span}"` : ""}${sd ? ` class="s${sd.toLowerCase()}"` : ""}>${head}${ws.length ? `<ul>${ws.map(optEntry).join("")}</ul>` : '<span class="gm-none">kein Weg erfasst</span>'}</td>`;
   };
-  const used = Object.keys(COV).filter(k => q.ways.some(w => w.cov === k));
   const rows = q.groups.map((g, gi) => `<tr><th scope="row">${q.groups.length > 1 ? `<small>Teilfrage ${gi + 1}</small>` : ""}${esc(g.q)}</th>${g.sides || !sided ? cols.map(sd => cell(g, sd)).join("") : cell(g, null, 2)}</tr>`).join("");
-  return `<section class="gapmap" id="sec-gaps" data-nav="Wo Wissen fehlt" aria-labelledby="h-gm"><h2 id="h-gm">Wo Wissen fehlt</h2>
-    <p>Diese Übersicht zeigt jeden Lösungsweg an seinem Platz: ${sided ? "jede Zeile eine Teilfrage, jede Spalte eine Richtung" : "nach der Frage, an der er ansetzt"}. Die Zahl nennt, wie viele Fälle erfasst sind; das Zeichen davor, wie weit dazu recherchiert wurde. Eine 0 oder ein gestrichelter Kreis heißt: Hier fehlt Wissen. Es heißt nicht, dass der Weg nicht wirkt. Ein Klick öffnet den Lösungsweg.</p>
-    <ul class="gm-key">${used.map(k => `<li>${covBadge(k).replace('<span class="vh">Abdeckung: </span>', "")}</li>`).join("")}</ul>
-    <table class="gm"><caption class="vh">Wo Wissen fehlt: Lösungswege nach Teilfrage und Richtung mit Fallzahl und Stand der Recherche</caption>
-    <thead><tr><th scope="col">Teilfrage</th>${cols.map(sd => `<th scope="col">${sd ? `Richtung ${sd}` : "Lösungswege"}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></section>`;
+  const headCols = cols.map(sd => sd ? `<th scope="col" class="s${sd.toLowerCase()}"><span class="sbadge s${sd.toLowerCase()}" aria-hidden="true">${sd}</span>Richtung ${sd}</th>` : `<th scope="col">Lösungswege</th>`).join("");
+  return `<table class="gm op"><caption class="vh">Optionen im Überblick: Lösungswege nach Teilfrage und Richtung mit Ergebnis der Messungen</caption>
+    <thead><tr><th scope="col">${q.groups.length > 1 ? "Teilfrage" : "Frage"}</th>${headCols}</tr></thead><tbody>${rows}</tbody></table>`;
 }
 
 function renderPositions() {
@@ -1377,6 +1375,16 @@ function renderState(q) {
   $("q-kb").innerHTML = rows.map(r => `<li><button type="button" class="kb-row" ${r.attr}>${r.n ? `<span class="num" aria-hidden="true">${r.n}</span>` : '<span class="pin" aria-hidden="true"></span>'}<span class="kb-q">${esc(r.label)}</span><span class="kb-n"><span class="kb-dots" aria-hidden="true">${r.m.all.map(id => `<i class="${hasFinding(CASES[id]) ? "on" : ""}"></i>`).join("")}</span><span>${r.m.found.length} von ${r.m.all.length}<span class="vh"> Fällen mit Wirkungsmessung</span></span></span></button></li>`).join("");
   const srcN = new Set(uniqueCases(casesOf(q)).flatMap(id => CASES[id].src)).size;
   $("state-foot").innerHTML = `Gemessen heißt: eine Studie mit Vergleich zur Wirkung, gleich mit welchem Ergebnis. Grundlage sind ${srcN} verlinkte Fundstellen, Stand 12.11.2026. <a href="#daten">Methodik</a>`;
+}
+function gotoWay(id) {
+  if (state.mode !== "cmp" || state.filter !== "all") { state.mode = "cmp"; state.filter = "all"; renderQuestion(); }
+  const card = $("w-" + id);
+  if (!card) return;
+  const fold = card.closest("details"); if (fold) fold.open = true;
+  const art = card.closest(".way");
+  art.scrollIntoView({ block: "start" });
+  card.focus({ preventScroll: true });
+  art.classList.add("hit"); setTimeout(() => art.classList.remove("hit"), 1600);
 }
 function renderQuestion() {
   const q = Q();
@@ -1648,6 +1656,7 @@ document.addEventListener("click", async e => {
   const cb = t.closest("[data-case]"); if (cb) { openCase(cb.dataset.case); return; }
   const wb = t.closest("[data-way]"); if (wb) { openWay(wb.dataset.way); return; }
   const pb = t.closest("[data-pos]"); if (pb) { openPos(+pb.dataset.pos); return; }
+  const gb = t.closest("[data-goto]"); if (gb) { gotoWay(gb.dataset.goto); return; }
   const jb = t.closest("[data-jump]"); if (jb) { if (!$(jb.dataset.jump) && state.mode === "tbl") setMode("cmp"); const el = $(jb.dataset.jump); if (el) { el.scrollIntoView({ block: "start" }); const h = el.querySelector("h1, h2, h3"); if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); } } return; }
   const cite = t.closest("[data-cite]");
   if (cite) {

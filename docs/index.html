@@ -12,6 +12,7 @@
   --text: #171717; --text-2: #525252; --muted: #6b6b6b;
   --primary: #171717; --on-primary: #ffffff; --focus: #0969da;
   --pos: #0969da; --mix: #9a6700; --neg: #cf222e; --none: #6b6b6b;
+  --side-a: #8250df; --side-b: #0e7490;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   --doc: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
@@ -24,13 +25,14 @@
   --text: #ededed; --text-2: #a1a1a6; --muted: #8e8e93;
   --primary: #ededed; --on-primary: #171717; --focus: #58a6ff;
   --pos: #58a6ff; --mix: #d29922; --neg: #ff7b72; --none: #8e8e93;
+  --side-a: #a371f7; --side-b: #3cb4c2;
   --shadow-sm: none; --shadow-lg: 0 8px 24px rgba(0, 0, 0, .4);
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.6; padding-bottom: 64px; }
-.page { max-width: 1280px; margin: 0 auto; padding-inline: max(24px, env(safe-area-inset-left, 0px)) max(24px, env(safe-area-inset-right, 0px)); }
+.page { max-width: none; margin: 0; padding-inline: max(24px, env(safe-area-inset-left, 0px)) max(24px, env(safe-area-inset-right, 0px)); }
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: var(--line-strong); transition: text-decoration-color 140ms var(--ease); }
 a:hover { text-decoration-color: currentColor; }
 button { font: inherit; color: inherit; }
@@ -97,10 +99,22 @@ main:focus { outline: none; }
 .pin { width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; flex: none; }
 .pin::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: .6; }
 .sbadge { width: 22px; height: 22px; border-radius: 6px; border: 1.5px solid currentColor; font-size: 12px; color: var(--text); }
+.sbadge.sa, .sbadge.sb { color: var(--surface); background: var(--sc); border-color: var(--sc); }
+.sa, .way.sa { --sc: var(--side-a); } .sb, .way.sb { --sc: var(--side-b); }
 .hero-l { display: grid; gap: 16px; align-content: start; }
 .state { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 8px; box-shadow: var(--shadow-sm); align-self: start; }
-.state h2 { margin: 0; font-size: 14px; font-weight: 600; color: var(--text); }
-.state-note { margin: 0; font-size: 12px; line-height: 1.5; color: var(--muted); }
+.state h2 { margin: 0; font-size: 16px; font-weight: 600; color: var(--text); }
+.state-sub { margin: 0; font-size: 14px; color: var(--text-2); }
+.kb { list-style: none; margin: 4px 0 0; padding: 0; display: grid; border-top: 1px solid var(--line); }
+.kb li + li { border-top: 1px solid var(--line); }
+.kb-row { width: 100%; border: 0; background: none; cursor: pointer; text-align: left; display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; padding: 10px 4px; min-height: 44px; border-radius: 6px; transition: background-color 140ms var(--ease); }
+.kb-row:hover { background: var(--raised); }
+.kb-q { font-size: 14px; line-height: 1.4; }
+.kb-n { font-size: 14px; color: var(--text-2); font-variant-numeric: tabular-nums; white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; }
+.kb-dots { display: inline-flex; gap: 3px; }
+.kb-dots i { width: 8px; height: 8px; border-radius: 2px; border: 1px solid var(--line-strong); }
+.kb-dots i.on { background: var(--text); border-color: var(--text); }
+.state-foot { margin: 0; font-size: 14px; color: var(--text-2); }
 .g-head { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 16px; align-items: start; }
 .gbadge { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--text); color: var(--bg); font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; }
 .tried-grid { display: grid; gap: 16px; }
@@ -158,13 +172,19 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .sides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .sides.single { align-items: start; }
 .side { display: grid; gap: 24px; align-content: start; min-width: 0; }
-.side-head { display: grid; gap: 4px; border-top: 2px solid var(--text); padding-top: 12px; }
+.side-head { display: grid; gap: 4px; border-top: 3px solid var(--sc, var(--text)); padding-top: 12px; }
 .side-head .tag, .fold .tag { font-size: 14px; font-weight: 500; color: var(--muted); display: inline-flex; align-items: center; gap: 8px; }
 .side-head h4 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
 .side-head p, .side-a { margin: 0; font-size: 14px; color: var(--text-2); }
 .side-empty { margin: 0; font-size: 14px; color: var(--muted); }
-.evidence { margin: 0; background: var(--raised); border-radius: 8px; padding: 16px; font-size: 16px; }
-.evidence b { display: block; font-size: 14px; font-weight: 500; color: var(--text-2); margin-bottom: 4px; }
+.evidence { margin: 0; background: var(--raised); border-radius: 8px; padding: 16px 20px; display: grid; gap: 8px; max-width: 120ch; }
+.evidence p { margin: 0; font-size: 16px; }
+.ev-h { font-size: 14px !important; font-weight: 600; color: var(--text); }
+.ev-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 24px; font-size: 16px; }
+.ev-list li { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0 6px; }
+.ev-list .linkbtn { font-weight: 500; display: inline-flex; align-items: center; gap: 6px; min-height: 24px; }
+.ev-list .linkbtn svg { width: 12px; height: 12px; flex: none; }
+.ev-take b { font-weight: 600; }
 .fold { border-top: 1px solid var(--line); }
 .fold:last-child { border-bottom: 1px solid var(--line); }
 .fold > summary { list-style: none; cursor: pointer; padding: 12px 0; display: grid; grid-template-columns: minmax(0, 1fr) 16px; gap: 4px 12px; align-items: start; min-height: 44px; }
@@ -177,10 +197,14 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .fold-n .sig { gap: 4px; }
 .fold-body { display: grid; gap: 16px; padding-bottom: 16px; }
 
-.way { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 12px; min-width: 0; align-content: start; box-shadow: var(--shadow-sm); }
-.way.gap { background: transparent; border-style: dashed; border-color: var(--line-strong); box-shadow: none; }
-.way-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-.way-top .way-title { flex: 1; min-width: 0; }
+.way { --sc: var(--muted); background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--sc); border-radius: 12px; padding: 0 16px 16px; display: grid; gap: 12px; min-width: 0; align-content: start; box-shadow: var(--shadow-sm); overflow: hidden; }
+.way.gap { background: transparent; border-style: dashed; border-top-style: solid; box-shadow: none; }
+.way-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin: 0 -16px; padding: 12px 16px; background: color-mix(in srgb, var(--sc) 9%, var(--surface)); border-bottom: 1px solid color-mix(in srgb, var(--sc) 22%, transparent); }
+.way-top .way-head { flex: 1; min-width: 0; display: grid; gap: 2px; }
+.way-meta { font-size: 13px; color: var(--text-2); }
+.way-logic { margin: 0; font-size: 14px; color: var(--text-2); }
+.cases-h { margin: 4px 0 -4px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; font-size: 13px; font-weight: 600; color: var(--text); }
+.cases-h .wsum-eff { font-weight: 400; color: var(--text-2); }
 .wsum { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; font-size: 14px; color: var(--text-2); }
 .wsum-eff { display: inline-flex; gap: 12px; }
 .tctx { display: block; font-size: 12px; color: var(--muted); font-weight: 400; }
@@ -196,8 +220,8 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .belief b { font-weight: 500; color: var(--text-2); }
 .cases { list-style: none; margin: 0 -16px; padding: 0; border-top: 1px solid var(--line); }
 .cases li + li .case { border-top: 1px solid var(--line); }
-.case { width: 100%; border: 0; background: none; text-align: left; cursor: pointer; padding: 12px 16px; display: grid; grid-template-columns: minmax(0, 1fr) 16px; gap: 12px; align-items: center; min-height: 44px; transition: background-color 140ms var(--ease); }
-.cbody { display: grid; gap: 4px; min-width: 0; }
+.case { width: 100%; border: 0; background: none; text-align: left; cursor: pointer; padding: 14px 16px; display: grid; grid-template-columns: minmax(0, 1fr) 16px; gap: 12px; align-items: center; min-height: 44px; transition: background-color 140ms var(--ease); }
+.cbody { display: grid; gap: 6px; min-width: 0; }
 .case .chev { width: 16px; height: 16px; color: var(--muted); }
 .case:hover { background: var(--raised); }
 .case.static { cursor: default; }
@@ -205,8 +229,9 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .cline { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 12px; align-items: baseline; }
 .cname { font-weight: 500; font-size: 14px; line-height: 1.4; }
 .cwhere { font-size: 12px; color: var(--muted); }
-.csigs { display: flex; flex-wrap: wrap; gap: 4px 16px; }
-.ckz { font-size: 14px; color: var(--text); font-variant-numeric: tabular-nums; }
+.csigs { display: flex; flex-wrap: wrap; gap: 4px 0; }
+.csigs > .sig + .sig { margin-left: 12px; padding-left: 12px; border-left: 1px solid var(--line-strong); }
+.ckz { font-size: 14px; color: var(--text); font-variant-numeric: tabular-nums; font-weight: 500; }
 .nocase { margin: 0; font-size: 14px; color: var(--muted); }
 .contra { margin: 0; font-size: 14px; }
 .contra b { font-weight: 500; }
@@ -322,7 +347,9 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
 @media (max-width: 1100px) { .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .flow { grid-template-columns: 1fr; } }
 @media (min-width: 1100px) {
+  .page { padding-inline: 32px; }
   .qlayout { grid-template-columns: 232px minmax(0, 1fr); column-gap: 48px; }
+  .sides { gap: 32px; }
   [data-nav] { scroll-margin-top: 24px; }
   .onpage { align-self: start; margin: 0; padding: 40px 0 24px; border: 0; background: none; max-height: 100vh; overflow-y: auto; }
   .onpage .ttl { display: block; margin: 0 0 8px; padding-left: 12px; font-size: 12px; font-weight: 600; color: var(--muted); }
@@ -332,7 +359,8 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
   .onpage button .t { max-width: none; }
   .onpage button .num, .onpage button .pin { margin-top: -1px; }
   .onpage button[aria-current="true"] { box-shadow: none; border-left-color: var(--text); }
-  .hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); column-gap: 40px; align-items: start; }
+  .hero { grid-template-columns: minmax(0, 760px) minmax(360px, 560px); column-gap: 64px; align-items: start; }
+  h1 { max-width: 30ch; }
   .tried-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); column-gap: 40px; align-items: start; }
   .tried-grid .counts { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 0; }
   .tried-grid .cnt:nth-child(3) { border-left: 0; }
@@ -416,15 +444,16 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
      <div class="qlayout">
       <nav class="onpage" id="onpage" aria-label="Auf dieser Seite"><p class="ttl">Auf dieser Seite</p><ol id="onpage-list"></ol></nav>
       <div class="qmain">
-      <div class="hero" id="q-top" data-nav="Frage und Stand">
+      <div class="hero" id="q-top" data-nav="Frage und Wissensstand">
         <div class="hero-l">
           <h1 id="q-title"></h1>
           <p class="intro" id="q-intro"></p>
         </div>
         <aside class="state" aria-labelledby="h-state">
-          <h2 id="h-state">Stand der Belege</h2>
-          <p class="summary" id="q-answer"></p>
-          <p class="state-note">Fasst die Befunde aller Lösungswege unten in wenigen Sätzen zusammen. Von der Redaktion aus den Quellen abgeleitet, noch nicht geprüft.</p>
+          <h2 id="h-state">Wissensstand</h2>
+          <p class="state-sub" id="state-sub"></p>
+          <ol class="kb" id="q-kb"></ol>
+          <p class="state-foot" id="state-foot"></p>
         </aside>
       </div>
 
@@ -610,6 +639,8 @@ const SRC = {
   kholodilin: ["Kholodilin 2024: Rent control effects through the lens of empirical research (DIW)", "https://www.diw.de/de/diw_01.c.893635.de/publikationen/externe_referierte_aufsaetze/2024_0000/rent_control_effects_through_the_lens_of_empirical_research__an_almost_complete_review_of_the_literature.html", "Wissenschaft, Übersichtsstudie"],
   diamond: ["Diamond, McQuade, Qian 2019: Rent control in San Francisco (AER)", "https://www.aeaweb.org/doi/10.1257/aer.20181289", "Wissenschaft"],
   orfmiete: ["ORF: Mietenstopp und Mietpreisbremse", "https://orf.at/stories/3411873/", "Medium"],
+  kreiner: ["Kreiner, Svarer 2022: Danish Flexicurity (Journal of Economic Perspectives)", "https://www.aeaweb.org/doi/10.1257/jep.36.4.81", "Wissenschaft"],
+  stardk: ["Dänische Arbeitsmarktagentur (STAR): Flexicurity", "https://www.star.dk/en/about-the-danish-agency-for-labour-market-and-recruitment/flexicurity", "Behörde"],
   wifofb: ["WIFO Monatsbericht 2018: Familienbonus Plus", "https://www.wifo.ac.at/wp-content/uploads/upload-9274/mb_2018_05_04_familienbonus.pdf", "Wirtschaftsforschung"]
 };
 
@@ -676,9 +707,10 @@ const CASES = {
     effect: "notyet", effectNote: "Vorschlag, noch nicht umgesetzt.", strength: 0, kz: "Ausnahmen beim Cloud-Wechsel vorgeschlagen",
     what: "Paket zur Vereinfachung digitaler Regeln, unter anderem am Data Act.",
     contra: "Ausgang offen; Wirkung auf Investitionen nicht geprüft.", src: ["omnibus"], ids: "X03-B3-S06" },
-  dk: { title: "Dänisches Flexicurity-Modell", where: "Dänemark", country: "Dänemark", when: "", status: "unchecked",
-    effect: "unchecked", strength: 0, kz: "",
-    what: "Geringer Kündigungsschutz, hohe Lohnersatzleistung, aktive Vermittlung.", contra: "", src: [], ids: "", placeholder: true },
+  dk: { title: "Dänisches Flexicurity-Modell", where: "Dänemark", country: "Dänemark", when: "laufend", status: "running", read: "Titel und Behördenseite, Aufsatz nicht gelesen",
+    effect: "unchecked", effectNote: "Die Studie ist verlinkt, aber noch nicht ausgewertet.", strength: 0, kz: "Kein OECD-Land gibt mehr für Umschulung und Vermittlung aus",
+    what: "Drei Teile greifen ineinander: Betriebe kündigen leicht, Entlassene bekommen hohes Arbeitslosengeld, und die Arbeitsverwaltung berät und schult vom ersten Tag an.",
+    contra: "", src: ["kreiner", "stardk"], ids: "Q04 Quelle 21" },
   sg: { title: "SkillsFuture Work-Study", where: "Singapur", country: "Singapur", when: "Guthaben seit 2016", status: "running", read: "Suchauszug",
     effect: "pos", strength: 2, kz: "9–11 % Lohnvorsprung",
     what: "Staatlich geförderte Weiterbildung mit persönlichem Guthaben; das Work-Study-Programm verbindet Kurs und Stelle.",
@@ -852,20 +884,20 @@ const QUESTIONS = {
     tab: "KI und Arbeit",
     title: "Wie organisieren wir eine Arbeitswelt mit künstlicher Intelligenz?",
     answer: "Gemessen ist wenig. Zum Branchen-Mindestlohn in Kalifornien widersprechen sich zwei Studien. Persönliche Weiterbildungsgutscheine erhöhen die Teilnahme, aber mit viel Mitnahme. Zu Marktregeln für KI und zur Mitbestimmung beim KI-Einsatz gibt es in beiden Richtungen keine Wirkungsmessung.",
-    stand: "Dänemark steht als Lücke in Richtung B, noch nicht recherchiert.",
+    stand: "Flexicurity in Dänemark ist mit zwei Quellen verlinkt; die Studie ist noch nicht ausgewertet.",
     groups: [
       { id: "risiko", q: "Wer trägt das Risiko, wenn KI Arbeit verändert?",
         sides: { A: { t: "Absichern durch Staat und Gemeinschaft", a: "Wer Einkommen und Arbeit sicher hat, kann Wandel mittragen." }, B: { t: "Absichern durch Beweglichkeit", a: "Wer leicht wechseln kann und gut vermittelt wird, findet schneller neue Arbeit." } },
-        evidence: "Mit Vergleich gemessen sind eine Jobgarantie in einer Gemeinde (Marienthal, Richtung A) und Weiterbildungsgutscheine (Schweiz, Richtung B): Beide wirken, die Gutscheine mit viel Mitnahme. Flexicurity ist noch nicht recherchiert." },
+        evidence: "Beide Richtungen haben einen Beleg. Eine garantierte Stelle wirkte in einer Gemeinde; ob das landesweit trägt, ist offen. Persönliche Weiterbildungsguthaben gingen mit höheren Löhnen einher (Singapur, Selbstbewertung des Ministeriums), finanzierten aber oft Kurse, die ohnehin besucht worden wären (Schweiz). Flexicurity in Dänemark ist noch nicht ausgewertet." },
       { id: "lohn", q: "Wer setzt die Löhne in Branchen unter Druck?",
         sides: { A: { t: "Staat setzt Rahmen für Branchenlöhne", a: "Ein staatlich eingesetztes Gremium verhindert Lohndruck, wo Einzelne kaum Verhandlungsmacht haben." }, B: { t: "Löhne ohne staatliche Vorgabe", a: "Löhne entstehen am Markt oder zwischen Tarifparteien; staatlich gesetzte Löhne über dem Marktniveau kosten Stellen." } },
-        evidence: "Dieselbe Reform, zwei Studien, gegensätzliche Ergebnisse: +11 % Lohn ohne Jobverlust (Berkeley) gegen −2,7 bis −3,2 % Beschäftigung (NBER)." },
+        evidence: "Zur selben Reform kommen zwei Studien zu gegensätzlichen Ergebnissen: +11 % Lohn ohne Jobverlust (Berkeley) gegen −2,7 bis −3,2 % Beschäftigung (NBER). Welche Richtung trägt, ist damit offen." },
       { id: "markt", q: "Wie viel Regel brauchen KI-Märkte?",
         sides: { A: { t: "Marktmacht begrenzen", a: "Sonst bestimmen wenige Anbieter, unter welchen Bedingungen KI eingesetzt wird." }, B: { t: "Regeln vereinfachen", a: "Weniger Pflichten erleichtern Investitionen und lassen Europa aufholen." } },
-        evidence: "Frühe DMA-Daten stammen aus einer Selbstbewertung. Der Digital Omnibus würde den Data Act an einer Stelle zurücknehmen; die Wirkung beider Richtungen ist ungeprüft." },
+        evidence: "Ob strengere oder einfachere Regeln für KI-Märkte wirken, ist nicht gemessen. Die bisherigen Zahlen zum Digital Markets Act stammen aus einer Selbstbewertung der Kommission; der Digital Omnibus würde den Data Act an einer Stelle zurücknehmen." },
       { id: "betrieb", q: "Wer entscheidet, wie KI im Betrieb eingesetzt wird?",
         sides: { A: { t: "Mitentscheiden", a: "Wer betroffen ist, soll über den Einsatz mitbestimmen." }, B: { t: "Selbst regeln", a: "Betriebe kennen ihre Lage am besten und regeln KI über eigene Standards." } },
-        evidence: "Für keine Richtung liegt eine Wirkungsmessung beim KI-Einsatz vor. Die österreichische Mitbestimmung gilt bereits, ihre Reichweite ist unbekannt." }
+        evidence: "Für keine Richtung gibt es eine Wirkungsmessung beim KI-Einsatz. Die österreichische Mitbestimmung gilt bereits; wie oft sie bei KI greift, ist nicht erhoben." }
     ],
     ways: [
       { id: "jobgarantie", g: "risiko", side: "A", title: "Recht auf Arbeit: der Staat garantiert eine Stelle", cov: "checked", cases: ["marienthal"],
@@ -877,9 +909,10 @@ const QUESTIONS = {
       { id: "lernen", g: "risiko", side: "A", title: "Lernen und Erproben öffentlich organisieren", cov: "checked", cases: ["ams", "edih"],
         logic: "Betriebe und Beschäftigte brauchen Zeit, Geld und Orte, um KI zu testen und neue Fähigkeiten aufzubauen.",
         origin: "AMS, FFG, EU-Digitalprogramm", contra: "Förderobergrenzen belegen weder Teilnahme noch Wirkung.", contraBy: "Redaktion, aus den Fundstellen abgeleitet", ids: "Q04 H02, H03" },
-      { id: "flexicurity", g: "risiko", side: "B", title: "Absichern durch Beweglichkeit", cov: "unchecked", cases: ["dk"],
+      { id: "flexicurity", g: "risiko", side: "B", title: "Leicht kündigen, gut auffangen, schnell vermitteln", cov: "partial", cases: ["dk"],
+        covNote: "Quellen verlinkt; die Wirkungsstudie ist noch nicht ausgewertet.",
         logic: "Leichter Kündigungsschutz, hohe Lohnersatzleistung und schnelle Vermittlung bringen Menschen rasch in neue Arbeit.",
-        origin: "Dänemark", contra: "", contraBy: "", ids: "" },
+        origin: "Dänemark; Philippe Aghion verbindet das Modell mit Industriepolitik", contra: "", contraBy: "", ids: "Q04 Quelle 21, X03 C39" },
       { id: "guthaben", g: "risiko", side: "B", title: "Weiterbildung als persönliches Guthaben", cov: "checked", cases: ["sg", "chvoucher", "cpf"],
         logic: "Menschen wählen Kurse selbst besser als der Staat; ein Guthaben stärkt Eigenverantwortung und den Wettbewerb der Anbieter.",
         origin: "Singapur, Frankreich, Schweiz", contra: "Ein Feldexperiment findet viel Mitnahme; das französische Konto wurde deutlich teurer als geplant.", contraBy: "Messer und Wolter; Cour des comptes", ids: "" },
@@ -970,7 +1003,7 @@ const QUESTIONS = {
     groups: [
       { id: "angebot", q: "Wie entstehen mehr bezahlbare Wohnungen?",
         sides: { A: { t: "Öffentlich bauen und besitzen", a: "Wohnungen in öffentlicher Hand bleiben dauerhaft günstig." }, B: { t: "Mehr Bauen erlauben", a: "Wer Bauregeln lockert, bekommt mehr Wohnungen und damit niedrigere Preise." } },
-        evidence: "Mit Vergleich gemessen ist nur die Zonierungsreform in Minneapolis, und ihre Ursache ist umstritten. Der Wiener Gemeindebau ist deutlich günstiger als der private Markt, das ist aber ein Vergleich der Bestände. Gebäudetyp E und die US-Baufonds sind zu neu." },
+        evidence: "Mehr Baurecht in Minneapolis ging mit kaum steigenden Mieten einher; ob die Reform die Ursache war, ist umstritten. Der Wiener Gemeindebau ist deutlich günstiger als der private Markt, das ist aber ein Vergleich der Bestände. Gebäudetyp E und die US-Baufonds sind zu neu." },
       { id: "mieten", q: "Wie werden Mieten im Bestand begrenzt?",
         sides: { A: { t: "Mieten begrenzen", a: "Begrenzte Mieterhöhungen schützen Menschen, die schon zur Miete wohnen." }, B: { t: "Mieten dem Markt überlassen", a: "Freie Mieten lohnen Neubau und Vermietung; Begrenzungen verknappen das Angebot." } },
         evidence: "Eine Übersicht über 112 Studien zeigt beides: Mietbindung bremst die Mieten im gebundenen Bestand und verringert das Angebot im freien Markt. Ein Fall, in dem Mietregeln zurückgenommen wurden, ist nicht recherchiert." }
@@ -1168,18 +1201,17 @@ function caseRow(id) {
   if (c.placeholder) return `<li><div class="case static"><span class="cbody"><span class="cline"><span class="cname">${esc(c.title)}</span><span class="cwhere">${esc(c.where)}</span></span><span class="csigs">${effectSig("unchecked")}</span></span></div></li>`;
   return `<li><button type="button" class="case" data-case="${id}"><span class="cbody">
     <span class="cline"><span class="cname">${esc(c.title)}</span><span class="cwhere">${esc(c.where)}${c.when ? " · " + esc(c.when) : ""}</span></span>
-    <span class="csigs">${quietStatus ? "" : statusSig(c, true)}${effectSig(c.effect, true)}${strengthSig(c.strength, true)}</span>
     ${c.kz ? `<span class="ckz">${esc(c.kz)}</span>` : ""}
+    <span class="csigs">${quietStatus ? "" : statusSig(c, true)}${effectSig(c.effect, true)}${strengthSig(c.strength, true)}</span>
   </span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></li>`;
 }
 
 function waySummary(w) {
   const cs = w.cases.map(id => CASES[id]).filter(c => !c.placeholder);
-  if (cs.length < 2) return "";
+  if (!cs.length) return "";
   const eff = ["pos", "mixed", "null", "neg"].map(k => [k, cs.filter(c => c.effect === k).length]).filter(([, n]) => n);
-  const best = Math.max(0, ...cs.map(c => c.strength));
-  const effHTML = eff.length ? eff.map(([k, n]) => `<span class="sig" title="${esc(EFFECT[k].label)}">${svg(EFFECT[k].svg(EFFECT[k].color))}<span class="vh">${esc(EFFECT[k].label)}: </span>${n}</span>`).join("") : '<span class="sig">kein Wirkungsbefund</span>';
-  return `<p class="wsum"><span>${cs.length} Fälle</span><span class="wsum-eff"><span class="vh">Befunde: </span>${effHTML}</span>${best ? `<span>${strengthSig(best, true)}<span class="vh"> (beste Messung)</span></span>` : ""}</p>`;
+  const effHTML = cs.length > 1 && eff.length ? eff.map(([k, n]) => `<span class="sig" title="${esc(EFFECT[k].label)}">${svg(EFFECT[k].svg(EFFECT[k].color))}<span class="vh">${esc(EFFECT[k].label)}: </span>${n}</span>`).join("") : "";
+  return `<p class="cases-h"><span>Erprobt in ${plural(cs.length, "Fall", "Fällen")}</span>${effHTML ? `<span class="wsum-eff"><span class="vh">Befunde: </span>${effHTML}</span>` : ""}</p>`;
 }
 
 const byLabel = by => /^Redaktion/.test(by || "") ? "abgeleitet, ungeprüft" : `Herkunft: ${by}`;
@@ -1190,10 +1222,11 @@ function wayCard(w) {
   if (!w.cases.length) list = w.cov === "searched" ? `<p class="nocase">${esc(w.covNote || "Gesucht, kein Fall gefunden.")}</p>` : "";
   else if (!cs.length) list = `<p class="nocase">${w.cases.length} ${w.cases.length === 1 ? "Fall" : "Fälle"} ausgeblendet durch den Filter.</p>`;
   else list = `<ul class="cases">${cs.map(caseRow).join("")}</ul>`;
-  return `<article class="way${gap ? " gap" : ""}" aria-labelledby="w-${w.id}">
-    <div class="way-top"><button type="button" class="way-title" id="w-${w.id}" data-way="${w.id}"><span>${esc(w.title)}</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>${w.cov !== "checked" ? covBadge(w.cov) : ""}</div>
-    ${waySummary(w)}
+  return `<article class="way${gap ? " gap" : ""}${w.side ? " s" + w.side.toLowerCase() : ""}" aria-labelledby="w-${w.id}">
+    <div class="way-top"><div class="way-head"><button type="button" class="way-title" id="w-${w.id}" data-way="${w.id}"><span>${esc(w.title)}</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>${w.instr ? `<span class="way-meta">Instrument: ${esc(w.instr)}</span>` : ""}</div>${w.cov !== "checked" ? covBadge(w.cov) : ""}</div>
     ${w.belief ? `<p class="belief"><b>Grundannahme:</b> ${esc(w.belief)}</p>` : ""}
+    ${w.logic ? `<p class="way-logic">${esc(w.logic)}</p>` : ""}
+    ${waySummary(w)}
     ${list}
     ${w.contra ? `<p class="contra"><b>Einwand:</b> ${esc(w.contra)} <span class="by">${esc(byLabel(w.contraBy))}</span></p>` : gap ? "" : `<p class="contra quiet">Einwand noch nicht erfasst.</p>`}
   </article>`;
@@ -1205,10 +1238,19 @@ function sideFold(g, sd, ws) {
   const eff = ["pos", "mixed", "null", "neg"].map(k => [k, cs.filter(c => c.effect === k).length]).filter(([, n]) => n);
   const effHTML = eff.length ? eff.map(([k, n]) => `<span class="sig" title="${esc(EFFECT[k].label)}">${svg(EFFECT[k].svg(EFFECT[k].color))}<span class="vh">${esc(EFFECT[k].label)}: </span>${n}</span>`).join("") : "<span>kein Wirkungsbefund</span>";
   const contra = ws.filter(w => w.contra).length, gaps = ws.filter(w => w.cov !== "checked").length;
-  return `<details class="fold" id="s-${g.id}-${sd}"><summary><span class="tag"><span class="sbadge" aria-hidden="true">${sd}</span>Richtung ${sd}</span><h4>${esc(g.sides[sd].t)}</h4><span class="side-a">${esc(g.sides[sd].a)}</span>
+  return `<details class="fold s${sd.toLowerCase()}" id="s-${g.id}-${sd}"><summary><span class="tag"><span class="sbadge s${sd.toLowerCase()}" aria-hidden="true">${sd}</span>Richtung ${sd}</span><h4>${esc(g.sides[sd].t)}</h4><span class="side-a">${esc(g.sides[sd].a)}</span>
       <span class="fold-n"><span>${plural(ws.length, "Weg", "Wege")}</span><span>${plural(cs.length, "Fall", "Fälle")}</span><span class="vh">Befunde: </span>${effHTML}<span>${plural(contra, "Einwand", "Einwände")}</span><span>${plural(gaps, "Lücke", "Lücken")}</span></span>
       <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></summary>
     <div class="fold-body">${ws.length ? ws.map(wayCard).join("") : `<p class="side-empty">Kein Treffer in dieser Richtung für den gewählten Filter.</p>`}</div></details>`;
+}
+function evidenceBlock(q, g) {
+  const m = measured(q.ways.filter(w => w.g === g.id).flatMap(w => w.cases));
+  const sideOf = id => { const w = q.ways.find(x => x.g === g.id && x.cases.includes(id)); return w && w.side ? `, Richtung ${w.side}` : ""; };
+  const list = m.found.map(id => { const c = CASES[id], e = EFFECT[c.effect], sd = sideOf(id).replace(/^, /, ""); return `<li><button type="button" class="linkbtn" data-case="${id}">${svg(e.svg(e.color))}${esc(c.title)}</button><span class="quiet">${esc(e.label)}${sd ? " · " + esc(sd) : ""}</span></li>`; }).join("");
+  const line = m.found.length
+    ? `<p>Eine Wirkungsmessung gibt es zu ${m.found.length} von ${m.all.length} Fällen:</p><ul class="ev-list">${list}</ul>`
+    : `<p>Zu ${m.all.length === 1 ? "dem einen erfassten Fall" : `keinem der ${m.all.length} erfassten Fälle`} gibt es bisher eine Wirkungsmessung.</p>`;
+  return `<div class="evidence"><p class="ev-h">Bisher gemessen</p>${line}<p class="ev-take"><b>${m.found.length ? "Daraus folgt:" : "Einordnung:"}</b> ${esc(g.evidence)}</p></div>`;
 }
 function renderCompare() {
   const q = Q();
@@ -1221,7 +1263,7 @@ function renderCompare() {
     } else if (g.sides) {
       body = `<div class="sides">${["A", "B"].map(sd => {
         const ws = ways.filter(w => w.side === sd);
-        return `<div class="side" id="s-${g.id}-${sd}"><div class="side-head"><span class="tag"><span class="sbadge" aria-hidden="true">${sd}</span>Richtung ${sd}</span><h4>${esc(g.sides[sd].t)}</h4><p>${esc(g.sides[sd].a)}</p></div>
+        return `<div class="side s${sd.toLowerCase()}" id="s-${g.id}-${sd}"><div class="side-head"><span class="tag"><span class="sbadge s${sd.toLowerCase()}" aria-hidden="true">${sd}</span>Richtung ${sd}</span><h4>${esc(g.sides[sd].t)}</h4><p>${esc(g.sides[sd].a)}</p></div>
           ${ws.length ? ws.map(wayCard).join("") : `<p class="side-empty">Kein Treffer in dieser Richtung für den gewählten Filter.</p>`}</div>`;
       }).join("")}</div>`;
     } else {
@@ -1230,7 +1272,7 @@ function renderCompare() {
     const multi = q.groups.length > 1;
     return `<section class="group" id="t-${g.id}" data-nav="${esc(g.q)}" data-num="${multi ? gi + 1 : ""}" data-level="2" aria-labelledby="g-${g.id}">
       <div class="${multi ? "g-head" : ""}">${multi ? `<span class="gbadge" aria-hidden="true">${gi + 1}</span>` : ""}<h3 id="g-${g.id}">${multi ? `<span class="gn">Teilfrage ${gi + 1} von ${q.groups.length}</span>` : ""}${esc(g.q)}</h3></div>
-      <p class="evidence"><b>Was die Belege sagen</b>${esc(g.evidence)}</p>
+      ${evidenceBlock(q, g)}
       ${body}
     </section>`;
   }).join("");
@@ -1321,10 +1363,25 @@ function renderLive() {
   const msg = state.filter === "all" ? "" : state.filter === "gaps" ? `Zeigt ${Q().ways.filter(visibleWay).length} Wege mit Lücken` : `Zeigt ${vis.length} von ${all.length} Fällen`;
   $("live").innerHTML = msg ? `${esc(msg)} <button type="button" class="linkbtn" data-filter="all">Filter aufheben</button>` : "";
 }
+function measured(ids) {
+  const cs = uniqueCases(ids).filter(id => !CASES[id].placeholder);
+  const found = cs.filter(id => hasFinding(CASES[id]));
+  return { all: [...found, ...cs.filter(id => !found.includes(id))], found };
+}
+function renderState(q) {
+  const multi = q.groups.length > 1;
+  const rows = multi
+    ? q.groups.map((g, gi) => ({ n: gi + 1, label: g.q, attr: `data-jump="t-${g.id}"`, m: measured(q.ways.filter(w => w.g === g.id).flatMap(w => w.cases)) }))
+    : q.ways.map(w => ({ n: 0, label: w.title, attr: `data-way="${w.id}"`, m: measured(w.cases) }));
+  $("state-sub").textContent = `Zu wie vielen erfassten Fällen gibt es eine Wirkungsmessung? ${multi ? "Je Teilfrage" : "Je Lösungsweg"}, ein Kästchen je Fall.`;
+  $("q-kb").innerHTML = rows.map(r => `<li><button type="button" class="kb-row" ${r.attr}>${r.n ? `<span class="num" aria-hidden="true">${r.n}</span>` : '<span class="pin" aria-hidden="true"></span>'}<span class="kb-q">${esc(r.label)}</span><span class="kb-n"><span class="kb-dots" aria-hidden="true">${r.m.all.map(id => `<i class="${hasFinding(CASES[id]) ? "on" : ""}"></i>`).join("")}</span><span>${r.m.found.length} von ${r.m.all.length}<span class="vh"> Fällen mit Wirkungsmessung</span></span></span></button></li>`).join("");
+  const srcN = new Set(uniqueCases(casesOf(q)).flatMap(id => CASES[id].src)).size;
+  $("state-foot").innerHTML = `Gemessen heißt: eine Studie mit Vergleich zur Wirkung, gleich mit welchem Ergebnis. Grundlage sind ${srcN} verlinkte Fundstellen, Stand 12.11.2026. <a href="#daten">Methodik</a>`;
+}
 function renderQuestion() {
   const q = Q();
   $("q-title").textContent = q.title;
-  $("q-answer").textContent = q.answer;
+  renderState(q);
   const sided = q.groups.some(g => g.sides), n = q.groups.length;
   const num = ["null", "eine", "zwei", "drei", "vier", "fünf", "sechs"][n] || String(n);
   const nw = q.ways.length, numW = ["null", "Ein", "Zwei", "Drei", "Vier", "Fünf", "Sechs"][nw] || String(nw);
@@ -1335,7 +1392,7 @@ function renderQuestion() {
     ? "Alle Fälle in einer Tabelle. Ein Klick auf einen Spaltenkopf sortiert."
     : sided ? "Je Teilfrage zwei Spalten: Richtung A und Richtung B sind gegensätzliche Antworten, keine Rangfolge. Jede Karte ist ein Lösungsweg mit seinen Fällen; ein Klick öffnet Details und Quellen."
     : "Jede Karte ist ein Lösungsweg mit seiner Grundannahme und seinen Fällen; ein Klick öffnet Details und Quellen.";
-  $("q-stand").textContent = `„Stand der Belege“ und „Was die Belege sagen“ sind aus den Befunden abgeleitet und ungeprüft. ${q.stand}`;
+  $("q-stand").textContent = `Die Einordnung je Teilfrage hat die Redaktion aus den Fundstellen zusammengefasst; sie ist noch ungeprüft. ${q.stand}`;
   renderPicker(); renderCounts(); renderLive();
   $("v-cmp").setAttribute("aria-pressed", String(state.mode === "cmp"));
   $("v-tbl").setAttribute("aria-pressed", String(state.mode === "tbl"));
@@ -1512,7 +1569,7 @@ function questionText(q) {
   const lines = [`Frage: ${q.title}`, `Stand: Testdaten vom 12.11.2026, ungeprüft. ${location.origin}${location.pathname}#frage/${state.q}`, "", `Kurzantwort: ${q.answer}`];
   const used = new Set();
   q.groups.forEach(g => {
-    lines.push("", `Teilfrage: ${g.q}`, `Was die Belege sagen: ${g.evidence}`);
+    lines.push("", `Teilfrage: ${g.q}`, `Einordnung: ${g.evidence}`);
     q.ways.filter(w => w.g === g.id).forEach(w => {
       const cs = w.cases.map(id => CASES[id]).filter(c => !c.placeholder);
       cs.forEach(c => c.src.forEach(x => used.add(x)));
@@ -1591,7 +1648,7 @@ document.addEventListener("click", async e => {
   const cb = t.closest("[data-case]"); if (cb) { openCase(cb.dataset.case); return; }
   const wb = t.closest("[data-way]"); if (wb) { openWay(wb.dataset.way); return; }
   const pb = t.closest("[data-pos]"); if (pb) { openPos(+pb.dataset.pos); return; }
-  const jb = t.closest("[data-jump]"); if (jb) { const el = $(jb.dataset.jump); if (el) { el.scrollIntoView({ block: "start" }); const h = el.querySelector("h1, h2, h3"); if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); } } return; }
+  const jb = t.closest("[data-jump]"); if (jb) { if (!$(jb.dataset.jump) && state.mode === "tbl") setMode("cmp"); const el = $(jb.dataset.jump); if (el) { el.scrollIntoView({ block: "start" }); const h = el.querySelector("h1, h2, h3"); if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); } } return; }
   const cite = t.closest("[data-cite]");
   if (cite) {
     const [kind, ref] = cite.dataset.cite.split(":");

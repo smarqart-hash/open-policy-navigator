@@ -4,7 +4,9 @@ Arbeitstitel. Hervorgegangen aus der Zählung „Keine Alternative“.
 
 Offene Bausteine, mit denen sich politische Lösungsansätze, Befunde und Gegenpositionen belegt erfassen und maschinell abfragen lassen. Ausgangspunkt ist eine Zählung: Wie oft nennen Gesetzentwürfe im Vorblatt eine Alternative? Dieses Repository enthält die ersten Zählskripte für den Deutschen Bundestag und den österreichischen Nationalrat, die Rohdaten der Zählung und deren Grenzen.
 
-Hintergrund und Stand der Forschung: [docs/background.md](docs/background.md).
+Hintergrund und Stand der Forschung: [docs/background.md](docs/background.md). Architektur, Parser, Prüfschleife und Datenmodell in Bildern: [docs/architecture.md](docs/architecture.md). Öffentliche Demo des Vergleichsportals: [smarqart-hash.github.io/open-policy-navigator](https://smarqart-hash.github.io/open-policy-navigator/).
+
+![Alternativen im Vorblatt: meist „Keine“. Deutschland: bei 326 von 619 Regierungsentwürfen nur „Keine“. Österreich: von 184 vollen Folgenabschätzungen nennen 2 eine echte Alternative.](docs/figures/alternativen-vorblatt.svg)
 
 Status: Vorarbeit. Die Zählung ist ein kleines, getestetes Python-Paket (`src/open_policy_navigator/`); ein Goldset (Annotation läuft) und ein Eval-Ratchet in der CI verhindern Rückschritte bei der Abschnittserkennung. Das Datenschema v0 (Lösungsansatz, Fall, Befund, Position, Quelle) und der Antwortvertrag für einen MCP-Server liegen als Entwurf mit Tests vor. Parser-Ausbau, kuratierte Einträge, API und MCP-Server sind geplant, aber noch nicht gebaut.
 
@@ -18,7 +20,7 @@ Status: Vorarbeit. Die Zählung ist ein kleines, getestetes Python-Paket (`src/o
 | `eval/` | Goldset und Schwellenwerte (Eval-Ratchet) |
 | `schema/` | exportiertes JSON Schema und Beispiele |
 | `contracts/mcp/` | Antwortvertrag des geplanten MCP-Servers mit Golden-Tests |
-| `docs/adr/` | Architekturentscheidungen |
+| `docs/` | Hintergrund, Architektur in Bildern, Grafiken (`docs/figures/`, aus den Daten erzeugt), Architekturentscheidungen (`docs/adr/`) |
 
 ## Ergebnisse (Stand 12. November 2026)
 
@@ -31,7 +33,7 @@ Status: Vorarbeit. Die Zählung ist ein kleines, getestetes Python-Paket (`src/o
 | Fraktionen WP 20+21 | 328 | 220 | 31 | 77 |
 | Bundesrat WP 20+21 | 89 | 55 | 4 | 30 |
 
-Bei Entwürfen der Bundesregierung beginnt der Abschnitt in 422 von 532 erkannten Fällen mit „Keine“ (79 %). 87 von 619 Regierungsentwürfen wurden nicht erkannt.
+Bei 326 von 619 Regierungsentwürfen steht nur das Wort „Keine“, in 422 der 532 erkannten Abschnitte beginnt er damit. 87 Regierungsentwürfe erkennt das Muster nicht; das Goldset zeigt, dass die meisten davon einen langen Abschnitt C haben. Hochgerechnet haben rund 602 Regierungsentwürfe einen Abschnitt C, bei rund 54 % steht nur „Keine“ ([Hintergrund, Abschnitt 1](docs/background.md)).
 
 **Österreich.** Ausgewertet wurden 496 Regierungsvorlagen des Nationalrats (XXVII. und XXVIII. GP), davon 470 mit Vorblatt und Wirkungsorientierter Folgenabschätzung (WFA). 286 haben eine vereinfachte WFA ohne eigenes Feld für Alternativen. Von 184 vollen WFA nennen 2 eine inhaltliche Alternative zur vorgeschlagenen Regelung (von Hand geprüft).
 

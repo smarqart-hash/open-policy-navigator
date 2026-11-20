@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="452" viewBox="0 0 760 452" role="img" aria-labelledby="title desc" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif">
+<title id="title">Alternativen im Vorblatt: meist „Keine“</title>
+<desc id="desc">Gestapelte Balken. Deutschland, 619 Regierungsentwürfe: nur „Keine“ 326, „Keine“ mit Begründung 96, beginnt nicht mit „Keine“ 110, Abschnitt vom Muster nicht erkannt 87. Österreich, 184 volle Folgenabschätzungen: keine echte Alternative 182, echte Alternative (von Hand geprüft) 2. Weitere 286 Vorlagen haben eine vereinfachte Folgenabschätzung ohne Feld für Alternativen. Bei 326 von 619 deutschen Entwürfen steht nur das Wort Keine.</desc>
+<rect width="760" height="452" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-size="19" font-weight="600" fill="#1f1f1f">Alternativen im Vorblatt: meist „Keine“</text>
+<text x="24.0" y="58.0" font-size="14" fill="#555555">Was steht unter „C. Alternativen“ im Vorblatt? Gezählt, was öffentlich steht.</text>
+<text x="24.0" y="96.0" font-size="15" font-weight="600" fill="#1f1f1f">Deutschland: Regierungsentwürfe, Wahlperioden 20 und 21 (n = 619)</text>
+<rect x="24.0" y="106.0" width="375.0" height="30" fill="#b9461b" stroke="#ffffff" stroke-width="1"/>
+<rect x="399.0" y="106.0" width="110.4" height="30" fill="#f4b183" stroke="#ffffff" stroke-width="1"/>
+<rect x="509.4" y="106.0" width="126.5" height="30" fill="#5b6b8c" stroke="#ffffff" stroke-width="1"/>
+<rect x="635.9" y="106.0" width="100.1" height="30" fill="#c8c8c8" stroke="#ffffff" stroke-width="1"/>
+<rect x="24" y="106.0" width="712.0" height="30" fill="none" stroke="#555555" stroke-width="1"/>
+<rect x="24" y="149.0" width="12" height="12" fill="#b9461b" stroke="#555555" stroke-width="0.5"/>
+<text x="44.0" y="160.0" font-size="14" fill="#1f1f1f">nur „Keine“: 326 (53 %)</text>
+<rect x="24" y="171.0" width="12" height="12" fill="#f4b183" stroke="#555555" stroke-width="0.5"/>
+<text x="44.0" y="182.0" font-size="14" fill="#1f1f1f">„Keine“ mit Begründung: 96 (16 %)</text>
+<rect x="24" y="193.0" width="12" height="12" fill="#5b6b8c" stroke="#555555" stroke-width="0.5"/>
+<text x="44.0" y="204.0" font-size="14" fill="#1f1f1f">beginnt nicht mit „Keine“: 110 (18 %)</text>
+<rect x="24" y="215.0" width="12" height="12" fill="#c8c8c8" stroke="#555555" stroke-width="0.5"/>
+<text x="44.0" y="226.0" font-size="14" fill="#1f1f1f">Abschnitt vom Muster nicht erkannt: 87 (14 %)</text>
+<text x="24.0" y="266.0" font-size="15" font-weight="600" fill="#1f1f1f">Österreich: volle Folgenabschätzungen, XXVII. und XXVIII. GP (n = 184)</text>
+<rect x="24.0" y="276.0" width="704.3" height="30" fill="#b9461b" stroke="#ffffff" stroke-width="1"/>
+<rect x="728.3" y="276.0" width="7.7" height="30" fill="#0f766e" stroke="#ffffff" stroke-width="1"/>
+<rect x="24" y="276.0" width="712.0" height="30" fill="none" stroke="#555555" stroke-width="1"/>
+<rect x="24" y="319.0" width="12" height="12" fill="#b9461b" stroke="#555555" stroke-width="0.5"/>
+<text x="44.0" y="330.0" font-size="14" fill="#1f1f1f">keine echte Alternative: 182 (99 %)</text>
+<rect x="24" y="341.0" width="12" height="12" fill="#0f766e" stroke="#555555" stroke-width="0.5"/>
+<text x="44.0" y="352.0" font-size="14" fill="#1f1f1f">echte Alternative (von Hand geprüft): 2 (1 %)</text>
+<text x="24.0" y="376.0" font-size="13" fill="#555555">Weitere 286 Vorlagen haben eine vereinfachte Folgenabschätzung ohne Feld für Alternativen.</text>
+<text x="24.0" y="420.0" font-size="12" fill="#555555">Quelle: Deutscher Bundestag/Bundesrat – DIP; Parlament Österreich, Open Data. Stand 12.11.2026.</text>
+<text x="24.0" y="436.0" font-size="12" fill="#555555">Eigene Zählung: DE mit Muster de-v0, AT mit Muster at-v0, AT-Treffer von Hand geprüft.</text>
+</svg>

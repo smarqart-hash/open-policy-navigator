@@ -1,0 +1,141 @@
+{
+  "$defs": {
+    "AnswerStatus": {
+      "enum": [
+        "answered",
+        "abstained",
+        "out_of_scope"
+      ],
+      "title": "AnswerStatus",
+      "type": "string"
+    },
+    "Citation": {
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "locator": {
+          "$ref": "#/$defs/Locator"
+        },
+        "content_role": {
+          "const": "data",
+          "default": "data",
+          "title": "Content Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "locator"
+      ],
+      "title": "Citation",
+      "type": "object"
+    },
+    "CoverageState": {
+      "enum": [
+        "nicht_kuratiert",
+        "gesucht_ohne_befund",
+        "befund"
+      ],
+      "title": "CoverageState",
+      "type": "string"
+    },
+    "Locator": {
+      "additionalProperties": false,
+      "description": "Where exactly the statement is found in the source.",
+      "properties": {
+        "quote": {
+          "description": "Verbatim quote from the archived source text",
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "position": {
+          "description": "Page, section or paragraph, e.g. 'Vorblatt, C.'",
+          "minLength": 1,
+          "title": "Position",
+          "type": "string"
+        }
+      },
+      "required": [
+        "quote",
+        "position"
+      ],
+      "title": "Locator",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/AnswerStatus"
+    },
+    "release": {
+      "description": "Git commit of the data release",
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Release",
+      "type": "string"
+    },
+    "coverage_state": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/CoverageState"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Coverage of the cell the answer is about; None if out of scope"
+    },
+    "summary": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Short answer, only if answered",
+      "title": "Summary"
+    },
+    "citations": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Citation"
+      },
+      "title": "Citations",
+      "type": "array"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Why the server abstained / refused",
+      "title": "Reason"
+    }
+  },
+  "required": [
+    "status",
+    "release"
+  ],
+  "title": "Answer",
+  "type": "object"
+}

@@ -129,11 +129,22 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .side-head { display: grid; gap: 4px; }
 .side-head .tag { font-family: var(--mono); font-size: 12px; color: var(--muted); }
 .side-head h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
-.side-head p { margin: 0; font-size: 14px; color: var(--text-2); }
+.side-head p, .side-a { margin: 0; font-size: 14px; color: var(--text-2); }
 .side-empty { margin: 0; font-size: 14px; color: var(--muted); }
 .evidence { margin: 0; background: var(--raised); border-radius: 8px; padding: 16px; font-size: 16px; max-width: 70ch; }
 .evidence b { display: block; font-size: 14px; font-weight: 500; color: var(--text-2); margin-bottom: 4px; }
-.jump { display: none; }
+.fold { border-top: 1px solid var(--line); }
+.fold:last-child { border-bottom: 1px solid var(--line); }
+.fold > summary { list-style: none; cursor: pointer; padding: 12px 0; display: grid; grid-template-columns: minmax(0, 1fr) 16px; gap: 4px 12px; align-items: start; min-height: 44px; }
+.fold > summary::-webkit-details-marker { display: none; }
+.fold > summary > * { grid-column: 1; }
+.fold .tag { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.fold h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
+.fold > summary .chev { width: 16px; height: 16px; color: var(--muted); grid-column: 2; grid-row: 1 / span 2; align-self: center; transition: transform 160ms var(--ease); }
+.fold[open] > summary .chev { transform: rotate(90deg); }
+.fold-n { display: flex; flex-wrap: wrap; align-items: center; gap: 0 12px; font-size: 14px; color: var(--text-2); }
+.fold-n .sig { gap: 4px; }
+.fold-body { display: grid; gap: 16px; padding-bottom: 16px; }
 
 .way { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 12px; min-width: 0; align-content: start; box-shadow: var(--shadow-sm); }
 .way.gap { background: transparent; border-style: dashed; border-color: var(--line-strong); box-shadow: none; }
@@ -187,7 +198,27 @@ h1 { margin: 0; font-weight: 600; font-size: 32px; line-height: 1.2; letter-spac
 .linkbtn { border: 0; background: none; padding: 0; text-align: left; cursor: pointer; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; font-weight: 500; min-height: 24px; }
 .linkbtn:hover { text-decoration-color: currentColor; }
 
-.positions { margin-top: 48px; display: grid; gap: 12px; }
+.positions, .gapmap { margin-top: 48px; display: grid; gap: 12px; }
+.gapmap h2 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; }
+.gapmap > p { margin: 0; font-size: 14px; color: var(--text-2); max-width: 72ch; }
+.gm-key { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0; padding: 0; list-style: none; }
+.gm-key .cov { font-size: 14px; color: var(--text-2); }
+.gm { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-sm); table-layout: fixed; }
+.gm th, .gm td { text-align: left; vertical-align: top; padding: 12px; border-bottom: 1px solid var(--line); font-size: 14px; }
+.gm td + td, .gm th + td, .gm thead th + th { border-left: 1px solid var(--line); }
+.gm tr:last-child > * { border-bottom: 0; }
+.gm thead th { font-size: 12px; color: var(--text-2); font-weight: 500; background: var(--raised); }
+.gm thead th:first-child { border-top-left-radius: 12px; } .gm thead th:last-child { border-top-right-radius: 12px; }
+.gm tbody th { font-weight: 500; width: 30%; }
+.gm tbody th small, .gm-side { display: block; font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--muted); }
+.gm ul { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 4px; }
+.gm-w { width: 100%; border: 0; background: none; padding: 4px 0; cursor: pointer; text-align: left; display: grid; grid-template-columns: 12px 2ch minmax(0, 1fr); gap: 8px; align-items: baseline; min-height: 32px; color: var(--text); }
+.gm-w svg { width: 12px; height: 12px; color: var(--muted); align-self: center; }
+.gm-w b { font-family: var(--mono); font-weight: 400; text-align: right; font-variant-numeric: tabular-nums; }
+.gm-w:hover span { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-strong); }
+.gm-w.open { color: var(--text-2); }
+.gm-none { color: var(--muted); }
+.gm-m { display: none; }
 .positions h2 { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; }
 .positions > p { margin: 0; font-size: 14px; color: var(--text-2); max-width: 72ch; }
 .mx tbody th { position: sticky; left: 0; background: var(--surface); min-width: 12em; }
@@ -271,8 +302,6 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
 }
 @media (max-width: 900px) {
   .sides { grid-template-columns: 1fr; gap: 32px; }
-  .jump { display: flex; flex-wrap: wrap; gap: 8px; }
-  .side:focus { outline: none; }
   .bill { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
@@ -286,7 +315,8 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
   .m-only { display: inline; }
   #bills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
   #bills a { justify-content: center; white-space: normal; text-align: center; }
-  .top-right .seg a { padding: 0 8px; }
+  .top-right .seg { min-width: 0; }
+  .top-right .seg a { padding: 0 8px; min-width: 0; white-space: normal; text-align: center; line-height: 1.25; }
   .hero { padding-top: 24px; }
   h1 { font-size: 28px; }
   .answer { font-size: 16px; }
@@ -300,6 +330,14 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
   .seg button, .seg a, .go, .btn, .chipbtn { min-height: 40px; }
   .vorblatt { padding: 24px 20px; }
   .dlg { padding: 20px 16px; }
+  .gm, .gm tbody, .gm tr, .gm th, .gm td { display: block; width: auto; }
+  .gm thead { display: none; }
+  .gm-m { display: inline; }
+  .gm tbody th { width: auto; }
+  .gm td + td, .gm th + td { border-left: 0; }
+  .gm tbody tr + tr { border-top: 1px solid var(--line); }
+  .gm tbody th, .gm tbody td { border-bottom: 0; padding-bottom: 0; }
+  .gm tbody td:last-child { padding-bottom: 12px; }
   .dlg dl { grid-template-columns: 1fr; gap: 4px; }
   .dlg dd { margin-bottom: 8px; }
 }
@@ -1087,22 +1125,30 @@ function wayCard(w) {
     ${w.contra ? `<p class="contra"><b>Einwand:</b> ${esc(w.contra)} <span class="by">${esc(byLabel(w.contraBy))}</span></p>` : gap ? "" : `<p class="contra quiet">Einwand noch nicht erfasst.</p>`}
   </article>`;
 }
+const narrow = window.matchMedia("(max-width: 900px)");
+const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+function sideFold(g, sd, ws) {
+  const cs = uniqueCases(ws.flatMap(w => w.cases.filter(visibleCase))).map(id => CASES[id]).filter(c => !c.placeholder);
+  const eff = ["pos", "mixed", "null", "neg"].map(k => [k, cs.filter(c => c.effect === k).length]).filter(([, n]) => n);
+  const effHTML = eff.length ? eff.map(([k, n]) => `<span class="sig" title="${esc(EFFECT[k].label)}">${svg(EFFECT[k].svg(EFFECT[k].color))}<span class="vh">${esc(EFFECT[k].label)}: </span>${n}</span>`).join("") : "<span>kein Wirkungsbefund</span>";
+  const contra = ws.filter(w => w.contra).length, gaps = ws.filter(w => w.cov !== "checked").length;
+  return `<details class="fold" id="s-${g.id}-${sd}"><summary><span class="tag">Richtung ${sd}</span><h3>${esc(g.sides[sd].t)}</h3><span class="side-a">${esc(g.sides[sd].a)}</span>
+      <span class="fold-n"><span>${plural(ws.length, "Weg", "Wege")}</span><span>${plural(cs.length, "Fall", "Fälle")}</span><span class="vh">Befunde: </span>${effHTML}<span>${plural(contra, "Einwand", "Einwände")}</span><span>${plural(gaps, "Lücke", "Lücken")}</span></span>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></summary>
+    <div class="fold-body">${ws.length ? ws.map(wayCard).join("") : `<p class="side-empty">Kein Treffer in dieser Richtung für den gewählten Filter.</p>`}</div></details>`;
+}
 function renderCompare() {
   const q = Q();
   const html = q.groups.map((g, gi) => {
     const ways = q.ways.filter(w => w.g === g.id && visibleWay(w));
     if (!ways.length) return "";
     let body;
-    if (g.sides) {
-      const jump = ["A", "B"].map(sd => {
-        const n = ways.filter(w => w.side === sd).length;
-        return `<button type="button" class="chipbtn" data-jump="s-${g.id}-${sd}">Richtung ${sd} (${n})</button>`;
-      }).join("");
-      body = `<div class="jump" role="group" aria-label="Richtungen: ${esc(g.q)}">${jump}</div><div class="sides">${["A", "B"].map(sd => {
+    if (g.sides && narrow.matches) {
+      body = `<div>${["A", "B"].map(sd => sideFold(g, sd, ways.filter(w => w.side === sd))).join("")}</div>`;
+    } else if (g.sides) {
+      body = `<div class="sides">${["A", "B"].map(sd => {
         const ws = ways.filter(w => w.side === sd);
-        const all = q.ways.filter(w => w.g === g.id && w.side === sd);
-        const unchecked = all.filter(w => w.cov !== "checked").length;
-        return `<div class="side" id="s-${g.id}-${sd}" tabindex="-1"><div class="side-head"><span class="tag">Richtung ${sd}</span><h3>${esc(g.sides[sd].t)}</h3><p>${esc(g.sides[sd].a)}</p></div>
+        return `<div class="side" id="s-${g.id}-${sd}"><div class="side-head"><span class="tag">Richtung ${sd}</span><h3>${esc(g.sides[sd].t)}</h3><p>${esc(g.sides[sd].a)}</p></div>
           ${ws.length ? ws.map(wayCard).join("") : `<p class="side-empty">Kein Treffer in dieser Richtung für den gewählten Filter.</p>`}</div>`;
       }).join("")}</div>`;
     } else {
@@ -1114,7 +1160,26 @@ function renderCompare() {
       ${body}
     </section>`;
   }).join("");
-  return `<div class="groups">${html || '<p class="quiet">Kein Eintrag für diesen Filter.</p>'}</div>${renderPositions()}`;
+  return `<div class="groups">${html || '<p class="quiet">Kein Eintrag für diesen Filter.</p>'}</div>${renderGapMap()}${renderPositions()}`;
+}
+
+function renderGapMap() {
+  const q = Q(), sided = q.groups.some(g => g.sides);
+  const cols = sided ? ["A", "B"] : [null];
+  const n = w => w.cases.filter(id => !CASES[id].placeholder).length;
+  const entry = w => `<li><button type="button" class="gm-w${w.cov === "checked" ? "" : " open"}" data-way="${w.id}">${svg(COV[w.cov].svg)}<b>${n(w)}</b><span>${esc(w.title)}<span class="vh">: ${plural(n(w), "Fall", "Fälle")}, ${esc(COV[w.cov].label)}</span></span></button></li>`;
+  const cell = (g, sd, span) => {
+    const ws = q.ways.filter(w => w.g === g.id && (sd === null || w.side === sd));
+    const head = sd && g.sides ? `<span class="gm-side"><span class="gm-m">Richtung ${sd} · </span>${esc(g.sides[sd].t)}</span>` : "";
+    return `<td${span ? ` colspan="${span}"` : ""}>${head}${ws.length ? `<ul>${ws.map(entry).join("")}</ul>` : '<span class="gm-none">kein Weg erfasst</span>'}</td>`;
+  };
+  const used = Object.keys(COV).filter(k => q.ways.some(w => w.cov === k));
+  const rows = q.groups.map((g, gi) => `<tr><th scope="row">${q.groups.length > 1 ? `<small>Teilfrage ${gi + 1}</small>` : ""}${esc(g.q)}</th>${g.sides || !sided ? cols.map(sd => cell(g, sd)).join("") : cell(g, null, 2)}</tr>`).join("");
+  return `<section class="gapmap" aria-labelledby="h-gm"><h2 id="h-gm">Lückenkarte</h2>
+    <p>Alle Lösungswege dieser Frage nach Teilfrage und Richtung, unabhängig vom Filter. Die Zahl nennt die erfassten Fälle, das Zeichen den Stand der Recherche.</p>
+    <ul class="gm-key">${used.map(k => `<li>${covBadge(k).replace('<span class="vh">Abdeckung: </span>', "")}</li>`).join("")}</ul>
+    <table class="gm"><caption class="vh">Lückenkarte: Lösungswege nach Teilfrage und Richtung mit Fallzahl und Stand der Recherche</caption>
+    <thead><tr><th scope="col">Teilfrage</th>${cols.map(sd => `<th scope="col">${sd ? `Richtung ${sd}` : "Lösungswege"}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></section>`;
 }
 
 function renderPositions() {
@@ -1417,7 +1482,6 @@ document.addEventListener("click", async e => {
   const cb = t.closest("[data-case]"); if (cb) { openCase(cb.dataset.case); return; }
   const wb = t.closest("[data-way]"); if (wb) { openWay(wb.dataset.way); return; }
   const pb = t.closest("[data-pos]"); if (pb) { openPos(+pb.dataset.pos); return; }
-  const jb = t.closest("[data-jump]"); if (jb) { const el = $(jb.dataset.jump); if (el) { el.scrollIntoView({ block: "start" }); el.focus({ preventScroll: true }); } return; }
   const cite = t.closest("[data-cite]");
   if (cite) {
     const [kind, ref] = cite.dataset.cite.split(":");
@@ -1430,6 +1494,7 @@ const setMode = m => { state.mode = m; try { localStorage.setItem("opn-view", m)
 } renderQuestion(); };
 $("v-cmp").addEventListener("click", () => setMode("cmp"));
 $("v-tbl").addEventListener("click", () => setMode("tbl"));
+narrow.addEventListener("change", () => { if (state.view === "frage" && state.mode === "cmp") renderQuestion(); });
 $("textexp").addEventListener("click", async () => { const ok = await copyText(questionText(Q())); $("exp-msg").textContent = ok ? "Kopiert." : "Kopieren nicht möglich."; });
 $("json").addEventListener("click", () => {
   const q = Q();

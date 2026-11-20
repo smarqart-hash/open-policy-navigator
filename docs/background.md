@@ -61,6 +61,21 @@ Im deutschsprachigen Raum haben wir kein offenes, politikfeldübergreifendes Ang
 
 Offene Forschungsfrage: Für Gesetze ohne Vergleichsgruppe gibt es keine etablierte Evidenzskala. Wir weisen die Studienart deshalb aus, statt eine Stufe zu behaupten.
 
+## 4a. Prüfschleife: Maschine sortiert vor, Mensch entscheidet
+
+Der Ablauf folgt dem Stand der Evidenzsynthese. Cochrane, Campbell, JBI und CEE verlangen seit 2025 gemeinsam, dass KI in Evidenzsynthesen „with human oversight“ eingesetzt und jede Beteiligung dokumentiert wird [P] (doi:10.1186/s13750-025-00374-5). Entscheidung im Repository: [ADR 0005](adr/0005-language-models-as-documented-proposers.md).
+
+| Stufe | Was passiert | Beleg für das Muster |
+|---|---|---|
+| 1. Automatisch erfasst | Parser und Importer lesen Entwürfe und offene Datenbanken ein; Regeln statt Handlabeling | Weak Supervision (Ratner u. a. 2017, doi:10.14778/3157794.3157797) |
+| 2. Maschinell vorgeprüft | Schema, Zitat wörtlich im archivierten Quelltext, Konsistenz, Dubletten; Sprachmodelle nur als dokumentierte Vorschläge | Cochrane-RCT-Klassifikator, auf 99 % Recall kalibriert, 40–70 % weniger Handsichtung in Pilotabläufen (Thomas u. a. 2021, doi:10.1016/j.jclinepi.2020.11.003) |
+| 3. Menschlich geprüft | unsichere Fälle zuerst; Prüffrage je Fakt: Folgt die Aussage aus dem Zitat? | Abgabe unsicherer Fälle (Geifman & El-Yaniv 2017, arXiv:1705.08500); automatische Deckungsprüfer nur rund 75–80 % (AttributionBench, LLM-AggreFact) |
+| 4. Im Audit bestätigt | Zufallsstichprobe auch der automatisch übernommenen Einträge; Fehlerquote mit Konfidenzintervall veröffentlicht | Automation Bias lässt sich nicht wegschulen (Parasuraman & Manzey 2010, doi:10.1177/0018720810376055); Prediction-powered Inference (Angelopoulos u. a. 2023, doi:10.1126/science.adi6000) |
+
+Goldstandard: doppelt kodiert, Krippendorff-α je Kategorie mit Konfidenzintervall, Ziel ≥ 0,800 (Krippendorff 2004, doi:10.1093/hcr/30.3.411); ein Eval-Ratchet in der CI verhindert Rückschritte (Muster des ML Test Score, Breck u. a. 2017).
+
+Grenze: Alle Kennzahlen stammen aus Medizin, Psychologie oder englischen Benchmarks. Für Policy-Dokumente gibt es noch keine veröffentlichten Fehlerquoten; das Projekt will die ersten liefern.
+
 ## 5. Eigene Vorarbeit
 
 - Recherche zu Zukunftsfragen Europas: rund 540 geprüfte Aussagen, 590 Quellen zu sechs Fragen (Wirtschaft, Klima und Migration, Alterung, KI und Arbeit, Sozialstaatsfinanzierung, Bildung).

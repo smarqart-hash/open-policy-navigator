@@ -1,5 +1,5 @@
 {
-  "extraction_precision": null,
-  "classification_accuracy": null,
-  "section_recall": null
+  "extraction_precision": 1.0,
+  "classification_accuracy": 0.75,
+  "section_recall": 0.8843
 }

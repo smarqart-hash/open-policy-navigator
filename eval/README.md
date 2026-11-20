@@ -21,25 +21,29 @@ share of real sections among the misses is varied), so it is too narrow.
 
 ## Annotation status (20 November 2026)
 
-- **20 `not_found_v0` items: open.** Stefan checks the Drucksache PDF and fills
-  `section_present` (is there a section "C. Alternativen"?), `gold_alt` (its text,
-  whitespace does not matter) and `category`. Until then `section_recall` is *pending*.
-- **16 `found_v0` items: proposals by Claude** (`"coder": "claude-proposal"`,
-  `"confirmed": false`), taken from the stored text. `gold_alt` must be checked
-  against the PDF (start and end of the section); `category` deviates from the
-  rule result for 20/12719 and 20/11310. After checking, set `"coder": "stefan"`
-  and `"confirmed": true`.
+All 36 items are confirmed by Stefan (`"coder": "stefan"`, `"confirmed": true`) and
+were cross-checked against the Drucksache PDFs: every stored `gold_alt` matches the
+PDF apart from page headers and hyphenation. The cross-check corrected three labels
+under codebook B: 20/12400 (budget law, "Keine." stands only in the explanatory
+memorandum, so no section C), 21/2672 (`Keine`) and 20/3874 (`Status quo genannt`);
+the last two still carried the v0 rule result.
 
-Metrics including proposals (information only, not used by the ratchet):
+A blind second coding by a language model (information only, not stored as
+`coding_2`, which is reserved for a second person) agreed on 34 of 36 items. The two
+differences are borderline cases and keep Stefan's label: 20/11226 (is "waiting for
+the next amendment" a concrete alternative?) and 20/8654 (is "leave it to the Länder"
+named as an alternative?).
+
+Confirmed metrics, now the ratchet thresholds (`--update`, 20 November 2026):
 
 | metric | value | 95 % Wilson interval | n |
 |---|---|---|---|
 | extraction_precision | 1.000 | 0.806–1.000 | 16 |
-| classification_accuracy | 0.875 | 0.640–0.965 | 16 |
-| section_recall | pending | | |
+| classification_accuracy | 0.750 | 0.505–0.898 | 16 |
+| section_recall | 0.884 | approx. 0.869–0.913 | 36 |
 
-`extraction_precision` is 1.0 by construction as long as `gold_alt` is a copy of
-the stored text; it only becomes meaningful after checking against the PDFs.
+`classification_accuracy` compares the v0 rule (first word only) with codebook B, so
+0.75 is the expected gap that classifier v1 should close (roadmap issue 4).
 
 ## Target (as promised in the application)
 

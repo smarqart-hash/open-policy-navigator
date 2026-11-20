@@ -18,7 +18,7 @@
         "category": null,
         "coder": "stefan",
         "confirmed": true,
-        "note": "no section C in the Vorblatt (budget law)"
+        "note": "no section C in the Vorblatt (budget law); checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -33,7 +33,7 @@
         "category": "Alternativen benannt/diskutiert",
         "coder": "stefan",
         "confirmed": true,
-        "note": "long section (1014 chars) missed by de-v0; text from PDF, hyphenation joined"
+        "note": "long section (1014 chars) missed by de-v0; text from PDF, hyphenation joined; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -44,11 +44,11 @@
       "stratum": "not_found_v0",
       "coding_1": {
         "section_present": true,
-        "gold_alt": null,
+        "gold_alt": "Keine. Das Gesetz ist erforderlich, um die Vorgaben der Richtlinie (EU) 2018/2001 in der durch die Richtlinie (EU) 2023/2413 revidierten Fassung in den Bereichen Windenergie auf See sowie Stromnetze umzusetzen. Soweit einzelne Bestimmungen der Richtlinie nur optional umzusetzen sind, ist die Umsetzung im Sinne eines beschleunigten, rechtssicheren und robusten Ausbaus der Windenergie auf See und der Stromnetze geboten. Das Gesetz dient ferner der richtlinienkonformen Ausgestaltung bestehender Regelungen. Ein Zuwarten auf die anstehende, turnusmäßige Novelle des Bundesbedarfsplangesetzes zum Netzentwicklungsplan 2023-2037/2045 würde die Umsetzung der bereits im Bundesbedarfsplangesetz enthaltenen, zu bündelnden Vorhaben verzögern.",
         "category": "Keine + Begründung",
         "coder": "stefan",
         "confirmed": true,
-        "note": "long section (>700 chars, EU transposition) missed by de-v0; full text not transcribed"
+        "note": "long section (>700 chars, EU transposition) missed by de-v0; full text not transcribed; gold_alt taken from the Drucksache PDF on 2026-11-20; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -59,11 +59,11 @@
       "stratum": "not_found_v0",
       "coding_1": {
         "section_present": true,
-        "gold_alt": null,
+        "gold_alt": "Keine. Weitergehende Maßnahmen wie etwa die Regelung einer Pflicht, den Führer­ schein inländischen oder ausländischen Stellen zur Eintragung der fehlenden Fahrberechtigung im Inland durch den EU-Mitgliedstaat bzw. EWR-Vertragsstaat des ordentlichen Wohnsitzes vorzulegen, sind nicht zwingend erforderlich und dürften in der Regel nicht verhältnismäßig sein. Darüber hinaus müsste sich an die Vorlage des Führerscheins durch dessen Inhaber bei einer inländischen Stelle ein förmliches Amtshilfegesuch dieser Stelle – verbunden mit der Übersendung des Führerscheins – an den EU-Mitgliedstaat bzw. EWR-Vertragsstaat des or­ dentlichen Wohnsitzes anschließen, die fehlende Fahrberechtigung im Inland in den Führerschein einzutragen; dies hätte zusätzlichen Verwaltungsaufwand zur Folge. Zur Kontrolle des Verbots durch die Verkehrsbehörden ist die fehlende Fahrberechtigung bereits aus dem FAER ersichtlich. Zudem würde im Falle eines Fahrverbots von einem bis drei Monaten die Eintragung des Verbots auf dem Füh­ rerschein durch den Mitgliedstaat oder Vertragsstaat des ordentlichen Wohnsitzes mit Blick auf die Zeit, die eine Übersendung des Führerscheins über das Kraft­ fahrt-Bundesamt an den Wohnsitzstaat und die Eintragung durch die dort zustän­ dige Behörde in Anspruch nehmen würden, voraussichtlich regelmäßig zu spät kommen und erst nach Ablauf des Fahrverbots realisiert werden. Bis dahin wäre der Führerschein aber dem Inhaber gleichwohl entzogen. Dieser zeitliche Aspekt kommt zwar bei längeren Fahrverboten sowie bei Entziehungen der Fahrerlaubnis nicht in gleichem Umfang zum Tragen. Auch hier ist aber die Kontrollfunktion ausreichend über das FAER sichergestellt, so dass es keiner weiteren Maßnahmen bedarf.",
         "category": "Alternativen benannt/diskutiert",
         "coder": "stefan",
         "confirmed": true,
-        "note": "Stefan chose codebook B on this case (20.11.2026); long section missed by de-v0; text not fully transcribed"
+        "note": "Stefan chose codebook B on this case (20.11.2026); long section missed by de-v0; text not fully transcribed; gold_alt taken from the Drucksache PDF on 2026-11-20; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -73,12 +73,12 @@
       "titel": "Entwurf eines Gesetzes über die Feststellung des Bundeshaushaltsplans für das Haushaltsjahr 2025 (Haushaltsgesetz 2025 - HG 2025)",
       "stratum": "not_found_v0",
       "coding_1": {
-        "section_present": true,
-        "gold_alt": "Keine.",
-        "category": "Keine",
+        "section_present": false,
+        "gold_alt": null,
+        "category": null,
         "coder": "stefan",
         "confirmed": true,
-        "note": "short 'Keine.' but missed by de-v0 (cause unknown, perhaps outside the 20,000-character window)"
+        "note": "no section C in the Vorblatt (budget law); 'Keine.' stands under 'III. Alternativen' in the Begründung, which does not count (codebook B). Corrected on 2026-11-20; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -91,9 +91,9 @@
         "section_present": true,
         "gold_alt": "Keine. Das Gesetz ist erforderlich, um die ambitionierten deutschen Ausbauziele für Windenergie auf See als wesentlichen Beitrag zu den Klimazielen zu erreichen. Am 19. Januar 2022 wurde ein Fachgespräch zum Thema „Weiterer Ausbau der Windenergie auf See“ durchgeführt, an dem viele Akteure der Offshore-Branche teilgenommen haben. Kerninhalt des Fachgesprächs war die Frage nach den Möglichkeiten, den Ausbau der Windenergie zu beschleunigen. Die Hinweise aus dem Fachgespräch sind insbesondere in die Überlegungen zur Ausgestaltung des Ausschreibungsvolumens und des Ausschreibungsdesigns eingeflossen. Am 3. Februar 2022 wurden gemeinsam mit der Bundesministerin für Umwelt, Naturschutz, nukleare Sicherheit und Verbraucherschutz, Steffi Lemke, naturschutzfachliche Fragestellungen des Ausbaus der Windenergie auf See mit Naturschutzverbänden besprochen. Am 8. Februar 2022 wurde der bereits bestehende Offshore-Dialogprozess unter Beteiligung des Bundesministeriums für Umwelt, Naturschutz, nukleare Sicherheit und Verbraucherschutz, des Bundesministeriums für Digitales und Verkehr, der Bundesnetzagentur, des Bundesamts für Seeschifffahrt und Hydrographie, des Bundesamts für Naturschutz, der Übertragungsnetzbetreiber und der Offshore-Branche auf Ministerebene fortgesetzt. Dabei zeigte sich ein breiter Konsens für den weiteren Ausbau der Windenergie auf See und die Umsetzung der Ausbauziele. Die in diesem Termin vorgestellten Überlegungen zur Ausschreibung auch nicht zentral voruntersuchter Flächen und zur Ausgestaltung von zwei unterschiedlichen Ausschreibungsdesigns für zentral voruntersuchte und nicht zentral voruntersuchte Flächen wurden breit begrüßt. Darüber hinaus haben die Offshore-Branche und sonstige Interessenvertreter die Möglichkeit erhalten, sich im Rahmen der Länder- und Verbändeanhörung in Stellungnahmen zu diesem Gesetzentwurf zu äußern. Gemäß § 6 Absatz 3 des Lobbyregistergesetzes (LobbyRG) ist die Beteiligung von Interessenvertretern bei der Gesetzgebung nach § 47 der Gemeinsamen Geschäftsordnung der Bundesministerien (GGO) nur dann erfolgt, wenn die Eintragung in Lobbyregister gemäß den gesetzlichen Vorgaben vollständig erfolgt war.",
         "category": "Keine + Begründung",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "codebook B checked: reasons only, no concrete alternative named; section extracted from PDF heading C to D (2177 chars); category = rule result, check meaning"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "codebook B checked: reasons only, no concrete alternative named; section extracted from PDF heading C to D (2177 chars); category = rule result, check meaning; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -106,9 +106,9 @@
         "section_present": true,
         "gold_alt": "Keine. Ein Verzicht auf das Vertragsgesetzgebungsverfahren würde den Verzicht auf die Umsetzung der völkerrechtlichen Vereinbarung mit den Vereinigten Mexikanischen Staaten in verbindliches nationales Recht bedeuten und kommt daher nicht in Betracht. Mit Unterzeichnung des Änderungsprotokolls haben sowohl die Bundesrepublik Deutschland als auch die Vereinigten Mexikanischen Staaten das Abkommen vom 9. Juli 2008 zwischen der Bundesrepublik Deutschland und den Vereinigten Mexikanischen Staaten zur Vermeidung der Doppelbesteuerung und der Steuerverkürzung auf dem Gebiet der Steuern vom Einkommen und vom Vermögen in die jeweiligen Auswahlentscheidungen zum MLI von der Liste der erfassten Doppelbesteuerungsabkommen („Covered Tax Agreements“) genommen. Eine Umsetzung der Inhalte dieses Änderungsprotokolls über das MLI selbst ist daher nicht mehr möglich.",
         "category": "Alternativen benannt/diskutiert",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "codebook B: a concrete alternative is named and rejected (route via the MLI); borderline; section extracted from PDF heading C to D (860 chars); category = rule result, check meaning"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "codebook B: a concrete alternative is named and rejected (route via the MLI); borderline; section extracted from PDF heading C to D (860 chars); category = rule result, check meaning; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -121,9 +121,9 @@
         "section_present": false,
         "gold_alt": null,
         "category": null,
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "no 'C. Alternativen' in the first 12 PDF pages (budget law, no Vorblatt section C)"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "no 'C. Alternativen' in the first 12 PDF pages (budget law, no Vorblatt section C); checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -136,9 +136,9 @@
         "section_present": true,
         "gold_alt": "Keine. Nur mit einer verpflichtenden Kennzeichnung kann das Ziel erreicht werden, Endverbraucher umfassend beim Erwerb von Lebensmitteln tierischen Ursprungs über die Art der Haltung der Tiere zu informieren, von denen die Lebensmittel stammen. Eine freiwillige Kennzeichnung wäre keine gleichwertige Alternative zur verpflichtenden Tierhaltungskennzeichnung, weil die Marktabdeckung mit der Kennzeichnung von der freiwilligen Teilnahme der Betriebe, Verarbeitungsunternehmen und Inverkehrbringer abhinge. Ähnliches gilt für die bereits bestehenden privatwirtschaftlichen Label: Auch hier erhalten die Endverbraucher nur Informationen zu Lebensmitteln von den Lebensmittelunternehmern, die sich freiwillig zertifizieren lassen. Die privatwirtschaftlichen Label sind zudem bisher vornehmlich nur im Lebensmitteleinzelhandel zu finden. Es ist nicht absehbar, dass die bestehenden Label auch auf andere Absatzwege ausgeweitet werden. Die einzelnen Label haben unterschiedliche Kriterien und variieren auch hinsichtlich ihrer Marktabdeckung. Die verbindliche Kennzeichnung ermöglicht hingegen dem Endverbraucher eine Einschätzung anhand einfacher Kriterien, ob die Tiere, von denen die Lebensmittel stammen, in tiergerechteren Haltungsformen gehalten worden sind. Weder die zahlreichen bestehenden privatwirtschaftlichen Label noch eine freiwillige, staatliche Kennzeichnung sind daher im gleichen Maße geeignet, den Endverbraucher unabhängig von der Vermarktungsform über die Haltungsform der Tiere zu informieren.",
         "category": "Alternativen benannt/diskutiert",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "codebook B: a concrete alternative is named and rejected (voluntary labelling, private labels); section extracted from PDF heading C to D (1511 chars); category = rule result, check meaning"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "codebook B: a concrete alternative is named and rejected (voluntary labelling, private labels); section extracted from PDF heading C to D (1511 chars); category = rule result, check meaning; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -151,9 +151,9 @@
         "section_present": true,
         "gold_alt": "Zur Gewährleistung eines ausreichenden Schutzes der finanziellen Interessen der Union sind nationale, die Verordnung (EU) 2021/2116 durchführende Bestim mungen erforderlich. Soweit das Gesetz der Durchführung von Artikel 62 der Verordnung (EU) 2021/2116 dient, genügen weder bestehende Regelungen des nationalen Rechts noch andere Bestimmungen des EU-Rechts vollständig den ge stellten Anforderungen. Von Einzelregelungen in den jeweiligen Förderbereichen der 1. Säule der GAP soll aus Gründen der Rechtssicherheit und Rechtseinheit lichkeit kein Gebrauch gemacht werden. Es bleibt vor diesem Hintergrund nur eine eigenständige, horizontal angelegte gesetzliche Regelung für diese Säule. Für eine Änderung des Betäubungsmittelgesetzes gibt es keine Alternative.",
         "category": "Alternativen benannt/diskutiert",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "codebook B: a concrete alternative is named and rejected (sector-specific rules); section extracted from PDF heading C to D (761 chars); category = rule result, check meaning"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "codebook B: a concrete alternative is named and rejected (sector-specific rules); section extracted from PDF heading C to D (761 chars); category = rule result, check meaning; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -166,9 +166,9 @@
         "section_present": true,
         "gold_alt": "Die Änderungen dienen dem Zweck, die Erwerbseinwanderung nach Deutschland und damit die wirtschaftliche Entwicklung deutlich zu steigern. Es ist keine Alternative, auf diese Änderungen zu verzichten. Insbesondere kommt es nicht in Betracht, ein grundlegend neues Verfahren des Zugangs zum deutschen Arbeitsmarkt zu implementieren, zum Beispiel indem sämtliche Zugangsmöglichkeiten auf ein Punktesystem umgestellt würden. Es gibt keine Evidenz, dass ein solcher Systemwechsel zu besseren Ergebnissen in Deutschland führen würde. Die in diesem Gesetzentwurf vorgesehenen Änderungen können auf der Basis einer bewährten Struktur zeitnah umgesetzt werden und sind im Aufwand begrenzt. Der Mehraufwand eines grundsätzlichen Systemwechsels würde bei den ohnehin unter anderem durch den Krieg in der Ukraine stark ausgelasteten Behörden zur Überforderung führen und damit die Zielerreichung gefährden.",
         "category": "Alternativen benannt/diskutiert",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "codebook B: a concrete alternative is named and rejected (fundamentally new admission procedure); section extracted from PDF heading C to D (894 chars); category = rule result, check meaning"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "codebook B: a concrete alternative is named and rejected (fundamentally new admission procedure); section extracted from PDF heading C to D (894 chars); category = rule result, check meaning; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -181,9 +181,9 @@
         "section_present": true,
         "gold_alt": "Keine. Deutschland und Bulgarien haben sich darauf verständigt, die Inhalte des MLI im Wege eines bilateralen Protokolls zur Änderung des bestehenden Abkommens umzusetzen. Daher haben beide Staaten bei Ratifikation des MLI das Abkommen vom 25. Januar 2010 zwischen der Bundesrepublik Deutschland und der Republik Bulgarien zur Vermeidung der Doppelbesteuerung und der Steuerverkürzung auf dem Gebiet der Steuern vom Einkommen und vom Vermögen nicht als vom MLI erfasstes Doppelbesteuerungsabkommen („covered tax agreements“) aufgeführt. Eine Umsetzung der Inhalte dieses Änderungsprotokolls über das MLI selbst kommt daher nicht mehr in Betracht. Deutscher Bundestag – 20. Wahlperiode –3– Drucksache 20/6818",
         "category": "Alternativen benannt/diskutiert",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "codebook B: a concrete alternative is named and rejected (route via the MLI); borderline; section extracted from PDF heading C to D (707 chars); category = rule result, check meaning"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "codebook B: a concrete alternative is named and rejected (route via the MLI); borderline; section extracted from PDF heading C to D (707 chars); category = rule result, check meaning; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -196,9 +196,9 @@
         "section_present": true,
         "gold_alt": "Keine. Auf Landesebene existieren bereits verschiedene Regelungen zur Wärmeplanung. Dies gilt insbesondere in den Ländern Baden-Württemberg, Schleswig-Holstein, Niedersachsen und Hessen. In Nordrhein-Westfalen ist die Einführung von Seiten der Landesregierung geplant. In Bayern wird die Erstellung kommunaler Energienutzungspläne gefördert. Eine bundesgesetzliche Regelung, die vorsieht, innerhalb eines näher definierten Zeitraums nach Inkrafttreten dieses Gesetzes Wärmepläne vorzulegen, ist trotz dieser vereinzelt bereits bestehenden landesrechtlichen Regelungen erforderlich. Nur so kann gewährleistet werden, dass diese Aufgabe deutschlandweit erfüllt wird. Dieses Gesetz richtet sich insbesondere an diejenigen Länder, die sich bislang noch nicht mit der Wärmeplanung beschäftigt haben oder mit entsprechenden Planungen noch nicht aktiv geworden sind. Insbesondere sollen sie angehalten werden, eine systematische, flächendeckende Wärmeplanung einzuführen, um das Ziel der Treibhausgasneutralität in der Wärmeversorgung bis spätestens 2045 zu erreichen. Die Handlungsdringlichkeit zeigt sich darin, dass bis zu diesem Zeitpunkt lediglich 22 Jahre verbleiben. Ein weiteres Zuwarten ist gerade mit Blick auf die für den Ausbau und die Transformation von Energieinfrastrukturen langfristigen Planungs- und Realisierungszeiträume keine Alternative. Länder, die sich das Ziel gesetzt haben, bereits vor dem Jahr 2045 klimaneutral zu sein, werden in ihren Bemühungen durch dieses Gesetz unterstützt, indem einheitliche Rahmenbedingungen für die Wärmeplanung und somit auch für die betroffenen Akteure in der Energiewirtschaft definiert werden. Wärmepläne müssen flächendeckend und systematisch aufgestellt werden, um die vorhandenen Potenziale zu identifizieren und die notwendige Planungssicherheit für Investitionen in die Wärmeerzeugung aus erneuerbaren Energien, die Nutzung unvermeidbarer Abwärme und die dafür notwendigen Infrastrukturen zu schaffen. Die planungsverantwortlichen Stellen müssen die hierfür erforderlichen Daten erhalten und zum Zweck der Wärmeplanung nutzen dürfen; die gesetzliche Grundlage wird mit dem vorliegenden Gesetz geschaffen. Die Einführung einer flächendeckenden Wärmeplanung ist für die Erreichung der Klimaschutzziele gemäß dem KSG und für die Erreichung des im Koalitionsvertrag zwischen SPD, BÜNDNIS 90/DIE GRÜNEN und FDP vorgesehenen und mit diesem Gesetz verfolgten Ziels erforderlich, bis 2030 50 Prozent der Wärme klimaneutral zu erzeugen. Dabei wird die Wärmeplanung über gesetzlich vorgesehene Fortschreibungszyklen als dauerhafte Aufgabe ausgestaltet.",
         "category": "Alternativen benannt/diskutiert",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "codebook B: a concrete alternative is named and rejected (leave it to Länder rules); borderline; section extracted from PDF heading C to D (2599 chars); category = rule result, check meaning"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "codebook B: a concrete alternative is named and rejected (leave it to Länder rules); borderline; section extracted from PDF heading C to D (2599 chars); category = rule result, check meaning; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -211,9 +211,9 @@
         "section_present": true,
         "gold_alt": "Keine. Ein Abweichen vom aktuellen Ansatz ist angesichts der weiterhin vorgesehenen – wenn auch um zwei Jahre verlängerten – Befristung der Füllstandsvorgaben und der mit ihr zusammenhängenden Regelungen der §§ 35a bis 35h EnWG nicht erforderlich, da der Ansatz sich als Kriseninstrument im ersten Winter der Umsetzung bewährt und zur Erreichung der Füllstandsvorgaben wesentlich beigetragen hat. Im Übrigen werden mit diesem Entwurf Folgeanpassungen zur Optimierung Deutscher Bundestag – 20. Wahlperiode –3– Drucksache 20/9094 des Handlungsinstrumentariums zum Erreichen der Füllstandsvorgaben eingeführt. Auch die temporäre Höherauslastung des Höchstspannungsnetzes nach § 49b EnWG hat sich seit der Einführung bewährt. Die seit dem 1. Januar 2023 gewonnenen praktischen Erfahrungen haben gezeigt, dass die temporäre Höherauslastung ein enormes volkswirtschaftliches und ökologisches Potenzial hat. In dem Maß, in dem eine Abregelung von Anlagen, die Strom aus erneuerbaren Energien erzeugen, verhindert werden konnte, wurde auch eine entsprechende Zuschaltung von kohlenstoffdioxid-intensiven Kraftwerken in Süddeutschland vermieden. Vor diesem Hintergrund kann auf das Instrument der temporären Höherauslastung nicht verzichtet werden. Solange und soweit die technischen und baulichen Voraussetzungen für eine dauerhafte Höherauslastung noch nicht vorliegen und die Lage im Energiebereich, insbesondere bedingt durch den russischen Angriffskrieg in der Ukraine, weiterhin angespannt bleibt, muss deswegen die Möglichkeit der temporären Höherauslastung des Höchstspannungsnetzes gesetzlich gegeben sein.",
         "category": "Keine + Begründung",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "codebook B checked: reasons only, no concrete alternative named; section extracted from PDF heading C to D (1606 chars); category = rule result, check meaning"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "codebook B checked: reasons only, no concrete alternative named; section extracted from PDF heading C to D (1606 chars); category = rule result, check meaning; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -226,9 +226,9 @@
         "section_present": true,
         "gold_alt": "Keine. Die Regelung einer bundeseinheitlichen Pflegefachassistenzausbildung ist zur Sicherung der personellen Grundlagen einer guten pflegerischen Versorgung in ganz Deutschland notwendig. Dazu gehören auch die Anpassungen des Finanzierungsverfahrens nach dem Modell des PflBG einschließlich der Zahlung einer angemessenen Ausbildungsvergütung als Voraussetzung zur Gewährleistung der benötigten Ausbildungsqualität und Attraktivität der Pflegefachassistenzausbildung. In Anbetracht einer zukünftig wachsenden Zahl von Menschen mit Pflegebedarf und eines bereits heute bestehenden Mangels an Pflegefachkräften kann auf die Nutzung der Potentiale eines qualitätsgesicherten Qualifikationsmixes in der Pflege nicht verzichtet werden.",
         "category": "Keine + Begründung",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "codebook B checked: reasons only, no concrete alternative named; section extracted from PDF heading C to D (731 chars); category = rule result, check meaning"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "codebook B checked: reasons only, no concrete alternative named; section extracted from PDF heading C to D (731 chars); category = rule result, check meaning; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -241,9 +241,9 @@
         "section_present": true,
         "gold_alt": "Zur zukünftigen Durchführung eines registerbasierten Zensus in den Anwen dungsbereichen Arbeitsmarkt und Bildung ist eine rechtzeitige und umfangreiche organisatorische und technische Vorbereitung und Entwicklung der Methoden er forderlich. Ohne den vorliegenden Gesetzentwurf können diese auf Basis des RegZensErpG begonnenen Vorarbeiten nicht fortgeführt und der kommende Zen sus im Bereich Arbeitsmarkt und Bildung nicht weitestgehend registerbasiert durchgeführt werden. Alternativ müssten sowohl für die Bildungs- als auch für die Arbeitsmarktmerkmale der Bevölkerung flächendeckende Befragungen durchgeführt werden, um realitätsgerechte Angaben machen zu können. Dies würde nach der Rechtsprechung des Bundesverfassungsgerichts einen stärkeren Eingriff in das Grundrecht der informationellen Selbstbestimmung nach Artikel 2 Absatz 1 in Verbindung mit Artikel 1 Absatz 1 des Grundgesetzes darstellen und ist daher vor dem Hintergrund der fortschreitenden Digitalisierung der Gesell schaft weder verhältnismäßig noch vertretbar- oder vermittelbar. Demnach bieten sich keine Alternativen zur Vorbereitung des nächsten Zensus im Jahr 2031.",
         "category": "Alternativen benannt/diskutiert",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "codebook B: a concrete alternative is named and rejected (nationwide surveys); section extracted from PDF heading C to D (1141 chars); category = rule result, check meaning"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "codebook B: a concrete alternative is named and rejected (nationwide surveys); section extracted from PDF heading C to D (1141 chars); category = rule result, check meaning; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -256,9 +256,9 @@
         "section_present": true,
         "gold_alt": "Alternativ zu einem Vorgehen auf multilateraler Ebene über das BEPS-MLI be steht die Möglichkeit, die Steuerabkommen durch bilaterale Verhandlungen mit den jeweiligen Vertragsstaaten zu aktualisieren. Dabei stehen die multilaterale Modifikation und der bilaterale Verhandlungsweg gleichrangig nebeneinander. Der Weg über die bilaterale Anpassung der Steuerabkommen wird von der Bun desregierung durchaus auch beschritten, insbesondere dann, wenn die Vertrags partner dies wünschen oder es weiterer Anpassungen an den Steuerabkommen bedarf. Im Hinblick auf die hier in Frage stehenden Steuerabkommen ist das Vor gehen über den multilateralen Weg sachgerecht und zielführend, da die bilaterale Aktualisierung der Steuerabkommen aufgrund ihrer Vielzahl sehr zeitaufwändig wäre. Deutscher Bundestag – 21. Wahlperiode –3– Drucksache 21/3944",
         "category": "Alternativen benannt/diskutiert",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "section extracted from PDF heading C to D (835 chars); category = rule result, check meaning"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "section extracted from PDF heading C to D (835 chars); category = rule result, check meaning; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -271,9 +271,9 @@
         "section_present": true,
         "gold_alt": "Eine mögliche Alternative zur Ausgliederung der Aufgabenbereiche auf eine unabhängige Spitzensport-Agentur wäre die Reform der Aufgabenbereiche innerhalb der bestehenden Organisationsstrukturen unter deren wesentlicher Weiterentwicklung. Die durchgeführte Wirtschaftlichkeitsuntersuchung ergab, dass die Ziele der Spitzensportreform wesentlich wirtschaftlicher mit der Ausgliederung in eine unabhängige Mittelvergabeinstanz (Spitzensport-Agentur) umgesetzt werden können. Eine Fortführung der Aufgabenwahrnehmung in der Bundesverwaltung führt bei rein monetärer Betrachtung zu einem geringfügigen jährlichen Kostenvorteil. Die Nutzwertanalyse zeigt jedoch, dass eine zukünftige Wahrnehmung Deutscher Bundestag – 21. Wahlperiode –3– Drucksache 21/5921 der Aufgabenbereiche von einer unabhängigen Mittelvergabeinstanz bei qualitativer Betrachtungsweise im Nutzwert wesentlich überwiegt.",
         "category": "Alternativen benannt/diskutiert",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "section extracted from PDF heading C to D (884 chars); category = rule result, check meaning"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "section extracted from PDF heading C to D (884 chars); category = rule result, check meaning; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -286,9 +286,9 @@
         "section_present": false,
         "gold_alt": null,
         "category": null,
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "no 'C. Alternativen' in the first 12 PDF pages (budget law, no Vorblatt section C)"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "no 'C. Alternativen' in the first 12 PDF pages (budget law, no Vorblatt section C); checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -301,9 +301,9 @@
         "section_present": true,
         "gold_alt": "Keine. Die Erweiterungen des Förderrahmens bei den Lehrgangs- und Prüfungs gebühren sowie beim Meisterstück tragen Preissteigerungen Rechnung. Zusam men mit der weiteren finanziellen Erleichterung bei Bestehen der Fortbildungs prüfung werden die Kosten für die Teilnehmerinnen und Teilnehmer gesenkt und mögliche Einstiegshürden für die Aufnahme von Fortbildungen abgebaut. Der Wegfall der Anrechnung von Arbeitgeberleistungen auf die Kosten der Maß nahme dient der Umsetzung des Beschlusses des Rechnungsprüfungsausschusses des Deutschen Bundestages vom 18. Februar 2022. Die Anhebung des Kinderbe treuungszuschlags orientiert sich in der Höhe am BAföG. Die gesetzlichen Klar stellungen zu den hochschulischen Abschlüssen und zur Trägereigenschaft wur den aufgrund von Rechtsprechung erforderlich.",
         "category": "Keine + Begründung",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "codebook B checked: reasons only, no concrete alternative named; section extracted from PDF heading C to D (798 chars); category = rule result, check meaning"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "codebook B checked: reasons only, no concrete alternative named; section extracted from PDF heading C to D (798 chars); category = rule result, check meaning; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -316,9 +316,9 @@
         "section_present": true,
         "gold_alt": "Derzeit keine. Langfristig sollte zur Behebung der Problematik hybrider Anträge und Aufträge allerdings eine solche digitale Lösung angestrebt werden, die vor allem aus Gründen des Schuldnerschutzes ein hohes Niveau an Fälschungs- und Manipulationsschutz gewährleisten kann. Eine solche Lösung könnte in der Schaffung einer elektronischen Datenbank für die Zwangsvollstreckung bestehen, die jedoch aufgrund der notwendigen technischen Entwicklungen nicht zeitnah realisiert werden kann.",
         "category": "Alternativen benannt/diskutiert",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "codebook B: a concrete alternative is named and rejected (electronic enforcement database, deferred); proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "codebook B: a concrete alternative is named and rejected (electronic enforcement database, deferred); proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation); checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -331,9 +331,9 @@
         "section_present": true,
         "gold_alt": "Keine",
         "category": "Keine",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation); checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -346,9 +346,9 @@
         "section_present": true,
         "gold_alt": "Zu den vorliegenden Änderungen, Ergänzungen und Anpassungen des Tierschutzgesetzes bestehen keine Alternativen.",
         "category": "Keine",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "no reason and no alternative given; semantically a bare 'Keine'; proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "no reason and no alternative given; semantically a bare 'Keine'; proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation); checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -361,9 +361,9 @@
         "section_present": true,
         "gold_alt": "Keine.",
         "category": "Keine",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation); checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -376,9 +376,9 @@
         "section_present": true,
         "gold_alt": "Keine. Der Finanzierungsbedarf für die Ertüchtigung der Bundeswehr kann ohne die ausnahmsweise Kreditermächtigung nicht rechtzeitig gedeckt werden.",
         "category": "Keine + Begründung",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "codebook B checked: reasons only, no concrete alternative named; proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "codebook B checked: reasons only, no concrete alternative named; proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation); checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -391,9 +391,9 @@
         "section_present": true,
         "gold_alt": "In Bezug auf das Verfahren der förmlichen Verpflichtung wurde geprüft, ob als weitere Alternativen zu der Präsenzverpflichtung ein schriftliches Verfahren oder eine telefonische Verpflichtung zugelassen werden sollten. Davon wird jedoch abgesehen, da bei einer lediglich schriftlichen beziehungsweise telefonischen Verpflichtung die erforderliche unmittelbare individuelle Ansprache der zu verpflichtenden Person nicht hinreichend möglich wäre. Alternativen zur Änderung des EUStAG liegen nicht vor.",
         "category": "Alternativen benannt/diskutiert",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation); checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -406,9 +406,9 @@
         "section_present": true,
         "gold_alt": "Keine. Ohne die vorgeschlagenen Änderungen und Anpassungen würden mit Förderungsleistungen nach dem BAföG immer weniger an einer förderungsfähigen Ausbildung Interessierte erreicht. Dadurch stiege die Gefahr, dass sie sich finanziell nicht in der Lage sähen, ihr Ausbildungsvorhaben in die Tat umzusetzen. Die mit dem BAföG erreichbare Sicherung von Chancengerechtigkeit und Ausschöpfung aller Qualifizierungsreserven würde entgegen der gesetzlichen Zielsetzung an Durchschlagskraft und Nachhaltigkeit weiter einbüßen.",
         "category": "Keine + Begründung",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "codebook B checked: reasons only, no concrete alternative named; proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "codebook B checked: reasons only, no concrete alternative named; proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation); checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -421,9 +421,9 @@
         "section_present": true,
         "gold_alt": "Keine.",
         "category": "Keine",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation); checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -436,9 +436,9 @@
         "section_present": true,
         "gold_alt": "Keine.",
         "category": "Keine",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation); checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -450,10 +450,10 @@
       "coding_1": {
         "section_present": true,
         "gold_alt": "Bei Beibehaltung des Status quo würde ein nicht mehr zeitgemäßer Zustand aufrechterhalten.",
-        "category": "Alternativen benannt/diskutiert",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "category": "Status quo genannt",
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "only keeping the status quo is discussed (codebook B; was the v0 rule result). Corrected on 2026-11-20; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -466,9 +466,9 @@
         "section_present": true,
         "gold_alt": "Alternativ kommt in Betracht, ausschließlich Verfahrensvorschriften für die Zuteilungsentscheidung zu regeln. Um jedoch einen effektiven Schutz vor Diskriminierung zu gewährleisten, sieht der Entwurf über bloße Verfahrensvorschriften hinaus auch ein materielles Entscheidungskriterium vor.",
         "category": "Alternativen benannt/diskutiert",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation); checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -481,9 +481,9 @@
         "section_present": true,
         "gold_alt": "Die Berichtspflichten und die Sanktionsregelung könnten unverändert bleiben. Aufgrund der dynamischen Entwicklung der Rechtslage auf europäischer Ebene sollen Unternehmen bis zur nationalen Umsetzung der CSDDD jedoch – unter Beibehaltung des Schutzniveaus der EU-Richtlinie – keiner im Vergleich zu anderen europäischen Unternehmen unverhältnismäßig höheren Belastung ausgesetzt sein.",
         "category": "Status quo genannt",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation); checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -495,10 +495,10 @@
       "coding_1": {
         "section_present": true,
         "gold_alt": "Es gibt keine Alternativen.",
-        "category": "Alternativen benannt/diskutiert",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "category": "Keine",
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "'Es gibt keine Alternativen.' without reasons: Keine (codebook B; was the v0 rule result). Corrected on 2026-11-20; checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -511,9 +511,9 @@
         "section_present": true,
         "gold_alt": "Keine. Die Richtlinienumsetzung erfolgt 1:1; eine darüberhinausgehende Umsetzung würde Wettbewerbsnachteile für deutsche Fondsverwalter und zusätzliche Kosten für Anlegerinnen und Anleger bedeuten.",
         "category": "Alternativen benannt/diskutiert",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "codebook B: a concrete alternative is named and rejected (transposition beyond 1:1); proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "codebook B: a concrete alternative is named and rejected (transposition beyond 1:1); proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation); checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -526,9 +526,9 @@
         "section_present": true,
         "gold_alt": "Die Beibehaltung der bestehenden Regelungen sowie der damit verbundenen Aufwände stellt mit Blick auf die Zielsetzung des Bürokratierückbaus keine Alternative dar.",
         "category": "Status quo genannt",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation); checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     },
@@ -541,9 +541,9 @@
         "section_present": true,
         "gold_alt": "Keine. Die im Einzelnen geprüften Alternativen sind aus der Tabelle im Allgemeinen Teil der Begründung ersichtlich.",
         "category": "Keine + Begründung",
-        "coder": "claude-proposal",
-        "confirmed": false,
-        "note": "codebook B checked: reasons only, no concrete alternative named; proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation)"
+        "coder": "stefan",
+        "confirmed": true,
+        "note": "codebook B checked: reasons only, no concrete alternative named; proposal from stored text; text checked against the PDF on 2026-11-20 (identical apart from page headers and hyphenation); checked by Stefan on 2026-11-20; cross-checked against the Drucksache PDF by Claude (codebook B)"
       },
       "coding_2": null
     }

@@ -20,7 +20,7 @@ flowchart LR
         EXT["Extraktor Abschnitt C<br/>de/extract.py"]:::built
         CLS["Klassifikator<br/>de/classify.py"]:::built
         PAR["Rohdaten in Git<br/>zaehlung/*.jsonl"]:::built
-        EVA["Goldset v0 und Eval-Ratchet<br/>evaluation.py<br/>Schwellen ab Monat 2"]:::built
+        EVA["Goldset v0 und Eval-Ratchet<br/>evaluation.py"]:::built
         SCH["Schema v0 mit Herkunft<br/>schema.py"]:::built
         DIP --> EXT --> CLS --> PAR --> EVA
         ATP --> PAR
@@ -51,7 +51,7 @@ flowchart LR
     style PLAN fill:transparent,stroke:#8a8a8a,stroke-width:2px,stroke-dasharray:6 4
 ```
 
-Textfassung: Heute gebaut ist die Strecke vom Gesetzentwurf zur Zahl. Gesetzentwürfe kommen über die DIP-API des Bundestags (`src/open_policy_navigator/de/dip.py`) und das Parlament Österreich (`src/open_policy_navigator/at/parlament.py`, Ausbau in der Second Stage). Ein regelbasierter Extraktor (`src/open_policy_navigator/de/extract.py`) schneidet den Abschnitt „C. Alternativen“ aus, ein Klassifikator (`src/open_policy_navigator/de/classify.py`) ordnet ihn ein; die Rohdaten liegen als `zaehlung/de/dip-gesetzentwuerfe.jsonl` in Git. Goldset und Eval-Ratchet (`src/open_policy_navigator/evaluation.py`) laufen in der CI, die Schwellen werden aber erst gesetzt, wenn das Goldset von Menschen bestätigt ist (Monat 2). Das Schema v0 (`src/open_policy_navigator/schema.py`, exportiert als `schema/dossier-v0.schema.json`) schreibt für jede Aussage Quelle, Zitat und Prüfstatus vor. In der Förderzeit entstehen Beiträge per Pull Request oder Formular, ein Importer für eine offene Instrumentendatenbank, ein Parser für das ganze Vorblatt und die Begründung, die maschinelle Vorprüfung und die menschliche Prüfung. Aus den geprüften Einträgen baut die CI das Portal (Version 0.1 in Monat 3), JSON-Abzüge und einen lokalen MCP-Server (Monat 5), dessen Antwortvertrag schon steht (`contracts/mcp/answer.schema.json`). Kein Server, keine Nutzerkonten: Git ist die Datenbank ([ADR 0001](adr/0001-git-as-source-of-truth.md)).
+Textfassung: Heute gebaut ist die Strecke vom Gesetzentwurf zur Zahl. Gesetzentwürfe kommen über die DIP-API des Bundestags (`src/open_policy_navigator/de/dip.py`) und das Parlament Österreich (`src/open_policy_navigator/at/parlament.py`, Ausbau in der Second Stage). Ein regelbasierter Extraktor (`src/open_policy_navigator/de/extract.py`) schneidet den Abschnitt „C. Alternativen“ aus, ein Klassifikator (`src/open_policy_navigator/de/classify.py`) ordnet ihn ein; die Rohdaten liegen als `zaehlung/de/dip-gesetzentwuerfe.jsonl` in Git. Goldset und Eval-Ratchet (`src/open_policy_navigator/evaluation.py`) laufen in der CI; die Schwellen sind gesetzt, ein Rückschritt bricht den Build ab. Das Schema v0 (`src/open_policy_navigator/schema.py`, exportiert als `schema/dossier-v0.schema.json`) schreibt für jede Aussage Quelle, Zitat und Prüfstatus vor. In der Förderzeit entstehen Beiträge per Pull Request oder Formular, ein Importer für eine offene Instrumentendatenbank, ein Parser für das ganze Vorblatt und die Begründung, die maschinelle Vorprüfung und die menschliche Prüfung. Aus den geprüften Einträgen baut die CI das Portal (Version 0.1 in Monat 3), JSON-Abzüge und einen lokalen MCP-Server (Monat 5), dessen Antwortvertrag schon steht (`contracts/mcp/answer.schema.json`). Kein Server, keine Nutzerkonten: Git ist die Datenbank ([ADR 0001](adr/0001-git-as-source-of-truth.md)).
 
 ## 2. Parser: vom Gesetzentwurf zur Zahl
 
@@ -68,11 +68,11 @@ flowchart TD
     F["kein Abschnitt<br/>87 von 619 Regierungsentwürfen"]:::built
     G["Kodierregel B<br/>Vorschläge eines Sprachmodells<br/>als Vorschlag gekennzeichnet"]:::built
     H["Zufallsstichprobe 50 gezogen<br/>menschliche Prüfung offen"]:::planned
-    GS["Goldset v0: 36 Entwürfe<br/>geschichtete Stichprobe plus 3 gesetzte Fälle<br/>5 von Menschen bestätigt"]:::built
+    GS["Goldset v0: 36 Entwürfe<br/>geschichtete Stichprobe plus 3 gesetzte Fälle<br/>von Mensch geprüft, gegen PDFs abgeglichen"]:::built
     GS2["Goldset 100 Entwürfe<br/>70 doppelt kodiert · Monat 2"]:::planned
     CMP["Vergleich Ergebnis gegen Goldset<br/>Erkennung und Einordnung<br/>evaluation.py"]:::built
-    J{"Eval-Ratchet in der CI<br/>Kennzahl unter Schwelle?<br/>Schwellen ab Monat 2"}:::planned
-    K["Build bricht ab"]:::planned
+    J{"Eval-Ratchet in der CI<br/>Kennzahl unter Schwelle?"}:::built
+    K["Build bricht ab"]:::built
     L["Kernzahlen im README<br/>durch Tests an die Daten gebunden"]:::built
 
     A --> B --> C --> D
@@ -84,11 +84,11 @@ flowchart TD
     F --> CMP
     GS --> CMP
     GS -.-> GS2
-    CMP -.-> J
-    J -. ja .-> K
+    CMP --> J
+    J -- ja --> K
 ```
 
-Textfassung: Der Abruf über die DIP-API (`src/open_policy_navigator/de/dip.py`) liest den Schlüssel nur aus der Umgebungsvariable `DIP_API_KEY`. Neu abgerufene Datensätze tragen Quelle, Abrufzeit, eine SHA-256-Prüfsumme des Volltexts und die Extraktor-Version (`src/open_policy_navigator/records.py`). Der Extraktor de-v0 sucht „C. Alternativen“ bis zur nächsten Überschrift „D.“; Abschnitte über 700 Zeichen findet er nicht. Von 20 zufällig gezogenen nicht erkannten Regierungsentwürfen hatten 16 einen solchen langen Abschnitt C. Der Klassifikator ordnet gefundene Abschnitte in vier Kategorien; Tests binden die Kernzahlen im README an die gespeicherten Daten (`tests/test_reproduction.py`). Ein Sprachmodell schlägt zusätzlich Kategorien nach Kodierregel B vor (`eval/codebook_b/proposals_government_v0.json`); sie sind als Vorschlag gekennzeichnet, bis ein Mensch eine Zufallsstichprobe von 50 geprüft hat (`eval/codebook_b/sample_v0.json`). Das Goldset (`eval/goldset_v0.json`) umfasst 36 Regierungsentwürfe: 20 zufällig gezogene nicht erkannte, dazu erkannte, geschichtet nach Kategorie, plus 3 gesetzte Fälle; bisher sind 5 von einem Menschen bestätigt. Die Erstauszählung von 2026 hat die Herkunftsfelder noch nicht; sie kommen mit dem nächsten Abruf. Das Skript `src/open_policy_navigator/evaluation.py` vergleicht das Ergebnis mit dem Goldset. Die Schwellen in `eval/thresholds.json` stehen noch auf null; erst wenn das Goldset bestätigt und in Monat 2 auf 100 Entwürfe ausgebaut ist, lässt das Eval-Ratchet den Build scheitern, sobald eine Kennzahl unter ihren bisher besten Wert fällt.
+Textfassung: Der Abruf über die DIP-API (`src/open_policy_navigator/de/dip.py`) liest den Schlüssel nur aus der Umgebungsvariable `DIP_API_KEY`. Neu abgerufene Datensätze tragen Quelle, Abrufzeit, eine SHA-256-Prüfsumme des Volltexts und die Extraktor-Version (`src/open_policy_navigator/records.py`). Der Extraktor de-v0 sucht „C. Alternativen“ bis zur nächsten Überschrift „D.“; Abschnitte über 700 Zeichen findet er nicht. Von 20 zufällig gezogenen nicht erkannten Regierungsentwürfen hatten 16 einen solchen langen Abschnitt C. Der Klassifikator ordnet gefundene Abschnitte in vier Kategorien; Tests binden die Kernzahlen im README an die gespeicherten Daten (`tests/test_reproduction.py`). Ein Sprachmodell schlägt zusätzlich Kategorien nach Kodierregel B vor (`eval/codebook_b/proposals_government_v0.json`); sie sind als Vorschlag gekennzeichnet, bis ein Mensch eine Zufallsstichprobe von 50 geprüft hat (`eval/codebook_b/sample_v0.json`). Das Goldset (`eval/goldset_v0.json`) umfasst 36 Regierungsentwürfe: 20 zufällig gezogene nicht erkannte, dazu erkannte, geschichtet nach Kategorie, plus 3 gesetzte Fälle. Alle 36 sind von einem Menschen geprüft und gegen die PDFs der Drucksachen abgeglichen; eine blinde Zweitkodierung stimmte in 34 von 36 Fällen überein. Die Erstauszählung von 2026 hat die Herkunftsfelder noch nicht; sie kommen mit dem nächsten Abruf. Das Skript `src/open_policy_navigator/evaluation.py` vergleicht das Ergebnis mit dem Goldset. Seit dem 20.11.2026 sind die Schwellen in `eval/thresholds.json` gesetzt (Erkennung 88 Prozent): Das Eval-Ratchet lässt den Build scheitern, sobald eine Kennzahl unter ihren bisher besten Wert fällt. In Monat 2 wächst das Goldset auf 100 Entwürfe, 70 davon doppelt kodiert.
 
 ## 3. Prüfschleife: Maschine sortiert vor, Mensch entscheidet
 
@@ -200,7 +200,7 @@ Textfassung: Monat 1 Schema v1, Beitragsablauf, CI-Prüfungen und fünf Nutzerge
 | Vorblatt, „C. Alternativen“ | Deckblatt eines Gesetzentwurfs der Bundesregierung; Abschnitt C soll andere Lösungswege nennen (§ 42 GGO mit Anlage 3) |
 | DIP | Dokumentations- und Informationssystem für Parlamentsmaterialien von Bundestag und Bundesrat, mit offener API |
 | de-v0, de-v1 | Versionen des deutschen Extraktors; v0 ist das Muster der ersten Zählung, unverändert, damit die Zahlen reproduzierbar bleiben |
-| Goldset | Stichprobe mit von Menschen geprüften Antworten, an der die Maschine gemessen wird; Stand v0: 5 von 36 bestätigt |
+| Goldset | Stichprobe mit von Menschen geprüften Antworten, an der die Maschine gemessen wird; Stand v0: 36 Entwürfe, alle geprüft |
 | Eval-Ratchet | CI-Prüfung, die eine Kennzahl nie unter ihren bisher besten Wert fallen lässt |
 | Kodierregel B | Regel, wann ein Abschnitt als „Alternative benannt“ zählt (`eval/README.md`) |
 | Krippendorff-α | Maß, wie gut zwei unabhängige Prüfende übereinstimmen; ab 0,800 gilt es als verlässlich |

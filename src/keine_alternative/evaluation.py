@@ -14,11 +14,13 @@ Metrics (government drafts only):
   16 of 532 found), so the per-stratum rates are weighted by stratum size.
 
 Only coding_1 is used for the metrics; coding_2 is for inter-coder agreement.
-Labels with "confirmed": false are proposals and are reported as such.
+Labels with "confirmed": false are proposals (e.g. by a language model). They are
+shown for information only; the ratchet (--check, --update) uses confirmed labels.
 """
 
 import argparse
 import json
+import math
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -87,8 +89,9 @@ def section_recall(goldset: dict, data: dict[str, dict]) -> Metric:
 
     present_s: share of annotated drafts in stratum s that have section C.
     found_s: share of those that the data file finds.
-    The interval varies present_s of the not-found stratum over its Wilson
-    interval, which is where almost all of the uncertainty lies.
+    The interval is an approximation: it varies only present_s of the not-found
+    stratum over its Wilson interval and ignores sampling error in the other
+    rates, so it is narrower than a full interval.
     """
     sizes = {"found_v0": goldset["population"]["found_v0"]}
     sizes["not_found_v0"] = goldset["population"]["not_found_v0"]
@@ -133,6 +136,12 @@ def category_kappa(items: list[dict]) -> tuple[float | None, int]:
     return cohen_kappa([a for a, _ in pairs], [b for _, b in pairs]), len(pairs)
 
 
+def confirmed_only(goldset: dict) -> dict:
+    """The gold set without proposals: unconfirmed items count as not yet labelled."""
+    items = [i for i in goldset["items"] if i["coding_1"] and i["coding_1"]["confirmed"]]
+    return {**goldset, "items": items}
+
+
 def evaluate(goldset: dict, records: list[dict]) -> dict[str, Metric]:
     data = {r["nr"]: r for r in records}
     items = goldset["items"]
@@ -162,7 +171,7 @@ def raised(metrics: dict[str, Metric], thresholds: dict[str, float | None]) -> d
         value = metrics[name].value
         current = new.get(name)
         if value is not None and (current is None or value > current):
-            new[name] = round(value, 4)
+            new[name] = math.floor(value * 10_000) / 10_000  # never round up
     return new
 
 
@@ -176,7 +185,9 @@ def main(argv: list[str] | None = None) -> int:
 
     goldset = json.loads(GOLDSET.read_text(encoding="utf-8"))
     thresholds = json.loads(THRESHOLDS.read_text(encoding="utf-8"))
-    metrics = evaluate(goldset, read_jsonl(args.data))
+    records = read_jsonl(args.data)
+    metrics = evaluate(confirmed_only(goldset), records)
+    with_proposals = evaluate(goldset, records)
 
     items = goldset["items"]
     confirmed = sum(1 for i in items if i["coding_1"] and i["coding_1"]["confirmed"])
@@ -184,8 +195,12 @@ def main(argv: list[str] | None = None) -> int:
         f"gold set {goldset['goldset']}: {len(items)} items, {len(labelled(items))} labelled, "
         f"{confirmed} confirmed by a human (the others are proposals)"
     )
+    print("confirmed labels (used by the ratchet):")
     for metric in metrics.values():
-        print(metric.line(), f"(threshold {thresholds.get(metric.name)})")
+        print("  " + metric.line(), f"(threshold {thresholds.get(metric.name)})")
+    print("including proposals (information only):")
+    for metric in with_proposals.values():
+        print("  " + metric.line())
     kappa, pairs = category_kappa(items)
     print(f"{'category_kappa':24} {'pending' if kappa is None else f'{kappa:.3f}'} (pairs={pairs})")
 

@@ -3,6 +3,8 @@
 Checks the German data file against a hand-annotated gold set. CI runs
 `python -m keine_alternative.evaluation --check` and fails if a metric drops
 below `thresholds.json`. Thresholds only go up (`--update`), never down.
+Only labels confirmed by a human count for the ratchet; proposals are shown
+for information. As long as nothing is confirmed, all thresholds are `null`.
 
 ## Gold set v0 (`goldset_v0.json`)
 
@@ -14,7 +16,8 @@ below `thresholds.json`. Thresholds only go up (`--update`), never down.
 | `found_v0` | 532 | 16 | by v0 category, plus 21/8283 (JStG 2026), 20/12719, 20/11310 |
 
 Because misses are over-sampled, recall is weighted by stratum size (see
-`src/keine_alternative/evaluation.py`).
+`src/keine_alternative/evaluation.py`). Its interval is approximate (only the
+share of real sections among the misses is varied), so it is too narrow.
 
 ## Annotation status (20 November 2026)
 
@@ -27,7 +30,7 @@ Because misses are over-sampled, recall is weighted by stratum size (see
   rule result for 20/12719 and 20/11310. After checking, set `"coder": "stefan"`
   and `"confirmed": true`.
 
-Current metrics (all labels are still proposals):
+Metrics including proposals (information only, not used by the ratchet):
 
 | metric | value | 95 % Wilson interval | n |
 |---|---|---|---|

@@ -86,8 +86,21 @@ def test_check_fails_when_metric_drops_or_disappears():
 def test_committed_data_meets_committed_thresholds():
     goldset = json.loads((ROOT / "eval" / "goldset_v0.json").read_text(encoding="utf-8"))
     thresholds = json.loads((ROOT / "eval" / "thresholds.json").read_text(encoding="utf-8"))
-    metrics = evaluation.evaluate(goldset, read_jsonl(DE_DATA))
+    metrics = evaluation.evaluate(evaluation.confirmed_only(goldset), read_jsonl(DE_DATA))
     assert evaluation.failures(metrics, thresholds) == []
+
+
+def test_proposals_do_not_count_for_the_ratchet():
+    item = {"nr": "x", "stratum": "found_v0", "coding_2": None}
+    proposal = item | {"coding_1": coding(True, "Keine.", "Keine") | {"confirmed": False}}
+    confirmed = item | {"coding_1": coding(True, "Keine.", "Keine")}
+    goldset = {"items": [proposal, confirmed]}
+    assert evaluation.confirmed_only(goldset)["items"] == [confirmed]
+
+
+def test_ratchet_never_rounds_up():
+    metrics = {n: evaluation.Metric(n, 0.99996, 0, 1, 9) for n in evaluation.METRICS}
+    assert evaluation.raised(metrics, {})["extraction_precision"] == 0.9999
 
 
 def test_goldset_shape():

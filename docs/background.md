@@ -67,6 +67,25 @@ Offene Forschungsfrage: Für Gesetze ohne Vergleichsgruppe gibt es keine etablie
 - Prototypen: 17 Ansätze zu KI und Arbeit; Fallakte zu älteren Langzeitarbeitslosen in Österreich (Aktion 20.000, Marienthal, Aktion 55+); Demo des Vergleichsportals.
 - Zählungen Deutschland und Österreich, Goldset und Eval-Ratchet, Schema v0 mit Herkunftsangaben (dieses Repository).
 
-## 6. Europäische Perspektive
+## 6. Europäische Perspektive: ein lernendes Europa
 
-`[OFFEN: nach Gespräch mit Stefan ergänzen]`
+**Grundsatzziel:** Nicht nur Deutschland vergleicht sich mit anderen. Jedes Land soll seine Vorhaben mit den Ansätzen der anderen vergleichen können: Wer in Lissabon eine Mietregulierung plant, sieht die Erfahrungen aus Wien und Berlin, und umgekehrt. Gegenseitiges Lernen statt nationaler Insellösungen.
+
+**Förderzeitraum klein, Skalierung mitgedacht:**
+
+| Stufe | Inhalt | Technische Vorsorge schon jetzt |
+|---|---|---|
+| Prototype Fund (6 Monate) | Deutschland und Österreich, Fälle aus ganz Europa als Vergleich | Länder als austauschbare Adapter; Schema mehrsprachig angelegt; stabile Kennungen (DIP, ELI, DOI) |
+| Second Stage und Anschluss | Folgenabschätzungen der EU-Kommission als nächste Quelle: Sie müssen Optionen vergleichen, das Regulatory Scrutiny Board bewertet sie öffentlich | Adapter-Anleitung, Beitragsregeln, Partner in weiteren Ländern |
+| Perspektive | weitere Parlamente, Übersetzungen, gemeinsamer Betrieb mit europäischen Partnern | offenes Schema als möglicher gemeinsamer Standard |
+
+**Anschluss an die Better-Regulation-Agenda (zu prüfen und zu belegen, bevor es im Antrag steht):**
+
+- EU-Leitlinien und Toolbox für bessere Rechtsetzung: verlangen in Folgenabschätzungen den Vergleich von Optionen; der Navigator macht diese Vergleiche auffindbar und vergleichbar.
+- Regulatory Scrutiny Board: öffentliche Bewertungen der Folgenabschätzungen; Datenquelle für Qualität der Optionenprüfung.
+- „Have your say“-Portal der Kommission: Stellungnahmen von Verbänden und Zivilgesellschaft als Quelle für Positionen.
+- Schlussfolgerungen des Rates zu Reallaboren und Experimentierklauseln (2020) und das Bundeserprobungsgesetz: Ergebnisse aus Erprobungen brauchen einen öffentlichen Ort.
+- Interoperable Europe Act (2024): Interoperabilität öffentlicher Daten und Dienste; offenes Schema und ELI-Kennungen passen dazu.
+- OECD-Empfehlung zu Regulatory Policy and Governance (2012) und OECD Regulatory Policy Outlook: internationaler Bezugsrahmen für Folgenabschätzung.
+
+**Anschlussfinanzierung (zu prüfen):** europäische Programme wie CERV (Bürger, Gleichstellung, Rechte und Werte) oder Horizon Europe (Cluster 2, Demokratie und Governance), dazu Stiftungen in Deutschland und Österreich.

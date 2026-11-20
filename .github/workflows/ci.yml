@@ -23,3 +23,5 @@ jobs:
       - run: ruff check .
       - run: ruff format --check .
       - run: pytest -q
+      # Eval ratchet: fails if a metric falls below eval/thresholds.json
+      - run: python -m keine_alternative.evaluation --check

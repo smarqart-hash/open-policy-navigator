@@ -1,0 +1,51 @@
+# Eval ratchet
+
+Checks the German data file against a hand-annotated gold set. CI runs
+`python -m keine_alternative.evaluation --check` and fails if a metric drops
+below `thresholds.json`. Thresholds only go up (`--update`), never down.
+
+## Gold set v0 (`goldset_v0.json`)
+
+36 government drafts (WP 20/21), sampled in two strata:
+
+| stratum | population | in gold set | how chosen |
+|---|---|---|---|
+| `not_found_v0` (pattern found no section C) | 87 | 20 | random, seed 20261120 |
+| `found_v0` | 532 | 16 | by v0 category, plus 21/8283 (JStG 2026), 20/12719, 20/11310 |
+
+Because misses are over-sampled, recall is weighted by stratum size (see
+`src/keine_alternative/evaluation.py`).
+
+## Annotation status (20 November 2026)
+
+- **20 `not_found_v0` items: open.** Stefan checks the Drucksache PDF and fills
+  `section_present` (is there a section "C. Alternativen"?), `gold_alt` (its text,
+  whitespace does not matter) and `category`. Until then `section_recall` is *pending*.
+- **16 `found_v0` items: proposals by Claude** (`"coder": "claude-proposal"`,
+  `"confirmed": false`), taken from the stored text. `gold_alt` must be checked
+  against the PDF (start and end of the section); `category` deviates from the
+  rule result for 20/12719 and 20/11310. After checking, set `"coder": "stefan"`
+  and `"confirmed": true`.
+
+Current metrics (all labels are still proposals):
+
+| metric | value | 95 % Wilson interval | n |
+|---|---|---|---|
+| extraction_precision | 1.000 | 0.806–1.000 | 16 |
+| classification_accuracy | 0.875 | 0.640–0.965 | 16 |
+| section_recall | pending | | |
+
+`extraction_precision` is 1.0 by construction as long as `gold_alt` is a copy of
+the stored text; it only becomes meaningful after checking against the PDFs.
+
+## Double coding
+
+Every item has `coding_2` (same fields as `coding_1`, default `null`). A second
+person codes independently, without looking at `coding_1`. The run prints Cohen's
+κ for `category` on all items coded twice.
+
+## Categories
+
+`Keine` · `Keine + Begründung` · `Status quo genannt` · `Alternativen benannt/diskutiert`
+(as in `src/keine_alternative/de/classify.py`). Rule of thumb: the category is
+about what the cover sheet *says*, not whether alternatives were examined.

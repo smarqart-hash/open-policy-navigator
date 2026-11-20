@@ -1,0 +1,551 @@
+{
+  "goldset": "de-government-v0",
+  "population": {
+    "government_drafts": 619,
+    "found_v0": 532,
+    "not_found_v0": 87
+  },
+  "sampling": "20 of the not-found drafts at random (seed 20261120); found drafts stratified by v0 category plus 3 fixed cases (21/8283, 20/12719, 20/11310)",
+  "items": [
+    {
+      "nr": "20/1000",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes über die Feststellung des Bundeshaushaltsplans für das Haushaltsjahr 2022 (Haushaltsgesetz 2022)",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/10540",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes zur Anpassung der Mindeststrafen des § 184b Absatz 1 Satz 1 und Absatz 3 des Strafgesetzbuches - Verbreitung, Erwerb und Besitz kinderpornographischer Inhalte",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/11226",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes zur Umsetzung der EU-Erneuerbaren-Richtlinie in den Bereichen Windenergie auf See und Stromnetze und zur Änderung des Bundesbedarfsplangesetzes",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/11855",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes zur Neuregelung der Vollstreckung von Fahrverboten und Entziehungen der Fahrerlaubnis bei Inhabern ausländischer EU- und EWR-Führerscheine ohne ordentlichen Wohnsitz im Inland",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/12400",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes über die Feststellung des Bundeshaushaltsplans für das Haushaltsjahr 2025 (Haushaltsgesetz 2025 - HG 2025)",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/1634",
+      "wp": "20",
+      "titel": "Entwurf eines Zweiten Gesetzes zur Änderung des Windenergie-auf-See-Gesetzes und anderer Vorschriften",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/2243",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes zu dem Protokoll vom 8. Oktober 2021 zur Änderung des Abkommens vom 9. Juli 2008 zwischen der Bundesrepublik Deutschland und den Vereinigten Mexikanischen Staaten zur Vermeidung der Doppelbesteuerung und der Steuerverkürzung auf dem Gebiet der Steuern vom Einkommen und vom Vermögen",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/3100",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes über die Feststellung des Bundeshaushaltsplans für das Haushaltsjahr 2023 (Haushaltsgesetz 2023)",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/4822",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes zur Kennzeichnung von Lebensmitteln mit der Haltungsform der Tiere, von denen die Lebensmittel gewonnen wurden (Tierhaltungskennzeichnungsgesetz - TierHaltKennzG)",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/6315",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes zur Regelung einzelner dem Schutz der finanziellen Interessen der Union dienender Bestimmungen im Rahmen der Gemeinsamen Agrarpolitik, zur Änderung des Betäubungsmittelgesetzes sowie zur Aufhebung weiterer Vorschriften",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/6500",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes zur Weiterentwicklung der Fachkräfteeinwanderung \r\n",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/6818",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes zu dem Protokoll vom 21. Juli 2022 zur Änderung des Abkommens vom 25. Januar 2010 zwischen der Bundesrepublik Deutschland und der Republik Bulgarien zur Vermeidung der Doppelbesteuerung und der Steuerverkürzung auf dem Gebiet der Steuern vom Einkommen und vom Vermögen",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/8654",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes für die Wärmeplanung und zur Dekarbonisierung der Wärmenetze",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/9094",
+      "wp": "20",
+      "titel": "Entwurf eines Zweiten Gesetzes zur Änderung des Energiewirtschaftsgesetzes",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "21/1493",
+      "wp": "21",
+      "titel": "Entwurf eines Gesetzes über die Einführung einer bundeseinheitlichen Pflegefachassistenzausbildung",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "21/3055",
+      "wp": "21",
+      "titel": "Entwurf eines Gesetzes zur Änderung des Registerzensuserprobungsgesetzes",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "21/3944",
+      "wp": "21",
+      "titel": "Entwurf eines Gesetzes zur Änderung des Gesetzes zu dem Mehrseitigen Übereinkommen vom 24. November 2016 zur Umsetzung steuerabkommensbezogener Maßnahmen zur Verhinderung der Gewinnverkürzung und Gewinnverlagerung",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "21/5921",
+      "wp": "21",
+      "titel": "Entwurf eines Gesetzes zur Regelung der Förderung des Spitzensports und weiterer Maßnahmen gesamtstaatlicher Bedeutung im Sport sowie zur Errichtung der Spitzensport-Agentur (Sportfördergesetz -  SpoFöG)",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "21/7300",
+      "wp": "21",
+      "titel": "Entwurf eines Gesetzes über die Feststellung des Bundeshaushaltsplans für das Haushaltsjahr 2027 (Haushaltsgesetz 2027 - HG 2027)",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "21/8412",
+      "wp": "21",
+      "titel": "Entwurf eines Fünften Gesetzes zur Änderung des Aufstiegsfortbildungsförderungsgesetzes",
+      "stratum": "not_found_v0",
+      "coding_1": {
+        "section_present": null,
+        "gold_alt": null,
+        "category": null,
+        "coder": null,
+        "confirmed": false,
+        "note": "open: check the Drucksache PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/11310",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes zur weiteren Digitalisierung der Zwangsvollstreckung",
+      "stratum": "found_v0",
+      "coding_1": {
+        "section_present": true,
+        "gold_alt": "Derzeit keine. Langfristig sollte zur Behebung der Problematik hybrider Anträge und Aufträge allerdings eine solche digitale Lösung angestrebt werden, die vor allem aus Gründen des Schuldnerschutzes ein hohes Niveau an Fälschungs- und Manipulationsschutz gewährleisten kann. Eine solche Lösung könnte in der Schaffung einer elektronischen Datenbank für die Zwangsvollstreckung bestehen, die jedoch aufgrund der notwendigen technischen Entwicklungen nicht zeitnah realisiert werden kann.",
+        "category": "Keine + Begründung",
+        "coder": "claude-proposal",
+        "confirmed": false,
+        "note": "proposal from stored text; check start/end of the section against the PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/12202",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes zu dem Übergangsabkommen für ein Wirtschaftspartnerschaftsabkommen vom 22. Januar 2009 zwischen der Europäischen Union und ihren Mitgliedstaaten einerseits und der Vertragspartei Zentralafrika andererseits",
+      "stratum": "found_v0",
+      "coding_1": {
+        "section_present": true,
+        "gold_alt": "Keine",
+        "category": "Keine",
+        "coder": "claude-proposal",
+        "confirmed": false,
+        "note": "proposal from stored text; check start/end of the section against the PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/12719",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes zur Änderung des Tierschutzgesetzes und des Tiererzeugnisse-Handels-Verbotsgesetzes",
+      "stratum": "found_v0",
+      "coding_1": {
+        "section_present": true,
+        "gold_alt": "Zu den vorliegenden Änderungen, Ergänzungen und Anpassungen des Tierschutzgesetzes bestehen keine Alternativen.",
+        "category": "Keine + Begründung",
+        "coder": "claude-proposal",
+        "confirmed": false,
+        "note": "proposal from stored text; check start/end of the section against the PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/13585",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes zur Anpassung des Treibhausgas-Emissionshandelsgesetzes an die Änderung der Richtlinie 2003/87/EG (TEHG-Europarechtsanpassungsgestz 2024)",
+      "stratum": "found_v0",
+      "coding_1": {
+        "section_present": true,
+        "gold_alt": "Keine.",
+        "category": "Keine",
+        "coder": "claude-proposal",
+        "confirmed": false,
+        "note": "proposal from stored text; check start/end of the section against the PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/1410",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes zur Änderung des Grundgesetzes (Artikel 87a)",
+      "stratum": "found_v0",
+      "coding_1": {
+        "section_present": true,
+        "gold_alt": "Keine. Der Finanzierungsbedarf für die Ertüchtigung der Bundeswehr kann ohne die ausnahmsweise Kreditermächtigung nicht rechtzeitig gedeckt werden.",
+        "category": "Keine + Begründung",
+        "coder": "claude-proposal",
+        "confirmed": false,
+        "note": "proposal from stored text; check start/end of the section against the PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/14503",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes zur Modernisierung des Verpflichtungsgesetzes und zur Änderung des Europäische-Staatsanwaltschaft-Gesetzes",
+      "stratum": "found_v0",
+      "coding_1": {
+        "section_present": true,
+        "gold_alt": "In Bezug auf das Verfahren der förmlichen Verpflichtung wurde geprüft, ob als weitere Alternativen zu der Präsenzverpflichtung ein schriftliches Verfahren oder eine telefonische Verpflichtung zugelassen werden sollten. Davon wird jedoch abgesehen, da bei einer lediglich schriftlichen beziehungsweise telefonischen Verpflichtung die erforderliche unmittelbare individuelle Ansprache der zu verpflichtenden Person nicht hinreichend möglich wäre. Alternativen zur Änderung des EUStAG liegen nicht vor.",
+        "category": "Alternativen benannt/diskutiert",
+        "coder": "claude-proposal",
+        "confirmed": false,
+        "note": "proposal from stored text; check start/end of the section against the PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/1631",
+      "wp": "20",
+      "titel": "Entwurf eines Siebenundzwanzigsten Gesetzes zur Änderung des Bundesausbildungsförderungsgesetzes (27. BAföGÄndG)",
+      "stratum": "found_v0",
+      "coding_1": {
+        "section_present": true,
+        "gold_alt": "Keine. Ohne die vorgeschlagenen Änderungen und Anpassungen würden mit Förderungsleistungen nach dem BAföG immer weniger an einer förderungsfähigen Ausbildung Interessierte erreicht. Dadurch stiege die Gefahr, dass sie sich finanziell nicht in der Lage sähen, ihr Ausbildungsvorhaben in die Tat umzusetzen. Die mit dem BAföG erreichbare Sicherung von Chancengerechtigkeit und Ausschöpfung aller Qualifizierungsreserven würde entgegen der gesetzlichen Zielsetzung an Durchschlagskraft und Nachhaltigkeit weiter einbüßen.",
+        "category": "Keine + Begründung",
+        "coder": "claude-proposal",
+        "confirmed": false,
+        "note": "proposal from stored text; check start/end of the section against the PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/1636",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes zur Umsetzung der Richtlinie (EU) 2019/1152 des Europäischen Parlaments und des Rates vom 20. Juni 2019 über transparente und vorhersehbare Arbeitsbedingungen in der Europäischen Union im Bereich des Zivilrechts",
+      "stratum": "found_v0",
+      "coding_1": {
+        "section_present": true,
+        "gold_alt": "Keine.",
+        "category": "Keine",
+        "coder": "claude-proposal",
+        "confirmed": false,
+        "note": "proposal from stored text; check start/end of the section against the PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/3870",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes zu Herkunftsnachweisen für Gas, Wasserstoff, Wärme oder Kälte aus erneuerbaren Energien und zur Änderung der Fernwärme- oder Fernkälte-Verbrauchserfassungs- und -Abrechnungsverordnung",
+      "stratum": "found_v0",
+      "coding_1": {
+        "section_present": true,
+        "gold_alt": "Keine.",
+        "category": "Keine",
+        "coder": "claude-proposal",
+        "confirmed": false,
+        "note": "proposal from stored text; check start/end of the section against the PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/3874",
+      "wp": "20",
+      "titel": "Entwurf eines Gesetzes zu der Änderungsvereinbarung vom 8. August 2019 zwischen der Regierung der Bundesrepublik Deutschland und der Regierung der Sonderverwaltungsregion Hongkong der Volksrepublik China zum Abkommen vom 5. Mai 1995 zwischen der Regierung der Bundesrepublik Deutschland und der Regierung von Hongkong über den Fluglinienverkehr",
+      "stratum": "found_v0",
+      "coding_1": {
+        "section_present": true,
+        "gold_alt": "Bei Beibehaltung des Status quo würde ein nicht mehr zeitgemäßer Zustand aufrechterhalten.",
+        "category": "Alternativen benannt/diskutiert",
+        "coder": "claude-proposal",
+        "confirmed": false,
+        "note": "proposal from stored text; check start/end of the section against the PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "20/3877",
+      "wp": "20",
+      "titel": "Entwurf eines Zweiten Gesetzes zur Änderung des Infektionsschutzgesetzes",
+      "stratum": "found_v0",
+      "coding_1": {
+        "section_present": true,
+        "gold_alt": "Alternativ kommt in Betracht, ausschließlich Verfahrensvorschriften für die Zuteilungsentscheidung zu regeln. Um jedoch einen effektiven Schutz vor Diskriminierung zu gewährleisten, sieht der Entwurf über bloße Verfahrensvorschriften hinaus auch ein materielles Entscheidungskriterium vor.",
+        "category": "Alternativen benannt/diskutiert",
+        "coder": "claude-proposal",
+        "confirmed": false,
+        "note": "proposal from stored text; check start/end of the section against the PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "21/2474",
+      "wp": "21",
+      "titel": "Entwurf eines Gesetzes zur Änderung des Lieferkettensorgfaltspflichtengesetzes - Entlastung der Unternehmen durch anwendungs- und vollzugsfreundliche Umsetzung",
+      "stratum": "found_v0",
+      "coding_1": {
+        "section_present": true,
+        "gold_alt": "Die Berichtspflichten und die Sanktionsregelung könnten unverändert bleiben. Aufgrund der dynamischen Entwicklung der Rechtslage auf europäischer Ebene sollen Unternehmen bis zur nationalen Umsetzung der CSDDD jedoch – unter Beibehaltung des Schutzniveaus der EU-Richtlinie – keiner im Vergleich zu anderen europäischen Unternehmen unverhältnismäßig höheren Belastung ausgesetzt sein.",
+        "category": "Status quo genannt",
+        "coder": "claude-proposal",
+        "confirmed": false,
+        "note": "proposal from stored text; check start/end of the section against the PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "21/2672",
+      "wp": "21",
+      "titel": "Entwurf eines Achten Gesetzes zur Änderung des Kraftfahrzeugsteuergesetzes",
+      "stratum": "found_v0",
+      "coding_1": {
+        "section_present": true,
+        "gold_alt": "Es gibt keine Alternativen.",
+        "category": "Alternativen benannt/diskutiert",
+        "coder": "claude-proposal",
+        "confirmed": false,
+        "note": "proposal from stored text; check start/end of the section against the PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "21/3510",
+      "wp": "21",
+      "titel": "Entwurf eines Gesetzes zur Begrenzung der Risiken durch Investmentfonds und zur Umsetzung der Richtlinie (EU) 2024/927 im Hinblick auf Übertragungsvereinbarungen, Liquiditätsrisikomanagement, die aufsichtliche Berichterstattung, die Erbringung von Verwahr- und Hinterlegungsdienstleistungen und die Kreditvergabe durch alternative Investmentfonds sowie zur Umsetzung der Richtlinie (EU) 2024/2994 im Hinblick auf die Behandlung des Konzentrationsrisikos, das aus Risikopositionen gegenüber zentralen Gegenparteien erwächst, und des Ausfallrisikos bei zentral geclearten Derivategeschäften und zur Änderung weiterer Vorschriften\r\n(Fondsrisikobegrenzungsgesetz)",
+      "stratum": "found_v0",
+      "coding_1": {
+        "section_present": true,
+        "gold_alt": "Keine. Die Richtlinienumsetzung erfolgt 1:1; eine darüberhinausgehende Umsetzung würde Wettbewerbsnachteile für deutsche Fondsverwalter und zusätzliche Kosten für Anlegerinnen und Anleger bedeuten.",
+        "category": "Keine + Begründung",
+        "coder": "claude-proposal",
+        "confirmed": false,
+        "note": "proposal from stored text; check start/end of the section against the PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "21/3740",
+      "wp": "21",
+      "titel": "Entwurf eines Gesetzes zum Bürokratierückbau in der Gewerbeordnung und dem Energieverbrauchskennzeichnungsgesetz sowie anderer Rechtsvorschriften zur Aufhebung von Berichtspflichten",
+      "stratum": "found_v0",
+      "coding_1": {
+        "section_present": true,
+        "gold_alt": "Die Beibehaltung der bestehenden Regelungen sowie der damit verbundenen Aufwände stellt mit Blick auf die Zielsetzung des Bürokratierückbaus keine Alternative dar.",
+        "category": "Status quo genannt",
+        "coder": "claude-proposal",
+        "confirmed": false,
+        "note": "proposal from stored text; check start/end of the section against the PDF"
+      },
+      "coding_2": null
+    },
+    {
+      "nr": "21/8283",
+      "wp": "21",
+      "titel": "Entwurf eines Jahressteuergesetzes 2026",
+      "stratum": "found_v0",
+      "coding_1": {
+        "section_present": true,
+        "gold_alt": "Keine. Die im Einzelnen geprüften Alternativen sind aus der Tabelle im Allgemeinen Teil der Begründung ersichtlich.",
+        "category": "Keine + Begründung",
+        "coder": "claude-proposal",
+        "confirmed": false,
+        "note": "proposal from stored text; check start/end of the section against the PDF"
+      },
+      "coding_2": null
+    }
+  ]
+}

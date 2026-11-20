@@ -5,10 +5,10 @@ Stand: 20.11.2026. Diese Seite ordnet das Projekt in Forschung und bestehende An
 ## 1. Das Problem in Zahlen
 
 - Die Begründung eines Gesetzentwurfs muss darlegen, „ob andere Lösungsmöglichkeiten bestehen … gegebenenfalls welche Erwägungen zu ihrer Ablehnung geführt haben“ (§ 43 Abs. 1 Nr. 3 GGO); das Vorblatt fasst das unter „C. Alternativen“ zusammen (§ 42 Abs. 1 mit Anlage 3). [P] Text Stand 2009, [vzbv-PDF](https://www.vzbv.de/sites/default/files/downloads/gemeinsame_geschaeftsordnung_bundesministerien.pdf)
-- Eigene Zählung über die DIP-API: Bei 422 von 532 erkannten Regierungsentwürfen der Wahlperioden 20 und 21 beginnt der Abschnitt mit „Keine“ (79 %), bei 326 steht nur dieses Wort. 87 von 619 Regierungsentwürfen erkennt das Muster noch nicht. Manche Entwürfe verweisen vom Vorblatt in die Begründung (z. B. JStG 2026, BR-Drs. 447/26). Skripte und Daten: `zaehlung/` bzw. Paket `open_policy_navigator`.
+- Eigene Zählung über die DIP-API: Bei 422 von 532 erkannten Regierungsentwürfen der Wahlperioden 20 und 21 beginnt der Abschnitt mit „Keine“ (79 %), bei 326 steht nur dieses Wort. 87 von 619 Regierungsentwürfen erkennt das Muster noch nicht; ein Teil davon hat keinen Abschnitt C (z. B. Haushaltsgesetze). Spanne über alle 619: 68 % bis 82 %. Das Muster erfasst nur Abschnitte bis rund 700 Zeichen; lange Abschnitte diskutieren eher Alternativen, die Quote ist also eher zu hoch. Robust ist: 326 von 532 nur „Keine“ (61 %). Eine bereinigte Quote ohne Fälle, in denen „Keine“ plausibel ist (EU-Umsetzung, Vertragsgesetze, Haushalt), folgt. Manche Entwürfe verweisen vom Vorblatt in die Begründung (z. B. JStG 2026, BR-Drs. 447/26). Skripte und Daten: `zaehlung/` bzw. Paket `open_policy_navigator`.
 - Österreich: 470 Regierungsvorlagen (XXVII./XXVIII. GP) mit Vorblatt und Folgenabschätzung; 286 haben eine vereinfachte Folgenabschätzung ohne Feld für Alternativen; von 184 vollen nennen 2 eine echte Alternative (von Hand geprüft).
 
-Grenze: Gezählt wird, was öffentlich im Vorblatt steht, nicht, was Ministerien intern geprüft haben.
+Grenze: Gezählt wird, was öffentlich im Vorblatt steht, nicht, was Ministerien intern geprüft haben. Alternativen kommen oft über Ressorts, Verbände und Anhörungen ins Verfahren (Rossi). Die Zahl zeigt also eine Lücke in der öffentlichen Nachvollziehbarkeit, keinen Beleg für fehlendes Nachdenken.
 
 ## 2. Der Diskurs: bekannt, aber nie gemessen
 

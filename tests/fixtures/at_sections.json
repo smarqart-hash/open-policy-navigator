@@ -1,0 +1,98 @@
+[
+  {
+    "gp": "XXVII",
+    "nr": "405 d.B.",
+    "titel": "Rechtsverhältnisse der Evangelischen Kirche, finanzielle Leistungen an die altkatholische Kirche und Regelung der äußeren Rechtsverhältnisse der israelitischen Religionsgesellschaft",
+    "status": "ok",
+    "full": true,
+    "simplified": false,
+    "alt": "Keine",
+    "expected_v0": "voll: keine Alternative",
+    "proposed_correct": null,
+    "note": "bare 'Keine'"
+  },
+  {
+    "gp": "XXVII",
+    "nr": "2199 d.B.",
+    "titel": "IFI-Beitragsgesetz 2023",
+    "status": "ok",
+    "full": true,
+    "simplified": false,
+    "alt": "Sofern Österreich im Einklang mit anderen Gebernationen vorgehen will, gibt es keine Alternativen zur österreichischen Beitragsleistung.",
+    "expected_v0": "voll: keine Alternative",
+    "proposed_correct": null,
+    "note": "'gibt es keine Alternativen'"
+  },
+  {
+    "gp": "XXVIII",
+    "nr": "251 d.B.",
+    "titel": "Wasserstraßengesetz, Schifffahrtsgesetz, Änderung",
+    "status": "ok",
+    "full": true,
+    "simplified": false,
+    "alt": "Ohne Anpassung wird dem gesetzlich vorgesehenen Verursacherprinzip nicht entsprochen und dem Bund entstehen weiterhin jährlich rund 2,5 Mio Kosten.",
+    "expected_v0": "voll: nur Nullszenario",
+    "proposed_correct": null,
+    "note": "only describes the zero scenario"
+  },
+  {
+    "gp": "XXVIII",
+    "nr": "523 d.B.",
+    "titel": "Budgetbegleitgesetz 2027-2028",
+    "status": "ok",
+    "full": true,
+    "simplified": true,
+    "alt": "Die Tagesbeträge des Kinderbetreuungsgeldes und des Familienzeitbonus werden ausschließlich im Jahr 2028 an die Inflationslage angepasst und es wird kein Beitrag aus der Untergliederung 25 (Familie und Jugend) zur Budgetkonsolidierung geleistet. Das Alternativszenario wäre eine Kürzung bzw. Abschaffung einzelner Leistungen, die aus dem FLAF finanziert werden.",
+    "expected_v0": "voll: Alternative benannt/diskutiert",
+    "proposed_correct": null,
+    "note": "real alternative named (hand-checked)"
+  },
+  {
+    "gp": "XXVII",
+    "nr": "2082 d.B.",
+    "titel": "ORF-Gesetz, Fernmeldegebührenordnung u.a., Änderung; ORF-Beitrags-Gesetz; Rundfunkgebührengesetz, Fernmeldegebührengesetz u.a., Aufhebung",
+    "status": "ok",
+    "full": true,
+    "simplified": false,
+    "alt": "- Ohne Neuregelung des ORF-Beitrags besteht mit Beginn 2024 keine sachgerechte Rechtsgrundlage zur Erhebung eines Entgeltes für die Finanzierung des öffentlich-rechtlichen Rundfunks. Eine Neuregelung ist damit alternativenlos. Als inhaltliche Alternative zur vorgeschlagenen Regelung, die die Beitragspflicht am Hauptwohnsitz bzw. der Kommunalsteuerpflicht anknüpft, wäre eine Erweiterung der derzeitigen Geräteabgabe auf alle streamingfähigen Geräte (Laptop, Tablet, Handy, usw.) oder eine Finanzierung des öffentlich-rechtlichen Rundfunks direkt aus dem Bundesbudget denkbar. Eine Ausweitung der be",
+    "expected_v0": "voll: Alternative benannt/diskutiert",
+    "proposed_correct": null,
+    "note": "real alternative named (hand-checked)"
+  },
+  {
+    "gp": "XXVII",
+    "nr": "2204 d.B.",
+    "titel": "Bundesstraßen-Mautgesetz, ASFINAG-Gesetz, Änderung",
+    "status": "ok",
+    "full": true,
+    "simplified": false,
+    "alt": "Das Setzen von entsprechenden Maßnahmen zur Änderung des in der Problemdefinition aufgezeigten Status quo ist im Zuge der verpflichtenden Umsetzung der Richtlinie 1999/62/EG in der Fassung der Richtlinie (EU) 2022/362 (\"EU-Wegekostenrichtlinie NEU\") alternativlos.",
+    "expected_v0": "voll: Alternative benannt/diskutiert",
+    "proposed_correct": "voll: keine Alternative",
+    "note": "rule miss: 'alternativlos' contains 'alternativ'"
+  },
+  {
+    "gp": "XXVIII",
+    "nr": "446 d.B.",
+    "titel": "Lebenshaltungs- und Wohnkosten-Ausgleichs-Gesetz, Änderung",
+    "status": "ok",
+    "full": true,
+    "simplified": false,
+    "alt": "). Nullszenario und allfällige Alternativen Delogierungsprävention durch den WOHNSCHIRM: Rechtzeitige, zielgerichtete Unterstützung vermeidet hohe Folgekosten – etwa in der Wohnungslosenhilfe, im Gesundheits- oder Justizsystem: Berechnungen von AK und Volkshilfe Wien zeigen, dass die Folgekosten einer Delogierung bei EUR 30.000 bis 50.000 liegen. Die Auszahlungssumme für WOHNSCHIRM Miete beträgt jedoch durchschnittlich lediglich rund EUR 2.700. Der Social Return On Investment ist daher beachtlich. Im Juni 2022 wurde das Kompetenzzentrum für Nonprofit-Organisationen und Social Entrepreneurship ",
+    "expected_v0": "voll: Alternative benannt/diskutiert",
+    "proposed_correct": null,
+    "note": "fallback extraction starts mid-text; content not checked"
+  },
+  {
+    "gp": "XXVIII",
+    "nr": "648 d.B.",
+    "titel": "Binnenmarkt-Notfall- und Resilienzgesetz – BNRG",
+    "status": "ok",
+    "full": false,
+    "simplified": true,
+    "alt": null,
+    "expected_v0": "vereinfacht: kein Alternativen-Feld",
+    "proposed_correct": null,
+    "note": "simplified WFA"
+  }
+]

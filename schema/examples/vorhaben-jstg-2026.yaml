@@ -1,0 +1,23 @@
+# Real example: one draft law as the parser would create it (extraction_method: rule).
+# Quote copied verbatim from zaehlung/de/dip-gesetzentwuerfe.jsonl (DIP, WP 21).
+schema_version: "0.1"
+sources:
+  - id: src_btd218283
+    kind: drucksache
+    title: "Entwurf eines Jahressteuergesetzes 2026, BT-Drucksache 21/8283"
+    url: "https://dserver.bundestag.de/btd/21/082/2108283.pdf"
+    license: "amtliches Werk (§ 5 UrhG); DIP-Nutzungsbedingungen"
+bills:
+  - id: bill_de218283
+    source_id: src_btd218283
+    locator:
+      quote: "Keine. Die im Einzelnen geprüften Alternativen sind aus der Tabelle im Allgemeinen Teil der Begründung ersichtlich."
+      position: "Vorblatt, C. Alternativen"
+    extraction_method: rule
+    # Date of the first count; the exact fetch time was not recorded then.
+    extracted_at: "2026-11-12T00:00:00+00:00"
+    review_status: proposed
+    country: DE
+    document_number: "21/8283"
+    title: "Entwurf eines Jahressteuergesetzes 2026"
+    alternatives_text: "Keine. Die im Einzelnen geprüften Alternativen sind aus der Tabelle im Allgemeinen Teil der Begründung ersichtlich."

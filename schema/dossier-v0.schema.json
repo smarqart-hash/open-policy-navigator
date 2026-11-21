@@ -1,0 +1,1019 @@
+{
+  "$defs": {
+    "Approach": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "source_id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "locator": {
+          "$ref": "#/$defs/Locator"
+        },
+        "extraction_method": {
+          "$ref": "#/$defs/ExtractionMethod"
+        },
+        "extracted_at": {
+          "format": "date-time",
+          "title": "Extracted At",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "proposed"
+        },
+        "reviewed_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewed By"
+        },
+        "question_id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Question Id",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "instruments": {
+          "items": {
+            "$ref": "#/$defs/Instrument"
+          },
+          "minItems": 1,
+          "title": "Instruments",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "locator",
+        "extraction_method",
+        "extracted_at",
+        "question_id",
+        "title",
+        "instruments"
+      ],
+      "title": "Approach",
+      "type": "object"
+    },
+    "Bill": {
+      "additionalProperties": false,
+      "description": "A concrete draft law; created by the parser with extraction_method 'rule'.",
+      "properties": {
+        "id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "source_id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "locator": {
+          "$ref": "#/$defs/Locator"
+        },
+        "extraction_method": {
+          "$ref": "#/$defs/ExtractionMethod"
+        },
+        "extracted_at": {
+          "format": "date-time",
+          "title": "Extracted At",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "proposed"
+        },
+        "reviewed_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewed By"
+        },
+        "country": {
+          "$ref": "#/$defs/Country"
+        },
+        "parliament_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "DIP Vorgang id (DE) or history path (AT), if known",
+          "title": "Parliament Id"
+        },
+        "document_number": {
+          "description": "e.g. '21/8283' or '251 d.B.'",
+          "title": "Document Number",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "question_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Question Ids",
+          "type": "array"
+        },
+        "approach_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Approach Ids",
+          "type": "array"
+        },
+        "alternatives_text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Section 'C. Alternativen' / WFA field, None if not found",
+          "title": "Alternatives Text"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "locator",
+        "extraction_method",
+        "extracted_at",
+        "country",
+        "document_number",
+        "title"
+      ],
+      "title": "Bill",
+      "type": "object"
+    },
+    "Case": {
+      "additionalProperties": false,
+      "description": "One country's use of an approach.",
+      "properties": {
+        "id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "source_id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "locator": {
+          "$ref": "#/$defs/Locator"
+        },
+        "extraction_method": {
+          "$ref": "#/$defs/ExtractionMethod"
+        },
+        "extracted_at": {
+          "format": "date-time",
+          "title": "Extracted At",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "proposed"
+        },
+        "reviewed_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewed By"
+        },
+        "approach_id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Approach Id",
+          "type": "string"
+        },
+        "country": {
+          "description": "ISO 3166-1 alpha-2",
+          "pattern": "^[A-Z]{2}$",
+          "title": "Country",
+          "type": "string"
+        },
+        "legal_act": {
+          "$ref": "#/$defs/LegalAct"
+        },
+        "design": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Ausgestaltung, e.g. amount or scope",
+          "title": "Design"
+        },
+        "status": {
+          "$ref": "#/$defs/CaseStatus"
+        },
+        "status_reason": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/StatusReason"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "start": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start"
+        },
+        "end": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "locator",
+        "extraction_method",
+        "extracted_at",
+        "approach_id",
+        "country",
+        "legal_act",
+        "status"
+      ],
+      "title": "Case",
+      "type": "object"
+    },
+    "CaseStatus": {
+      "enum": [
+        "vorgeschlagen",
+        "beschlossen",
+        "in_kraft",
+        "geaendert",
+        "aufgehoben",
+        "nicht_beschlossen",
+        "gestoppt"
+      ],
+      "title": "CaseStatus",
+      "type": "string"
+    },
+    "Certainty": {
+      "description": "GRADE levels.",
+      "enum": [
+        "hoch",
+        "mittel",
+        "niedrig",
+        "sehr_niedrig"
+      ],
+      "title": "Certainty",
+      "type": "string"
+    },
+    "Country": {
+      "enum": [
+        "DE",
+        "AT"
+      ],
+      "title": "Country",
+      "type": "string"
+    },
+    "CoverageCell": {
+      "additionalProperties": false,
+      "description": "One cell of the approach × outcome matrix.",
+      "properties": {
+        "approach_id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Approach Id",
+          "type": "string"
+        },
+        "outcome": {
+          "title": "Outcome",
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/CoverageState"
+        },
+        "finding_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Finding Ids",
+          "type": "array"
+        },
+        "searched_at": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Searched At"
+        },
+        "search_note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Search Note"
+        }
+      },
+      "required": [
+        "approach_id",
+        "outcome",
+        "state"
+      ],
+      "title": "CoverageCell",
+      "type": "object"
+    },
+    "CoverageState": {
+      "enum": [
+        "nicht_kuratiert",
+        "gesucht_ohne_befund",
+        "befund"
+      ],
+      "title": "CoverageState",
+      "type": "string"
+    },
+    "Direction": {
+      "enum": [
+        "positiv",
+        "keine_oder_negativ",
+        "gemischt",
+        "nicht_schaetzbar"
+      ],
+      "title": "Direction",
+      "type": "string"
+    },
+    "ExtractionMethod": {
+      "enum": [
+        "rule",
+        "llm",
+        "human"
+      ],
+      "title": "ExtractionMethod",
+      "type": "string"
+    },
+    "Finding": {
+      "additionalProperties": false,
+      "description": "What a study found about an approach for one outcome.",
+      "properties": {
+        "id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "source_id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "locator": {
+          "$ref": "#/$defs/Locator"
+        },
+        "extraction_method": {
+          "$ref": "#/$defs/ExtractionMethod"
+        },
+        "extracted_at": {
+          "format": "date-time",
+          "title": "Extracted At",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "proposed"
+        },
+        "reviewed_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewed By"
+        },
+        "approach_id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Approach Id",
+          "type": "string"
+        },
+        "case_id": {
+          "anyOf": [
+            {
+              "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Case Id"
+        },
+        "outcome": {
+          "description": "what was measured, e.g. 'Mietbelastung'",
+          "minLength": 1,
+          "title": "Outcome",
+          "type": "string"
+        },
+        "direction": {
+          "$ref": "#/$defs/Direction"
+        },
+        "certainty": {
+          "$ref": "#/$defs/Certainty"
+        },
+        "study_design": {
+          "anyOf": [
+            {
+              "maximum": 5,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Maryland scale",
+          "title": "Study Design"
+        },
+        "transferability": {
+          "$ref": "#/$defs/Transferability"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "locator",
+        "extraction_method",
+        "extracted_at",
+        "approach_id",
+        "outcome",
+        "direction",
+        "certainty",
+        "transferability"
+      ],
+      "title": "Finding",
+      "type": "object"
+    },
+    "Instrument": {
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "$ref": "#/$defs/InstrumentCategory"
+        },
+        "instrument_type": {
+          "description": "e.g. 'Steuer', 'Subvention', 'Gebot'",
+          "minLength": 1,
+          "title": "Instrument Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "category",
+        "instrument_type"
+      ],
+      "title": "Instrument",
+      "type": "object"
+    },
+    "InstrumentCategory": {
+      "description": "Five categories of the OECD IFCMA typology (2024).",
+      "enum": [
+        "oekonomisch",
+        "regulatorisch",
+        "investition",
+        "information",
+        "freiwillig"
+      ],
+      "title": "InstrumentCategory",
+      "type": "string"
+    },
+    "LegalAct": {
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "identifier": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "ELI, CELEX or DIP id",
+          "title": "Identifier"
+        },
+        "article": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Article"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "title": "LegalAct",
+      "type": "object"
+    },
+    "Locator": {
+      "additionalProperties": false,
+      "description": "Where exactly the statement is found in the source.",
+      "properties": {
+        "quote": {
+          "description": "Verbatim quote from the archived source text",
+          "minLength": 1,
+          "title": "Quote",
+          "type": "string"
+        },
+        "position": {
+          "description": "Page, section or paragraph, e.g. 'Vorblatt, C.'",
+          "minLength": 1,
+          "title": "Position",
+          "type": "string"
+        }
+      },
+      "required": [
+        "quote",
+        "position"
+      ],
+      "title": "Locator",
+      "type": "object"
+    },
+    "Position": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "source_id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "locator": {
+          "$ref": "#/$defs/Locator"
+        },
+        "extraction_method": {
+          "$ref": "#/$defs/ExtractionMethod"
+        },
+        "extracted_at": {
+          "format": "date-time",
+          "title": "Extracted At",
+          "type": "string"
+        },
+        "review_status": {
+          "$ref": "#/$defs/ReviewStatus",
+          "default": "proposed"
+        },
+        "reviewed_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewed By"
+        },
+        "approach_id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Approach Id",
+          "type": "string"
+        },
+        "stance": {
+          "$ref": "#/$defs/Stance"
+        },
+        "actor": {
+          "minLength": 1,
+          "title": "Actor",
+          "type": "string"
+        },
+        "stated_on": {
+          "format": "date",
+          "title": "Stated On",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "locator",
+        "extraction_method",
+        "extracted_at",
+        "approach_id",
+        "stance",
+        "actor",
+        "stated_on"
+      ],
+      "title": "Position",
+      "type": "object"
+    },
+    "Question": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "topic": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Topic"
+        }
+      },
+      "required": [
+        "id",
+        "text"
+      ],
+      "title": "Question",
+      "type": "object"
+    },
+    "ReasonField": {
+      "description": "McConnell's three fields: why something was stopped or failed.",
+      "enum": [
+        "prozess",
+        "programm",
+        "politik"
+      ],
+      "title": "ReasonField",
+      "type": "string"
+    },
+    "ReviewStatus": {
+      "enum": [
+        "proposed",
+        "confirmed",
+        "rejected"
+      ],
+      "title": "ReviewStatus",
+      "type": "string"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "description": "A document that statements point to. Stored once, referenced by id.",
+      "properties": {
+        "id": {
+          "pattern": "^[a-z]{1,8}_[0-9A-Za-z]{4,32}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/SourceKind"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        },
+        "license": {
+          "description": "e.g. 'CC BY 4.0', 'amtliches Werk (§ 5 UrhG)', 'nur Zitat'",
+          "title": "License",
+          "type": "string"
+        },
+        "retrieved_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Retrieved At"
+        },
+        "archived_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Archived Sha256"
+        },
+        "doi": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Doi"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "title",
+        "url",
+        "license"
+      ],
+      "title": "Source",
+      "type": "object"
+    },
+    "SourceKind": {
+      "enum": [
+        "drucksache",
+        "gesetz",
+        "studie",
+        "stellungnahme",
+        "presse",
+        "sonstige"
+      ],
+      "title": "SourceKind",
+      "type": "string"
+    },
+    "Stance": {
+      "enum": [
+        "stuetzt",
+        "lehnt_ab"
+      ],
+      "title": "Stance",
+      "type": "string"
+    },
+    "StatusReason": {
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "$ref": "#/$defs/ReasonField"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "field",
+        "text"
+      ],
+      "title": "StatusReason",
+      "type": "object"
+    },
+    "Transferability": {
+      "additionalProperties": false,
+      "properties": {
+        "rating": {
+          "enum": [
+            "hoch",
+            "mittel",
+            "niedrig",
+            "unklar"
+          ],
+          "title": "Rating",
+          "type": "string"
+        },
+        "note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Note"
+        }
+      },
+      "required": [
+        "rating"
+      ],
+      "title": "Transferability",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Content of one curated YAML file; all references must resolve inside it.",
+  "properties": {
+    "schema_version": {
+      "const": "0.1",
+      "default": "0.1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "sources": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Source"
+      },
+      "title": "Sources",
+      "type": "array"
+    },
+    "questions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Question"
+      },
+      "title": "Questions",
+      "type": "array"
+    },
+    "approaches": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Approach"
+      },
+      "title": "Approaches",
+      "type": "array"
+    },
+    "bills": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Bill"
+      },
+      "title": "Bills",
+      "type": "array"
+    },
+    "cases": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Case"
+      },
+      "title": "Cases",
+      "type": "array"
+    },
+    "findings": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Finding"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "positions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Position"
+      },
+      "title": "Positions",
+      "type": "array"
+    },
+    "coverage": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/CoverageCell"
+      },
+      "title": "Coverage",
+      "type": "array"
+    }
+  },
+  "title": "Dossier",
+  "type": "object"
+}

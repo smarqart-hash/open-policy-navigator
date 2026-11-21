@@ -1,0 +1,11 @@
+{
+  "quelle": "Open-Policy-Navigator-Demo, Frage „KI und Arbeit“ (smarqart-hash.github.io/open-policy-navigator)",
+  "stand": "20.11.2026",
+  "hinweis": "Gemessen heißt: eine Studie mit Vergleich zur Wirkung, gleich mit welchem Ergebnis. Zahlen aus der Wissensstand-Ansicht der Demo; zwei Prüfrunden. Bei Änderungen an der Demo hier nachziehen.",
+  "teilfragen": [
+    {"frage": "Wer trägt das Risiko, wenn KI Arbeit verändert?", "faelle": 10, "mit_messung": 6},
+    {"frage": "Wer setzt die Löhne in Branchen unter Druck?", "faelle": 1, "mit_messung": 1},
+    {"frage": "Wie viel Regel brauchen KI-Märkte?", "faelle": 9, "mit_messung": 3},
+    {"frage": "Wer entscheidet, wie KI im Betrieb eingesetzt wird?", "faelle": 6, "mit_messung": 1}
+  ]
+}

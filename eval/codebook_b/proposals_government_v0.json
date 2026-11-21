@@ -1,0 +1,3205 @@
+{
+ "what": "Codebook-B category proposals for all 532 government drafts whose section C was found by de-v0",
+ "coder": "claude-proposal (language model, ADR 0005), read from the stored section text; not confirmed by a human",
+ "date": "2026-11-20",
+ "counts": {
+  "Keine": 335,
+  "Alternativen benannt/diskutiert": 54,
+  "Keine + Begründung": 114,
+  "Status quo genannt": 29
+ },
+ "items": [
+  {
+   "nr": "20/14988",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14987",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14673",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14512",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14514",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14513",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14503",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14502",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14501",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14439",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14438",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14345",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14344",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14343",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14342",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14198",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14145",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14043",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14041",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/14040",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13992",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13964",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13963",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13961",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13960",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13959",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13958",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13957",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13956",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13955",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13954",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13953",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13952",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13951",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13949",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13640",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13639",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13585",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13489",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13488",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13487",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13350",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13258",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13257",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13255",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13252",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13251",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13249",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13184",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13183",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13171",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13158",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13154",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13092",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13091",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13090",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13089",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13085",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13083",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13082",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/13081",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12950",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12773",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12782",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12781",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12780",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": true
+  },
+  {
+   "nr": "20/12783",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12791",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12784",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12779",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12790",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12778",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12787",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12788",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12785",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12776",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12786",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12774",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12772",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12771",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12719",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12716",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12660",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12658",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12351",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12350",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12349",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12282",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12197",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12202",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12201",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12200",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12199",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12198",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11980",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11900",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11899",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11856",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11854",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11853",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11852",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11851",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11849",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11848",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11561",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11559",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11522",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11474",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11315",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11313",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11310",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11308",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/11306",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10943",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10942",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10861",
+   "v0": "Status quo genannt",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10859",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10857",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10820",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10819",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10818",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10406",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10285",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10283",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10280",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10247",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10248",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10246",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10032",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10031",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/10014",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": true
+  },
+  {
+   "nr": "20/9890",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/9872",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/9874",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/9873",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/9648",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/9469",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/9471",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/9463",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/9093",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/9091",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/9049",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/9048",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/9044",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/9043",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/9041",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/9046",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/9002",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/9001",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8764",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8762",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8761",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8679",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8677",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8674",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8672",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8671",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8668",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8659",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8658",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8656",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8650",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8649",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8646",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8645",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8655",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8629",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8628",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8627",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8626",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8344",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8299",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8296",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8295",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8293",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8292",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8291",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8289",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8288",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8294",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8290",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8096",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8095",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8094",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8093",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/8092",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/7502",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/7310",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/7309",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/7308",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6952",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6879",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6874",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6873",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6872",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6871",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6869",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6824",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6823",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6821",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6817",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6520",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6519",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6518",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6496",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6436",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6435",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6314",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6313",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6312",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/6311",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/5823",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/5799",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/5664",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/5663",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/5653",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/5652",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/5651",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/5628",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/5334",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/5333",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/5163",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/5165",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/5164",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": true
+  },
+  {
+   "nr": "20/5162",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/5021",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/4823",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/4655",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/4534",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/4284",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/4230",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/4227",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/4225",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3900",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3876",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3879",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3880",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3877",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3884",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3874",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3878",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3872",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3871",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3870",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3821",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3817",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3822",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3717",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3714",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3712",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3708",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3624",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3449",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3444",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3442",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3439",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3437",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3445",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3448",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3447",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3443",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3436",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3446",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3441",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3172",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3171",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3068",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/3067",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/2729",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/2298",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/2297",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/2294",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/2247",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/2246",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/2241",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/2164",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/1959",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/1672",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/1636",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/1633",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/1632",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/1631",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/1630",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/1599",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/1598",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/1413",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/1412",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/1411",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/1408",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/1410",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/1409",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/1111",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/1110",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/993",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/737",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/336",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/147",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "20/12",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8867",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8869",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8868",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8866",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8407",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8405",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8411",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8404",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8409",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8415",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8414",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8413",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8408",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8410",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8285",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8283",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": true
+  },
+  {
+   "nr": "21/8282",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8281",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8280",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8279",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8278",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8277",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8275",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8274",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8245",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8244",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8243",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8242",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8241",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8240",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8239",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8238",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8237",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8236",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8235",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8234",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8233",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/8027",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7872",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7869",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7868",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7867",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7866",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7865",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7871",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7870",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7864",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7859",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7860",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7824",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7561",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7560",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7558",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7407",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7405",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7403",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7195",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7194",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/7193",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6809",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6807",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6806",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6805",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6588",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6585",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6584",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6581",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6561",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6560",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6510",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6509",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6498",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6497",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6279",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6278",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6214",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6215",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6178",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6135",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6134",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6133",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6132",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6131",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6130",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6129",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/6128",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/5923",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/5922",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/5878",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/5874",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/5873",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/5871",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/5869",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/5688",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/5440",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/5439",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/5346",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/5140",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/5141",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/5070",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/4786",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/4782",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/4550",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/4500",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/4594",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/4298",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/4297",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/4146",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/4099",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/4089",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/4088",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/4084",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/4083",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/4082",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3948",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3947",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3945",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3942",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3740",
+   "v0": "Status quo genannt",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3735",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3620",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3619",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3543",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3544",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3542",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3539",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3511",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3510",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3505",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3491",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3484",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3483",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3252",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3207",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3204",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3195",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3194",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3191",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3193",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3192",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3061",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3058",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/3051",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/2999",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/2998",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/2996",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/2997",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/2963",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/2672",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/2673",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/2512",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/2510",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/2507",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/2506",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/2511",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/2509",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/2473",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/2475",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/2474",
+   "v0": "Status quo genannt",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/2373",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1975",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1974",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": true
+  },
+  {
+   "nr": "21/1941",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1938",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1937",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1934",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1933",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1930",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1931",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1926",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1928",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1865",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1904",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1903",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1902",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1898",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1897",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1899",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1894",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1893",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1892",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1890",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1889",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1888",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1887",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1886",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1885",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1867",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1866",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1863",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1862",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1861",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1860",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1859",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1858",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1857",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1856",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1855",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1854",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1853",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1851",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1850",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1849",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1848",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1847",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1846",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1501",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1504",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1505",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1508",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Alternativen benannt/diskutiert",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1509",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1511",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1497",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1503",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1502",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1498",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1496",
+   "v0": "Status quo genannt",
+   "codebook_b": "Status quo genannt",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1495",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1492",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1491",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1499",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1494",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1150",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1087",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1085",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/1084",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/538",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/537",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/517",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/518",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/516",
+   "v0": "Keine + Begründung",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": true
+  },
+  {
+   "nr": "21/514",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/16",
+   "v0": "Keine",
+   "codebook_b": "Keine",
+   "examined_not_named": false
+  },
+  {
+   "nr": "21/15",
+   "v0": "Alternativen benannt/diskutiert",
+   "codebook_b": "Keine + Begründung",
+   "examined_not_named": false
+  }
+ ]
+}

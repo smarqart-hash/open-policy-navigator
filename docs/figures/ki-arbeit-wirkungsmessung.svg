@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="432" viewBox="0 0 760 432" role="img" aria-labelledby="title desc" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif">
+<title id="title">Wo Wirkung gemessen wurde und wo nicht</title>
+<desc id="desc">Ein Kästchen je Fall, je Teilfrage eine Zeile. Wer trägt das Risiko, wenn KI Arbeit verändert?: 6 von 10 mit Messung; Wer setzt die Löhne in Branchen unter Druck?: 1 von 1 mit Messung; Wie viel Regel brauchen KI-Märkte?: 3 von 9 mit Messung; Wer entscheidet, wie KI im Betrieb eingesetzt wird?: 1 von 6 mit Messung. Zusammen 11 von 26.</desc>
+<rect width="760" height="432" fill="#ffffff"/>
+<text x="24.0" y="34.0" font-size="19" font-weight="600" fill="#1f1f1f">Wo Wirkung gemessen wurde und wo nicht</text>
+<text x="24.0" y="58.0" font-size="14" fill="#555555">Demo-Thema „KI und Arbeit“: 26 Fälle, zu 11 gibt es eine Wirkungsmessung.</text>
+<text x="24.0" y="96.0" font-size="15" font-weight="600" fill="#1f1f1f">Wer trägt das Risiko, wenn KI Arbeit verändert?</text>
+<rect x="24.0" y="106.0" width="22" height="22" rx="3" fill="#0f766e" stroke="#0f766e" stroke-width="1"/>
+<rect x="51.0" y="106.0" width="22" height="22" rx="3" fill="#0f766e" stroke="#0f766e" stroke-width="1"/>
+<rect x="78.0" y="106.0" width="22" height="22" rx="3" fill="#0f766e" stroke="#0f766e" stroke-width="1"/>
+<rect x="105.0" y="106.0" width="22" height="22" rx="3" fill="#0f766e" stroke="#0f766e" stroke-width="1"/>
+<rect x="132.0" y="106.0" width="22" height="22" rx="3" fill="#0f766e" stroke="#0f766e" stroke-width="1"/>
+<rect x="159.0" y="106.0" width="22" height="22" rx="3" fill="#0f766e" stroke="#0f766e" stroke-width="1"/>
+<rect x="186.0" y="106.0" width="22" height="22" rx="3" fill="#d9d9d9" stroke="#555555" stroke-width="1"/>
+<rect x="213.0" y="106.0" width="22" height="22" rx="3" fill="#d9d9d9" stroke="#555555" stroke-width="1"/>
+<rect x="240.0" y="106.0" width="22" height="22" rx="3" fill="#d9d9d9" stroke="#555555" stroke-width="1"/>
+<rect x="267.0" y="106.0" width="22" height="22" rx="3" fill="#d9d9d9" stroke="#555555" stroke-width="1"/>
+<text x="302.0" y="122.0" font-size="14" fill="#1f1f1f">6 von 10 mit Messung</text>
+<text x="24.0" y="158.0" font-size="15" font-weight="600" fill="#1f1f1f">Wer setzt die Löhne in Branchen unter Druck?</text>
+<rect x="24.0" y="168.0" width="22" height="22" rx="3" fill="#0f766e" stroke="#0f766e" stroke-width="1"/>
+<text x="302.0" y="184.0" font-size="14" fill="#1f1f1f">1 von 1 mit Messung</text>
+<text x="24.0" y="220.0" font-size="15" font-weight="600" fill="#1f1f1f">Wie viel Regel brauchen KI-Märkte?</text>
+<rect x="24.0" y="230.0" width="22" height="22" rx="3" fill="#0f766e" stroke="#0f766e" stroke-width="1"/>
+<rect x="51.0" y="230.0" width="22" height="22" rx="3" fill="#0f766e" stroke="#0f766e" stroke-width="1"/>
+<rect x="78.0" y="230.0" width="22" height="22" rx="3" fill="#0f766e" stroke="#0f766e" stroke-width="1"/>
+<rect x="105.0" y="230.0" width="22" height="22" rx="3" fill="#d9d9d9" stroke="#555555" stroke-width="1"/>
+<rect x="132.0" y="230.0" width="22" height="22" rx="3" fill="#d9d9d9" stroke="#555555" stroke-width="1"/>
+<rect x="159.0" y="230.0" width="22" height="22" rx="3" fill="#d9d9d9" stroke="#555555" stroke-width="1"/>
+<rect x="186.0" y="230.0" width="22" height="22" rx="3" fill="#d9d9d9" stroke="#555555" stroke-width="1"/>
+<rect x="213.0" y="230.0" width="22" height="22" rx="3" fill="#d9d9d9" stroke="#555555" stroke-width="1"/>
+<rect x="240.0" y="230.0" width="22" height="22" rx="3" fill="#d9d9d9" stroke="#555555" stroke-width="1"/>
+<text x="302.0" y="246.0" font-size="14" fill="#1f1f1f">3 von 9 mit Messung</text>
+<text x="24.0" y="282.0" font-size="15" font-weight="600" fill="#1f1f1f">Wer entscheidet, wie KI im Betrieb eingesetzt wird?</text>
+<rect x="24.0" y="292.0" width="22" height="22" rx="3" fill="#0f766e" stroke="#0f766e" stroke-width="1"/>
+<rect x="51.0" y="292.0" width="22" height="22" rx="3" fill="#d9d9d9" stroke="#555555" stroke-width="1"/>
+<rect x="78.0" y="292.0" width="22" height="22" rx="3" fill="#d9d9d9" stroke="#555555" stroke-width="1"/>
+<rect x="105.0" y="292.0" width="22" height="22" rx="3" fill="#d9d9d9" stroke="#555555" stroke-width="1"/>
+<rect x="132.0" y="292.0" width="22" height="22" rx="3" fill="#d9d9d9" stroke="#555555" stroke-width="1"/>
+<rect x="159.0" y="292.0" width="22" height="22" rx="3" fill="#d9d9d9" stroke="#555555" stroke-width="1"/>
+<text x="302.0" y="308.0" font-size="14" fill="#1f1f1f">1 von 6 mit Messung</text>
+<rect x="24" y="333.0" width="12" height="12" fill="#0f766e"/>
+<text x="44.0" y="344.0" font-size="14" fill="#1f1f1f">Fall mit Wirkungsmessung (Vergleich, gleich welches Ergebnis)</text>
+<rect x="24" y="355.0" width="12" height="12" fill="#d9d9d9" stroke="#555555" stroke-width="1"/>
+<text x="44.0" y="366.0" font-size="14" fill="#1f1f1f">Fall ohne Wirkungsmessung</text>
+<text x="24.0" y="400.0" font-size="12" fill="#555555">Ein Fall ist eine Maßnahme, die ein Staat, eine Region oder eine Stadt eingeführt, erprobt oder vorgeschlagen hat.</text>
+<text x="24.0" y="416.0" font-size="12" fill="#555555">Quelle: Open-Policy-Navigator-Demo, Frage „KI und Arbeit“ (smarqart-hash.github.io/open-policy-navigator), Stand 20.11.2026.</text>
+</svg>

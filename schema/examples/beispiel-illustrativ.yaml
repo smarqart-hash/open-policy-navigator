@@ -1,0 +1,84 @@
+# ILLUSTRATIVE ONLY: invented question, approach, sources and statements to show
+# every object of schema v0. Nothing here is a real finding or a real position.
+schema_version: "0.1"
+sources:
+  - id: src_demo01
+    kind: studie
+    title: "Beispielstudie (erfunden)"
+    url: "https://example.org/studie"
+    license: "nur Zitat"
+  - id: src_demo02
+    kind: gesetz
+    title: "Beispielgesetz (erfunden)"
+    url: "https://example.org/gesetz"
+    license: "amtliches Werk"
+  - id: src_demo03
+    kind: stellungnahme
+    title: "Beispielstellungnahme (erfunden)"
+    url: "https://example.org/stellungnahme"
+    license: "nur Zitat"
+questions:
+  - id: q_demo01
+    text: "Wie lassen sich Zwangsräumungen vermeiden?"
+    topic: "Wohnen"
+approaches:
+  - id: ans_demo01
+    question_id: q_demo01
+    title: "Mietschulden früh übernehmen"
+    instruments:
+      - category: investition
+        instrument_type: "Zuschuss"
+      - category: information
+        instrument_type: "Beratung"
+    source_id: src_demo02
+    locator: {quote: "Mietrückstände werden übernommen.", position: "§ 1"}
+    extraction_method: human
+    extracted_at: "2026-11-20T09:00:00+00:00"
+    review_status: confirmed
+    reviewed_by: "stefan"
+cases:
+  - id: case_demo01
+    approach_id: ans_demo01
+    country: AT
+    legal_act: {title: "Beispielgesetz", identifier: null, article: "§ 1"}
+    design: "bis zu 3 Monatsmieten"
+    status: gestoppt
+    status_reason: {field: politik, text: "nach Regierungswechsel nicht verlängert"}
+    start: "2022-05-01"
+    end: "2026-12-31"
+    source_id: src_demo02
+    locator: {quote: "Die Maßnahme endet am 31. Dezember 2026.", position: "§ 9"}
+    extraction_method: human
+    extracted_at: "2026-11-20T09:00:00+00:00"
+findings:
+  - id: bef_demo01
+    approach_id: ans_demo01
+    case_id: case_demo01
+    outcome: "Zahl der Räumungen"
+    direction: positiv
+    certainty: niedrig
+    study_design: 2
+    transferability: {rating: mittel, note: "anderes Mietrecht"}
+    source_id: src_demo01
+    locator: {quote: "Die Zahl der Räumungen sank.", position: "S. 4"}
+    extraction_method: llm
+    extracted_at: "2026-11-20T09:00:00+00:00"
+    review_status: proposed  # an LLM proposal stays proposed until a human confirms it
+positions:
+  - id: pos_demo01
+    approach_id: ans_demo01
+    stance: lehnt_ab
+    actor: "Beispielverband"
+    stated_on: "2026-03-01"
+    source_id: src_demo03
+    locator: {quote: "Wir lehnen die Übernahme ab.", position: "S. 1"}
+    extraction_method: human
+    extracted_at: "2026-11-20T09:00:00+00:00"
+coverage:
+  - {approach_id: ans_demo01, outcome: "Zahl der Räumungen", state: befund, finding_ids: [bef_demo01]}
+  - approach_id: ans_demo01
+    outcome: "Wohnungslosigkeit"
+    state: gesucht_ohne_befund
+    searched_at: "2026-11-20"
+    search_note: "Suche in zwei Datenbanken, keine Evaluation gefunden (erfunden)"
+  - {approach_id: ans_demo01, outcome: "Kosten der Kommune", state: nicht_kuratiert}

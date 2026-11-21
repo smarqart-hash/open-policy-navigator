@@ -1,0 +1,358 @@
+{
+ "what": "Random sample of 50 codebook-B proposals to measure their error rate (ADR 0005, point 5)",
+ "population": "206 government drafts whose section is not a bare 'Keine' (the 326 bare ones are exact by rule)",
+ "seed": 20261121,
+ "answer": "stefan = 'ok' or the correct category",
+ "items": [
+  {
+   "n": 1,
+   "nr": "20/10246",
+   "proposal": "Status quo genannt",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 2,
+   "nr": "20/10280",
+   "proposal": "Status quo genannt",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 3,
+   "nr": "20/10283",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 4,
+   "nr": "20/10818",
+   "proposal": "Status quo genannt",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 5,
+   "nr": "20/10861",
+   "proposal": "Status quo genannt",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 6,
+   "nr": "20/11559",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 7,
+   "nr": "20/12",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 8,
+   "nr": "20/12349",
+   "proposal": "Alternativen benannt/diskutiert",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 9,
+   "nr": "20/12779",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 10,
+   "nr": "20/12780",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 11,
+   "nr": "20/12782",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 12,
+   "nr": "20/13081",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 13,
+   "nr": "20/13082",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 14,
+   "nr": "20/13956",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 15,
+   "nr": "20/14513",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 16,
+   "nr": "20/14514",
+   "proposal": "Alternativen benannt/diskutiert",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 17,
+   "nr": "20/1630",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 18,
+   "nr": "20/2164",
+   "proposal": "Alternativen benannt/diskutiert",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 19,
+   "nr": "20/3171",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 20,
+   "nr": "20/3436",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 21,
+   "nr": "20/3442",
+   "proposal": "Alternativen benannt/diskutiert",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 22,
+   "nr": "20/3449",
+   "proposal": "Alternativen benannt/diskutiert",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 23,
+   "nr": "20/3874",
+   "proposal": "Status quo genannt",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 24,
+   "nr": "20/3877",
+   "proposal": "Alternativen benannt/diskutiert",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 25,
+   "nr": "20/5164",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 26,
+   "nr": "20/5334",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 27,
+   "nr": "20/6873",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 28,
+   "nr": "20/8093",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 29,
+   "nr": "20/8292",
+   "proposal": "Status quo genannt",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 30,
+   "nr": "20/8626",
+   "proposal": "Alternativen benannt/diskutiert",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 31,
+   "nr": "20/8659",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 32,
+   "nr": "20/8671",
+   "proposal": "Keine",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 33,
+   "nr": "20/8764",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 34,
+   "nr": "20/9872",
+   "proposal": "Alternativen benannt/diskutiert",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 35,
+   "nr": "21/1084",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 36,
+   "nr": "21/1508",
+   "proposal": "Alternativen benannt/diskutiert",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 37,
+   "nr": "21/1859",
+   "proposal": "Alternativen benannt/diskutiert",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 38,
+   "nr": "21/2506",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 39,
+   "nr": "21/2507",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 40,
+   "nr": "21/3252",
+   "proposal": "Alternativen benannt/diskutiert",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 41,
+   "nr": "21/3735",
+   "proposal": "Alternativen benannt/diskutiert",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 42,
+   "nr": "21/3740",
+   "proposal": "Status quo genannt",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 43,
+   "nr": "21/3947",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 44,
+   "nr": "21/4089",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 45,
+   "nr": "21/4146",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 46,
+   "nr": "21/4594",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 47,
+   "nr": "21/516",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 48,
+   "nr": "21/6809",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 49,
+   "nr": "21/7193",
+   "proposal": "Keine",
+   "stefan": null,
+   "note": null
+  },
+  {
+   "n": 50,
+   "nr": "21/8282",
+   "proposal": "Keine + Begründung",
+   "stefan": null,
+   "note": null
+  }
+ ]
+}

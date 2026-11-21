@@ -1,0 +1,15 @@
+{
+  "contract_version": "0.1",
+  "status": "answered",
+  "release": "281a4ca17d88aacb964a772d083c021785747881",
+  "coverage_state": "befund",
+  "summary": "Ein Befund (Sicherheit niedrig): Die Zahl der Räumungen sank. Beispieldaten.",
+  "citations": [
+    {
+      "source_id": "src_demo01",
+      "locator": {"quote": "Die Zahl der Räumungen sank.", "position": "S. 4"},
+      "content_role": "data"
+    }
+  ],
+  "reason": null
+}

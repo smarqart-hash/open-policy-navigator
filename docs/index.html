@@ -1561,14 +1561,14 @@ function renderData() {
   $("daten-out").innerHTML = `
     <section class="dsec" aria-labelledby="h-flow"><h2 id="h-flow">So entsteht ein Eintrag</h2>
       <ol class="flow">
-        ${step(1, "Erfassen", "Parser lesen Gesetzentwürfe ein (Bundestag, österreichisches Parlament). Beiträge kommen per Pull Request oder Formular; Sprachmodelle dürfen nur dokumentiert vorschlagen.", "Parser für Abschnitt C vorhanden")}
+        ${step(1, "Erfassen", "Parser lesen Gesetzentwürfe ein (Bundestag, österreichisches Parlament). Im Bundesstandard LegalDocML.de ist Abschnitt C eigens ausgezeichnet; solange Entwürfe öffentlich nur als PDF vorliegen, liest der Parser den Text. Beiträge kommen per Pull Request oder Formular; Sprachmodelle dürfen nur dokumentiert vorschlagen.", "Parser für Abschnitt C vorhanden")}
         ${step(2, "Maschinen prüfen vor", "Schema, wörtliches Zitat im archivierten Quelltext, Widersprüche zwischen Einträgen.", "geplant")}
         ${step(3, "Menschen prüfen", "Zwei Personen prüfen, ob die Aussage aus dem Zitat folgt. Übereinstimmung wird gemessen, Fehler per Stichprobe.", "geplant")}
         ${step(4, "Veröffentlichen", "Täglich als statische Website, offene Datenabzüge und MCP-Schnittstelle. Kein Server, keine Nutzerkonten.", "Demo und JSON-Abzug vorhanden")}
       </ol>
     </section>
     <section class="dsec" aria-labelledby="h-schema"><h2 id="h-schema">Ein Datensatz</h2>
-      <p class="note">Schema: Frage, Vorhaben, Lösungsweg mit Instrument, Fall, Befund mit getrennter Wirkrichtung und Evidenzstärke, Position. So sieht ein Befund aus der Demo aus; leere Felder sind sichtbar, nicht versteckt.</p>
+      <p class="note">Schema: Frage, Vorhaben, Lösungsweg mit Instrument, Fall, Befund mit getrennter Wirkrichtung und Evidenzstärke, Position. So sieht ein Befund aus der Demo aus; leere Felder sind sichtbar, nicht versteckt. Geplant: Jede Option trägt ihre Rolle (Nulloption, verworfen mit Grund, gewählt), gleich ob sie aus dem deutschen Vorblatt, der österreichischen Wirkungsfolgenabschätzung oder Folgenabschätzungen der EU und Großbritanniens stammt.</p>
       <pre class="code" tabindex="0" aria-label="Datensatz als JSON"><code>${esc(JSON.stringify(record, null, 2))}</code></pre>
     </section>
     <section class="dsec" aria-labelledby="h-mcp"><h2 id="h-mcp">Schnittstelle für KI-Assistenten (MCP)</h2>

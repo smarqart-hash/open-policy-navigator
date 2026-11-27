@@ -8,7 +8,7 @@ Hintergrund und Stand der Forschung: [docs/background.md](docs/background.md). A
 
 ![Alternativen im Vorblatt: meist „Keine“. Deutschland: bei 326 von 619 Regierungsentwürfen nur „Keine“. Österreich: von 184 vollen Folgenabschätzungen nennen 2 eine echte Alternative.](docs/figures/alternativen-vorblatt.svg)
 
-Status: Vorarbeit. Die Zählung ist ein kleines, getestetes Python-Paket (`src/open_policy_navigator/`); ein von Hand geprüftes Goldset (36 Entwürfe, gegen die PDFs abgeglichen) und ein Eval-Ratchet in der CI verhindern Rückschritte bei der Abschnittserkennung. Das Datenschema v0 (Lösungsansatz, Fall, Befund, Position, Quelle) und der Antwortvertrag für einen MCP-Server liegen als Entwurf mit Tests vor. Parser-Ausbau, kuratierte Einträge, API und MCP-Server sind geplant, aber noch nicht gebaut.
+Status: Vorarbeit. Die Zählung ist ein kleines, getestetes Python-Paket (`src/open_policy_navigator/`); ein von Hand geprüftes Goldset (36 Entwürfe, gegen die PDFs abgeglichen) und ein Eval-Ratchet in der CI verhindern Rückschritte bei der Abschnittserkennung. Das Datenschema v0 (Lösungsansatz, Fall, Befund, Position, Quelle) und der Antwortvertrag für einen MCP-Server liegen als Entwurf mit Tests vor. Die Demo zeigt 26 von Hand erfasste Fälle zu KI und Arbeit, einmal gegen die Quellen geprüft. Parser-Ausbau, doppelt geprüfte Einträge im Vergleichsportal, API und MCP-Server sind geplant, aber noch nicht gebaut.
 
 ## Aufbau
 

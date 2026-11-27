@@ -79,7 +79,24 @@ main:focus { outline: none; }
 
 .hero { padding-block: 40px 0; display: grid; gap: 16px; }
 .hero > * { min-width: 0; }
-.claim { margin: 0; padding-block: 0 12px; font-size: 14px; color: var(--text-2); max-width: 80ch; }
+.claim { margin: 0; padding-block: 0 8px; font-size: 14px; color: var(--text-2); max-width: 80ch; }
+.tour { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; padding-block: 0 12px; font-size: 13px; color: var(--text-2); }
+.tour-l { font-weight: 600; color: var(--text); }
+.tour ol { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0; padding: 0; list-style: none; counter-reset: tour; }
+.tour li { counter-increment: tour; }
+.tour li::before { content: counter(tour) " "; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tour a { color: var(--text-2); text-underline-offset: 3px; }
+.tour a:hover, .tour a[aria-current="step"] { color: var(--text); }
+.tour a[aria-current="step"] { font-weight: 600; }
+.tourcard { display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; align-items: center; margin: 24px 0 0; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--primary); border-radius: 10px; box-shadow: var(--shadow-sm); font-size: 14px; }
+.tourcard .tc-n { display: block; font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: .02em; margin-bottom: 2px; }
+.tourcard p { margin: 0; color: var(--text-2); max-width: 72ch; }
+.tourcard b { color: var(--text); font-weight: 600; }
+.tourcard .tc-acts { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: end; }
+.tourcard .go { min-height: 36px; }
+.dlg .tourcard { margin: 0; grid-template-columns: 1fr; }
+.dlg .tourcard .tc-acts { justify-content: start; }
+@media (max-width: 640px) { .tourcard { grid-template-columns: 1fr; } .tourcard .tc-acts { justify-content: start; } }
 .picker .plabel { font-size: 12px; font-weight: 500; color: var(--muted); padding: 0 12px 0 0; min-height: 48px; display: inline-flex; align-items: center; white-space: nowrap; }
 .intro { margin: 0; font-size: 18px; line-height: 1.6; color: var(--text-2); max-width: 64ch; }
 .qlayout { display: grid; grid-template-columns: minmax(0, 1fr); }
@@ -423,21 +440,28 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
 <a class="skip" href="#main">Zum Inhalt</a><a class="skip" href="#sec-tried">Zu den Optionen</a>
 <div class="topbar"><div class="page">
   <header class="top">
-    <a class="brand" href="#frage/ki"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg><b>Open Policy Navigator</b><span class="demo-tag">Demo</span></a>
+    <a class="brand" href="#entwurf"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg><b>Open Policy Navigator</b><span class="demo-tag">Demo</span></a>
     <div class="top-right">
       <nav class="seg" aria-label="Einstieg">
-        <a href="#frage/ki" id="nav-frage">Nach Frage</a>
         <a href="#entwurf" id="nav-entwurf">Nach Gesetzentwurf</a>
+        <a href="#frage/ki" id="nav-frage">Nach Frage</a>
         <a href="#daten" id="nav-daten">Daten</a>
       </nav>
       <button type="button" class="icon-btn" id="theme" aria-label="Dunkles Farbschema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg></button>
     </div>
   </header>
-  <p class="claim">Der Open Policy Navigator stellt Lösungswege zu politischen Fragen nebeneinander: wo sie erprobt wurden, was sie bewirkt haben und was dagegen spricht. Die Demo zeigt vier Beispielfragen: KI und Arbeit ist recherchiert und geprüft, die übrigen drei sind Testdaten.</p>
+  <p class="claim">Im Vorblatt eines Gesetzentwurfs steht unter „Alternativen“ meist nur „Keine“. Der Open Policy Navigator stellt die Lösungswege daneben: wo sie erprobt wurden, was sie bewirkt haben und was dagegen spricht. Recherchiert und einmal gegen die Quellen geprüft ist die Frage KI und Arbeit; die übrigen drei sind Testdaten.</p>
+  <nav class="tour" aria-label="Rundgang durch die Demo"><span class="tour-l">Rundgang</span><ol>
+    <li><a href="#entwurf/20-1408" data-tour="entwurf">Drucksache mit „Keine“</a></li>
+    <li><a href="#frage/ki" data-tour="frage">Lösungswege mit Fällen</a></li>
+    <li><a href="#frage/ki/marienthal" data-tour="fall">Prüfspur eines Falls</a></li>
+    <li><a href="#daten" data-tour="daten">Schema und Daten</a></li>
+  </ol></nav>
 </div></div>
 <nav class="qnav" id="qnav" aria-label="Beispielfragen"><div class="page"><div class="picker" id="picker"></div></div></nav>
 <div class="page">
   <main id="main" tabindex="-1">
+    <aside class="tourcard" id="tourcard" aria-label="Rundgang" hidden></aside>
     <section id="view-frage" aria-labelledby="q-title">
      <div class="qlayout">
       <nav class="onpage" id="onpage" aria-label="Auf dieser Seite"><p class="ttl">Auf dieser Seite</p><ol id="onpage-list"></ol></nav>
@@ -503,15 +527,16 @@ dialog::backdrop { background: rgba(0, 0, 0, .32); }
     <section id="view-daten" aria-labelledby="d-title" hidden>
       <div class="hero">
         <h1 id="d-title">Daten und Schnittstelle</h1>
-        <p class="answer">Jede Aussage im Portal ist ein Datensatz mit Quelle, wörtlicher Fundstelle, Erfassungsweg und Prüfstatus. Daraus entstehen die Website, offene Datenabzüge und eine Schnittstelle für KI-Assistenten.</p>
+        <p class="answer">Jede Aussage im Portal ist ein Datensatz mit Quelle, Erfassungsweg und Prüfstatus; die wörtliche Fundstelle kommt in der Förderzeit hinzu. Daraus entstehen die Website, offene Datenabzüge und eine Schnittstelle für KI-Assistenten.</p>
       </div>
       <div id="daten-out"></div>
     </section>
   </main>
 
   <footer class="foot">
-    <p><b>KI und Arbeit: Recherche vom 20.11.2026</b> mit zwei unabhängigen Prüfrunden; die wörtlichen Fundstellen liegen im Rechercheprotokoll, in der Demo noch nicht. <b>Übrige Fragen: Testdaten vom 12.11.2026</b>, Einstufungen aus den Quellenangaben abgeleitet und ungeprüft. Lösungswege sind nach Teilfragen geordnet, nicht nach Parteien, und Lücken bleiben sichtbar.</p>
+    <p><b>KI und Arbeit: Recherche vom 20.11.2026</b>, von Stefan Marquart in zwei Durchgängen gegen die Quellen geprüft; neun Angaben hielten der Fundstelle nicht stand. Die wörtlichen Fundstellen liegen im Rechercheprotokoll, in der Demo noch nicht. <b>Übrige Fragen: Testdaten vom 12.11.2026</b>, Einstufungen aus den Quellenangaben abgeleitet und ungeprüft. Lösungswege sind nach Teilfragen geordnet, nicht nach Parteien, und Lücken bleiben sichtbar.</p>
     <p><span id="exports"><button type="button" class="linkbtn" id="textexp">Frage als Text kopieren</button> · <button type="button" class="linkbtn" id="json">als JSON</button> <span class="quiet" role="status" id="exp-msg"></span> · </span>Code (MIT), Schema (CC0) und Daten (CC BY 4.0) auf <a href="https://github.com/smarqart-hash/open-policy-navigator">GitHub</a> · <a href="#daten">Methodik und Korrekturen</a> · Keine Cookies, kein Tracking</p>
+    <p>Ein Vorhaben von Stefan Marquart und Simon Boffen.</p>
   </footer>
 </div>
 
@@ -1202,7 +1227,7 @@ const isGap = c => c.effect === "searched" || c.effect === "unchecked";
 let savedMode = null;
 try { savedMode = localStorage.getItem("opn-view"); } catch (e) {
 }
-const state = { view: "frage", q: "ki", filter: "all", mode: savedMode === "cmp" || savedMode === "tbl" ? savedMode : "cmp", sort: { key: null, dir: 1 }, bill: "21-6807" };
+const state = { view: "entwurf", q: "ki", filter: "all", mode: savedMode === "cmp" || savedMode === "tbl" ? savedMode : "cmp", sort: { key: null, dir: 1 }, bill: "20-1408" };
 const FILTERS = [
   { id: "all", label: "Alle Fälle", test: () => true },
   { id: "found", label: "Mit Wirkungsbefund", test: hasFinding },
@@ -1253,6 +1278,7 @@ function renderLegend() {
     <div><h2>Status des Falls</h2><ul>${st.map(k => `<li>${statusSig({ status: k })}</li>`).join("")}</ul><p>Gehört zum Fall, nicht zum Befund: Etwas kann wirken und trotzdem beendet werden. Ohne Angabe läuft der Fall.</p></div>
     <div><h2>Wirkungsbefund</h2><ul>${["pos", "mixed", "null", "neg"].map(k => `<li>${effectSig(k)}</li>`).join("")}</ul><p>Richtung eines Befunds mit Vergleich. Fehlende Messung heißt nie „wirkt nicht“.</p></div>
     <div><h2>Evidenzstärke</h2><ul>${[3, 2, 1].map(n => `<li>${strengthSig(n)}</li>`).join("")}</ul><p>Wie die Messung angelegt ist, getrennt von ihrer Richtung. Wer sie erstellt oder bezahlt hat, steht beim Absender der Fundstelle. Alle Einstufungen sind vorläufig.</p></div>
+    <div><h2>Im Fall, nach einem Klick</h2><p>Ebene, Kosten, Prüfspur, Einwand und Fundstellen. Die Prüfspur sagt, wie eine Angabe erfasst wurde und wer sie geprüft hat; nötig sind zwei Personen. Alle Felder erklärt das <a href="#daten">Codebuch</a>.</p></div>
     <div><h2>Ohne Wirkungsbefund</h2><ul><li>${effectSig("partial")}</li><li>${effectSig("notyet")}</li><li>${effectSig("searched")}</li><li>${effectSig("unchecked")}</li></ul><p>„Gesucht, keine Messung gefunden“ ist ein Ergebnis der Recherche. „Noch nicht recherchiert“ ist eine offene Aufgabe. Die Plakette oben an jedem Lösungsweg zeigt, wie weit er recherchiert ist.</p></div>`;
 }
 
@@ -1501,9 +1527,9 @@ let navTick = false;
 window.addEventListener("scroll", () => { if (navTick) return; navTick = true; requestAnimationFrame(() => { navTick = false; markCurrent(); }); }, { passive: true });
 
 const BILLS = [
+  { id: "20-1408", nr: "20/1408", datum: "13.4.2022", titel: "Entwurf eines Gesetzes zur Erhöhung des Schutzes durch den gesetzlichen Mindestlohn und zu Änderungen im Bereich der geringfügigen Beschäftigung", alt: "Keine.", q: "ki", g: "lohn", short: "Mindestlohn 2022" },
   { id: "21-6807", nr: "21/6807", datum: "1.7.2026", titel: "Entwurf eines Gesetzes zur Änderung des Rechts der Wohn- und Geschäftsraummiete", alt: "Keine.", q: "wohnen", g: "mieten", short: "Mietrecht 2026" },
   { id: "20-13959", nr: "20/13959", datum: "27.11.2024", titel: "Entwurf eines Gesetzes zur zivilrechtlichen Erleichterung des Gebäudebaus (Gebäudetyp-E-Gesetz)", alt: "Keine.", q: "wohnen", g: "angebot", short: "Gebäudetyp E 2024" },
-  { id: "20-1408", nr: "20/1408", datum: "13.4.2022", titel: "Entwurf eines Gesetzes zur Erhöhung des Schutzes durch den gesetzlichen Mindestlohn und zu Änderungen im Bereich der geringfügigen Beschäftigung", alt: "Keine.", q: "ki", g: "lohn", short: "Mindestlohn 2022" },
   { id: "21-1859", nr: "21/1859", datum: "29.9.2025", titel: "Entwurf eines Zweiten Gesetzes zur Stärkung der betrieblichen Altersversorgung und zur Änderung anderer Gesetze (Zweites Betriebsrentenstärkungsgesetz)", alt: "Ein gesetzliches Betriebsrenten-Obligatorium oder ein gesetzlich verpflichtendes bundesweites Opting-out-System würden den Auf- und Ausbau von Betriebsrenten zwar beschleunigen, wären aber mit einer hohen Eingriffsintensität verbunden. Dem sind weiterhin freiwillige Lösungen vorzuziehen, insbesondere auf tarifvertraglicher Grundlage.", q: null, short: "Betriebsrente 2025" }
 ];
 const billClass = t => t.trim() === "Keine." ? "nur „Keine“" : /^Keine\b/.test(t.trim()) ? "„Keine“ mit Begründung" : "Alternative benannt";
@@ -1523,10 +1549,12 @@ function renderBill() {
     return;
   }
   const s = stats(q), g = q.groups.find(x => x.id === b.g);
+  const ex = g ? q.ways.filter(w => w.g === g.id).flatMap(w => w.cases).find(id => CASES[id] && !CASES[id].placeholder) : null;
   $("bill-match").innerHTML = `<h2>Passende Frage im Portal</h2>
     <div class="match-card"><h3>${esc(q.title)}</h3>
       ${g ? `<p class="note">Teilfrage: ${esc(g.q)}</p>` : ""}
       <div class="nums"><span><b>${s.cases}</b> Fälle</span><span><b>${s.found}</b> mit Wirkungsbefund</span><span><b>${s.open}</b> Wege mit Lücken</span></div>
+      ${ex ? `<p class="note">Ein Fall dazu: <a href="#frage/${b.q}/${ex}">${esc(CASES[ex].title)}</a>, ${esc(CASES[ex].where)}, mit Wirkung, Einwand und Prüfspur.</p>` : ""}
       <a class="go" href="#frage/${b.q}">Lösungswege ansehen</a></div>
     <p class="note">Zuordnung in der Demo von Hand. Geplant: Das Portal schlägt Fragen vor, Menschen bestätigen.</p>`;
 }
@@ -1538,7 +1566,13 @@ function codebookRows() {
     ...STRENGTH.slice(1).map((x, i) => row("Evidenzstärke", `${i + 1} · ${x.label}`, x.def)),
     ...Object.values(COV).map(x => row("Abdeckung", x.label, "")),
     ...Object.values(STATUS).map(x => row("Status", x.label, x.stop ? "zählt als gestoppt oder beendet" : "")),
-    row("Instrument", "ökonomisch, regulatorisch, staatliche Investition und Konsum, Information, freiwillig", "nach OECD-Typologie 2024")
+    row("Instrument", "ökonomisch, regulatorisch, staatliche Investition und Konsum, Information, freiwillig", "nach OECD-Typologie 2024"),
+    row("Grundannahme", "ein Satz", "Woran ein Lösungsweg glaubt; Formulierung der Redaktion"),
+    row("Wirkungslogik", "ein Satz", "Wie der Lösungsweg wirken soll"),
+    row("Ebene", "Gemeinde, Region, Bundesstaat, Staat, EU", "Wo der Fall gilt"),
+    row("Kosten", "Betrag laut Fundstelle", "Nur wenn eine Quelle ihn nennt"),
+    row("Einwand", "Text mit Herkunft", "Der stärkste Einwand gegen Fall oder Lösungsweg; „abgeleitet, ungeprüft“ heißt: aus den Fundstellen zusammengefasst"),
+    row("Prüfspur", "Erfassungsweg, Lesetiefe, Prüfungen", "Wie die Angabe erfasst wurde und wer sie geprüft hat; nötig sind zwei Personen und die wörtliche Fundstelle")
   ].join("");
 }
 function renderData() {
@@ -1560,11 +1594,12 @@ function renderData() {
   const step = (n, t, d, st) => `<li><span class="step-n">${n}</span><div><b>${esc(t)}</b><p>${esc(d)}</p><span class="step-st">${esc(st)}</span></div></li>`;
   $("daten-out").innerHTML = `
     <section class="dsec" aria-labelledby="h-flow"><h2 id="h-flow">So entsteht ein Eintrag</h2>
+      <p class="note">Vorhanden ist die Vorarbeit; was noch fehlt, entsteht in der Förderzeit.</p>
       <ol class="flow">
-        ${step(1, "Erfassen", "Parser lesen Gesetzentwürfe ein (Bundestag, österreichisches Parlament). Im Bundesstandard LegalDocML.de ist Abschnitt C eigens ausgezeichnet; solange Entwürfe öffentlich nur als PDF vorliegen, liest der Parser den Text. Beiträge kommen per Pull Request oder Formular; Sprachmodelle dürfen nur dokumentiert vorschlagen.", "Parser für Abschnitt C vorhanden")}
-        ${step(2, "Maschinen prüfen vor", "Schema, wörtliches Zitat im archivierten Quelltext, Widersprüche zwischen Einträgen.", "geplant")}
-        ${step(3, "Menschen prüfen", "Zwei Personen prüfen, ob die Aussage aus dem Zitat folgt. Übereinstimmung wird gemessen, Fehler per Stichprobe.", "geplant")}
-        ${step(4, "Veröffentlichen", "Täglich als statische Website, offene Datenabzüge und MCP-Schnittstelle. Kein Server, keine Nutzerkonten.", "Demo und JSON-Abzug vorhanden")}
+        ${step(1, "Erfassen", "Parser lesen Gesetzentwürfe ein (Bundestag, österreichisches Parlament). Im Bundesstandard LegalDocML.de ist Abschnitt C eigens ausgezeichnet; solange Entwürfe öffentlich nur als PDF vorliegen, liest der Parser den Text. Beiträge kommen per Pull Request oder Formular; Sprachmodelle dürfen nur dokumentiert vorschlagen.", "Parser für Abschnitt C vorhanden; ganzes Vorblatt in der Förderzeit, Monat 4")}
+        ${step(2, "Maschinen prüfen vor", "Schema, wörtliches Zitat im archivierten Quelltext, Widersprüche zwischen Einträgen.", "in der Förderzeit, Monat 1")}
+        ${step(3, "Menschen prüfen", "Zwei Personen prüfen, ob die Aussage aus dem Zitat folgt. Übereinstimmung wird gemessen, Fehler per Stichprobe.", "heute eine Person; zwei Personen in der Förderzeit, ab Monat 2")}
+        ${step(4, "Veröffentlichen", "Täglich als statische Website, offene Datenabzüge und MCP-Schnittstelle. Kein Server, keine Nutzerkonten.", "Demo und JSON-Abzug vorhanden; Portal Monat 3, Datenabzüge und MCP Monat 5")}
       </ol>
     </section>
     <section class="dsec" aria-labelledby="h-schema"><h2 id="h-schema">Ein Datensatz</h2>
@@ -1595,7 +1630,9 @@ function render() {
   $("exports").hidden = !isQ;
   $("nav-frage").setAttribute("href", `#frage/${state.q}`);
   [["frage", "nav-frage"], ["entwurf", "nav-entwurf"], ["daten", "nav-daten"]].forEach(([k, id]) => { if (k === v) $(id).setAttribute("aria-current", "page"); else $(id).removeAttribute("aria-current"); });
+  document.querySelectorAll(".tour a").forEach(a => { if (a.dataset.tour === v) a.setAttribute("aria-current", "step"); else a.removeAttribute("aria-current"); });
   if (isQ) renderQuestion(); else if (v === "entwurf") renderBill(); else renderData();
+  renderTour();
   document.title = (isQ ? Q().tab : v === "entwurf" ? "Vom Gesetzentwurf aus" : "Daten und Schnittstelle") + " – Open Policy Navigator (Demo)";
 }
 
@@ -1603,7 +1640,7 @@ function fromHash(focus) {
   const h = location.hash.replace(/^#/, "");
   const prevView = state.view, prevQ = state.q;
   const b = h.match(/^entwurf(?:\/([\w-]+))?$/);
-  if (b) { state.view = "entwurf"; if (b[1] && BILLS.some(x => x.id === b[1])) state.bill = b[1]; }
+  if (b || h === "") { state.view = "entwurf"; if (b && b[1] && BILLS.some(x => x.id === b[1])) state.bill = b[1]; }
   else if (h === "daten") state.view = "daten";
   else {
     state.view = "frage";
@@ -1616,6 +1653,14 @@ function fromHash(focus) {
   if (linkedCase) { openCase(linkedCase); return; }
   if (focus && (prevView !== state.view || prevQ !== state.q)) { $("main").focus({ preventScroll: true }); window.scrollTo(0, 0); }
 }
+document.addEventListener("click", e => {
+  if (e.target.closest("[data-tour-off]")) {
+    tourOn = false; try { localStorage.setItem("opn-tour", "off"); } catch (err) { /* storage blocked */ }
+    if ($("dlg").open) $("dlg").close();
+    renderTour(); return;
+  }
+  if (e.target.closest(".tour a")) { tourOn = true; try { localStorage.removeItem("opn-tour"); } catch (err) { /* storage blocked */ } renderTour(); }
+});
 window.addEventListener("hashchange", () => { if ($("dlg").open) $("dlg").close(); fromHash(true); });
 
 const dlg = $("dlg");
@@ -1657,12 +1702,32 @@ function questionText(q) {
   return lines.join("\n");
 }
 function wayOfCase(id) { return Q().ways.find(w => w.cases.includes(id)) || Object.values(QUESTIONS).flatMap(q => q.ways).find(w => w.cases.includes(id)); }
+let tourOn = true;
+try { tourOn = localStorage.getItem("opn-tour") !== "off"; } catch (e) { /* storage blocked: show tour */ }
+const TOUR = {
+  entwurf: [1, "Drucksache mit „Keine“", "Das Vorblatt eines echten Regierungsentwurfs: Unter <b>C. Alternativen</b> steht nur „Keine.“ Dazu die passende Frage im Portal, mit Fällen aus anderen Ländern.", "#frage/ki", "Weiter: Lösungswege mit Fällen"],
+  frage: [2, "Lösungswege mit Fällen", "Je Teilfrage stehen zwei gegensätzliche Richtungen nebeneinander. Jede Zeile ist ein <b>Lösungsweg</b>; darunter die <b>Fälle</b>, in denen er erprobt wurde, und was gemessen wurde.", "#frage/ki/marienthal", "Weiter: Prüfspur eines Falls"],
+  fall: [3, "Prüfspur eines Falls", "Jeder Fall nennt Wirkung, Evidenzstärke, Einwand und Fundstellen. Die <b>Prüfspur</b> zeigt, wie die Angabe erfasst wurde und wer sie geprüft hat.", "#daten", "Weiter: Schema und Daten"],
+  daten: [4, "Schema und Daten", "Aus solchen Datensätzen entstehen Website, Datenabzüge und eine Schnittstelle für KI-Assistenten. Darunter: was es schon gibt und was in der <b>Förderzeit</b> entsteht.", "", ""]
+};
+function tourHTML(k) {
+  const [n, title, text, href, label] = TOUR[k];
+  return `<div><span class="tc-n">Rundgang · Schritt ${n} von 4 · ${title}</span><p>${text}</p></div>
+    <div class="tc-acts">${href ? `<a class="go" href="${href}">${label}</a>` : ""}<button type="button" class="linkbtn" data-tour-off>${href ? "Rundgang ausblenden" : "Rundgang beenden"}</button></div>`;
+}
+function renderTour() {
+  const el = $("tourcard"), k = state.view === "frage" ? (state.q === "ki" ? "frage" : null) : state.view;
+  if (!tourOn || !k) { el.hidden = true; return; }
+  el.innerHTML = tourHTML(k); el.hidden = false;
+}
+const checkedCase = id => QUESTIONS.ki.ways.some(w => w.cases.includes(id));
 function openCase(id) {
   const c = CASES[id], w = wayOfCase(id);
   const eff = EFFECT[c.effect];
   if (state.view === "frage") history.replaceState(null, "", `#frage/${state.q}/${id}`);
   const effectText = hasFinding(c) ? esc(c.finding) : esc(c.effectNote || eff.def);
   show(c.title, [c.where, c.when].filter(Boolean).join(" · "), `
+    ${tourOn && checkedCase(id) ? `<aside class="tourcard" aria-label="Rundgang">${tourHTML("fall")}</aside>` : ""}
     ${c.placeholder ? `<p class="ph-line">Platzhalter: Dieser Fall steht als Beispiel in den Testdaten, ist aber noch nicht recherchiert.</p>` : ""}
     <dl>
       <dt>Lösungsweg</dt><dd><button type="button" class="linkbtn" data-way="${w.id}">${esc(w.title)}</button></dd>
@@ -1673,9 +1738,10 @@ function openCase(id) {
       ${c.kz && !hasFinding(c) ? `<dt>Kennzahl</dt><dd>${esc(c.kz)}</dd>` : ""}
       ${c.ebene ? `<dt>Ebene</dt><dd>${esc(c.ebene)}</dd>` : ""}
       ${c.kosten ? `<dt>Kosten</dt><dd>${esc(c.kosten)} <span class="by">Quelle: Fundstellen unten</span></dd>` : ""}
-      <dt>Prüfspur</dt><dd>Von Hand aus dem Recherchekorpus erfasst${c.read ? `, Studie nur über ${esc(c.read)} gelesen` : ""}. <span class="by">Wörtliche Fundstelle fehlt · 0 von 2 Prüfungen</span></dd>
+      <dt>Prüfspur</dt><dd>Von Hand aus dem Recherchekorpus erfasst${c.read ? `, Studie nur über ${esc(c.read)} gelesen` : ""}. ${checkedCase(id) ? `Am 20.11.2026 von Stefan Marquart in zwei Durchgängen gegen die Quellen geprüft. <span class="by">1 von 2 Personen · zweite Prüfung und wörtliche Fundstelle im Datensatz folgen in der Förderzeit</span>` : `<span class="by">Testdaten, ungeprüft · 0 von 2 Personen</span>`}</dd>
       ${c.contra ? `<dt>Einwand</dt><dd>${esc(c.contra)} <span class="by">${esc(byLabel(c.contraBy || "Redaktion"))}</span></dd>` : ""}
     </dl>
+    <p class="by" style="margin:0"><a href="#daten">Was die Felder bedeuten</a></p>
     ${c.placeholder ? "" : sourcesHTML(c.src)}
     ${c.placeholder ? "" : `<div class="acts">${c.src.length ? `<button type="button" class="btn" data-cite="case:${id}">Quellenangabe kopieren</button>` : ""}<a class="btn" href="${correctionUrl(id)}" target="_blank" rel="noopener" style="text-decoration:none">Korrektur vorschlagen<span class="vh"> (öffnet GitHub in neuem Tab)</span></a><span class="quiet" role="status" id="cite-msg"></span></div>`}`);
 }
